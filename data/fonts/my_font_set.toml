@@ -5,7 +5,7 @@ name = "IBM"
 google_fonts = "IBM+Plex+Mono|IBM+Plex+Sans|IBM+Plex+Serif"
 
 # Font families
-heading_font = "IBM Plex Mono"
+heading_font = "IBM Plex Sans"
 body_font = "IBM Plex Sans"
 nav_font = "IBM Plex Mono"
 mono_font = "IBM Plex Mono"
