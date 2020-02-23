@@ -9,7 +9,7 @@ active = true  # Activate this widget? true/false
 weight = 15  # Order that this section will appear.
 
 title = "Doing Democratic Data Analysis"
-subtitle = "Data is for Democracy"
+subtitle = ""
 
 [design]
   # Choose how many columns the section has. Valid values: 1 or 2.
@@ -44,7 +44,7 @@ subtitle = "Data is for Democracy"
 
 [advanced]
  # Custom CSS. 
- css_style = ""
+ css_style = "font-size: xxx-large"
  
  # CSS class.
  css_class = ""
