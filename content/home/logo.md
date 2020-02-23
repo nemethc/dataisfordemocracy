@@ -44,7 +44,7 @@ subtitle = ""
 
 [advanced]
  # Custom CSS. 
- css_style = "font-size: xxx-large"
+ css_style = ["font-size: xxx-large"]
  
  # CSS class.
  css_class = ""
