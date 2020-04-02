@@ -1,1 +1,1 @@
-This is a minimal example of a book based on R Markdown and **bookdown** (https://github.com/rstudio/bookdown). Please see the page "Get Started" at https://bookdown.org/home/about/ for how to compile this example.
+This is an opinioted guide to data analysis for public administrators and policy analysts authored for Corban Nemeth's capstone project in the Masters in Public Administration program at The Evergreen State College. 
