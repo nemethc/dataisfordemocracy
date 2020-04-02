@@ -1,21 +1,23 @@
 # Introduction {#intro}
 
-You can label chapter and section titles using `{#label}` after them, e.g., we can reference Chapter \@ref(intro). If you do not manually label them, there will be automatic labels anyway, e.g., Chapter \@ref(methods).
+## What is democratic data analysis?
+This is little-d democracy here, people. Not a guide to data analysis for Democrats^[*but if campaign folks are listening, don't forget about [Wisconson](https://blog.oup.com/2018/09/trump-beat-adas-big-data/)], but an approach to data that empowers the subject matter experts within public organizations to do their best work. 
 
-Figures and tables with captions will be placed in `figure` and `table` environments, respectively.
 
-```{r nice-fig, fig.cap='Here is a nice figure!', out.width='80%', fig.asp=.75, fig.align='center'}
-par(mar = c(4, 4, .1, .1))
-plot(pressure, type = 'b', pch = 19)
-```
 
-Reference a figure by its code chunk label with the `fig:` prefix, e.g., see Figure \@ref(fig:nice-fig). Similarly, you can reference tables generated from `knitr::kable()`, e.g., see Table \@ref(tab:nice-tab).
+## Do I need to be an Excel god before I begin?
+**No.**
 
-```{r nice-tab, tidy=FALSE}
-knitr::kable(
-  head(iris, 20), caption = 'Here is a nice table!',
-  booktabs = TRUE
-)
-```
 
-You can write citations, too. For example, we are using the **bookdown** package [@R-bookdown] in this sample book, which was built on top of R Markdown and **knitr** [@xie2015].
+## What tools should I use?
+
+This guide is written to be technology-agnostic. The changing nature of technology and the *ahem* lag of state agencies to pick up tools means that the principles outlined in this book superseed specific technologoes. 
+
+However, you should start somewhere. This guide will include examples for both Excel and `R`. Government runs on Excel, so all of the examples and exercises will be Excel compatible. If you are comfortable with Excel^[aka you use `vlookup`, `index(match)`, pivot tables, or *Get & Transform* on a somewhat regular basis] and want to challenge yourself, boost your resume, and become a data wizard^[For example, I used R to create this entire website], I would highly recommend learning `R`. This guide will walk you through all the steps necessary to learn how to analyze data democratically using both tools, but focusing on the principles and practices that are vital regardless of technology. 
+
+## Getting Started with Excel
+All examples 
+
+## Getting Started with R
+I would **HIGHLY** recommend you take an afternoon to work through Chapters 1, 2, and 3 of "[*R for Excel Users*](https://rstudio-conf-2020.github.io/r-for-excel/index.html)". You will thank me later. 
+
