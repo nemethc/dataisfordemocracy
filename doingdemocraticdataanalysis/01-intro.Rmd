@@ -1,17 +1,15 @@
 # Introduction {#intro}
 
 ## What is democratic data analysis?
-This is little-d democracy here, people. Not a guide to data analysis for Democrats^[*but if campaign folks are listening, don't forget about [Wisconson](https://blog.oup.com/2018/09/trump-beat-adas-big-data/)], but an approach to data that empowers the subject matter experts within public organizations to do their best work. 
-
+This is little-d democracy here, people. Not a guide to data analysis for Democrats^[*but if campaign folks are listening, don't forget about [Wisconson](https://blog.oup.com/2018/09/trump-beat-adas-big-data/)*], but an approach to data that empowers the subject matter experts within public organizations to do their best work. 
 
 
 ## Do I need to be an Excel god before I begin?
 **No.**
 
-
 ## What tools should I use?
 
-This guide is written to be technology-agnostic. The changing nature of technology and the *ahem* lag of state agencies to pick up tools means that the principles outlined in this book superseed specific technologoes. 
+This guide is written to be technology-agnostic. The changing nature of technology and the *ahem* lag of state agencies to pick up tools means that the principles outlined in this book supersede specific technologies. 
 
 However, you should start somewhere. This guide will include examples for both Excel and `R`. Government runs on Excel, so all of the examples and exercises will be Excel compatible. If you are comfortable with Excel^[aka you use `vlookup`, `index(match)`, pivot tables, or *Get & Transform* on a somewhat regular basis] and want to challenge yourself, boost your resume, and become a data wizard^[For example, I used R to create this entire website], I would highly recommend learning `R`. This guide will walk you through all the steps necessary to learn how to analyze data democratically using both tools, but focusing on the principles and practices that are vital regardless of technology. 
 
