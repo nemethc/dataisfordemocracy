@@ -1,7 +1,7 @@
 # Introduction {#intro}
 
 ## What is democratic data analysis?
-This is little-d democracy here, people. Not a guide to data analysis for Democrats^[*but if campaign folks are listening, don't forget about [Wisconson](https://blog.oup.com/2018/09/trump-beat-adas-big-data/)*], but an approach to data that empowers the subject matter experts within public organizations to do their best work. 
+This is little-d democracy here, people. Not a guide to data analysis for Democrats, but an approach to data that empowers the subject matter experts within public organizations to do their best work. 
 
 
 ## Do I need to be an Excel god before I begin?
@@ -18,4 +18,54 @@ All examples
 
 ## Getting Started with R
 I would **HIGHLY** recommend you take an afternoon to work through Chapters 1, 2, and 3 of "[*R for Excel Users*](https://rstudio-conf-2020.github.io/r-for-excel/index.html)". You will thank me later. 
+
+
+## How to Think about Democratic Data Analysis
+
+What is data analysis? It may be easier to start with what data analysis isn't. 
+
+1. Data analysis isn't math in Excel or a set of specific calculations. 
+  + Calculations are great, but `a7 + b8` in Excel is deterministic. It gives you one answer. This book is not interested in data analysis that gives you the right answer, because there is no such thing. There are many answers to many questions, depending on how those questions are asked and how the data is analyzed. 
+2. Data analysis isn't statistics. 
+ + Look, regressions are great, but that isn't the crux of this book. This book is about reading and telling the story of your data in a way that can complement expertise and experience to make better decisions. Statistics are often used as a cheap stand-in for domain expertise and are often abused in favor of trusting the analyst or administrator to back up their assumptions with both quantitative and qualitiative data. 
+3. Data analysis isn't research methods. 
+  + No set of tools and practices can stand in for asking the right questions, and transforming data into information to answer that question. This book will give you the tools to work with your quantitative data to answer relevant questions, but all good analysis begins with a good question. 
+  
+So what are the principles of democratic data analysis?
+
+1. Democratic data analysis gives power to the subject matter expert. 
+  + Working with your own data lets you answer your question, rather than outsource those questions to IT departments who don't have the context necessary to turn data into information. 
+2. Democratic data analysis is easily shared and reproduced. 
+3. Democratic data analysis is honest about its assumptions and limitations. 
+4. Democratic data analysis is structured to be easily understood and communicated. 
+5. Democratic data analysis is approached methodically. 
+
+
+
+## Alternate Forms of Data Analysis
+
+I want to contrast democratic data analysis with alternate forms of analysis that I have seen in my time working in the public sector. 
+
+### Oligarchic Data Analysis
+* small group of "data people"
+
+### Monarchic Data Analysis
+
+* Spreadsheets created decades ago, patched as necessary, and owned by a single or small group of people. Very unnaproachable. Can't ask questions. 
+
+### Dictitorial Data Analysis
+
+*Not reproducible, all hard-coded, can't ask questions, 
+
+### Technocratic Data Analysis
+
+*Excel workbooks straight from the depths of hell. Formulas on formulas on macros. 
+
+## Principles of Democratic Data Analysis
+
+* Think in terms of fields, not values
+* Leave breadcrumbs for others (and your future self)
+* Create a data pipeline and DO NOT DESTROY UNDERLYING DATA-- build
+* Make assumptions, and document them!
+* Show AND tell your results
 
