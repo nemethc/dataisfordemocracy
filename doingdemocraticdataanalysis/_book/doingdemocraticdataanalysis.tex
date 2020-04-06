@@ -72,7 +72,7 @@
 
 \title{Doing Democratic Data Analysis}
 \author{Corban Nemeth}
-\date{2020-04-02}
+\date{2020-04-06}
 
 \begin{document}
 \maketitle
@@ -138,11 +138,8 @@ the ``rules'' as I understand them.
 analysis?}\label{what-is-democratic-data-analysis}
 
 This is little-d democracy here, people. Not a guide to data analysis
-for Democrats\footnote{\emph{but if campaign folks are listening, don't
-  forget about
-  \href{https://blog.oup.com/2018/09/trump-beat-adas-big-data/}{Wisconson}}},
-but an approach to data that empowers the subject matter experts within
-public organizations to do their best work.
+for Democrats, but an approach to data that empowers the subject matter
+experts within public organizations to do their best work.
 
 \section{Do I need to be an Excel god before I
 begin?}\label{do-i-need-to-be-an-excel-god-before-i-begin}
@@ -179,13 +176,165 @@ Chapters 1, 2, and 3 of
 ``\href{https://rstudio-conf-2020.github.io/r-for-excel/index.html}{\emph{R
 for Excel Users}}''. You will thank me later.
 
+\section{How to Think about Democratic Data
+Analysis}\label{how-to-think-about-democratic-data-analysis}
+
+What is data analysis? It may be easier to start with what data analysis
+isn't.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Data analysis isn't math in Excel or a set of specific calculations.
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  Calculations are great, but \texttt{a7\ +\ b8} in Excel is
+  deterministic. It gives you one answer. This book is not interested in
+  data analysis that gives you the right answer, because there is no
+  such thing. There are many answers to many questions, depending on how
+  those questions are asked and how the data is analyzed.
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Data analysis isn't statistics.
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  Look, regressions are great, but that isn't the crux of this book.
+  This book is about reading and telling the story of your data in a way
+  that can complement expertise and experience to make better decisions.
+  Statistics are often used as a cheap stand-in for domain expertise and
+  are often abused in favor of trusting the analyst or administrator to
+  back up their assumptions with both quantitative and qualitiative
+  data.
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  Data analysis isn't research methods.
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  No set of tools and practices can stand in for asking the right
+  questions, and transforming data into information to answer that
+  question. This book will give you the tools to work with your
+  quantitative data to answer relevant questions, but all good analysis
+  begins with a good question.
+\end{itemize}
+
+So what are the principles of democratic data analysis?
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Democratic data analysis gives power to the subject matter expert.
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  Working with your own data lets you answer your question, rather than
+  outsource those questions to IT departments who don't have the context
+  necessary to turn data into information.
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Democratic data analysis is easily shared and reproduced.
+\item
+  Democratic data analysis is honest about its assumptions and
+  limitations.
+\item
+  Democratic data analysis is structured to be easily understood and
+  communicated.
+\item
+  Democratic data analysis is approached methodically.
+\end{enumerate}
+
+\section{Alternate Forms of Data
+Analysis}\label{alternate-forms-of-data-analysis}
+
+I want to contrast democratic data analysis with alternate forms of
+analysis that I have seen in my time working in the public sector.
+
+\subsection{Oligarchic Data Analysis}\label{oligarchic-data-analysis}
+
+\begin{itemize}
+\tightlist
+\item
+  small group of ``data people''
+\end{itemize}
+
+\subsection{Monarchic Data Analysis}\label{monarchic-data-analysis}
+
+\begin{itemize}
+\tightlist
+\item
+  Spreadsheets created decades ago, patched as necessary, and owned by a
+  single or small group of people. Very unnaproachable. Can't ask
+  questions.
+\end{itemize}
+
+\subsection{Dictitorial Data Analysis}\label{dictitorial-data-analysis}
+
+*Not reproducible, all hard-coded, can't ask questions,
+
+\subsection{Technocratic Data
+Analysis}\label{technocratic-data-analysis}
+
+*Excel workbooks straight from the depths of hell. Formulas on formulas
+on macros.
+
+\section{Principles of Democratic Data
+Analysis}\label{principles-of-democratic-data-analysis}
+
+\begin{itemize}
+\tightlist
+\item
+  Think in terms of fields, not values
+\item
+  Leave breadcrumbs for others (and your future self)
+\item
+  Create a data pipeline and DO NOT DESTROY UNDERLYING DATA-- build
+\item
+  Make assumptions, and document them!
+\item
+  Show AND tell your results
+\end{itemize}
+
 \chapter{Tidy Data}\label{tidy-data}
 
-Here is a review of existing methods.
+\section{Tidy Data, or Why you should clean your
+room}\label{tidy-data-or-why-you-should-clean-your-room}
+
+\section{Example}\label{example}
+
+\section{Pivoting}\label{pivoting}
 
 \chapter{Reproducible Analysis}\label{reproducible-analysis}
 
 We describe our methods in this chapter.
+
+\section{Make your life easier}\label{make-your-life-easier}
 
 \chapter{Data Modeling}\label{data-modeling}
 
@@ -195,11 +344,15 @@ Some \emph{significant} applications are demonstrated in this chapter.
 
 \section{Example two}\label{example-two}
 
+\section{Assumptions}\label{assumptions}
+
 \chapter{Visualization}\label{visualization}
 
 We have finished a nice book.
 
 \chapter{Applications}\label{applications}
+
+\chapter{Resources}\label{resources}
 
 \bibliography{book.bib,packages.bib}
 
