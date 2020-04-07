@@ -16,6 +16,8 @@ However, you should start somewhere. This guide will include examples for both E
 ## Getting Started with Excel
 All examples 
 
+If you have typed a formula in excel, congrats! You are a programmer. Embrace it! Excel is the world's largest and most underrated programming language. Now, you just have to think like a programmer. It's like grammar. There are rules so these sentances (hopefully) make sense to you, the reader. Similarily, by following common conventions of data analysis, others will be able to "read" your analysis like you are reading this sentance. And also, like grammar, you can break the rules-- but it helps to know them first. 
+
 ## Getting Started with R
 I would **HIGHLY** recommend you take an afternoon to work through Chapters 1, 2, and 3 of "[*R for Excel Users*](https://rstudio-conf-2020.github.io/r-for-excel/index.html)". You will thank me later. 
 
