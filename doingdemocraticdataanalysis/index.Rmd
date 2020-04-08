@@ -2,6 +2,10 @@
 title: "Doing Democratic Data Analysis"
 author: "Corban Nemeth"
 date: "`r Sys.Date()`"
+output:
+  bookdown::gitbook:
+    includes:
+      in_header: header.html
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
@@ -9,6 +13,44 @@ biblio-style: apalike
 link-citations: yes
 description: "An opinionated guide to data analysis for public administrators and policy analysts"
 ---
+
+```{r setup, include=FALSE}
+# Add a common class name for every chunks
+knitr::opts_chunk$set(
+  echo = TRUE)
+```
+
+```{r htmlTemp3, echo=FALSE, eval=TRUE}
+codejs <- readr::read_lines("js/codefolding.js")
+collapsejs <- readr::read_lines("js/collapse.js")
+transitionjs <- readr::read_lines("js/transition.js")
+
+htmlhead <- 
+  paste('
+<script>',
+paste(transitionjs, collapse = "\n"),
+'</script>
+<script>',
+paste(collapsejs, collapse = "\n"),
+'</script>
+<script>',
+paste(codejs, collapse = "\n"),
+'</script>
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+.row { display: flex; }
+.collapse { display: none; }
+.in { display:block }
+</style>
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("show" === "hide");
+});
+</script>
+', sep = "\n")
+
+readr::write_lines(htmlhead, path = "header.html")
+```
 
 # Preface {-}
 
@@ -31,3 +73,6 @@ This guide is for:
 You will learn an opinionated framework for data analysis in public sector organizations. By opinionated, I mean that I will teach you what I think is the right way to do things given my own experience as a public sector policy and data analyst. Your experience might differ-- and that's great. I hope that where you can use your experience in place of mine, you do to the fullest extent. With that in mind, it is often said that you have to know the rules to break them, so I will teach you the "rules" as I understand them. 
 
 
+```{r echo=TRUE}
+summary(cars)
+```

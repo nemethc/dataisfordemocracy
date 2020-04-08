@@ -9,16 +9,15 @@ This is little-d democracy here, people. Not a guide to data analysis for Democr
 
 ## What tools should I use?
 
-This guide is written to be technology-agnostic. The changing nature of technology and the *ahem* lag of state agencies to pick up tools means that the principles outlined in this book supersede specific technologies. 
+This guide is written to be technology-agnostic and is not a tutorial on specific tools. The changing nature of technology and the lag of state agencies to pick up tools means that the principles outlined in this book supersede specific technologies. 
 
-However, you should start somewhere. This guide will include examples for both Excel and `R`. Government runs on Excel, so all of the examples and exercises will be Excel compatible. If you are comfortable with Excel^[aka you use `vlookup`, `index(match)`, pivot tables, or *Get & Transform* on a somewhat regular basis] and want to challenge yourself, boost your resume, and become a data wizard^[For example, I used R to create this entire website], I would highly recommend learning `R`. This guide will walk you through all the steps necessary to learn how to analyze data democratically using both tools, but focusing on the principles and practices that are vital regardless of technology. 
+However, you should start somewhere. This guide will include examples in both Excel and `R`. Government runs on Excel, so all of the examples and exercises will be Excel compatible. If you are comfortable with Excel^[aka you use `vlookup`, `index(match)`, pivot tables, or *Get & Transform* on a somewhat regular basis] and want to challenge yourself, boost your resume, and become a data wizard^[For example, I used R to create this entire website], I would highly recommend learning `R`. This guide will wshow examples on how to analyze data democratically using both tools, but focusing on the principles and practices that are vital regardless of technology. I will link to specific resources that provide more detailed walk through's as necessary. 
 
-## Getting Started with Excel
-All examples 
+## Quickstart Guide to Excel
+Get & Transform and Data Model
 
-If you have typed a formula in excel, congrats! You are a programmer. Embrace it! Excel is the world's largest and most underrated programming language. Now, you just have to think like a programmer. It's like grammar. There are rules so these sentances (hopefully) make sense to you, the reader. Similarily, by following common conventions of data analysis, others will be able to "read" your analysis like you are reading this sentance. And also, like grammar, you can break the rules-- but it helps to know them first. 
 
-## Getting Started with R
+## Quickstart Guide to R
 I would **HIGHLY** recommend you take an afternoon to work through Chapters 1, 2, and 3 of "[*R for Excel Users*](https://rstudio-conf-2020.github.io/r-for-excel/index.html)". You will thank me later. 
 
 
@@ -48,18 +47,18 @@ So what are the principles of democratic data analysis?
 
 I want to contrast democratic data analysis with alternate forms of analysis that I have seen in my time working in the public sector. 
 
-### Oligarchic Data Analysis
+### Oligarchic Data Analysis {-}
 * small group of "data people"
 
-### Monarchic Data Analysis
+### Monarchic Data Analysis {-}
 
 * Spreadsheets created decades ago, patched as necessary, and owned by a single or small group of people. Very unnaproachable. Can't ask questions. 
 
-### Dictitorial Data Analysis
+### Dictitorial Data Analysis {-}
 
 *Not reproducible, all hard-coded, can't ask questions, 
 
-### Technocratic Data Analysis
+### Technocratic Data Analysis {-}
 
 *Excel workbooks straight from the depths of hell. Formulas on formulas on macros. 
 

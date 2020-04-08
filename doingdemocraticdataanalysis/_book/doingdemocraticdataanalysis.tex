@@ -31,6 +31,46 @@
 \urlstyle{same}  % don't use monospace font for urls
 \usepackage{natbib}
 \bibliographystyle{apalike}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
 \usepackage{longtable,booktabs}
 % Fix footnotes in tables (requires footnote package)
 \IfFileExists{footnote.sty}{\usepackage{footnote}\makesavenoteenv{long table}}{}
@@ -72,7 +112,7 @@
 
 \title{Doing Democratic Data Analysis}
 \author{Corban Nemeth}
-\date{2020-04-06}
+\date{2020-04-08}
 
 \begin{document}
 \maketitle
@@ -132,6 +172,22 @@ of mine, you do to the fullest extent. With that in mind, it is often
 said that you have to know the rules to break them, so I will teach you
 the ``rules'' as I understand them.
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{summary}\NormalTok{(cars)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      speed           dist       
+##  Min.   : 4.0   Min.   :  2.00  
+##  1st Qu.:12.0   1st Qu.: 26.00  
+##  Median :15.0   Median : 36.00  
+##  Mean   :15.4   Mean   : 42.98  
+##  3rd Qu.:19.0   3rd Qu.: 56.00  
+##  Max.   :25.0   Max.   :120.00
+\end{verbatim}
+
 \chapter{Introduction}\label{intro}
 
 \section{What is democratic data
@@ -148,28 +204,29 @@ begin?}\label{do-i-need-to-be-an-excel-god-before-i-begin}
 
 \section{What tools should I use?}\label{what-tools-should-i-use}
 
-This guide is written to be technology-agnostic. The changing nature of
-technology and the \emph{ahem} lag of state agencies to pick up tools
-means that the principles outlined in this book supersede specific
-technologies.
+This guide is written to be technology-agnostic and is not a tutorial on
+specific tools. The changing nature of technology and the lag of state
+agencies to pick up tools means that the principles outlined in this
+book supersede specific technologies.
 
-However, you should start somewhere. This guide will include examples
-for both Excel and \texttt{R}. Government runs on Excel, so all of the
+However, you should start somewhere. This guide will include examples in
+both Excel and \texttt{R}. Government runs on Excel, so all of the
 examples and exercises will be Excel compatible. If you are comfortable
 with Excel\footnote{aka you use \texttt{vlookup}, \texttt{index(match)},
   pivot tables, or \emph{Get \& Transform} on a somewhat regular basis}
 and want to challenge yourself, boost your resume, and become a data
 wizard\footnote{For example, I used R to create this entire website}, I
-would highly recommend learning \texttt{R}. This guide will walk you
-through all the steps necessary to learn how to analyze data
-democratically using both tools, but focusing on the principles and
-practices that are vital regardless of technology.
+would highly recommend learning \texttt{R}. This guide will wshow
+examples on how to analyze data democratically using both tools, but
+focusing on the principles and practices that are vital regardless of
+technology. I will link to specific resources that provide more detailed
+walk through's as necessary.
 
-\section{Getting Started with Excel}\label{getting-started-with-excel}
+\section{Quickstart Guide to Excel}\label{quickstart-guide-to-excel}
 
-All examples
+Get \& Transform and Data Model
 
-\section{Getting Started with R}\label{getting-started-with-r}
+\section{Quickstart Guide to R}\label{quickstart-guide-to-r}
 
 I would \textbf{HIGHLY} recommend you take an afternoon to work through
 Chapters 1, 2, and 3 of
@@ -276,7 +333,8 @@ Analysis}\label{alternate-forms-of-data-analysis}
 I want to contrast democratic data analysis with alternate forms of
 analysis that I have seen in my time working in the public sector.
 
-\subsection{Oligarchic Data Analysis}\label{oligarchic-data-analysis}
+\subsection*{Oligarchic Data Analysis}\label{oligarchic-data-analysis}
+\addcontentsline{toc}{subsection}{Oligarchic Data Analysis}
 
 \begin{itemize}
 \tightlist
@@ -284,7 +342,8 @@ analysis that I have seen in my time working in the public sector.
   small group of ``data people''
 \end{itemize}
 
-\subsection{Monarchic Data Analysis}\label{monarchic-data-analysis}
+\subsection*{Monarchic Data Analysis}\label{monarchic-data-analysis}
+\addcontentsline{toc}{subsection}{Monarchic Data Analysis}
 
 \begin{itemize}
 \tightlist
@@ -294,12 +353,14 @@ analysis that I have seen in my time working in the public sector.
   questions.
 \end{itemize}
 
-\subsection{Dictitorial Data Analysis}\label{dictitorial-data-analysis}
+\subsection*{Dictitorial Data Analysis}\label{dictitorial-data-analysis}
+\addcontentsline{toc}{subsection}{Dictitorial Data Analysis}
 
 *Not reproducible, all hard-coded, can't ask questions,
 
-\subsection{Technocratic Data
+\subsection*{Technocratic Data
 Analysis}\label{technocratic-data-analysis}
+\addcontentsline{toc}{subsection}{Technocratic Data Analysis}
 
 *Excel workbooks straight from the depths of hell. Formulas on formulas
 on macros.
@@ -326,9 +387,118 @@ Analysis}\label{principles-of-democratic-data-analysis}
 \section{Tidy Data, or Why you should clean your
 room}\label{tidy-data-or-why-you-should-clean-your-room}
 
-\section{Example}\label{example}
+\section[Learning the Language of Tidy Data]{\texorpdfstring{Learning
+the Language of Tidy Data\footnote{Adapted from Hadley Wickham's paper
+  on \href{https://vita.had.co.nz/papers/tidy-data.pdf}{Tidy Data}}}{Learning the Language of Tidy Data}}\label{learning-the-language-of-tidy-data}
 
-\section{Pivoting}\label{pivoting}
+If you have ever typed a formula in excel, congrats! You are a
+programmer. Embrace it! If you haven't, you will soon, and then you will
+be a programmer too. Excel is the world's largest and most underrated
+programming language. Now, you just have to embrace thinking
+programmaticlly-- tidy. It's like grammar. There are rules so these
+sentances (hopefully) make sense to you, the reader. Similarily, by
+following common conventions of tidy data analysis, others will be able
+to ``read'' your analysis like you are reading this sentance. And also,
+like grammar, you can break the rules-- but it helps to know them first.
+
+Here are a couple definitions that will help as you move through this
+text. Don't worry about memorizing them, as I will refer back to these
+definitions frequently.
+
+\begin{itemize}
+\tightlist
+\item
+  Fields
+
+  \begin{itemize}
+  \tightlist
+  \item
+    A field is a fancy name for a column. From here on out, every
+    calculation, manipulation, formula, you name it, will be on a
+    column. I want you to forget that you could ever modify a lone cell
+    in Excel. No more formulas in cells. No more typing in values to a
+    cell. Certainly no more writing over data in a cell. Democratic data
+    analysis depends on formulas that work on entire fields. Everything
+    you would need to do to a single cell in Excel can-- and should!--
+    be done to an entire column. This will be immensly valuable, as you
+    will hopefully see while working through this material.
+  \end{itemize}
+\item
+  Variables
+
+  \begin{itemize}
+  \tightlist
+  \item
+    A variable is something in your data that can change. That's it!
+    Variables become very important when looking at how to structure
+    your data.
+  \end{itemize}
+\item
+  Observations
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Observations make up the rows of your dataset. Each observation
+    should correspond to a specific ``thing.'' This will make more sense
+    later, I promise.
+  \end{itemize}
+\item
+  Values
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Values are the actual data in your table. Each value belongs to 1
+    (one) observation and 1 (one) variable.
+  \end{itemize}
+\item
+  Table
+
+  \begin{itemize}
+  \tightlist
+  \item
+    A table is the grouping of all observations of a similar type.
+  \end{itemize}
+\end{itemize}
+
+An example relevent to public administration might make this more clear.
+Below is a table\footnote{Data was created for demonstration purposes}
+that shows types of retirement visits for a month at a state's
+Department of Retirement Services by the employee who took the visit and
+the visit type.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(tidyverse)}
+
+\NormalTok{visits <-}\StringTok{ }\KeywordTok{tribble}\NormalTok{(}
+  \OperatorTok{~}\StringTok{"Employee"}\NormalTok{, }\OperatorTok{~}\StringTok{"Phone Visits"}\NormalTok{, }\OperatorTok{~}\StringTok{"In-Person Visits"}\NormalTok{, }\OperatorTok{~}\StringTok{"Online Visits"}\NormalTok{,}
+  \StringTok{"Danielle"}\NormalTok{, }\DecValTok{6}\NormalTok{, }\DecValTok{11}\NormalTok{, }\DecValTok{23}\NormalTok{,}
+  \StringTok{"Ramona"}\NormalTok{, }\DecValTok{11}\NormalTok{, }\DecValTok{5}\NormalTok{, }\DecValTok{18}\NormalTok{,}
+  \StringTok{"Ross"}\NormalTok{, }\DecValTok{10}\NormalTok{, }\DecValTok{10}\NormalTok{, }\DecValTok{10} 
+\NormalTok{)}
+
+\NormalTok{knitr}\OperatorTok{::}\KeywordTok{kable}\NormalTok{(visits, }\DataTypeTok{caption =} \StringTok{"Visits to the Dept. of Retirement Services in a given month"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{table}
+
+\caption{\label{tab:tables-visits}Visits to the Dept. of Retirement Services in a given month}
+\centering
+\begin{tabular}[t]{l|r|r|r}
+\hline
+Employee & Phone Visits & In-Person Visits & Online Visits\\
+\hline
+Danielle & 6 & 11 & 23\\
+\hline
+Ramona & 11 & 5 & 18\\
+\hline
+Ross & 10 & 10 & 10\\
+\hline
+\end{tabular}
+\end{table}
 
 \chapter{Reproducible Analysis}\label{reproducible-analysis}
 
