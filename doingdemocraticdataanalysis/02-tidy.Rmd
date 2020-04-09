@@ -29,7 +29,7 @@ Here are a couple definitions that will help as you move through this text. Don'
 library(tidyverse)
 
 visits <- tribble(
-  ~"Employee", ~"Phone Visits", ~"In-Person Visits", ~"Online Visits",
+  ~"Employee", ~"Phone Visits", ~"Office Visits", ~"Online Visits",
   "Danielle", 6, 11, 23,
   "Ramona", 11, 5, 18,
   "Ross", 10, 10, 10 
@@ -39,5 +39,94 @@ knitr::kable(visits, caption = "Visits to the Dept. of Retirement Services in a 
 
 ```
   
+Data are frequently displayed in this "wide" format. It works great for presentation, but not great for data analysis. 
+
+The shortcomings of data in this format may become apparent when you attempt to work with the data in a pivot table. This is becuase our columns aren't truly variables. You can drag the fields from the top row to the grey box below, for columns, and the left, for rows. This becomes unmanegable quickly. 
+
+```{r}
+rpivotTable::rpivotTable(visits, width = "60%", height = "60%")
+```
+
+
+
+
+
+Let's apply our criteria of tidy data to this set:
+
+* Variables
+    * At first glance, it doensn't look like this is a problem. But think again. Is `phone visits` really a variable? Or is the real variable of interest number of visits? And are our column names actually variables too (type of visit)? 
+    
+Let's take another swing at setting up our table for data analysis purposes. This can be accomplished easily in R using the code below, or in Excel by loading the data with `Get and Transform` -> selecting the three "visits" columns -> right clicking -> and selecting "unpivot columns."
+
+```{r}
+#We have already loaded the "tidyverse" library so we do not have to do it again
+
+pivot_visits <- visits %>% #we are editing the "visits" table already created by storing it in a new table pivot_visits
+  pivot_longer(-Employee, names_to = "Visit Type", values_to = "Number of Visits") #using pivot_longer on every column except "employee" and setting the name of the new columns
+
+
+knitr::kable(pivot_visits, caption = "Visits to the Dept. of Retirement Services in a given month")
+```
+
+Now this is a table that is much easier to analyze in an Excel pivot table or with a variety of R functions. Using data in this format, it is easy to recreate the original table for presentation, while also giving a variety of options for formatting and plotting. Use the pivot table below to recreate the original table using the tidy data. *Hint- Instead of Count, select Sum -> Number of Visits as the value field. It is far easier to work with fields when they are in a tidy format. 
+
+
+```{r}
+rpivotTable::rpivotTable(pivot_visits, width = "60%", height = "400px")
+```
+
+
+When we get to the next chapter, you will learn several alternatives to pivot tables that use the same principles, but are more reproducible. 
+
+## Using lower level data
+
+Let's introduce a slightly more complicated tidy data problem, using the same base data as before. 
+
+```{r}
+visits_retirements <- tribble(
+  ~"Employee", ~"Phone Visits", ~"Phone Retirements", ~"Office Visits", ~"Office Retirements", ~"Online Visits", ~"Online Retirements",
+  "Danielle", 6, 4, 11, 8, 23, 15,
+  "Ramona", 11, 7, 5, 3, 18, 15,
+  "Ross", 10, 8, 10, 7, 10, 9 
+)
+
+knitr::kable(visits_retirements, caption = "Visits to the Dept. of Retirement Services in a given month by employee and associated client retirements")
+```
+
+Hopefully you will see a similar pattern here. Now, there are three variables: Visit type, number of visits, and number of retirements. Again, this data works fine for presentation but could use tidying to ease in analysis. 
+
+```{r}
+visits_retirements %>%
+  DT::datatable(
+    extensions = 'Buttons', 
+    options = list(dom = 'Bfrtip', 
+                   buttons = 'excel',
+                   searching = FALSE))
+```
+
+Try to tidy this in R or Excel Get and Transform. See this footnote^[powerquery hints] or look at the code if you need a hint. 
+
+
+```{r}
+visits_retirements_tidy <- visits_retirements %>%
+  pivot_longer(cols = -Employee, 
+               names_to = c("Visit Location", "Type"), 
+               names_sep = " ")
+
+print(visits_retirements_tidy)
+```
+In this case, we actually pivoted too far. It will probably be more useful to have the counts of visits and retirements in their own category. Keep in mind the scope of the observation-- It is perfectly valid for each to have their own column, as it is visits and retirements per month. 
+
+```{r}
+visits_retirements_tidy2 <- visits_retirements_tidy %>% 
+  pivot_wider(id_cols = c(Employee, `Visit Location`, Type), names_from = Type, values_from = value)
+```
+
+From here, it is easy to do calculations based on fields, rather than cells. 
+
+## So how is this democratic?
+
+
+## Practice problems
 
   

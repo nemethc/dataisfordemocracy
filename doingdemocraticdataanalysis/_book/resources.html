@@ -24,7 +24,7 @@
 <meta name="author" content="Corban Nemeth" />
 
 
-<meta name="date" content="2020-04-08" />
+<meta name="date" content="2020-04-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -50,6 +50,49 @@
 
 
 
+<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<link href="libs/jquery-ui-1.11.4/jquery-ui.min.css" rel="stylesheet" />
+<script src="libs/jquery-ui-1.11.4/jquery-ui.min.js"></script>
+<script src="libs/jquery-ui-1.11.4/jquery.ui.touch-punch.min.js"></script>
+<link href="libs/c3-0.4.11/c3.min.css" rel="stylesheet" />
+<script src="libs/c3-0.4.11/c3.min.js"></script>
+<script src="libs/d3-3.5.5/d3.v3.min.js"></script>
+<link href="libs/pivottable-2.19.0/pivot.min.css" rel="stylesheet" />
+<script src="libs/pivottable-2.19.0/pivot.min.js"></script>
+<script src="libs/pivottable-2.19.0/d3_renderers.min.js"></script>
+<script src="libs/pivottable-2.19.0/c3_renderers.min.js"></script>
+<script src="libs/pivottable-2.19.0/pivot.cs.min.js"></script>
+<script src="libs/pivottable-2.19.0/pivot.da.min.js"></script>
+<script src="libs/pivottable-2.19.0/pivot.de.min.js"></script>
+<script src="libs/pivottable-2.19.0/pivot.es.min.js"></script>
+<script src="libs/pivottable-2.19.0/pivot.fr.min.js"></script>
+<script src="libs/pivottable-2.19.0/pivot.it.min.js"></script>
+<script src="libs/pivottable-2.19.0/pivot.nl.min.js"></script>
+<script src="libs/pivottable-2.19.0/pivot.pl.min.js"></script>
+<script src="libs/pivottable-2.19.0/pivot.pt.min.js"></script>
+<script src="libs/pivottable-2.19.0/pivot.ru.min.js"></script>
+<script src="libs/pivottable-2.19.0/pivot.sq.min.js"></script>
+<script src="libs/pivottable-2.19.0/pivot.tr.min.js"></script>
+<script src="libs/pivottable-2.19.0/pivot.zh.min.js"></script>
+<link href="libs/subtotal-1.10.0/subtotal.min.css" rel="stylesheet" />
+<script src="libs/subtotal-1.10.0/subtotal.min.js"></script>
+<script src="libs/polyfill-0.1/polyfill.min.js"></script>
+<link href="libs/rpivotTable_style-0.1/rpivotTable.css" rel="stylesheet" />
+<script src="libs/rpivotTable-binding-0.3.0/rpivotTable.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.12/datatables.js"></script>
+<link href="libs/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.10.20/js/jquery.dataTables.min.js"></script>
+<script src="libs/jszip-1.10.20/jszip.min.js"></script>
+<link href="libs/dt-ext-buttons-1.10.20/css/buttons.dataTables.min.css" rel="stylesheet" />
+<script src="libs/dt-ext-buttons-1.10.20/js/dataTables.buttons.min.js"></script>
+<script src="libs/dt-ext-buttons-1.10.20/js/buttons.flash.min.js"></script>
+<script src="libs/dt-ext-buttons-1.10.20/js/buttons.html5.min.js"></script>
+<script src="libs/dt-ext-buttons-1.10.20/js/buttons.colVis.min.js"></script>
+<script src="libs/dt-ext-buttons-1.10.20/js/buttons.print.min.js"></script>
+<link href="libs/crosstalk-1.1.0.1/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.1.0.1/js/crosstalk.min.js"></script>
 
 <script>
 /* ========================================================================
@@ -461,20 +504,24 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#what-is-democratic-data-analysis"><i class="fa fa-check"></i><b>1.1</b> What is democratic data analysis?</a></li>
 <li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#do-i-need-to-be-an-excel-god-before-i-begin"><i class="fa fa-check"></i><b>1.2</b> Do I need to be an Excel god before I begin?</a></li>
 <li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#what-tools-should-i-use"><i class="fa fa-check"></i><b>1.3</b> What tools should I use?</a></li>
-<li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#quickstart-guide-to-excel"><i class="fa fa-check"></i><b>1.4</b> Quickstart Guide to Excel</a></li>
-<li class="chapter" data-level="1.5" data-path="intro.html"><a href="intro.html#quickstart-guide-to-r"><i class="fa fa-check"></i><b>1.5</b> Quickstart Guide to R</a></li>
-<li class="chapter" data-level="1.6" data-path="intro.html"><a href="intro.html#how-to-think-about-democratic-data-analysis"><i class="fa fa-check"></i><b>1.6</b> How to Think about Democratic Data Analysis</a></li>
-<li class="chapter" data-level="1.7" data-path="intro.html"><a href="intro.html#alternate-forms-of-data-analysis"><i class="fa fa-check"></i><b>1.7</b> Alternate Forms of Data Analysis</a><ul>
+<li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#how-to-use-this-book"><i class="fa fa-check"></i><b>1.4</b> How to use this book</a></li>
+<li class="chapter" data-level="1.5" data-path="intro.html"><a href="intro.html#quickstart-guide-to-excel"><i class="fa fa-check"></i><b>1.5</b> Quickstart Guide to Excel</a></li>
+<li class="chapter" data-level="1.6" data-path="intro.html"><a href="intro.html#quickstart-guide-to-r"><i class="fa fa-check"></i><b>1.6</b> Quickstart Guide to R</a></li>
+<li class="chapter" data-level="1.7" data-path="intro.html"><a href="intro.html#how-to-think-about-democratic-data-analysis"><i class="fa fa-check"></i><b>1.7</b> How to Think about Democratic Data Analysis</a></li>
+<li class="chapter" data-level="1.8" data-path="intro.html"><a href="intro.html#alternate-forms-of-data-analysis"><i class="fa fa-check"></i><b>1.8</b> Alternate Forms of Data Analysis</a><ul>
 <li class="chapter" data-level="" data-path="intro.html"><a href="intro.html#oligarchic-data-analysis"><i class="fa fa-check"></i>Oligarchic Data Analysis</a></li>
 <li class="chapter" data-level="" data-path="intro.html"><a href="intro.html#monarchic-data-analysis"><i class="fa fa-check"></i>Monarchic Data Analysis</a></li>
 <li class="chapter" data-level="" data-path="intro.html"><a href="intro.html#dictitorial-data-analysis"><i class="fa fa-check"></i>Dictitorial Data Analysis</a></li>
 <li class="chapter" data-level="" data-path="intro.html"><a href="intro.html#technocratic-data-analysis"><i class="fa fa-check"></i>Technocratic Data Analysis</a></li>
 </ul></li>
-<li class="chapter" data-level="1.8" data-path="intro.html"><a href="intro.html#principles-of-democratic-data-analysis"><i class="fa fa-check"></i><b>1.8</b> Principles of Democratic Data Analysis</a></li>
+<li class="chapter" data-level="1.9" data-path="intro.html"><a href="intro.html#principles-of-democratic-data-analysis"><i class="fa fa-check"></i><b>1.9</b> Principles of Democratic Data Analysis</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="tidy-data.html"><a href="tidy-data.html"><i class="fa fa-check"></i><b>2</b> Tidy Data</a><ul>
 <li class="chapter" data-level="2.1" data-path="tidy-data.html"><a href="tidy-data.html#tidy-data-or-why-you-should-clean-your-room"><i class="fa fa-check"></i><b>2.1</b> Tidy Data, or Why you should clean your room</a></li>
 <li class="chapter" data-level="2.2" data-path="tidy-data.html"><a href="tidy-data.html#learning-the-language-of-tidy-data"><i class="fa fa-check"></i><b>2.2</b> Learning the Language of Tidy Data</a></li>
+<li class="chapter" data-level="2.3" data-path="tidy-data.html"><a href="tidy-data.html#using-lower-level-data"><i class="fa fa-check"></i><b>2.3</b> Using lower level data</a></li>
+<li class="chapter" data-level="2.4" data-path="tidy-data.html"><a href="tidy-data.html#so-how-is-this-democratic"><i class="fa fa-check"></i><b>2.4</b> So how is this democratic?</a></li>
+<li class="chapter" data-level="2.5" data-path="tidy-data.html"><a href="tidy-data.html#practice-problems"><i class="fa fa-check"></i><b>2.5</b> Practice problems</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="reproducible-analysis.html"><a href="reproducible-analysis.html"><i class="fa fa-check"></i><b>3</b> Reproducible Analysis</a><ul>
 <li class="chapter" data-level="3.1" data-path="reproducible-analysis.html"><a href="reproducible-analysis.html#make-your-life-easier"><i class="fa fa-check"></i><b>3.1</b> Make your life easier</a></li>
@@ -511,6 +558,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h1><span class="header-section-number">Chapter 7</span> Resources</h1>
 
 </div>
+
 
 
 

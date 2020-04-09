@@ -13,6 +13,9 @@ This guide is written to be technology-agnostic and is not a tutorial on specifi
 
 However, you should start somewhere. This guide will include examples in both Excel and `R`. Government runs on Excel, so all of the examples and exercises will be Excel compatible. If you are comfortable with Excel^[aka you use `vlookup`, `index(match)`, pivot tables, or *Get & Transform* on a somewhat regular basis] and want to challenge yourself, boost your resume, and become a data wizard^[For example, I used R to create this entire website], I would highly recommend learning `R`. This guide will wshow examples on how to analyze data democratically using both tools, but focusing on the principles and practices that are vital regardless of technology. I will link to specific resources that provide more detailed walk through's as necessary. 
 
+## How to use this book
+
+
 ## Quickstart Guide to Excel
 Get & Transform and Data Model
 

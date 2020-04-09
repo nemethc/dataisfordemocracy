@@ -12,6 +12,7 @@ bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
 description: "An opinionated guide to data analysis for public administrators and policy analysts"
+always_allow_html: true
 ---
 
 ```{r setup, include=FALSE}
