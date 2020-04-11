@@ -1,5 +1,9 @@
 # Introduction {#intro}
 
+## WRITE ABOUT BIG THEMES FIRST AND HERE
+
+## DEFINE PRINCIPLES AND PRACTICES
+
 ## What is democratic data analysis?
 This is little-d democracy here, people. Not a guide to data analysis for Democrats, but an approach to data that empowers the subject matter experts within public organizations to do their best work. 
 

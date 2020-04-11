@@ -112,7 +112,7 @@
 
 \title{Doing Democratic Data Analysis}
 \author{Corban Nemeth}
-\date{2020-04-09}
+\date{2020-04-11}
 
 \begin{document}
 \maketitle
@@ -189,6 +189,12 @@ the ``rules'' as I understand them.
 \end{verbatim}
 
 \chapter{Introduction}\label{intro}
+
+\section{WRITE ABOUT BIG THEMES FIRST AND
+HERE}\label{write-about-big-themes-first-and-here}
+
+\section{DEFINE PRINCIPLES AND
+PRACTICES}\label{define-principles-and-practices}
 
 \section{What is democratic data
 analysis?}\label{what-is-democratic-data-analysis}
@@ -464,7 +470,28 @@ definitions frequently.
   \end{itemize}
 \end{itemize}
 
-An example relevent to public administration might make this more clear.
+\section{Thinking in Pivot Tables-- From Wide to
+Long.}\label{thinking-in-pivot-tables-from-wide-to-long.}
+
+Pivot tables are amazing. THey are the world's most common, most
+helpful, and most underrated data analysis tool. PowerBI interactive
+charts and graphs are just pivot tables in disguise. Understanding what
+is needed to make a pivot table work is the key to the wide world of
+data analysis.
+
+A pivot table groups data by field and allows the user to drag fields to
+the rows or columns of the pivot table. This is effective when each
+field is a variable (something that can change), and each row is a
+seperate observation of some phenomena of interest.
+
+In short, pivot tables depend on \textbf{tidy data}.
+
+Tidy data is the way your data should be organized before you begin your
+analysis. In tidy data, each column is a \emph{variable}, each row is an
+\emph{observation}, and each table is an \emph{associated set of
+observations}. What does that mean in practice? Consider the following
+example.
+
 Below is a table\footnote{Data was created for demonstration purposes}
 that shows types of retirement visits for a month at a state's
 Department of Retirement Services by the employee who took the visit and
@@ -521,7 +548,7 @@ unmanegable quickly.
 ## PhantomJS not found. You can install it with webshot::install_phantomjs(). If it is installed, please make sure the phantomjs executable can be found via the PATH variable.
 \end{verbatim}
 
-\hypertarget{htmlwidget-44734aa92161ddd6c711}{}
+\hypertarget{htmlwidget-b3c5c980feccc9082544}{}
 
 Let's apply our criteria of tidy data to this set:
 
@@ -602,7 +629,7 @@ format.
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{htmlwidget-c09c643864a402aa4f23}{}
+\hypertarget{htmlwidget-ac66875510613e4516b7}{}
 
 When we get to the next chapter, you will learn several alternatives to
 pivot tables that use the same principles, but are more reproducible.
@@ -658,7 +685,7 @@ ease in analysis.
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{htmlwidget-f2426f646a335847044c}{}
+\hypertarget{htmlwidget-a8de3edcfe772dc8c0df}{}
 
 Try to tidy this in R or Excel Get and Transform. See this
 footnote\footnote{powerquery hints} or look at the code if you need a
@@ -709,11 +736,58 @@ per month.
 \begin{Highlighting}[]
 \NormalTok{visits_retirements_tidy2 <-}\StringTok{ }\NormalTok{visits_retirements_tidy }\OperatorTok{%>%}\StringTok{ }
 \StringTok{  }\KeywordTok{pivot_wider}\NormalTok{(}\DataTypeTok{id_cols =} \KeywordTok{c}\NormalTok{(Employee, }\StringTok{`}\DataTypeTok{Visit Location}\StringTok{`}\NormalTok{, Type), }\DataTypeTok{names_from =}\NormalTok{ Type, }\DataTypeTok{values_from =}\NormalTok{ value)}
+
+\KeywordTok{print}\NormalTok{(visits_retirements_tidy2)}
 \end{Highlighting}
 \end{Shaded}
 
+\begin{verbatim}
+## # A tibble: 9 x 4
+##   Employee `Visit Location` Visits Retirements
+##   <chr>    <chr>             <dbl>       <dbl>
+## 1 Danielle Phone                 6           4
+## 2 Danielle Office               11           8
+## 3 Danielle Online               23          15
+## 4 Ramona   Phone                11           7
+## 5 Ramona   Office                5           3
+## 6 Ramona   Online               18          15
+## 7 Ross     Phone                10           8
+## 8 Ross     Office               10           7
+## 9 Ross     Online               10           9
+\end{verbatim}
+
 From here, it is easy to do calculations based on fields, rather than
-cells.
+cells. For example, in R or Get and Transform, you could add the
+following:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{visits_pct <-}\StringTok{ }\NormalTok{visits_retirements_tidy2 }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{pct_retirements =}\NormalTok{ Retirements }\OperatorTok{/}\StringTok{ }\NormalTok{Visits)}
+
+\KeywordTok{print}\NormalTok{(visits_pct)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 9 x 5
+##   Employee `Visit Location` Visits Retirements pct_retirements
+##   <chr>    <chr>             <dbl>       <dbl>           <dbl>
+## 1 Danielle Phone                 6           4           0.667
+## 2 Danielle Office               11           8           0.727
+## 3 Danielle Online               23          15           0.652
+## 4 Ramona   Phone                11           7           0.636
+## 5 Ramona   Office                5           3           0.6  
+## 6 Ramona   Online               18          15           0.833
+## 7 Ross     Phone                10           8           0.8  
+## 8 Ross     Office               10           7           0.7  
+## 9 Ross     Online               10           9           0.9
+\end{verbatim}
+
+And then, one of the most useful things you can do is develop formulas
+by grouping of rows. For example, you may want to know the total number
+of visits and retirements by retiree, regardless of visit location. That
+can be accomplished in a pivot table.
 
 \section{So how is this democratic?}\label{so-how-is-this-democratic}
 
@@ -721,9 +795,29 @@ cells.
 
 \chapter{Reproducible Analysis}\label{reproducible-analysis}
 
-We describe our methods in this chapter.
+The second principle of democratic data analysis is reproducability. By
+this, I mean anything that makes it easy for someone else (or you,
+several months from now), to look at your analysis and understand what
+is going on. This is where classic data analysis in Excel falls short. I
+believe it is almost a universal experience in the public sector to
+recieve a workbook full of broken links, formulas pointing in every
+direction, and no sense of where the original data is.
 
-\section{Make your life easier}\label{make-your-life-easier}
+In thinking about creating reproducible data analysis, it is important
+to keep in mind that data analasys should be structured from beginning
+to end, like a story. In the beginning, there is raw data that you
+pulled from a report, compiled yourself, or otherwise recieved. In Act
+1, you use the practices we learned in the previous section to make the
+raw data tidy-- Without distroying the original data. In Act 2, which
+will be the next chapter, you use your data to create a picture of the
+world before you share it with others in the final Act 3.
+
+The practices of reproducability that you will use here apply throughout
+the other chapters. It may seem like a waste of time, but if you have
+ever come back to a complicated excel workbook after spending even days
+away, this will make your life much easier.
+
+\section{Comment Comment Comment}\label{comment-comment-comment}
 
 \chapter{Data Modeling}\label{data-modeling}
 

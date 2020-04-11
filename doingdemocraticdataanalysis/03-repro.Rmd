@@ -1,5 +1,10 @@
 # Reproducible Analysis
 
-We describe our methods in this chapter.
+The second principle of democratic data analysis is reproducability. By this, I mean anything that makes it easy for someone else (or you, several months from now), to look at your analysis and understand what is going on. This is where classic data analysis in Excel falls short. I believe it is almost a universal experience in the public sector to recieve a workbook full of broken links, formulas pointing in every direction, and no sense of where the original data is. 
 
-## Make your life easier
+In thinking about creating reproducible data analysis, it is important to keep in mind that data analasys should be structured from beginning to end, like a story. In the beginning, there is raw data that you pulled from a report, compiled yourself, or otherwise recieved. In Act 1, you use the practices we learned in the previous section to make the raw data tidy-- Without distroying the original data. In Act 2, which will be the next chapter, you use your data to create a picture of the world before you share it with others in the final Act 3. 
+
+The practices of reproducability that you will use here apply throughout the other chapters. It may seem like a waste of time, but if you have ever come back to a complicated excel workbook after spending even days away, this will make your life much easier. 
+
+## Comment Comment Comment
+

@@ -22,8 +22,18 @@ Here are a couple definitions that will help as you move through this text. Don'
   
 * Table
     * A table is the grouping of all observations of a similar type. 
-  
-  An example relevent to public administration might make this more clear. Below is a table^[Data was created for demonstration purposes] that shows types of retirement visits for a month at a state's Department of Retirement Services by the employee who took the visit and the visit type. 
+
+## Thinking in Pivot Tables-- From Wide to Long. 
+
+Pivot tables are amazing. THey are the world's most common, most helpful, and most underrated data analysis tool. PowerBI interactive charts and graphs are just pivot tables in disguise. Understanding what is needed to make a pivot table work is the key to the wide world of data analysis. 
+
+A pivot table groups data by field and allows the user to drag fields to the rows or columns of the pivot table. This is effective when each field is a variable (something that can change), and each row is a seperate observation of some phenomena of interest. 
+
+In short, pivot tables depend on **tidy data**. 
+
+Tidy data is the way your data should be organized before you begin your analysis. In tidy data, each column is a *variable*, each row is an *observation*, and each table is an *associated set of observations*. What does that mean in practice? Consider the following example. 
+
+Below is a table^[Data was created for demonstration purposes] that shows types of retirement visits for a month at a state's Department of Retirement Services by the employee who took the visit and the visit type. 
   
 ```{r tables-visits, message=FALSE, warning = FALSE, echo=TRUE}
 library(tidyverse)
@@ -120,9 +130,26 @@ In this case, we actually pivoted too far. It will probably be more useful to ha
 ```{r}
 visits_retirements_tidy2 <- visits_retirements_tidy %>% 
   pivot_wider(id_cols = c(Employee, `Visit Location`, Type), names_from = Type, values_from = value)
+
+print(visits_retirements_tidy2)
 ```
 
-From here, it is easy to do calculations based on fields, rather than cells. 
+From here, it is easy to do calculations based on fields, rather than cells. For example, in R or Get and Transform, you could add the following:
+
+```{r}
+visits_pct <- visits_retirements_tidy2 %>% 
+  mutate(pct_retirements = Retirements / Visits)
+
+print(visits_pct)
+```
+
+
+And then, one of the most useful things you can do is develop formulas by grouping of rows. For example, you may want to know the total number of visits and retirements by retiree, regardless of visit location. That can be accomplished in a pivot table. 
+
+```{r}
+
+```
+
 
 ## So how is this democratic?
 
