@@ -1,27 +1,68 @@
 # Tidy Data
 
-## Tidy Data, or Why you should clean your room
+## Cleaning vs Tidying
 
-## Learning the Language of Tidy Data^[Adapted from Hadley Wickham's paper on [Tidy Data](https://vita.had.co.nz/papers/tidy-data.pdf)]
+My wife gives me a hard time because I hate cleaning, but love tidying. Similar things could be said about my mentality when it comes to data cleaning versus data tidying. Unfortunately, as in with life, one must clean before one tidies. But let's start with some conceptual definitions. 
 
-If you have ever typed a formula in excel, congrats! You are a programmer. Embrace it! If you haven't, you will soon, and then you will be a programmer too. Excel is the world's largest and most underrated programming language. Now, you just have to embrace thinking programmaticlly-- tidy. It's like grammar. There are rules so these sentances (hopefully) make sense to you, the reader. Similarily, by following common conventions of tidy data analysis, others will be able to "read" your analysis like you are reading this sentance. And also, like grammar, you can break the rules-- but it helps to know them first. 
+Cleaning refers to the process of scrubbing the data into a way that makes sense to you, the analyst. Oftentimes, and especially in public sector organizations, the data is not clean. Whether you are looking at the output of a SurveyMonkey survey or a canned report that is run from the IT department, your data will come in all shapes and sizes. 
 
-Here are a couple definitions that will help as you move through this text. Don't worry about memorizing them, as I will refer back to these definitions frequently. 
+Here is the first major departure from what you may have been taught about data analysis in Excel. When you get messy data *do not* change individual cell values (if you can at all help it). Recall from the introductory chapter the difference between cells and fields. Fields, as a reminder, are columns that represent one variable. Whenever possible, use data analysis tools to make changes to the entire field, rather than specific cells. Most data analysis software, outside of Excel, make it difficult or impossible to change individual cell values. This is important for several reasons, most of which we will get to in the next chapter on reproducibility. But for now, thinking in terms of fields, and making changes to entire fields, will save you *a lot* of work and  headache in the long run. Let's look at a sample dataset that may be similar to one you would encounter in real life. Here is a survey collected by a field manager of a local parks and recreation department on employment. 
 
-* Fields
-    * A field is a fancy name for a column. From here on out, every calculation, manipulation, formula, you name it, will be on a column. I want you to forget that you could ever modify a lone cell in Excel. No more formulas in cells. No more typing in values to a cell. Certainly no more writing over data in a cell. Democratic data analysis depends on formulas that work on entire fields. Everything you would need to do to a single cell in Excel can-- and should!-- be done to an entire column. This will be immensly valuable, as you will hopefully see while working through this material. 
+```{r libs, include=FALSE}
+library(DT)
 
-* Variables
-    * A variable is something in your data that can change. That's it! Variables become very important when looking at how to structure your data. 
+```
+
+
+```{r dirty-data, message=FALSE, warning=FALSE, echo=TRUE}
+library(tidyverse)
+
+sites <- tribble(
+  ~"Employee", ~"Location", ~"Telecommute?", ~"Hire Date",
+  "ron swanson", "Pawnee City Hall", "never", "Unknown",
+  "Knope, Leslie", "Field Duty", "1 day/week", "2011-6-1",
+  "Andy Dwyer", "sullivan street pit", "40 hours", "March 1, 2013",
+  "Jerry Gergich", "City Hall", "never", "6/1/1985",
+  "Garry Gergich", "City Hall", "never", "6/1/1985",
+  "ben wyatt", "Partridge, Minnesota","" , "Jan. 1, 2010"
+)
+
+sites %>% datatable(
+    extensions = 'Buttons', 
+    options = list(dom = 'Bfrtip', 
+                   buttons = 'excel',
+                   searching = FALSE))
+```
+
+In this example, it would be trivial to go in to the Excel file and clean up the dates, names, and locations by hand. However, you could imagine this survey replicated for a department of forty employees. It quickly becomes unfeasable to make those edits by hand. When this is the case, there are functions in Excel and R that will make your life much easier. 
+
+Here is annotated code for how I would go about cleaning this table in R. The friendly syntax of the `tidyverse` packages makes it easy to follow along, even if you aren't comfortable writing it yourself. 
+
+```{r}
+sites_cleaned <- sites %>% #creating a new table called "sites_cleaned", starting with the old table "sites"
+  mutate(Employee = if_else(Employee == "Knope, Leslie", "Leslie Knope", Employee)) %>% 
+  separate(Employee, into = c("first_name", "last_name")) %>% 
+  rename(location = Location,
+         telecommute_hours =`Telecommute?`,
+         hire_date = `Hire Date`) %>% 
+  mutate(first_name = str_to_title(first_name),
+         last_name = str_to_title(last_name),
+         location = str_to_title(location)) %>% 
+  mutate(location = case_when(
+           str_detect(location, "City Hall") ~ "In Office",
+           str_detect(location, "Field") ~ "In Field",
+           str_detect(location, "Street") ~ "In Field",
+           TRUE ~ "Other"),
+         telecommute_hours = case_when(
+           telecommute_hours == "never" ~ 0,
+           telecommute_hours == "1 day/week" ~ 8,
+           telecommute_hours == "40 hours" ~ 40
+         )
+         )
   
-* Observations
-    * Observations make up the rows of your dataset. Each observation should correspond to a specific "thing." This will make more sense later, I promise. 
-
-* Values
-    * Values are the actual data in your table. Each value belongs to 1 (one) observation and 1 (one) variable. 
   
-* Table
-    * A table is the grouping of all observations of a similar type. 
+```
+
 
 ## Thinking in Pivot Tables-- From Wide to Long. 
 
@@ -36,8 +77,6 @@ Tidy data is the way your data should be organized before you begin your analysi
 Below is a table^[Data was created for demonstration purposes] that shows types of retirement visits for a month at a state's Department of Retirement Services by the employee who took the visit and the visit type. 
   
 ```{r tables-visits, message=FALSE, warning = FALSE, echo=TRUE}
-library(tidyverse)
-
 visits <- tribble(
   ~"Employee", ~"Phone Visits", ~"Office Visits", ~"Online Visits",
   "Danielle", 6, 11, 23,

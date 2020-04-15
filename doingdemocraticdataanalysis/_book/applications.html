@@ -24,7 +24,7 @@
 <meta name="author" content="Corban Nemeth" />
 
 
-<meta name="date" content="2020-04-11" />
+<meta name="date" content="2020-04-15" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -51,6 +51,20 @@
 
 
 <script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.12/datatables.js"></script>
+<link href="libs/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.10.20/js/jquery.dataTables.min.js"></script>
+<script src="libs/jszip-1.10.20/jszip.min.js"></script>
+<link href="libs/dt-ext-buttons-1.10.20/css/buttons.dataTables.min.css" rel="stylesheet" />
+<script src="libs/dt-ext-buttons-1.10.20/js/dataTables.buttons.min.js"></script>
+<script src="libs/dt-ext-buttons-1.10.20/js/buttons.flash.min.js"></script>
+<script src="libs/dt-ext-buttons-1.10.20/js/buttons.html5.min.js"></script>
+<script src="libs/dt-ext-buttons-1.10.20/js/buttons.colVis.min.js"></script>
+<script src="libs/dt-ext-buttons-1.10.20/js/buttons.print.min.js"></script>
+<link href="libs/crosstalk-1.1.0.1/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.1.0.1/js/crosstalk.min.js"></script>
 <link href="libs/jquery-ui-1.11.4/jquery-ui.min.css" rel="stylesheet" />
 <script src="libs/jquery-ui-1.11.4/jquery-ui.min.js"></script>
 <script src="libs/jquery-ui-1.11.4/jquery.ui.touch-punch.min.js"></script>
@@ -79,20 +93,6 @@
 <script src="libs/polyfill-0.1/polyfill.min.js"></script>
 <link href="libs/rpivotTable_style-0.1/rpivotTable.css" rel="stylesheet" />
 <script src="libs/rpivotTable-binding-0.3.0/rpivotTable.js"></script>
-<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
-<script src="libs/datatables-binding-0.12/datatables.js"></script>
-<link href="libs/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
-<link href="libs/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet" />
-<script src="libs/dt-core-1.10.20/js/jquery.dataTables.min.js"></script>
-<script src="libs/jszip-1.10.20/jszip.min.js"></script>
-<link href="libs/dt-ext-buttons-1.10.20/css/buttons.dataTables.min.css" rel="stylesheet" />
-<script src="libs/dt-ext-buttons-1.10.20/js/dataTables.buttons.min.js"></script>
-<script src="libs/dt-ext-buttons-1.10.20/js/buttons.flash.min.js"></script>
-<script src="libs/dt-ext-buttons-1.10.20/js/buttons.html5.min.js"></script>
-<script src="libs/dt-ext-buttons-1.10.20/js/buttons.colVis.min.js"></script>
-<script src="libs/dt-ext-buttons-1.10.20/js/buttons.print.min.js"></script>
-<link href="libs/crosstalk-1.1.0.1/css/crosstalk.css" rel="stylesheet" />
-<script src="libs/crosstalk-1.1.0.1/js/crosstalk.min.js"></script>
 
 <script>
 /* ========================================================================
@@ -517,25 +517,29 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="" data-path="intro.html"><a href="intro.html#technocratic-data-analysis"><i class="fa fa-check"></i>Technocratic Data Analysis</a></li>
 </ul></li>
 <li class="chapter" data-level="1.11" data-path="intro.html"><a href="intro.html#principles-of-democratic-data-analysis"><i class="fa fa-check"></i><b>1.11</b> Principles of Democratic Data Analysis</a></li>
+<li class="chapter" data-level="1.12" data-path="intro.html"><a href="intro.html#the-language-of-data-analysis"><i class="fa fa-check"></i><b>1.12</b> The Language of Data Analysis</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="tidy-data.html"><a href="tidy-data.html"><i class="fa fa-check"></i><b>2</b> Tidy Data</a><ul>
-<li class="chapter" data-level="2.1" data-path="tidy-data.html"><a href="tidy-data.html#tidy-data-or-why-you-should-clean-your-room"><i class="fa fa-check"></i><b>2.1</b> Tidy Data, or Why you should clean your room</a></li>
-<li class="chapter" data-level="2.2" data-path="tidy-data.html"><a href="tidy-data.html#learning-the-language-of-tidy-data"><i class="fa fa-check"></i><b>2.2</b> Learning the Language of Tidy Data</a></li>
-<li class="chapter" data-level="2.3" data-path="tidy-data.html"><a href="tidy-data.html#thinking-in-pivot-tables-from-wide-to-long."><i class="fa fa-check"></i><b>2.3</b> Thinking in Pivot Tables– From Wide to Long.</a></li>
-<li class="chapter" data-level="2.4" data-path="tidy-data.html"><a href="tidy-data.html#using-lower-level-data"><i class="fa fa-check"></i><b>2.4</b> Using lower level data</a></li>
-<li class="chapter" data-level="2.5" data-path="tidy-data.html"><a href="tidy-data.html#so-how-is-this-democratic"><i class="fa fa-check"></i><b>2.5</b> So how is this democratic?</a></li>
-<li class="chapter" data-level="2.6" data-path="tidy-data.html"><a href="tidy-data.html#practice-problems"><i class="fa fa-check"></i><b>2.6</b> Practice problems</a></li>
+<li class="chapter" data-level="2.1" data-path="tidy-data.html"><a href="tidy-data.html#cleaning-vs-tidying"><i class="fa fa-check"></i><b>2.1</b> Cleaning vs Tidying</a></li>
+<li class="chapter" data-level="2.2" data-path="tidy-data.html"><a href="tidy-data.html#thinking-in-pivot-tables-from-wide-to-long."><i class="fa fa-check"></i><b>2.2</b> Thinking in Pivot Tables– From Wide to Long.</a></li>
+<li class="chapter" data-level="2.3" data-path="tidy-data.html"><a href="tidy-data.html#using-lower-level-data"><i class="fa fa-check"></i><b>2.3</b> Using lower level data</a></li>
+<li class="chapter" data-level="2.4" data-path="tidy-data.html"><a href="tidy-data.html#so-how-is-this-democratic"><i class="fa fa-check"></i><b>2.4</b> So how is this democratic?</a></li>
+<li class="chapter" data-level="2.5" data-path="tidy-data.html"><a href="tidy-data.html#practice-problems"><i class="fa fa-check"></i><b>2.5</b> Practice problems</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="reproducible-analysis.html"><a href="reproducible-analysis.html"><i class="fa fa-check"></i><b>3</b> Reproducible Analysis</a><ul>
 <li class="chapter" data-level="3.1" data-path="reproducible-analysis.html"><a href="reproducible-analysis.html#comment-comment-comment"><i class="fa fa-check"></i><b>3.1</b> Comment Comment Comment</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="data-modeling.html"><a href="data-modeling.html"><i class="fa fa-check"></i><b>4</b> Data Modeling</a><ul>
-<li class="chapter" data-level="4.1" data-path="data-modeling.html"><a href="data-modeling.html#example-one"><i class="fa fa-check"></i><b>4.1</b> Example one</a></li>
-<li class="chapter" data-level="4.2" data-path="data-modeling.html"><a href="data-modeling.html#example-two"><i class="fa fa-check"></i><b>4.2</b> Example two</a></li>
-<li class="chapter" data-level="4.3" data-path="data-modeling.html"><a href="data-modeling.html#assumptions"><i class="fa fa-check"></i><b>4.3</b> Assumptions</a></li>
+<li class="chapter" data-level="4.1" data-path="data-modeling.html"><a href="data-modeling.html#why-model"><i class="fa fa-check"></i><b>4.1</b> Why Model?</a></li>
+<li class="chapter" data-level="4.2" data-path="data-modeling.html"><a href="data-modeling.html#assumptions"><i class="fa fa-check"></i><b>4.2</b> Assumptions</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="visualization.html"><a href="visualization.html"><i class="fa fa-check"></i><b>5</b> Visualization</a></li>
-<li class="chapter" data-level="6" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>6</b> Applications</a></li>
+<li class="chapter" data-level="5" data-path="visualization.html"><a href="visualization.html"><i class="fa fa-check"></i><b>5</b> Visualization</a><ul>
+<li class="chapter" data-level="5.1" data-path="visualization.html"><a href="visualization.html#show-and-tell"><i class="fa fa-check"></i><b>5.1</b> Show and Tell</a></li>
+<li class="chapter" data-level="5.2" data-path="visualization.html"><a href="visualization.html#vizualizaiton-is-anything-that-presents-your-evidence-think-critically-about-it"><i class="fa fa-check"></i><b>5.2</b> Vizualizaiton is anything that presents your evidence– think critically about it!</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>6</b> Applications</a><ul>
+<li class="chapter" data-level="6.1" data-path="applications.html"><a href="applications.html#tying-it-all-together"><i class="fa fa-check"></i><b>6.1</b> Tying it all together</a></li>
+</ul></li>
 <li class="chapter" data-level="7" data-path="resources.html"><a href="resources.html"><i class="fa fa-check"></i><b>7</b> Resources</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -559,7 +563,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="applications" class="section level1">
 <h1><span class="header-section-number">Chapter 6</span> Applications</h1>
+<div id="tying-it-all-together" class="section level2">
+<h2><span class="header-section-number">6.1</span> Tying it all together</h2>
 
+</div>
 </div>
             </section>
 

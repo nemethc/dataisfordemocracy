@@ -112,7 +112,7 @@
 
 \title{Doing Democratic Data Analysis}
 \author{Corban Nemeth}
-\date{2020-04-11}
+\date{2020-04-15}
 
 \begin{document}
 \maketitle
@@ -390,14 +390,9 @@ Analysis}\label{principles-of-democratic-data-analysis}
   Show AND tell your results
 \end{itemize}
 
-\chapter{Tidy Data}\label{tidy-data}
-
-\section{Tidy Data, or Why you should clean your
-room}\label{tidy-data-or-why-you-should-clean-your-room}
-
-\section[Learning the Language of Tidy Data]{\texorpdfstring{Learning
-the Language of Tidy Data\footnote{Adapted from Hadley Wickham's paper
-  on \href{https://vita.had.co.nz/papers/tidy-data.pdf}{Tidy Data}}}{Learning the Language of Tidy Data}}\label{learning-the-language-of-tidy-data}
+\section[The Language of Data Analysis]{\texorpdfstring{The Language of
+Data Analysis\footnote{Adapted from Hadley Wickham's paper on
+  \href{https://vita.had.co.nz/papers/tidy-data.pdf}{Tidy Data}}}{The Language of Data Analysis}}\label{the-language-of-data-analysis}
 
 If you have ever typed a formula in excel, congrats! You are a
 programmer. Embrace it! If you haven't, you will soon, and then you will
@@ -470,6 +465,98 @@ definitions frequently.
   \end{itemize}
 \end{itemize}
 
+\chapter{Tidy Data}\label{tidy-data}
+
+\section{Cleaning vs Tidying}\label{cleaning-vs-tidying}
+
+My wife gives me a hard time because I hate cleaning, but love tidying.
+Similar things could be said about my mentality when it comes to data
+cleaning versus data tidying. Unfortunately, as in with life, one must
+clean before one tidies. But let's start with some conceptual
+definitions.
+
+Cleaning refers to the process of scrubbing the data into a way that
+makes sense to you, the analyst. Oftentimes, and especially in public
+sector organizations, the data is not clean. Whether you are looking at
+the output of a SurveyMonkey survey or a canned report that is run from
+the IT department, your data will come in all shapes and sizes.
+
+Here is the first major departure from what you may have been taught
+about data analysis in Excel. When you get messy data \emph{do not}
+change individual cell values (if you can at all help it). Recall from
+the introductory chapter the difference between cells and fields.
+Fields, as a reminder, are columns that represent one variable. Whenever
+possible, use data analysis tools to make changes to the entire field,
+rather than specific cells. Most data analysis software, outside of
+Excel, make it difficult or impossible to change individual cell values.
+This is important for several reasons, most of which we will get to in
+the next chapter on reproducibility. But for now, thinking in terms of
+fields, and making changes to entire fields, will save you \emph{a lot}
+of work and headache in the long run. Let's look at a sample dataset
+that may be similar to one you would encounter in real life. Here is a
+survey collected by a field manager of a local parks and recreation
+department on employment.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(tidyverse)}
+
+\NormalTok{sites <-}\StringTok{ }\KeywordTok{tribble}\NormalTok{(}
+  \OperatorTok{~}\StringTok{"Employee"}\NormalTok{, }\OperatorTok{~}\StringTok{"Location"}\NormalTok{, }\OperatorTok{~}\StringTok{"Telecommute?"}\NormalTok{, }\OperatorTok{~}\StringTok{"Hire Date"}\NormalTok{,}
+  \StringTok{"ron swanson"}\NormalTok{, }\StringTok{"Pawnee City Hall"}\NormalTok{, }\StringTok{"never"}\NormalTok{, }\StringTok{"Unknown"}\NormalTok{,}
+  \StringTok{"Knope, Leslie"}\NormalTok{, }\StringTok{"Field Duty"}\NormalTok{, }\StringTok{"1 day/week"}\NormalTok{, }\StringTok{"2011-6-1"}\NormalTok{,}
+  \StringTok{"Andy Dwyer"}\NormalTok{, }\StringTok{"sullivan street pit"}\NormalTok{, }\StringTok{"40 hours"}\NormalTok{, }\StringTok{"March 1, 2013"}\NormalTok{,}
+  \StringTok{"Jerry Gergich"}\NormalTok{, }\StringTok{"City Hall"}\NormalTok{, }\StringTok{"never"}\NormalTok{, }\StringTok{"6/1/1985"}\NormalTok{,}
+  \StringTok{"Garry Gergich"}\NormalTok{, }\StringTok{"City Hall"}\NormalTok{, }\StringTok{"never"}\NormalTok{, }\StringTok{"6/1/1985"}\NormalTok{,}
+  \StringTok{"ben wyatt"}\NormalTok{, }\StringTok{"Partridge, Minnesota"}\NormalTok{,}\StringTok{""}\NormalTok{ , }\StringTok{"Jan. 1, 2010"}
+\NormalTok{)}
+
+\NormalTok{sites }\OperatorTok{%>%}\StringTok{ }\KeywordTok{datatable}\NormalTok{(}
+    \DataTypeTok{extensions =} \StringTok{'Buttons'}\NormalTok{, }
+    \DataTypeTok{options =} \KeywordTok{list}\NormalTok{(}\DataTypeTok{dom =} \StringTok{'Bfrtip'}\NormalTok{, }
+                   \DataTypeTok{buttons =} \StringTok{'excel'}\NormalTok{,}
+                   \DataTypeTok{searching =} \OtherTok{FALSE}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{htmlwidget-098b1d77ab6e7c33511b}{}
+
+In this example, it would be trivial to go in to the Excel file and
+clean up the dates, names, and locations by hand. However, you could
+imagine this survey replicated for a department of forty employees. It
+quickly becomes unfeasable to make those edits by hand. When this is the
+case, there are functions in Excel and R that will make your life much
+easier.
+
+Here is annotated code for how I would go about cleaning this table in
+R. The friendly syntax of the \texttt{tidyverse} packages makes it easy
+to follow along, even if you aren't comfortable writing it yourself.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{sites_cleaned <-}\StringTok{ }\NormalTok{sites }\OperatorTok{%>%}\StringTok{ }\CommentTok{#creating a new table called "sites_cleaned", starting with the old table "sites"}
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{Employee =} \KeywordTok{if_else}\NormalTok{(Employee }\OperatorTok{==}\StringTok{ "Knope, Leslie"}\NormalTok{, }\StringTok{"Leslie Knope"}\NormalTok{, Employee)) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{separate}\NormalTok{(Employee, }\DataTypeTok{into =} \KeywordTok{c}\NormalTok{(}\StringTok{"first_name"}\NormalTok{, }\StringTok{"last_name"}\NormalTok{)) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{rename}\NormalTok{(}\DataTypeTok{location =}\NormalTok{ Location,}
+         \DataTypeTok{telecommute_hours =}\StringTok{`}\DataTypeTok{Telecommute?}\StringTok{`}\NormalTok{,}
+         \DataTypeTok{hire_date =} \StringTok{`}\DataTypeTok{Hire Date}\StringTok{`}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{first_name =} \KeywordTok{str_to_title}\NormalTok{(first_name),}
+         \DataTypeTok{last_name =} \KeywordTok{str_to_title}\NormalTok{(last_name),}
+         \DataTypeTok{location =} \KeywordTok{str_to_title}\NormalTok{(location)) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{location =} \KeywordTok{case_when}\NormalTok{(}
+           \KeywordTok{str_detect}\NormalTok{(location, }\StringTok{"City Hall"}\NormalTok{) }\OperatorTok{~}\StringTok{ "In Office"}\NormalTok{,}
+           \KeywordTok{str_detect}\NormalTok{(location, }\StringTok{"Field"}\NormalTok{) }\OperatorTok{~}\StringTok{ "In Field"}\NormalTok{,}
+           \KeywordTok{str_detect}\NormalTok{(location, }\StringTok{"Street"}\NormalTok{) }\OperatorTok{~}\StringTok{ "In Field"}\NormalTok{,}
+           \OtherTok{TRUE} \OperatorTok{~}\StringTok{ "Other"}\NormalTok{),}
+         \DataTypeTok{telecommute_hours =} \KeywordTok{case_when}\NormalTok{(}
+\NormalTok{           telecommute_hours }\OperatorTok{==}\StringTok{ "never"} \OperatorTok{~}\StringTok{ }\DecValTok{0}\NormalTok{,}
+\NormalTok{           telecommute_hours }\OperatorTok{==}\StringTok{ "1 day/week"} \OperatorTok{~}\StringTok{ }\DecValTok{8}\NormalTok{,}
+\NormalTok{           telecommute_hours }\OperatorTok{==}\StringTok{ "40 hours"} \OperatorTok{~}\StringTok{ }\DecValTok{40}
+\NormalTok{         )}
+\NormalTok{         )}
+\end{Highlighting}
+\end{Shaded}
+
 \section{Thinking in Pivot Tables-- From Wide to
 Long.}\label{thinking-in-pivot-tables-from-wide-to-long.}
 
@@ -499,8 +586,6 @@ the visit type.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{library}\NormalTok{(tidyverse)}
-
 \NormalTok{visits <-}\StringTok{ }\KeywordTok{tribble}\NormalTok{(}
   \OperatorTok{~}\StringTok{"Employee"}\NormalTok{, }\OperatorTok{~}\StringTok{"Phone Visits"}\NormalTok{, }\OperatorTok{~}\StringTok{"Office Visits"}\NormalTok{, }\OperatorTok{~}\StringTok{"Online Visits"}\NormalTok{,}
   \StringTok{"Danielle"}\NormalTok{, }\DecValTok{6}\NormalTok{, }\DecValTok{11}\NormalTok{, }\DecValTok{23}\NormalTok{,}
@@ -544,11 +629,7 @@ unmanegable quickly.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{verbatim}
-## PhantomJS not found. You can install it with webshot::install_phantomjs(). If it is installed, please make sure the phantomjs executable can be found via the PATH variable.
-\end{verbatim}
-
-\hypertarget{htmlwidget-b3c5c980feccc9082544}{}
+\hypertarget{htmlwidget-dc0275d8158601af18ad}{}
 
 Let's apply our criteria of tidy data to this set:
 
@@ -587,7 +668,7 @@ right clicking -\textgreater{} and selecting ``unpivot columns.''
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-3}Visits to the Dept. of Retirement Services in a given month}
+\caption{\label{tab:unnamed-chunk-4}Visits to the Dept. of Retirement Services in a given month}
 \centering
 \begin{tabular}[t]{l|l|r}
 \hline
@@ -629,7 +710,7 @@ format.
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{htmlwidget-ac66875510613e4516b7}{}
+\hypertarget{htmlwidget-b92334b9d9e93c3857d1}{}
 
 When we get to the next chapter, you will learn several alternatives to
 pivot tables that use the same principles, but are more reproducible.
@@ -654,7 +735,7 @@ same base data as before.
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-5}Visits to the Dept. of Retirement Services in a given month by employee and associated client retirements}
+\caption{\label{tab:unnamed-chunk-6}Visits to the Dept. of Retirement Services in a given month by employee and associated client retirements}
 \centering
 \begin{tabular}[t]{l|r|r|r|r|r|r}
 \hline
@@ -685,7 +766,7 @@ ease in analysis.
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{htmlwidget-a8de3edcfe772dc8c0df}{}
+\hypertarget{htmlwidget-73af6fa0012bdaaa37da}{}
 
 Try to tidy this in R or Excel Get and Transform. See this
 footnote\footnote{powerquery hints} or look at the code if you need a
@@ -821,19 +902,23 @@ away, this will make your life much easier.
 
 \chapter{Data Modeling}\label{data-modeling}
 
-Some \emph{significant} applications are demonstrated in this chapter.
+\section{Why Model?}\label{why-model}
 
-\section{Example one}\label{example-one}
-
-\section{Example two}\label{example-two}
+Models transform data into decision making. \#\# Example two
 
 \section{Assumptions}\label{assumptions}
 
 \chapter{Visualization}\label{visualization}
 
-We have finished a nice book.
+\section{Show and Tell}\label{show-and-tell}
+
+\section{Vizualizaiton is anything that presents your evidence-- think
+critically about
+it!}\label{vizualizaiton-is-anything-that-presents-your-evidence-think-critically-about-it}
 
 \chapter{Applications}\label{applications}
+
+\section{Tying it all together}\label{tying-it-all-together}
 
 \chapter{Resources}\label{resources}
 

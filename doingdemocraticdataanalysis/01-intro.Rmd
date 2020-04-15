@@ -77,3 +77,23 @@ I want to contrast democratic data analysis with alternate forms of analysis tha
 * Make assumptions, and document them!
 * Show AND tell your results
 
+## The Language of Data Analysis^[Adapted from Hadley Wickham's paper on [Tidy Data](https://vita.had.co.nz/papers/tidy-data.pdf)]
+
+If you have ever typed a formula in excel, congrats! You are a programmer. Embrace it! If you haven't, you will soon, and then you will be a programmer too. Excel is the world's largest and most underrated programming language. Now, you just have to embrace thinking programmaticlly-- tidy. It's like grammar. There are rules so these sentances (hopefully) make sense to you, the reader. Similarily, by following common conventions of tidy data analysis, others will be able to "read" your analysis like you are reading this sentance. And also, like grammar, you can break the rules-- but it helps to know them first. 
+
+Here are a couple definitions that will help as you move through this text. Don't worry about memorizing them, as I will refer back to these definitions frequently. 
+
+* Fields
+    * A field is a fancy name for a column. From here on out, every calculation, manipulation, formula, you name it, will be on a column. I want you to forget that you could ever modify a lone cell in Excel. No more formulas in cells. No more typing in values to a cell. Certainly no more writing over data in a cell. Democratic data analysis depends on formulas that work on entire fields. Everything you would need to do to a single cell in Excel can-- and should!-- be done to an entire column. This will be immensly valuable, as you will hopefully see while working through this material. 
+
+* Variables
+    * A variable is something in your data that can change. That's it! Variables become very important when looking at how to structure your data. 
+  
+* Observations
+    * Observations make up the rows of your dataset. Each observation should correspond to a specific "thing." This will make more sense later, I promise. 
+
+* Values
+    * Values are the actual data in your table. Each value belongs to 1 (one) observation and 1 (one) variable. 
+  
+* Table
+    * A table is the grouping of all observations of a similar type. 

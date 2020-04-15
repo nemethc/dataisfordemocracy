@@ -1,9 +1,8 @@
 # Data Modeling
 
-Some _significant_ applications are demonstrated in this chapter.
+## Why Model?
 
-## Example one
-
+Models transform data into decision making. 
 ## Example two
 
 
