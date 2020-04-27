@@ -183,7 +183,7 @@ This handbook is composed of five principles of democratic data analysis. Democr
 
 Each of those principles has a seperate chapter in this book. As this isn't a how-to manual, per say, each chapter will begin with a description of the \emph{principles} outlined above and arguments for why they are important. Each chapter will then have a \emph{practices} section where I walk through examples of how to implement these principles in common situations. Chapters will conclude with a link to other resources for additonal information.
 
-Why seperate principles and practices? The nature of data analysis is heavily influenced by the technologies that we have access to. Whether it be the venerable pivot table, or a new-school dashboard platform, or a data-oriented programming language, the principles that I lay out here supersede specific technologies. Think of it like grammer. You may write by hand, on a computer, using text-to-speech. You may be writing a poem, a novel, an argument, or an instruction manual. But the basic rules of grammer are relevant in whatever medium you choose. Similarily, this guide will teach you the basic ``grammar'' of democratic data analysis. This will alllow you to apply this knowledge in whatever platform or technology you are interested in or have access to. But similar to learning language, it helps to practice. That's where the \emph{practices} section comes in to play.
+Why maintain the distinciton between principles and practices? The nature of data analysis is heavily influenced by the technologies that we have access to. Whether it be the venerable pivot table, or a new-school dashboard platform, or a data-oriented programming language, the principles that I lay out here supersede specific technologies. Think of it like grammer. You may write by hand, on a computer, using text-to-speech. You may be writing a poem, a novel, an argument, or an instruction manual. But the basic rules of grammer are relevant in whatever medium you choose. Similarily, this guide will teach you the basic ``grammar'' of democratic data analysis. This will alllow you to apply this knowledge in whatever platform or technology you are interested in or have access to. But similar to learning language, it helps to practice. That's where the \emph{practices} section comes in to play.
 
 This guide will include examples in both Excel and \texttt{R}. Government runs on Excel, so all of the examples and exercises will be Excel compatible. If you are comfortable with Excel\footnote{aka you use \texttt{vlookup}, \texttt{index(match)}, pivot tables, or \emph{Get \& Transform} on a somewhat regular basis} and want to challenge yourself, boost your resume, and become a data wizard\footnote{For example, I used R to create this entire website}, I would highly recommend learning \texttt{R}. This guide will wshow examples on how to analyze data democratically using both tools, but focusing on the principles and practices that are vital regardless of technology. I will link to specific resources that provide more detailed walk through's as necessary.
 
@@ -337,7 +337,7 @@ Here is the first major departure from what you may have been taught about data 
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{htmlwidget-871ba640a331b35ec28f}{}
+\hypertarget{htmlwidget-608d0414c139a7736ea0}{}
 
 In this example, it would be trivial to go in to the Excel file and clean up the dates, names, and locations by hand. However, you could imagine this survey replicated for a department of forty employees. It quickly becomes unfeasable to make those edits by hand. When this is the case, there are functions in Excel and R that will make your life much easier.
 
@@ -421,7 +421,7 @@ The shortcomings of data in this format may become apparent when you attempt to 
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{htmlwidget-b47e316925e29ded166d}{}
+\hypertarget{htmlwidget-3c580058b62579833746}{}
 
 Let's apply our criteria of tidy data to this set:
 
@@ -488,7 +488,7 @@ Now this is a table that is much easier to analyze in an Excel pivot table or wi
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{htmlwidget-81008f38113f2dd47021}{}
+\hypertarget{htmlwidget-f9ede8aa2f1999320b0a}{}
 
 When we get to the next chapter, you will learn several alternatives to pivot tables that use the same principles, but are more reproducible.
 
@@ -540,7 +540,7 @@ Hopefully you will see a similar pattern here. Now, there are three variables: V
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{htmlwidget-888ba2430b3ae4346a57}{}
+\hypertarget{htmlwidget-a682dbdf5086f20fbd84}{}
 
 Try to tidy this in R or Excel Get and Transform. See this footnote\footnote{powerquery hints} or look at the code if you need a hint.
 
