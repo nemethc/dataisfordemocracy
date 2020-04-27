@@ -1,3 +1,6 @@
+\PassOptionsToPackage{unicode=true}{hyperref} % options for packages loaded elsewhere
+\PassOptionsToPackage{hyphens}{url}
+%
 \documentclass[]{book}
 \usepackage{lmodern}
 \usepackage{amssymb,amsmath}
@@ -6,12 +9,9 @@
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provides euro and other symbols
 \else % if luatex or xelatex
-  \ifxetex
-    \usepackage{mathspec}
-  \else
-    \usepackage{fontspec}
-  \fi
+  \usepackage{unicode-math}
   \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
 \fi
 % use upquote if available, for straight quotes in verbatim environments
@@ -21,16 +21,19 @@
 \usepackage[]{microtype}
 \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
 }{}
-\PassOptionsToPackage{hyphens}{url} % url is loaded by hyperref
-\usepackage[unicode=true]{hyperref}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\usepackage{hyperref}
 \hypersetup{
             pdftitle={Doing Democratic Data Analysis},
             pdfauthor={Corban Nemeth},
             pdfborder={0 0 0},
             breaklinks=true}
 \urlstyle{same}  % don't use monospace font for urls
-\usepackage{natbib}
-\bibliographystyle{apalike}
 \usepackage{color}
 \usepackage{fancyvrb}
 \newcommand{\VerbBar}{|}
@@ -40,40 +43,40 @@
 \usepackage{framed}
 \definecolor{shadecolor}{RGB}{248,248,248}
 \newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
-\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
 \newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
 \newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
-\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
-\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
-\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\ImportTok}[1]{#1}
-\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
 \newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
-\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
-\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
-\newcommand{\BuiltInTok}[1]{#1}
-\newcommand{\ExtensionTok}[1]{#1}
-\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
-\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
-\newcommand{\RegionMarkerTok}[1]{#1}
-\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
 \newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
 \newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
 \usepackage{longtable,booktabs}
 % Fix footnotes in tables (requires footnote package)
-\IfFileExists{footnote.sty}{\usepackage{footnote}\makesavenoteenv{long table}}{}
+\IfFileExists{footnote.sty}{\usepackage{footnote}\makesavenoteenv{longtable}}{}
 \usepackage{graphicx,grffile}
 \makeatletter
 \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
@@ -83,12 +86,6 @@
 % margins by default, and it is still possible to overwrite the defaults
 % using explicit options in \includegraphics[width, height, ...]{}
 \setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
-\IfFileExists{parskip.sty}{%
-\usepackage{parskip}
-}{% else
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{6pt plus 2pt minus 1pt}
-}
 \setlength{\emergencystretch}{3em}  % prevent overfull lines
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
@@ -109,10 +106,12 @@
 \makeatother
 
 \usepackage{booktabs}
+\usepackage[]{natbib}
+\bibliographystyle{apalike}
 
 \title{Doing Democratic Data Analysis}
 \author{Corban Nemeth}
-\date{2020-04-15}
+\date{2020-04-27}
 
 \begin{document}
 \maketitle
@@ -121,28 +120,18 @@
 \setcounter{tocdepth}{1}
 \tableofcontents
 }
-\chapter*{Preface}\label{preface}
+\hypertarget{preface}{%
+\chapter*{Preface}\label{preface}}
 \addcontentsline{toc}{chapter}{Preface}
 
-I believe that data, \emph{in the hands of public administrators and
-policy analysts}\footnote{\emph{Not IT departments}}, has the power to
-transform the way government works.
+I believe that data, \emph{in the hands of public administrators and policy analysts}\footnote{\emph{Not IT departments}}, has the power to transform the way government works.
 
-Big questions will, and should, be asked of big data--- the role of
-government in regulating algorithmic bias, facial recognition, and
-consumer data privacy is a vital conversation. However, these topics
-should not detract or deter public administrators and policy analysts
-from leaning into \textbf{small data} for decision-making purposes.
+Big questions will, and should, be asked of big data--- the role of government in regulating algorithmic bias, facial recognition, and consumer data privacy is a vital conversation. However, these topics should not detract or deter public administrators and policy analysts from leaning into \textbf{small data} for decision-making purposes.
 
-Public administrators and analysts who are data literate will be able to
-make and inform better decisions while avoiding the pitfalls posed by
-the latest technological trends. This book represents an opportunity for
-public administrators and policy analysts to join their subject matter
-expertise with foundation principles and practices of democratic data
-analysis--- data analysis that is \textbf{transparent, relevant, and
-grounded in the context of ethical and effective governance}.
+Public administrators and analysts who are data literate will be able to make and inform better decisions while avoiding the pitfalls posed by the latest technological trends. This book represents an opportunity for public administrators and policy analysts to join their subject matter expertise with foundation principles and practices of democratic data analysis--- data analysis that is \textbf{transparent, relevant, and grounded in the context of ethical and effective governance}.
 
-\section*{Who is this guide for?}\label{who-is-this-guide-for}
+\hypertarget{who-is-this-guide-for}{%
+\section*{Who is this guide for?}\label{who-is-this-guide-for}}
 \addcontentsline{toc}{section}{Who is this guide for?}
 
 This guide is for:
@@ -150,27 +139,18 @@ This guide is for:
 \begin{itemize}
 \tightlist
 \item
-  the budget analyst at the Department of Fish and Wildlife who has to
-  compile a monthly report analyzing revenues,
+  the budget analyst at the Department of Fish and Wildlife who has to compile a monthly report analyzing revenues,
 \item
-  the manager at the Department of Social and Health Services who is
-  tracking inventory, and
+  the manager at the Department of Social and Health Services who is tracking inventory, and
 \item
-  the research analyst working for the state Legislature who wants to
-  incorporate data into her work session on the latest policy debate.
+  the research analyst working for the state Legislature who wants to incorporate data into her work session on the latest policy debate.
 \end{itemize}
 
-\section*{What will I learn?}\label{what-will-i-learn}
+\hypertarget{what-will-i-learn}{%
+\section*{What will I learn?}\label{what-will-i-learn}}
 \addcontentsline{toc}{section}{What will I learn?}
 
-You will learn an opinionated framework for data analysis in public
-sector organizations. By opinionated, I mean that I will teach you what
-I think is the right way to do things given my own experience as a
-public sector policy and data analyst. Your experience might differ--
-and that's great. I hope that where you can use your experience in place
-of mine, you do to the fullest extent. With that in mind, it is often
-said that you have to know the rules to break them, so I will teach you
-the ``rules'' as I understand them.
+You will learn an opinionated framework for data analysis in public sector organizations. By opinionated, I mean that I will teach you what I think is the right way to do things given my own experience as a public sector policy and data analyst. Your experience might differ-- and that's great. I hope that where you can use your experience in place of mine, you do to the fullest extent. With that in mind, it is often said that you have to know the rules to break them, so I will teach you the ``rules'' as I understand them.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -188,80 +168,41 @@ the ``rules'' as I understand them.
 ##  Max.   :25.0   Max.   :120.00
 \end{verbatim}
 
-\chapter{Introduction}\label{intro}
+\hypertarget{intro}{%
+\chapter{Introduction}\label{intro}}
 
-\section{WRITE ABOUT BIG THEMES FIRST AND
-HERE}\label{write-about-big-themes-first-and-here}
+\hypertarget{principles-and-practices}{%
+\section{Principles and Practices}\label{principles-and-practices}}
 
-\section{DEFINE PRINCIPLES AND
-PRACTICES}\label{define-principles-and-practices}
+This handbook is composed of five principles of democratic data analysis. Democratic data analysis is:
+* Tidy
+* Reproducible
+* Honest
+* Visual, and;
+* Decision-oriented.
 
-\section{What is democratic data
-analysis?}\label{what-is-democratic-data-analysis}
+Each of those principles has a seperate chapter in this book. As this isn't a how-to manual, per say, each chapter will begin with a description of the \emph{principles} outlined above and arguments for why they are important. Each chapter will then have a \emph{practices} section where I walk through examples of how to implement these principles in common situations. Chapters will conclude with a link to other resources for additonal information.
 
-This is little-d democracy here, people. Not a guide to data analysis
-for Democrats, but an approach to data that empowers the subject matter
-experts within public organizations to do their best work.
+Why seperate principles and practices? The nature of data analysis is heavily influenced by the technologies that we have access to. Whether it be the venerable pivot table, or a new-school dashboard platform, or a data-oriented programming language, the principles that I lay out here supersede specific technologies. Think of it like grammer. You may write by hand, on a computer, using text-to-speech. You may be writing a poem, a novel, an argument, or an instruction manual. But the basic rules of grammer are relevant in whatever medium you choose. Similarily, this guide will teach you the basic ``grammar'' of democratic data analysis. This will alllow you to apply this knowledge in whatever platform or technology you are interested in or have access to. But similar to learning language, it helps to practice. That's where the \emph{practices} section comes in to play.
 
-\section{Do I need to be an Excel god before I
-begin?}\label{do-i-need-to-be-an-excel-god-before-i-begin}
+This guide will include examples in both Excel and \texttt{R}. Government runs on Excel, so all of the examples and exercises will be Excel compatible. If you are comfortable with Excel\footnote{aka you use \texttt{vlookup}, \texttt{index(match)}, pivot tables, or \emph{Get \& Transform} on a somewhat regular basis} and want to challenge yourself, boost your resume, and become a data wizard\footnote{For example, I used R to create this entire website}, I would highly recommend learning \texttt{R}. This guide will wshow examples on how to analyze data democratically using both tools, but focusing on the principles and practices that are vital regardless of technology. I will link to specific resources that provide more detailed walk through's as necessary.
 
-\textbf{No.}
+\hypertarget{how-to-think-about-democratic-data-analysis}{%
+\section{How to Think about Democratic Data Analysis}\label{how-to-think-about-democratic-data-analysis}}
 
-\section{What tools should I use?}\label{what-tools-should-i-use}
-
-This guide is written to be technology-agnostic and is not a tutorial on
-specific tools. The changing nature of technology and the lag of state
-agencies to pick up tools means that the principles outlined in this
-book supersede specific technologies.
-
-However, you should start somewhere. This guide will include examples in
-both Excel and \texttt{R}. Government runs on Excel, so all of the
-examples and exercises will be Excel compatible. If you are comfortable
-with Excel\footnote{aka you use \texttt{vlookup}, \texttt{index(match)},
-  pivot tables, or \emph{Get \& Transform} on a somewhat regular basis}
-and want to challenge yourself, boost your resume, and become a data
-wizard\footnote{For example, I used R to create this entire website}, I
-would highly recommend learning \texttt{R}. This guide will wshow
-examples on how to analyze data democratically using both tools, but
-focusing on the principles and practices that are vital regardless of
-technology. I will link to specific resources that provide more detailed
-walk through's as necessary.
-
-\section{How to use this book}\label{how-to-use-this-book}
-
-\section{Quickstart Guide to Excel}\label{quickstart-guide-to-excel}
-
-Get \& Transform and Data Model
-
-\section{Quickstart Guide to R}\label{quickstart-guide-to-r}
-
-I would \textbf{HIGHLY} recommend you take an afternoon to work through
-Chapters 1, 2, and 3 of
-``\href{https://rstudio-conf-2020.github.io/r-for-excel/index.html}{\emph{R
-for Excel Users}}''. You will thank me later.
-
-\section{How to Think about Democratic Data
-Analysis}\label{how-to-think-about-democratic-data-analysis}
-
-What is data analysis? It may be easier to start with what data analysis
-isn't.
+What is data analysis? It may be easier to start with what data analysis isn't.
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  Data analysis isn't math in Excel or a set of specific calculations.
+  Data analysis isn't math.
 \end{enumerate}
 
 \begin{itemize}
 \tightlist
 \item
-  Calculations are great, but \texttt{a7\ +\ b8} in Excel is
-  deterministic. It gives you one answer. This book is not interested in
-  data analysis that gives you the right answer, because there is no
-  such thing. There are many answers to many questions, depending on how
-  those questions are asked and how the data is analyzed.
+  Calculations are great, but \texttt{a7\ +\ b8} in Excel is deterministic. It gives you one answer. This book is not interested in data analysis that gives you the right answer, because there is no such thing. There are many answers to many questions, depending on how those questions are asked and how the data is analyzed.
 \end{itemize}
 
 \begin{enumerate}
@@ -275,13 +216,7 @@ isn't.
 \begin{itemize}
 \tightlist
 \item
-  Look, regressions are great, but that isn't the crux of this book.
-  This book is about reading and telling the story of your data in a way
-  that can complement expertise and experience to make better decisions.
-  Statistics are often used as a cheap stand-in for domain expertise and
-  are often abused in favor of trusting the analyst or administrator to
-  back up their assumptions with both quantitative and qualitiative
-  data.
+  This book is about reading and telling the story of your data in a way that can complement expertise and experience to make better decisions. Statistics are often used as a cheap stand-in for domain expertise and are often abused in favor of trusting the analyst or administrator to back up their assumptions with both quantitative and qualitiative data.
 \end{itemize}
 
 \begin{enumerate}
@@ -295,86 +230,11 @@ isn't.
 \begin{itemize}
 \tightlist
 \item
-  No set of tools and practices can stand in for asking the right
-  questions, and transforming data into information to answer that
-  question. This book will give you the tools to work with your
-  quantitative data to answer relevant questions, but all good analysis
-  begins with a good question.
+  No set of tools and practices can stand in for asking the right questions, and transforming data into information to answer that question. This book will give you the tools to work with your quantitative data to answer relevant questions, but all good analysis begins with a good question.
 \end{itemize}
 
-So what are the principles of democratic data analysis?
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  Democratic data analysis gives power to the subject matter expert.
-\end{enumerate}
-
-\begin{itemize}
-\tightlist
-\item
-  Working with your own data lets you answer your question, rather than
-  outsource those questions to IT departments who don't have the context
-  necessary to turn data into information.
-\end{itemize}
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\setcounter{enumi}{1}
-\tightlist
-\item
-  Democratic data analysis is easily shared and reproduced.
-\item
-  Democratic data analysis is honest about its assumptions and
-  limitations.
-\item
-  Democratic data analysis is structured to be easily understood and
-  communicated.
-\item
-  Democratic data analysis is approached methodically.
-\end{enumerate}
-
-\section{Alternate Forms of Data
-Analysis}\label{alternate-forms-of-data-analysis}
-
-I want to contrast democratic data analysis with alternate forms of
-analysis that I have seen in my time working in the public sector.
-
-\subsection*{Oligarchic Data Analysis}\label{oligarchic-data-analysis}
-\addcontentsline{toc}{subsection}{Oligarchic Data Analysis}
-
-\begin{itemize}
-\tightlist
-\item
-  small group of ``data people''
-\end{itemize}
-
-\subsection*{Monarchic Data Analysis}\label{monarchic-data-analysis}
-\addcontentsline{toc}{subsection}{Monarchic Data Analysis}
-
-\begin{itemize}
-\tightlist
-\item
-  Spreadsheets created decades ago, patched as necessary, and owned by a
-  single or small group of people. Very unnaproachable. Can't ask
-  questions.
-\end{itemize}
-
-\subsection*{Dictitorial Data Analysis}\label{dictitorial-data-analysis}
-\addcontentsline{toc}{subsection}{Dictitorial Data Analysis}
-
-*Not reproducible, all hard-coded, can't ask questions,
-
-\subsection*{Technocratic Data
-Analysis}\label{technocratic-data-analysis}
-\addcontentsline{toc}{subsection}{Technocratic Data Analysis}
-
-*Excel workbooks straight from the depths of hell. Formulas on formulas
-on macros.
-
-\section{Principles of Democratic Data
-Analysis}\label{principles-of-democratic-data-analysis}
+\hypertarget{principles-of-democratic-data-analysis}{%
+\section{Principles of Democratic Data Analysis}\label{principles-of-democratic-data-analysis}}
 
 \begin{itemize}
 \tightlist
@@ -390,23 +250,12 @@ Analysis}\label{principles-of-democratic-data-analysis}
   Show AND tell your results
 \end{itemize}
 
-\section[The Language of Data Analysis]{\texorpdfstring{The Language of
-Data Analysis\footnote{Adapted from Hadley Wickham's paper on
-  \href{https://vita.had.co.nz/papers/tidy-data.pdf}{Tidy Data}}}{The Language of Data Analysis}}\label{the-language-of-data-analysis}
+\hypertarget{the-language-of-data-analysis}{%
+\section[The Language of Data Analysis]{\texorpdfstring{The Language of Data Analysis\footnote{Adapted from Hadley Wickham's paper on \href{https://vita.had.co.nz/papers/tidy-data.pdf}{Tidy Data}}}{The Language of Data Analysis}}\label{the-language-of-data-analysis}}
 
-If you have ever typed a formula in excel, congrats! You are a
-programmer. Embrace it! If you haven't, you will soon, and then you will
-be a programmer too. Excel is the world's largest and most underrated
-programming language. Now, you just have to embrace thinking
-programmaticlly-- tidy. It's like grammar. There are rules so these
-sentances (hopefully) make sense to you, the reader. Similarily, by
-following common conventions of tidy data analysis, others will be able
-to ``read'' your analysis like you are reading this sentance. And also,
-like grammar, you can break the rules-- but it helps to know them first.
+As I mentioned before, democratic data analysis has an underlying structure, like grammar. There are rules so these sentances (hopefully) make sense to you, the reader. Similarily, by following common conventions of tidy data analysis, others will be able to ``read'' your analysis like you are reading this sentance. And also, like grammar, you can break the rules-- but it helps to know them first.
 
-Here are a couple definitions that will help as you move through this
-text. Don't worry about memorizing them, as I will refer back to these
-definitions frequently.
+Here are a couple definitions that will help as you move through this text. Don't worry about memorizing them, as I will refer back to these definitions frequently.
 
 \begin{itemize}
 \tightlist
@@ -416,15 +265,7 @@ definitions frequently.
   \begin{itemize}
   \tightlist
   \item
-    A field is a fancy name for a column. From here on out, every
-    calculation, manipulation, formula, you name it, will be on a
-    column. I want you to forget that you could ever modify a lone cell
-    in Excel. No more formulas in cells. No more typing in values to a
-    cell. Certainly no more writing over data in a cell. Democratic data
-    analysis depends on formulas that work on entire fields. Everything
-    you would need to do to a single cell in Excel can-- and should!--
-    be done to an entire column. This will be immensly valuable, as you
-    will hopefully see while working through this material.
+    A field is a fancy name for a column. From here on out, every calculation, manipulation, formula, you name it, will be on a column. I want you to forget that you could ever modify a lone cell in Excel. No more formulas in cells. No more typing in values to a cell. Certainly no more writing over data in a cell. Democratic data analysis depends on formulas that work on entire fields. Everything you would need to do to a single cell in Excel can-- and should!-- be done to an entire column. This will be immensly valuable, as you will hopefully see while working through this material.
   \end{itemize}
 \item
   Variables
@@ -432,9 +273,7 @@ definitions frequently.
   \begin{itemize}
   \tightlist
   \item
-    A variable is something in your data that can change. That's it!
-    Variables become very important when looking at how to structure
-    your data.
+    A variable is something in your data that can change. That's it! Variables become very important when looking at how to structure your data.
   \end{itemize}
 \item
   Observations
@@ -442,9 +281,7 @@ definitions frequently.
   \begin{itemize}
   \tightlist
   \item
-    Observations make up the rows of your dataset. Each observation
-    should correspond to a specific ``thing.'' This will make more sense
-    later, I promise.
+    Observations make up the rows of your dataset. Each observation should correspond to a specific ``thing.'' This will make more sense later, I promise.
   \end{itemize}
 \item
   Values
@@ -452,8 +289,7 @@ definitions frequently.
   \begin{itemize}
   \tightlist
   \item
-    Values are the actual data in your table. Each value belongs to 1
-    (one) observation and 1 (one) variable.
+    Values are the actual data in your table. Each value belongs to 1 (one) observation and 1 (one) variable.
   \end{itemize}
 \item
   Table
@@ -465,37 +301,19 @@ definitions frequently.
   \end{itemize}
 \end{itemize}
 
-\chapter{Tidy Data}\label{tidy-data}
+You may already be able to see how these definitions foreshadow some of what is coming in later sections. For example, there are no references to cells. This is intentional. The most importatant distinction between democratic data analysis and simply working in excel is that in democratic data analysis, (virtually) \emph{everything} is done on the \texttt{field} level. Changes are made to entire columns, calculations are made on entire columns. Thinking in \texttt{fields} is the first step on the path to democratic data enlightement. Having data formatted in the strucutre outlined above forces good data hygiene that will pay massive dividends later on.
 
-\section{Cleaning vs Tidying}\label{cleaning-vs-tidying}
+\hypertarget{tidy-data}{%
+\chapter{Tidy Data}\label{tidy-data}}
 
-My wife gives me a hard time because I hate cleaning, but love tidying.
-Similar things could be said about my mentality when it comes to data
-cleaning versus data tidying. Unfortunately, as in with life, one must
-clean before one tidies. But let's start with some conceptual
-definitions.
+\hypertarget{cleaning-vs-tidying}{%
+\section{Cleaning vs Tidying}\label{cleaning-vs-tidying}}
 
-Cleaning refers to the process of scrubbing the data into a way that
-makes sense to you, the analyst. Oftentimes, and especially in public
-sector organizations, the data is not clean. Whether you are looking at
-the output of a SurveyMonkey survey or a canned report that is run from
-the IT department, your data will come in all shapes and sizes.
+My wife gives me a hard time because I hate cleaning, but love tidying. Similar things could be said about my mentality when it comes to data cleaning versus data tidying. Unfortunately, as in with life, one must clean before one tidies. But let's start with some conceptual definitions.
 
-Here is the first major departure from what you may have been taught
-about data analysis in Excel. When you get messy data \emph{do not}
-change individual cell values (if you can at all help it). Recall from
-the introductory chapter the difference between cells and fields.
-Fields, as a reminder, are columns that represent one variable. Whenever
-possible, use data analysis tools to make changes to the entire field,
-rather than specific cells. Most data analysis software, outside of
-Excel, make it difficult or impossible to change individual cell values.
-This is important for several reasons, most of which we will get to in
-the next chapter on reproducibility. But for now, thinking in terms of
-fields, and making changes to entire fields, will save you \emph{a lot}
-of work and headache in the long run. Let's look at a sample dataset
-that may be similar to one you would encounter in real life. Here is a
-survey collected by a field manager of a local parks and recreation
-department on employment.
+Cleaning refers to the process of scrubbing the data into a way that makes sense to you, the analyst. Oftentimes, and especially in public sector organizations, the data is not clean. Whether you are looking at the output of a SurveyMonkey survey or a canned report that is run from the IT department, your data will come in all shapes and sizes.
+
+Here is the first major departure from what you may have been taught about data analysis in Excel. When you get messy data \emph{do not} change individual cell values (if you can at all help it). Recall from the introductory chapter the difference between cells and fields. Fields, as a reminder, are columns that represent one variable. Whenever possible, use data analysis tools to make changes to the entire field, rather than specific cells. Most data analysis software, outside of Excel, make it difficult or impossible to change individual cell values. This is important for several reasons, most of which we will get to in the next chapter on reproducibility. But for now, thinking in terms of fields, and making changes to entire fields, will save you \emph{a lot} of work and headache in the long run. Let's look at a sample dataset that may be similar to one you would encounter in real life. Here is a survey collected by a field manager of a local parks and recreation department on employment.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -519,18 +337,11 @@ department on employment.
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{htmlwidget-098b1d77ab6e7c33511b}{}
+\hypertarget{htmlwidget-871ba640a331b35ec28f}{}
 
-In this example, it would be trivial to go in to the Excel file and
-clean up the dates, names, and locations by hand. However, you could
-imagine this survey replicated for a department of forty employees. It
-quickly becomes unfeasable to make those edits by hand. When this is the
-case, there are functions in Excel and R that will make your life much
-easier.
+In this example, it would be trivial to go in to the Excel file and clean up the dates, names, and locations by hand. However, you could imagine this survey replicated for a department of forty employees. It quickly becomes unfeasable to make those edits by hand. When this is the case, there are functions in Excel and R that will make your life much easier.
 
-Here is annotated code for how I would go about cleaning this table in
-R. The friendly syntax of the \texttt{tidyverse} packages makes it easy
-to follow along, even if you aren't comfortable writing it yourself.
+Here is annotated code for how I would go about cleaning this table in R. The friendly syntax of the \texttt{tidyverse} packages makes it easy to follow along, even if you aren't comfortable writing it yourself.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -557,32 +368,18 @@ to follow along, even if you aren't comfortable writing it yourself.
 \end{Highlighting}
 \end{Shaded}
 
-\section{Thinking in Pivot Tables-- From Wide to
-Long.}\label{thinking-in-pivot-tables-from-wide-to-long.}
+\hypertarget{thinking-in-pivot-tables-from-wide-to-long.}{%
+\section{Thinking in Pivot Tables-- From Wide to Long.}\label{thinking-in-pivot-tables-from-wide-to-long.}}
 
-Pivot tables are amazing. THey are the world's most common, most
-helpful, and most underrated data analysis tool. PowerBI interactive
-charts and graphs are just pivot tables in disguise. Understanding what
-is needed to make a pivot table work is the key to the wide world of
-data analysis.
+Pivot tables are amazing. THey are the world's most common, most helpful, and most underrated data analysis tool. PowerBI interactive charts and graphs are just pivot tables in disguise. Understanding what is needed to make a pivot table work is the key to the wide world of data analysis.
 
-A pivot table groups data by field and allows the user to drag fields to
-the rows or columns of the pivot table. This is effective when each
-field is a variable (something that can change), and each row is a
-seperate observation of some phenomena of interest.
+A pivot table groups data by field and allows the user to drag fields to the rows or columns of the pivot table. This is effective when each field is a variable (something that can change), and each row is a seperate observation of some phenomena of interest.
 
 In short, pivot tables depend on \textbf{tidy data}.
 
-Tidy data is the way your data should be organized before you begin your
-analysis. In tidy data, each column is a \emph{variable}, each row is an
-\emph{observation}, and each table is an \emph{associated set of
-observations}. What does that mean in practice? Consider the following
-example.
+Tidy data is the way your data should be organized before you begin your analysis. In tidy data, each column is a \emph{variable}, each row is an \emph{observation}, and each table is an \emph{associated set of observations}. What does that mean in practice? Consider the following example.
 
-Below is a table\footnote{Data was created for demonstration purposes}
-that shows types of retirement visits for a month at a state's
-Department of Retirement Services by the employee who took the visit and
-the visit type.
+Below is a table\footnote{Data was created for demonstration purposes} that shows types of retirement visits for a month at a state's Department of Retirement Services by the employee who took the visit and the visit type.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -614,14 +411,9 @@ Ross & 10 & 10 & 10\\
 \end{tabular}
 \end{table}
 
-Data are frequently displayed in this ``wide'' format. It works great
-for presentation, but not great for data analysis.
+Data are frequently displayed in this ``wide'' format. It works great for presentation, but not great for data analysis.
 
-The shortcomings of data in this format may become apparent when you
-attempt to work with the data in a pivot table. This is becuase our
-columns aren't truly variables. You can drag the fields from the top row
-to the grey box below, for columns, and the left, for rows. This becomes
-unmanegable quickly.
+The shortcomings of data in this format may become apparent when you attempt to work with the data in a pivot table. This is becuase our columns aren't truly variables. You can drag the fields from the top row to the grey box below, for columns, and the left, for rows. This becomes unmanegable quickly.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -629,7 +421,7 @@ unmanegable quickly.
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{htmlwidget-dc0275d8158601af18ad}{}
+\hypertarget{htmlwidget-b47e316925e29ded166d}{}
 
 Let's apply our criteria of tidy data to this set:
 
@@ -641,18 +433,11 @@ Let's apply our criteria of tidy data to this set:
   \begin{itemize}
   \tightlist
   \item
-    At first glance, it doensn't look like this is a problem. But think
-    again. Is \texttt{phone\ visits} really a variable? Or is the real
-    variable of interest number of visits? And are our column names
-    actually variables too (type of visit)?
+    At first glance, it doensn't look like this is a problem. But think again. Is \texttt{phone\ visits} really a variable? Or is the real variable of interest number of visits? And are our column names actually variables too (type of visit)?
   \end{itemize}
 \end{itemize}
 
-Let's take another swing at setting up our table for data analysis
-purposes. This can be accomplished easily in R using the code below, or
-in Excel by loading the data with \texttt{Get\ and\ Transform}
--\textgreater{} selecting the three ``visits'' columns -\textgreater{}
-right clicking -\textgreater{} and selecting ``unpivot columns.''
+Let's take another swing at setting up our table for data analysis purposes. This can be accomplished easily in R using the code below, or in Excel by loading the data with \texttt{Get\ and\ Transform} -\textgreater{} selecting the three ``visits'' columns -\textgreater{} right clicking -\textgreater{} and selecting ``unpivot columns.''
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -695,14 +480,7 @@ Ross & Online Visits & 10\\
 \end{tabular}
 \end{table}
 
-Now this is a table that is much easier to analyze in an Excel pivot
-table or with a variety of R functions. Using data in this format, it is
-easy to recreate the original table for presentation, while also giving
-a variety of options for formatting and plotting. Use the pivot table
-below to recreate the original table using the tidy data. *Hint- Instead
-of Count, select Sum -\textgreater{} Number of Visits as the value
-field. It is far easier to work with fields when they are in a tidy
-format.
+Now this is a table that is much easier to analyze in an Excel pivot table or with a variety of R functions. Using data in this format, it is easy to recreate the original table for presentation, while also giving a variety of options for formatting and plotting. Use the pivot table below to recreate the original table using the tidy data. *Hint- Instead of Count, select Sum -\textgreater{} Number of Visits as the value field. It is far easier to work with fields when they are in a tidy format.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -710,15 +488,14 @@ format.
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{htmlwidget-b92334b9d9e93c3857d1}{}
+\hypertarget{htmlwidget-81008f38113f2dd47021}{}
 
-When we get to the next chapter, you will learn several alternatives to
-pivot tables that use the same principles, but are more reproducible.
+When we get to the next chapter, you will learn several alternatives to pivot tables that use the same principles, but are more reproducible.
 
-\section{Using lower level data}\label{using-lower-level-data}
+\hypertarget{using-lower-level-data}{%
+\section{Using lower level data}\label{using-lower-level-data}}
 
-Let's introduce a slightly more complicated tidy data problem, using the
-same base data as before.
+Let's introduce a slightly more complicated tidy data problem, using the same base data as before.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -750,10 +527,7 @@ Ross & 10 & 8 & 10 & 7 & 10 & 9\\
 \end{tabular}
 \end{table}
 
-Hopefully you will see a similar pattern here. Now, there are three
-variables: Visit type, number of visits, and number of retirements.
-Again, this data works fine for presentation but could use tidying to
-ease in analysis.
+Hopefully you will see a similar pattern here. Now, there are three variables: Visit type, number of visits, and number of retirements. Again, this data works fine for presentation but could use tidying to ease in analysis.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -766,11 +540,9 @@ ease in analysis.
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{htmlwidget-73af6fa0012bdaaa37da}{}
+\hypertarget{htmlwidget-888ba2430b3ae4346a57}{}
 
-Try to tidy this in R or Excel Get and Transform. See this
-footnote\footnote{powerquery hints} or look at the code if you need a
-hint.
+Try to tidy this in R or Excel Get and Transform. See this footnote\footnote{powerquery hints} or look at the code if you need a hint.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -807,11 +579,7 @@ hint.
 ## 18 Ross     Online           Retirements     9
 \end{verbatim}
 
-In this case, we actually pivoted too far. It will probably be more
-useful to have the counts of visits and retirements in their own
-category. Keep in mind the scope of the observation-- It is perfectly
-valid for each to have their own column, as it is visits and retirements
-per month.
+In this case, we actually pivoted too far. It will probably be more useful to have the counts of visits and retirements in their own category. Keep in mind the scope of the observation-- It is perfectly valid for each to have their own column, as it is visits and retirements per month.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -837,9 +605,7 @@ per month.
 ## 9 Ross     Online               10           9
 \end{verbatim}
 
-From here, it is easy to do calculations based on fields, rather than
-cells. For example, in R or Get and Transform, you could add the
-following:
+From here, it is easy to do calculations based on fields, rather than cells. For example, in R or Get and Transform, you could add the following:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -865,62 +631,74 @@ following:
 ## 9 Ross     Online               10           9           0.9
 \end{verbatim}
 
-And then, one of the most useful things you can do is develop formulas
-by grouping of rows. For example, you may want to know the total number
-of visits and retirements by retiree, regardless of visit location. That
-can be accomplished in a pivot table.
+And then, one of the most useful things you can do is develop formulas by grouping of rows. For example, you may want to know the total number of visits and retirements by retiree, regardless of visit location. That can be accomplished in a pivot table.
 
-\section{So how is this democratic?}\label{so-how-is-this-democratic}
+\hypertarget{so-how-is-this-democratic}{%
+\section{So how is this democratic?}\label{so-how-is-this-democratic}}
 
-\section{Practice problems}\label{practice-problems}
+\hypertarget{practice-problems}{%
+\section{Practice problems}\label{practice-problems}}
 
-\chapter{Reproducible Analysis}\label{reproducible-analysis}
+\hypertarget{reproducible-analysis}{%
+\chapter{Reproducible Analysis}\label{reproducible-analysis}}
 
-The second principle of democratic data analysis is reproducability. By
-this, I mean anything that makes it easy for someone else (or you,
-several months from now), to look at your analysis and understand what
-is going on. This is where classic data analysis in Excel falls short. I
-believe it is almost a universal experience in the public sector to
-recieve a workbook full of broken links, formulas pointing in every
-direction, and no sense of where the original data is.
+\hypertarget{principles-to-make-your-life-easier}{%
+\section{Principles to Make Your Life Easier}\label{principles-to-make-your-life-easier}}
 
-In thinking about creating reproducible data analysis, it is important
-to keep in mind that data analasys should be structured from beginning
-to end, like a story. In the beginning, there is raw data that you
-pulled from a report, compiled yourself, or otherwise recieved. In Act
-1, you use the practices we learned in the previous section to make the
-raw data tidy-- Without distroying the original data. In Act 2, which
-will be the next chapter, you use your data to create a picture of the
-world before you share it with others in the final Act 3.
+Many things take more time to do up front, but save you from massive headaches down the road. Brushing your teeth. Oil changes. Preventative maintenence is the name of the game. The same thing applies in democratic data analysis. Learning how to brush the teeth of your analysis will pay massive dividends down the road, as someone else (or you, more likely), need to go back through and understand, replicate, or validate your findings.
 
-The practices of reproducability that you will use here apply throughout
-the other chapters. It may seem like a waste of time, but if you have
-ever come back to a complicated excel workbook after spending even days
-away, this will make your life much easier.
+The second principle of democratic data analysis is reproducability. By this, I mean anything that makes it easy to look at your analysis and understand what is going on. This is where classic data analysis in Excel falls short. I believe it is almost a universal experience in the public sector to recieve a workbook full of broken links, formulas pointing in every direction, and no sense of where the original data is or what has happened to it since.
 
-\section{Comment Comment Comment}\label{comment-comment-comment}
+In thinking about creating reproducible data analysis, it is important to keep in mind that data analasys should be structured from beginning to end, like a story. In the beginning, there is raw data that you pulled from a report, compiled yourself, or otherwise recieved. In Act 1, you use the practices we learned in the previous section to make the raw data tidy-- without distroying the original data. You should use tools that allow to to non-destructively manipulate and iterate on your data. Both Get \& Transform and R allow you to do this by default. In Act 2, which will be the next chapter, you use your data to create a picture of the world before you share it with others in the final Act 3.
 
-\chapter{Data Modeling}\label{data-modeling}
+The practices of reproducability that you will use here apply throughout the other chapters. It may seem like a waste of time, but if you have ever come back to a complicated excel workbook after spending even days away, this will make your life much easier.
 
-\section{Why Model?}\label{why-model}
+\hypertarget{do-not-destroy}{%
+\subsection{Do Not Destroy}\label{do-not-destroy}}
 
-Models transform data into decision making. \#\# Example two
+As I mentioned before, the existential dread that occurs when opening someone else's workbook and immediatly recieving broken links, color-coding\footnote{for the love of democracy, PLEASE do not color code your data}, and a spiderweb of formulas may be a universal experience in the public sector. But there is a better way to do things. Reproducible analysis is linear. It progresses in a certain direction-- from data load to final analysis. Things happen discretely. The blessing and curse of spreadsheets is that they are unbooud by time. There is no natural direction, just a sea of little boxes spreading out as far as the eye can see\footnote{This is where programming languages such as R have an inherent advantage. Code runs in order, from first to last}. However, there are ways to impose a linear structure to your analysis.
 
-\section{Assumptions}\label{assumptions}
+The first thing I want to emphasize is PLEASE DO NOT DESTROY, ALTER, OR MANIPULATE YOUR UNDERLYING DATA. Your underlying data is like the foundation of your house.
 
-\chapter{Visualization}\label{visualization}
+\hypertarget{comment-everything}{%
+\subsection{Comment Everything}\label{comment-everything}}
 
-\section{Show and Tell}\label{show-and-tell}
+Comments are wonderful. They are notes to yourself that you should leave at almost every step of your analysis. I frequently do not leave comments. Never have I come back to an uncommented data transformation and been happy with my past self. At worst, leaving comments takes a couple seconds of your time you will never get back. At best, it saves you or your organization from a massive headache when you are able to catch your own errors or update your analysis easier in the future.
 
-\section{Vizualizaiton is anything that presents your evidence-- think
-critically about
-it!}\label{vizualizaiton-is-anything-that-presents-your-evidence-think-critically-about-it}
+\hypertarget{practices}{%
+\section{Practices}\label{practices}}
 
-\chapter{Applications}\label{applications}
+\hypertarget{comment-comment-comment}{%
+\section{Comment Comment Comment}\label{comment-comment-comment}}
 
-\section{Tying it all together}\label{tying-it-all-together}
+\hypertarget{data-modeling}{%
+\chapter{Data Modeling}\label{data-modeling}}
 
-\chapter{Resources}\label{resources}
+\hypertarget{why-model}{%
+\section{Why Model?}\label{why-model}}
+
+Models transform data into decision making.
+\#\# Example two
+
+\hypertarget{assumptions}{%
+\section{Assumptions}\label{assumptions}}
+
+\hypertarget{visualization}{%
+\chapter{Visualization}\label{visualization}}
+
+\hypertarget{show-and-tell}{%
+\section{Show and Tell}\label{show-and-tell}}
+
+\#\#Vizualizaiton is anything that presents your evidence-- think critically about it!
+
+\hypertarget{applications}{%
+\chapter{Applications}\label{applications}}
+
+\hypertarget{tying-it-all-together}{%
+\section{Tying it all together}\label{tying-it-all-together}}
+
+\hypertarget{resources}{%
+\chapter{Resources}\label{resources}}
 
 \bibliography{book.bib,packages.bib}
 

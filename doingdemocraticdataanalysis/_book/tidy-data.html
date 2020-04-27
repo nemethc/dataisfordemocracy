@@ -24,7 +24,7 @@
 <meta name="author" content="Corban Nemeth" />
 
 
-<meta name="date" content="2020-04-15" />
+<meta name="date" content="2020-04-27" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -52,7 +52,7 @@
 
 <script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
 <link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
-<script src="libs/datatables-binding-0.12/datatables.js"></script>
+<script src="libs/datatables-binding-0.13/datatables.js"></script>
 <link href="libs/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
 <link href="libs/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet" />
 <script src="libs/dt-core-1.10.20/js/jquery.dataTables.min.js"></script>
@@ -443,41 +443,66 @@ $(document).ready(function () {
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -501,23 +526,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#what-will-i-learn"><i class="fa fa-check"></i>What will I learn?</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
-<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#write-about-big-themes-first-and-here"><i class="fa fa-check"></i><b>1.1</b> WRITE ABOUT BIG THEMES FIRST AND HERE</a></li>
-<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#define-principles-and-practices"><i class="fa fa-check"></i><b>1.2</b> DEFINE PRINCIPLES AND PRACTICES</a></li>
-<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#what-is-democratic-data-analysis"><i class="fa fa-check"></i><b>1.3</b> What is democratic data analysis?</a></li>
-<li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#do-i-need-to-be-an-excel-god-before-i-begin"><i class="fa fa-check"></i><b>1.4</b> Do I need to be an Excel god before I begin?</a></li>
-<li class="chapter" data-level="1.5" data-path="intro.html"><a href="intro.html#what-tools-should-i-use"><i class="fa fa-check"></i><b>1.5</b> What tools should I use?</a></li>
-<li class="chapter" data-level="1.6" data-path="intro.html"><a href="intro.html#how-to-use-this-book"><i class="fa fa-check"></i><b>1.6</b> How to use this book</a></li>
-<li class="chapter" data-level="1.7" data-path="intro.html"><a href="intro.html#quickstart-guide-to-excel"><i class="fa fa-check"></i><b>1.7</b> Quickstart Guide to Excel</a></li>
-<li class="chapter" data-level="1.8" data-path="intro.html"><a href="intro.html#quickstart-guide-to-r"><i class="fa fa-check"></i><b>1.8</b> Quickstart Guide to R</a></li>
-<li class="chapter" data-level="1.9" data-path="intro.html"><a href="intro.html#how-to-think-about-democratic-data-analysis"><i class="fa fa-check"></i><b>1.9</b> How to Think about Democratic Data Analysis</a></li>
-<li class="chapter" data-level="1.10" data-path="intro.html"><a href="intro.html#alternate-forms-of-data-analysis"><i class="fa fa-check"></i><b>1.10</b> Alternate Forms of Data Analysis</a><ul>
-<li class="chapter" data-level="" data-path="intro.html"><a href="intro.html#oligarchic-data-analysis"><i class="fa fa-check"></i>Oligarchic Data Analysis</a></li>
-<li class="chapter" data-level="" data-path="intro.html"><a href="intro.html#monarchic-data-analysis"><i class="fa fa-check"></i>Monarchic Data Analysis</a></li>
-<li class="chapter" data-level="" data-path="intro.html"><a href="intro.html#dictitorial-data-analysis"><i class="fa fa-check"></i>Dictitorial Data Analysis</a></li>
-<li class="chapter" data-level="" data-path="intro.html"><a href="intro.html#technocratic-data-analysis"><i class="fa fa-check"></i>Technocratic Data Analysis</a></li>
-</ul></li>
-<li class="chapter" data-level="1.11" data-path="intro.html"><a href="intro.html#principles-of-democratic-data-analysis"><i class="fa fa-check"></i><b>1.11</b> Principles of Democratic Data Analysis</a></li>
-<li class="chapter" data-level="1.12" data-path="intro.html"><a href="intro.html#the-language-of-data-analysis"><i class="fa fa-check"></i><b>1.12</b> The Language of Data Analysis</a></li>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#principles-and-practices"><i class="fa fa-check"></i><b>1.1</b> Principles and Practices</a></li>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#how-to-think-about-democratic-data-analysis"><i class="fa fa-check"></i><b>1.2</b> How to Think about Democratic Data Analysis</a></li>
+<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#principles-of-democratic-data-analysis"><i class="fa fa-check"></i><b>1.3</b> Principles of Democratic Data Analysis</a></li>
+<li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#the-language-of-data-analysis"><i class="fa fa-check"></i><b>1.4</b> The Language of Data Analysis</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="tidy-data.html"><a href="tidy-data.html"><i class="fa fa-check"></i><b>2</b> Tidy Data</a><ul>
 <li class="chapter" data-level="2.1" data-path="tidy-data.html"><a href="tidy-data.html#cleaning-vs-tidying"><i class="fa fa-check"></i><b>2.1</b> Cleaning vs Tidying</a></li>
@@ -527,7 +539,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.5" data-path="tidy-data.html"><a href="tidy-data.html#practice-problems"><i class="fa fa-check"></i><b>2.5</b> Practice problems</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="reproducible-analysis.html"><a href="reproducible-analysis.html"><i class="fa fa-check"></i><b>3</b> Reproducible Analysis</a><ul>
-<li class="chapter" data-level="3.1" data-path="reproducible-analysis.html"><a href="reproducible-analysis.html#comment-comment-comment"><i class="fa fa-check"></i><b>3.1</b> Comment Comment Comment</a></li>
+<li class="chapter" data-level="3.1" data-path="reproducible-analysis.html"><a href="reproducible-analysis.html#principles-to-make-your-life-easier"><i class="fa fa-check"></i><b>3.1</b> Principles to Make Your Life Easier</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="reproducible-analysis.html"><a href="reproducible-analysis.html#do-not-destroy"><i class="fa fa-check"></i><b>3.1.1</b> Do Not Destroy</a></li>
+<li class="chapter" data-level="3.1.2" data-path="reproducible-analysis.html"><a href="reproducible-analysis.html#comment-everything"><i class="fa fa-check"></i><b>3.1.2</b> Comment Everything</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="reproducible-analysis.html"><a href="reproducible-analysis.html#practices"><i class="fa fa-check"></i><b>3.2</b> Practices</a></li>
+<li class="chapter" data-level="3.3" data-path="reproducible-analysis.html"><a href="reproducible-analysis.html#comment-comment-comment"><i class="fa fa-check"></i><b>3.3</b> Comment Comment Comment</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="data-modeling.html"><a href="data-modeling.html"><i class="fa fa-check"></i><b>4</b> Data Modeling</a><ul>
 <li class="chapter" data-level="4.1" data-path="data-modeling.html"><a href="data-modeling.html#why-model"><i class="fa fa-check"></i><b>4.1</b> Why Model?</a></li>
@@ -535,7 +552,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="5" data-path="visualization.html"><a href="visualization.html"><i class="fa fa-check"></i><b>5</b> Visualization</a><ul>
 <li class="chapter" data-level="5.1" data-path="visualization.html"><a href="visualization.html#show-and-tell"><i class="fa fa-check"></i><b>5.1</b> Show and Tell</a></li>
-<li class="chapter" data-level="5.2" data-path="visualization.html"><a href="visualization.html#vizualizaiton-is-anything-that-presents-your-evidence-think-critically-about-it"><i class="fa fa-check"></i><b>5.2</b> Vizualizaiton is anything that presents your evidence– think critically about it!</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>6</b> Applications</a><ul>
 <li class="chapter" data-level="6.1" data-path="applications.html"><a href="applications.html#tying-it-all-together"><i class="fa fa-check"></i><b>6.1</b> Tying it all together</a></li>
@@ -568,47 +584,47 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>My wife gives me a hard time because I hate cleaning, but love tidying. Similar things could be said about my mentality when it comes to data cleaning versus data tidying. Unfortunately, as in with life, one must clean before one tidies. But let’s start with some conceptual definitions.</p>
 <p>Cleaning refers to the process of scrubbing the data into a way that makes sense to you, the analyst. Oftentimes, and especially in public sector organizations, the data is not clean. Whether you are looking at the output of a SurveyMonkey survey or a canned report that is run from the IT department, your data will come in all shapes and sizes.</p>
 <p>Here is the first major departure from what you may have been taught about data analysis in Excel. When you get messy data <em>do not</em> change individual cell values (if you can at all help it). Recall from the introductory chapter the difference between cells and fields. Fields, as a reminder, are columns that represent one variable. Whenever possible, use data analysis tools to make changes to the entire field, rather than specific cells. Most data analysis software, outside of Excel, make it difficult or impossible to change individual cell values. This is important for several reasons, most of which we will get to in the next chapter on reproducibility. But for now, thinking in terms of fields, and making changes to entire fields, will save you <em>a lot</em> of work and headache in the long run. Let’s look at a sample dataset that may be similar to one you would encounter in real life. Here is a survey collected by a field manager of a local parks and recreation department on employment.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)
-
-sites &lt;-<span class="st"> </span><span class="kw">tribble</span>(
-  <span class="op">~</span><span class="st">&quot;Employee&quot;</span>, <span class="op">~</span><span class="st">&quot;Location&quot;</span>, <span class="op">~</span><span class="st">&quot;Telecommute?&quot;</span>, <span class="op">~</span><span class="st">&quot;Hire Date&quot;</span>,
-  <span class="st">&quot;ron swanson&quot;</span>, <span class="st">&quot;Pawnee City Hall&quot;</span>, <span class="st">&quot;never&quot;</span>, <span class="st">&quot;Unknown&quot;</span>,
-  <span class="st">&quot;Knope, Leslie&quot;</span>, <span class="st">&quot;Field Duty&quot;</span>, <span class="st">&quot;1 day/week&quot;</span>, <span class="st">&quot;2011-6-1&quot;</span>,
-  <span class="st">&quot;Andy Dwyer&quot;</span>, <span class="st">&quot;sullivan street pit&quot;</span>, <span class="st">&quot;40 hours&quot;</span>, <span class="st">&quot;March 1, 2013&quot;</span>,
-  <span class="st">&quot;Jerry Gergich&quot;</span>, <span class="st">&quot;City Hall&quot;</span>, <span class="st">&quot;never&quot;</span>, <span class="st">&quot;6/1/1985&quot;</span>,
-  <span class="st">&quot;Garry Gergich&quot;</span>, <span class="st">&quot;City Hall&quot;</span>, <span class="st">&quot;never&quot;</span>, <span class="st">&quot;6/1/1985&quot;</span>,
-  <span class="st">&quot;ben wyatt&quot;</span>, <span class="st">&quot;Partridge, Minnesota&quot;</span>,<span class="st">&quot;&quot;</span> , <span class="st">&quot;Jan. 1, 2010&quot;</span>
-)
-
-sites <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">datatable</span>(
-    <span class="dt">extensions =</span> <span class="st">&#39;Buttons&#39;</span>, 
-    <span class="dt">options =</span> <span class="kw">list</span>(<span class="dt">dom =</span> <span class="st">&#39;Bfrtip&#39;</span>, 
-                   <span class="dt">buttons =</span> <span class="st">&#39;excel&#39;</span>,
-                   <span class="dt">searching =</span> <span class="ot">FALSE</span>))</code></pre></div>
-<div id="htmlwidget-53b6d6cc35e113f9d9dd" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-53b6d6cc35e113f9d9dd">{"x":{"filter":"none","extensions":["Buttons"],"data":[["1","2","3","4","5","6"],["ron swanson","Knope, Leslie","Andy Dwyer","Jerry Gergich","Garry Gergich","ben wyatt"],["Pawnee City Hall","Field Duty","sullivan street pit","City Hall","City Hall","Partridge, Minnesota"],["never","1 day/week","40 hours","never","never",""],["Unknown","2011-6-1","March 1, 2013","6/1/1985","6/1/1985","Jan. 1, 2010"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Employee<\/th>\n      <th>Location<\/th>\n      <th>Telecommute?<\/th>\n      <th>Hire Date<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"Bfrtip","buttons":["excel"],"searching":false,"order":[],"autoWidth":false,"orderClasses":false,"columnDefs":[{"orderable":false,"targets":0}]}},"evals":[],"jsHooks":[]}</script>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb3-3" data-line-number="3">sites &lt;-<span class="st"> </span><span class="kw">tribble</span>(</a>
+<a class="sourceLine" id="cb3-4" data-line-number="4">  <span class="op">~</span><span class="st">&quot;Employee&quot;</span>, <span class="op">~</span><span class="st">&quot;Location&quot;</span>, <span class="op">~</span><span class="st">&quot;Telecommute?&quot;</span>, <span class="op">~</span><span class="st">&quot;Hire Date&quot;</span>,</a>
+<a class="sourceLine" id="cb3-5" data-line-number="5">  <span class="st">&quot;ron swanson&quot;</span>, <span class="st">&quot;Pawnee City Hall&quot;</span>, <span class="st">&quot;never&quot;</span>, <span class="st">&quot;Unknown&quot;</span>,</a>
+<a class="sourceLine" id="cb3-6" data-line-number="6">  <span class="st">&quot;Knope, Leslie&quot;</span>, <span class="st">&quot;Field Duty&quot;</span>, <span class="st">&quot;1 day/week&quot;</span>, <span class="st">&quot;2011-6-1&quot;</span>,</a>
+<a class="sourceLine" id="cb3-7" data-line-number="7">  <span class="st">&quot;Andy Dwyer&quot;</span>, <span class="st">&quot;sullivan street pit&quot;</span>, <span class="st">&quot;40 hours&quot;</span>, <span class="st">&quot;March 1, 2013&quot;</span>,</a>
+<a class="sourceLine" id="cb3-8" data-line-number="8">  <span class="st">&quot;Jerry Gergich&quot;</span>, <span class="st">&quot;City Hall&quot;</span>, <span class="st">&quot;never&quot;</span>, <span class="st">&quot;6/1/1985&quot;</span>,</a>
+<a class="sourceLine" id="cb3-9" data-line-number="9">  <span class="st">&quot;Garry Gergich&quot;</span>, <span class="st">&quot;City Hall&quot;</span>, <span class="st">&quot;never&quot;</span>, <span class="st">&quot;6/1/1985&quot;</span>,</a>
+<a class="sourceLine" id="cb3-10" data-line-number="10">  <span class="st">&quot;ben wyatt&quot;</span>, <span class="st">&quot;Partridge, Minnesota&quot;</span>,<span class="st">&quot;&quot;</span> , <span class="st">&quot;Jan. 1, 2010&quot;</span></a>
+<a class="sourceLine" id="cb3-11" data-line-number="11">)</a>
+<a class="sourceLine" id="cb3-12" data-line-number="12"></a>
+<a class="sourceLine" id="cb3-13" data-line-number="13">sites <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">datatable</span>(</a>
+<a class="sourceLine" id="cb3-14" data-line-number="14">    <span class="dt">extensions =</span> <span class="st">&#39;Buttons&#39;</span>, </a>
+<a class="sourceLine" id="cb3-15" data-line-number="15">    <span class="dt">options =</span> <span class="kw">list</span>(<span class="dt">dom =</span> <span class="st">&#39;Bfrtip&#39;</span>, </a>
+<a class="sourceLine" id="cb3-16" data-line-number="16">                   <span class="dt">buttons =</span> <span class="st">&#39;excel&#39;</span>,</a>
+<a class="sourceLine" id="cb3-17" data-line-number="17">                   <span class="dt">searching =</span> <span class="ot">FALSE</span>))</a></code></pre></div>
+<div id="htmlwidget-a03f41b2daf3dc03d16c" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-a03f41b2daf3dc03d16c">{"x":{"filter":"none","extensions":["Buttons"],"data":[["1","2","3","4","5","6"],["ron swanson","Knope, Leslie","Andy Dwyer","Jerry Gergich","Garry Gergich","ben wyatt"],["Pawnee City Hall","Field Duty","sullivan street pit","City Hall","City Hall","Partridge, Minnesota"],["never","1 day/week","40 hours","never","never",""],["Unknown","2011-6-1","March 1, 2013","6/1/1985","6/1/1985","Jan. 1, 2010"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Employee<\/th>\n      <th>Location<\/th>\n      <th>Telecommute?<\/th>\n      <th>Hire Date<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"Bfrtip","buttons":["excel"],"searching":false,"order":[],"autoWidth":false,"orderClasses":false,"columnDefs":[{"orderable":false,"targets":0}]}},"evals":[],"jsHooks":[]}</script>
 <p>In this example, it would be trivial to go in to the Excel file and clean up the dates, names, and locations by hand. However, you could imagine this survey replicated for a department of forty employees. It quickly becomes unfeasable to make those edits by hand. When this is the case, there are functions in Excel and R that will make your life much easier.</p>
 <p>Here is annotated code for how I would go about cleaning this table in R. The friendly syntax of the <code>tidyverse</code> packages makes it easy to follow along, even if you aren’t comfortable writing it yourself.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sites_cleaned &lt;-<span class="st"> </span>sites <span class="op">%&gt;%</span><span class="st"> </span><span class="co">#creating a new table called &quot;sites_cleaned&quot;, starting with the old table &quot;sites&quot;</span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Employee =</span> <span class="kw">if_else</span>(Employee <span class="op">==</span><span class="st"> &quot;Knope, Leslie&quot;</span>, <span class="st">&quot;Leslie Knope&quot;</span>, Employee)) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">separate</span>(Employee, <span class="dt">into =</span> <span class="kw">c</span>(<span class="st">&quot;first_name&quot;</span>, <span class="st">&quot;last_name&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">rename</span>(<span class="dt">location =</span> Location,
-         <span class="dt">telecommute_hours =</span><span class="st">`</span><span class="dt">Telecommute?</span><span class="st">`</span>,
-         <span class="dt">hire_date =</span> <span class="st">`</span><span class="dt">Hire Date</span><span class="st">`</span>) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">first_name =</span> <span class="kw">str_to_title</span>(first_name),
-         <span class="dt">last_name =</span> <span class="kw">str_to_title</span>(last_name),
-         <span class="dt">location =</span> <span class="kw">str_to_title</span>(location)) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">location =</span> <span class="kw">case_when</span>(
-           <span class="kw">str_detect</span>(location, <span class="st">&quot;City Hall&quot;</span>) <span class="op">~</span><span class="st"> &quot;In Office&quot;</span>,
-           <span class="kw">str_detect</span>(location, <span class="st">&quot;Field&quot;</span>) <span class="op">~</span><span class="st"> &quot;In Field&quot;</span>,
-           <span class="kw">str_detect</span>(location, <span class="st">&quot;Street&quot;</span>) <span class="op">~</span><span class="st"> &quot;In Field&quot;</span>,
-           <span class="ot">TRUE</span> <span class="op">~</span><span class="st"> &quot;Other&quot;</span>),
-         <span class="dt">telecommute_hours =</span> <span class="kw">case_when</span>(
-           telecommute_hours <span class="op">==</span><span class="st"> &quot;never&quot;</span> <span class="op">~</span><span class="st"> </span><span class="dv">0</span>,
-           telecommute_hours <span class="op">==</span><span class="st"> &quot;1 day/week&quot;</span> <span class="op">~</span><span class="st"> </span><span class="dv">8</span>,
-           telecommute_hours <span class="op">==</span><span class="st"> &quot;40 hours&quot;</span> <span class="op">~</span><span class="st"> </span><span class="dv">40</span>
-         )
-         )</code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">sites_cleaned &lt;-<span class="st"> </span>sites <span class="op">%&gt;%</span><span class="st"> </span><span class="co">#creating a new table called &quot;sites_cleaned&quot;, starting with the old table &quot;sites&quot;</span></a>
+<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Employee =</span> <span class="kw">if_else</span>(Employee <span class="op">==</span><span class="st"> &quot;Knope, Leslie&quot;</span>, <span class="st">&quot;Leslie Knope&quot;</span>, Employee)) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="st">  </span><span class="kw">separate</span>(Employee, <span class="dt">into =</span> <span class="kw">c</span>(<span class="st">&quot;first_name&quot;</span>, <span class="st">&quot;last_name&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="st">  </span><span class="kw">rename</span>(<span class="dt">location =</span> Location,</a>
+<a class="sourceLine" id="cb4-5" data-line-number="5">         <span class="dt">telecommute_hours =</span><span class="st">`</span><span class="dt">Telecommute?</span><span class="st">`</span>,</a>
+<a class="sourceLine" id="cb4-6" data-line-number="6">         <span class="dt">hire_date =</span> <span class="st">`</span><span class="dt">Hire Date</span><span class="st">`</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb4-7" data-line-number="7"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">first_name =</span> <span class="kw">str_to_title</span>(first_name),</a>
+<a class="sourceLine" id="cb4-8" data-line-number="8">         <span class="dt">last_name =</span> <span class="kw">str_to_title</span>(last_name),</a>
+<a class="sourceLine" id="cb4-9" data-line-number="9">         <span class="dt">location =</span> <span class="kw">str_to_title</span>(location)) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb4-10" data-line-number="10"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">location =</span> <span class="kw">case_when</span>(</a>
+<a class="sourceLine" id="cb4-11" data-line-number="11">           <span class="kw">str_detect</span>(location, <span class="st">&quot;City Hall&quot;</span>) <span class="op">~</span><span class="st"> &quot;In Office&quot;</span>,</a>
+<a class="sourceLine" id="cb4-12" data-line-number="12">           <span class="kw">str_detect</span>(location, <span class="st">&quot;Field&quot;</span>) <span class="op">~</span><span class="st"> &quot;In Field&quot;</span>,</a>
+<a class="sourceLine" id="cb4-13" data-line-number="13">           <span class="kw">str_detect</span>(location, <span class="st">&quot;Street&quot;</span>) <span class="op">~</span><span class="st"> &quot;In Field&quot;</span>,</a>
+<a class="sourceLine" id="cb4-14" data-line-number="14">           <span class="ot">TRUE</span> <span class="op">~</span><span class="st"> &quot;Other&quot;</span>),</a>
+<a class="sourceLine" id="cb4-15" data-line-number="15">         <span class="dt">telecommute_hours =</span> <span class="kw">case_when</span>(</a>
+<a class="sourceLine" id="cb4-16" data-line-number="16">           telecommute_hours <span class="op">==</span><span class="st"> &quot;never&quot;</span> <span class="op">~</span><span class="st"> </span><span class="dv">0</span>,</a>
+<a class="sourceLine" id="cb4-17" data-line-number="17">           telecommute_hours <span class="op">==</span><span class="st"> &quot;1 day/week&quot;</span> <span class="op">~</span><span class="st"> </span><span class="dv">8</span>,</a>
+<a class="sourceLine" id="cb4-18" data-line-number="18">           telecommute_hours <span class="op">==</span><span class="st"> &quot;40 hours&quot;</span> <span class="op">~</span><span class="st"> </span><span class="dv">40</span></a>
+<a class="sourceLine" id="cb4-19" data-line-number="19">         )</a>
+<a class="sourceLine" id="cb4-20" data-line-number="20">         )</a></code></pre></div>
 </div>
 <div id="thinking-in-pivot-tables-from-wide-to-long." class="section level2">
 <h2><span class="header-section-number">2.2</span> Thinking in Pivot Tables– From Wide to Long.</h2>
@@ -616,15 +632,15 @@ sites <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">da
 <p>A pivot table groups data by field and allows the user to drag fields to the rows or columns of the pivot table. This is effective when each field is a variable (something that can change), and each row is a seperate observation of some phenomena of interest.</p>
 <p>In short, pivot tables depend on <strong>tidy data</strong>.</p>
 <p>Tidy data is the way your data should be organized before you begin your analysis. In tidy data, each column is a <em>variable</em>, each row is an <em>observation</em>, and each table is an <em>associated set of observations</em>. What does that mean in practice? Consider the following example.</p>
-<p>Below is a table<a href="#fn5" class="footnoteRef" id="fnref5"><sup>5</sup></a> that shows types of retirement visits for a month at a state’s Department of Retirement Services by the employee who took the visit and the visit type.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">visits &lt;-<span class="st"> </span><span class="kw">tribble</span>(
-  <span class="op">~</span><span class="st">&quot;Employee&quot;</span>, <span class="op">~</span><span class="st">&quot;Phone Visits&quot;</span>, <span class="op">~</span><span class="st">&quot;Office Visits&quot;</span>, <span class="op">~</span><span class="st">&quot;Online Visits&quot;</span>,
-  <span class="st">&quot;Danielle&quot;</span>, <span class="dv">6</span>, <span class="dv">11</span>, <span class="dv">23</span>,
-  <span class="st">&quot;Ramona&quot;</span>, <span class="dv">11</span>, <span class="dv">5</span>, <span class="dv">18</span>,
-  <span class="st">&quot;Ross&quot;</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span> 
-)
-
-knitr<span class="op">::</span><span class="kw">kable</span>(visits, <span class="dt">caption =</span> <span class="st">&quot;Visits to the Dept. of Retirement Services in a given month&quot;</span>)</code></pre></div>
+<p>Below is a table<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a> that shows types of retirement visits for a month at a state’s Department of Retirement Services by the employee who took the visit and the visit type.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">visits &lt;-<span class="st"> </span><span class="kw">tribble</span>(</a>
+<a class="sourceLine" id="cb5-2" data-line-number="2">  <span class="op">~</span><span class="st">&quot;Employee&quot;</span>, <span class="op">~</span><span class="st">&quot;Phone Visits&quot;</span>, <span class="op">~</span><span class="st">&quot;Office Visits&quot;</span>, <span class="op">~</span><span class="st">&quot;Online Visits&quot;</span>,</a>
+<a class="sourceLine" id="cb5-3" data-line-number="3">  <span class="st">&quot;Danielle&quot;</span>, <span class="dv">6</span>, <span class="dv">11</span>, <span class="dv">23</span>,</a>
+<a class="sourceLine" id="cb5-4" data-line-number="4">  <span class="st">&quot;Ramona&quot;</span>, <span class="dv">11</span>, <span class="dv">5</span>, <span class="dv">18</span>,</a>
+<a class="sourceLine" id="cb5-5" data-line-number="5">  <span class="st">&quot;Ross&quot;</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span> </a>
+<a class="sourceLine" id="cb5-6" data-line-number="6">)</a>
+<a class="sourceLine" id="cb5-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb5-8" data-line-number="8">knitr<span class="op">::</span><span class="kw">kable</span>(visits, <span class="dt">caption =</span> <span class="st">&quot;Visits to the Dept. of Retirement Services in a given month&quot;</span>)</a></code></pre></div>
 <table>
 <caption><span id="tab:tables-visits">Table 2.1: </span>Visits to the Dept. of Retirement Services in a given month</caption>
 <thead>
@@ -658,9 +674,9 @@ knitr<span class="op">::</span><span class="kw">kable</span>(visits, <span class
 </table>
 <p>Data are frequently displayed in this “wide” format. It works great for presentation, but not great for data analysis.</p>
 <p>The shortcomings of data in this format may become apparent when you attempt to work with the data in a pivot table. This is becuase our columns aren’t truly variables. You can drag the fields from the top row to the grey box below, for columns, and the left, for rows. This becomes unmanegable quickly.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">rpivotTable<span class="op">::</span><span class="kw">rpivotTable</span>(visits, <span class="dt">width =</span> <span class="st">&quot;60%&quot;</span>, <span class="dt">height =</span> <span class="st">&quot;60%&quot;</span>)</code></pre></div>
-<div id="htmlwidget-d9dd62e17b31dc0e2f63" style="width:60%;height:60%;" class="rpivotTable html-widget"></div>
-<script type="application/json" data-for="htmlwidget-d9dd62e17b31dc0e2f63">{"x":{"data":{"Employee":["Danielle","Ramona","Ross"],"Phone Visits":[6,11,10],"Office Visits":[11,5,10],"Online Visits":[23,18,10]},"params":{},"locale":"en","subtotals":false},"evals":[],"jsHooks":[]}</script>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1">rpivotTable<span class="op">::</span><span class="kw">rpivotTable</span>(visits, <span class="dt">width =</span> <span class="st">&quot;60%&quot;</span>, <span class="dt">height =</span> <span class="st">&quot;60%&quot;</span>)</a></code></pre></div>
+<div id="htmlwidget-362e194409419364038d" style="width:60%;height:60%;" class="rpivotTable html-widget"></div>
+<script type="application/json" data-for="htmlwidget-362e194409419364038d">{"x":{"data":{"Employee":["Danielle","Ramona","Ross"],"Phone Visits":[6,11,10],"Office Visits":[11,5,10],"Online Visits":[23,18,10]},"params":{},"locale":"en","subtotals":false},"evals":[],"jsHooks":[]}</script>
 <p>Let’s apply our criteria of tidy data to this set:</p>
 <ul>
 <li>Variables
@@ -669,13 +685,13 @@ knitr<span class="op">::</span><span class="kw">kable</span>(visits, <span class
 </ul></li>
 </ul>
 <p>Let’s take another swing at setting up our table for data analysis purposes. This can be accomplished easily in R using the code below, or in Excel by loading the data with <code>Get and Transform</code> -&gt; selecting the three “visits” columns -&gt; right clicking -&gt; and selecting “unpivot columns.”</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#We have already loaded the &quot;tidyverse&quot; library so we do not have to do it again</span>
-
-pivot_visits &lt;-<span class="st"> </span>visits <span class="op">%&gt;%</span><span class="st"> </span><span class="co">#we are editing the &quot;visits&quot; table already created by storing it in a new table pivot_visits</span>
-<span class="st">  </span><span class="kw">pivot_longer</span>(<span class="op">-</span>Employee, <span class="dt">names_to =</span> <span class="st">&quot;Visit Type&quot;</span>, <span class="dt">values_to =</span> <span class="st">&quot;Number of Visits&quot;</span>) <span class="co">#using pivot_longer on every column except &quot;employee&quot; and setting the name of the new columns</span>
-
-
-knitr<span class="op">::</span><span class="kw">kable</span>(pivot_visits, <span class="dt">caption =</span> <span class="st">&quot;Visits to the Dept. of Retirement Services in a given month&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="co">#We have already loaded the &quot;tidyverse&quot; library so we do not have to do it again</span></a>
+<a class="sourceLine" id="cb7-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb7-3" data-line-number="3">pivot_visits &lt;-<span class="st"> </span>visits <span class="op">%&gt;%</span><span class="st"> </span><span class="co">#we are editing the &quot;visits&quot; table already created by storing it in a new table pivot_visits</span></a>
+<a class="sourceLine" id="cb7-4" data-line-number="4"><span class="st">  </span><span class="kw">pivot_longer</span>(<span class="op">-</span>Employee, <span class="dt">names_to =</span> <span class="st">&quot;Visit Type&quot;</span>, <span class="dt">values_to =</span> <span class="st">&quot;Number of Visits&quot;</span>) <span class="co">#using pivot_longer on every column except &quot;employee&quot; and setting the name of the new columns</span></a>
+<a class="sourceLine" id="cb7-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb7-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb7-7" data-line-number="7">knitr<span class="op">::</span><span class="kw">kable</span>(pivot_visits, <span class="dt">caption =</span> <span class="st">&quot;Visits to the Dept. of Retirement Services in a given month&quot;</span>)</a></code></pre></div>
 <table>
 <caption><span id="tab:unnamed-chunk-4">Table 2.2: </span>Visits to the Dept. of Retirement Services in a given month</caption>
 <thead>
@@ -734,22 +750,22 @@ knitr<span class="op">::</span><span class="kw">kable</span>(pivot_visits, <span
 </tbody>
 </table>
 <p>Now this is a table that is much easier to analyze in an Excel pivot table or with a variety of R functions. Using data in this format, it is easy to recreate the original table for presentation, while also giving a variety of options for formatting and plotting. Use the pivot table below to recreate the original table using the tidy data. *Hint- Instead of Count, select Sum -&gt; Number of Visits as the value field. It is far easier to work with fields when they are in a tidy format.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">rpivotTable<span class="op">::</span><span class="kw">rpivotTable</span>(pivot_visits, <span class="dt">width =</span> <span class="st">&quot;60%&quot;</span>, <span class="dt">height =</span> <span class="st">&quot;400px&quot;</span>)</code></pre></div>
-<div id="htmlwidget-452b3f5b147f991617bc" style="width:60%;height:400px;" class="rpivotTable html-widget"></div>
-<script type="application/json" data-for="htmlwidget-452b3f5b147f991617bc">{"x":{"data":{"Employee":["Danielle","Danielle","Danielle","Ramona","Ramona","Ramona","Ross","Ross","Ross"],"Visit Type":["Phone Visits","Office Visits","Online Visits","Phone Visits","Office Visits","Online Visits","Phone Visits","Office Visits","Online Visits"],"Number of Visits":[6,11,23,11,5,18,10,10,10]},"params":{},"locale":"en","subtotals":false},"evals":[],"jsHooks":[]}</script>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1">rpivotTable<span class="op">::</span><span class="kw">rpivotTable</span>(pivot_visits, <span class="dt">width =</span> <span class="st">&quot;60%&quot;</span>, <span class="dt">height =</span> <span class="st">&quot;400px&quot;</span>)</a></code></pre></div>
+<div id="htmlwidget-c8094d28a3f12d18d673" style="width:60%;height:400px;" class="rpivotTable html-widget"></div>
+<script type="application/json" data-for="htmlwidget-c8094d28a3f12d18d673">{"x":{"data":{"Employee":["Danielle","Danielle","Danielle","Ramona","Ramona","Ramona","Ross","Ross","Ross"],"Visit Type":["Phone Visits","Office Visits","Online Visits","Phone Visits","Office Visits","Online Visits","Phone Visits","Office Visits","Online Visits"],"Number of Visits":[6,11,23,11,5,18,10,10,10]},"params":{},"locale":"en","subtotals":false},"evals":[],"jsHooks":[]}</script>
 <p>When we get to the next chapter, you will learn several alternatives to pivot tables that use the same principles, but are more reproducible.</p>
 </div>
 <div id="using-lower-level-data" class="section level2">
 <h2><span class="header-section-number">2.3</span> Using lower level data</h2>
 <p>Let’s introduce a slightly more complicated tidy data problem, using the same base data as before.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">visits_retirements &lt;-<span class="st"> </span><span class="kw">tribble</span>(
-  <span class="op">~</span><span class="st">&quot;Employee&quot;</span>, <span class="op">~</span><span class="st">&quot;Phone Visits&quot;</span>, <span class="op">~</span><span class="st">&quot;Phone Retirements&quot;</span>, <span class="op">~</span><span class="st">&quot;Office Visits&quot;</span>, <span class="op">~</span><span class="st">&quot;Office Retirements&quot;</span>, <span class="op">~</span><span class="st">&quot;Online Visits&quot;</span>, <span class="op">~</span><span class="st">&quot;Online Retirements&quot;</span>,
-  <span class="st">&quot;Danielle&quot;</span>, <span class="dv">6</span>, <span class="dv">4</span>, <span class="dv">11</span>, <span class="dv">8</span>, <span class="dv">23</span>, <span class="dv">15</span>,
-  <span class="st">&quot;Ramona&quot;</span>, <span class="dv">11</span>, <span class="dv">7</span>, <span class="dv">5</span>, <span class="dv">3</span>, <span class="dv">18</span>, <span class="dv">15</span>,
-  <span class="st">&quot;Ross&quot;</span>, <span class="dv">10</span>, <span class="dv">8</span>, <span class="dv">10</span>, <span class="dv">7</span>, <span class="dv">10</span>, <span class="dv">9</span> 
-)
-
-knitr<span class="op">::</span><span class="kw">kable</span>(visits_retirements, <span class="dt">caption =</span> <span class="st">&quot;Visits to the Dept. of Retirement Services in a given month by employee and associated client retirements&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1">visits_retirements &lt;-<span class="st"> </span><span class="kw">tribble</span>(</a>
+<a class="sourceLine" id="cb9-2" data-line-number="2">  <span class="op">~</span><span class="st">&quot;Employee&quot;</span>, <span class="op">~</span><span class="st">&quot;Phone Visits&quot;</span>, <span class="op">~</span><span class="st">&quot;Phone Retirements&quot;</span>, <span class="op">~</span><span class="st">&quot;Office Visits&quot;</span>, <span class="op">~</span><span class="st">&quot;Office Retirements&quot;</span>, <span class="op">~</span><span class="st">&quot;Online Visits&quot;</span>, <span class="op">~</span><span class="st">&quot;Online Retirements&quot;</span>,</a>
+<a class="sourceLine" id="cb9-3" data-line-number="3">  <span class="st">&quot;Danielle&quot;</span>, <span class="dv">6</span>, <span class="dv">4</span>, <span class="dv">11</span>, <span class="dv">8</span>, <span class="dv">23</span>, <span class="dv">15</span>,</a>
+<a class="sourceLine" id="cb9-4" data-line-number="4">  <span class="st">&quot;Ramona&quot;</span>, <span class="dv">11</span>, <span class="dv">7</span>, <span class="dv">5</span>, <span class="dv">3</span>, <span class="dv">18</span>, <span class="dv">15</span>,</a>
+<a class="sourceLine" id="cb9-5" data-line-number="5">  <span class="st">&quot;Ross&quot;</span>, <span class="dv">10</span>, <span class="dv">8</span>, <span class="dv">10</span>, <span class="dv">7</span>, <span class="dv">10</span>, <span class="dv">9</span> </a>
+<a class="sourceLine" id="cb9-6" data-line-number="6">)</a>
+<a class="sourceLine" id="cb9-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb9-8" data-line-number="8">knitr<span class="op">::</span><span class="kw">kable</span>(visits_retirements, <span class="dt">caption =</span> <span class="st">&quot;Visits to the Dept. of Retirement Services in a given month by employee and associated client retirements&quot;</span>)</a></code></pre></div>
 <table>
 <caption><span id="tab:unnamed-chunk-6">Table 2.3: </span>Visits to the Dept. of Retirement Services in a given month by employee and associated client retirements</caption>
 <thead>
@@ -794,21 +810,21 @@ knitr<span class="op">::</span><span class="kw">kable</span>(visits_retirements,
 </tbody>
 </table>
 <p>Hopefully you will see a similar pattern here. Now, there are three variables: Visit type, number of visits, and number of retirements. Again, this data works fine for presentation but could use tidying to ease in analysis.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">visits_retirements <span class="op">%&gt;%</span>
-<span class="st">  </span>DT<span class="op">::</span><span class="kw">datatable</span>(
-    <span class="dt">extensions =</span> <span class="st">&#39;Buttons&#39;</span>, 
-    <span class="dt">options =</span> <span class="kw">list</span>(<span class="dt">dom =</span> <span class="st">&#39;Bfrtip&#39;</span>, 
-                   <span class="dt">buttons =</span> <span class="st">&#39;excel&#39;</span>,
-                   <span class="dt">searching =</span> <span class="ot">FALSE</span>))</code></pre></div>
-<div id="htmlwidget-25a035b3c4b5d6102738" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-25a035b3c4b5d6102738">{"x":{"filter":"none","extensions":["Buttons"],"data":[["1","2","3"],["Danielle","Ramona","Ross"],[6,11,10],[4,7,8],[11,5,10],[8,3,7],[23,18,10],[15,15,9]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Employee<\/th>\n      <th>Phone Visits<\/th>\n      <th>Phone Retirements<\/th>\n      <th>Office Visits<\/th>\n      <th>Office Retirements<\/th>\n      <th>Online Visits<\/th>\n      <th>Online Retirements<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"Bfrtip","buttons":["excel"],"searching":false,"columnDefs":[{"className":"dt-right","targets":[2,3,4,5,6,7]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
-<p>Try to tidy this in R or Excel Get and Transform. See this footnote<a href="#fn6" class="footnoteRef" id="fnref6"><sup>6</sup></a> or look at the code if you need a hint.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">visits_retirements_tidy &lt;-<span class="st"> </span>visits_retirements <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">pivot_longer</span>(<span class="dt">cols =</span> <span class="op">-</span>Employee, 
-               <span class="dt">names_to =</span> <span class="kw">c</span>(<span class="st">&quot;Visit Location&quot;</span>, <span class="st">&quot;Type&quot;</span>), 
-               <span class="dt">names_sep =</span> <span class="st">&quot; &quot;</span>)
-
-<span class="kw">print</span>(visits_retirements_tidy)</code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1">visits_retirements <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb10-2" data-line-number="2"><span class="st">  </span>DT<span class="op">::</span><span class="kw">datatable</span>(</a>
+<a class="sourceLine" id="cb10-3" data-line-number="3">    <span class="dt">extensions =</span> <span class="st">&#39;Buttons&#39;</span>, </a>
+<a class="sourceLine" id="cb10-4" data-line-number="4">    <span class="dt">options =</span> <span class="kw">list</span>(<span class="dt">dom =</span> <span class="st">&#39;Bfrtip&#39;</span>, </a>
+<a class="sourceLine" id="cb10-5" data-line-number="5">                   <span class="dt">buttons =</span> <span class="st">&#39;excel&#39;</span>,</a>
+<a class="sourceLine" id="cb10-6" data-line-number="6">                   <span class="dt">searching =</span> <span class="ot">FALSE</span>))</a></code></pre></div>
+<div id="htmlwidget-1ab2d330d8d1aa6a3e28" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1ab2d330d8d1aa6a3e28">{"x":{"filter":"none","extensions":["Buttons"],"data":[["1","2","3"],["Danielle","Ramona","Ross"],[6,11,10],[4,7,8],[11,5,10],[8,3,7],[23,18,10],[15,15,9]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Employee<\/th>\n      <th>Phone Visits<\/th>\n      <th>Phone Retirements<\/th>\n      <th>Office Visits<\/th>\n      <th>Office Retirements<\/th>\n      <th>Online Visits<\/th>\n      <th>Online Retirements<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"Bfrtip","buttons":["excel"],"searching":false,"columnDefs":[{"className":"dt-right","targets":[2,3,4,5,6,7]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<p>Try to tidy this in R or Excel Get and Transform. See this footnote<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a> or look at the code if you need a hint.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1">visits_retirements_tidy &lt;-<span class="st"> </span>visits_retirements <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb11-2" data-line-number="2"><span class="st">  </span><span class="kw">pivot_longer</span>(<span class="dt">cols =</span> <span class="op">-</span>Employee, </a>
+<a class="sourceLine" id="cb11-3" data-line-number="3">               <span class="dt">names_to =</span> <span class="kw">c</span>(<span class="st">&quot;Visit Location&quot;</span>, <span class="st">&quot;Type&quot;</span>), </a>
+<a class="sourceLine" id="cb11-4" data-line-number="4">               <span class="dt">names_sep =</span> <span class="st">&quot; &quot;</span>)</a>
+<a class="sourceLine" id="cb11-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb11-6" data-line-number="6"><span class="kw">print</span>(visits_retirements_tidy)</a></code></pre></div>
 <pre><code>## # A tibble: 18 x 4
 ##    Employee `Visit Location` Type        value
 ##    &lt;chr&gt;    &lt;chr&gt;            &lt;chr&gt;       &lt;dbl&gt;
@@ -831,10 +847,10 @@ knitr<span class="op">::</span><span class="kw">kable</span>(visits_retirements,
 ## 17 Ross     Online           Visits         10
 ## 18 Ross     Online           Retirements     9</code></pre>
 <p>In this case, we actually pivoted too far. It will probably be more useful to have the counts of visits and retirements in their own category. Keep in mind the scope of the observation– It is perfectly valid for each to have their own column, as it is visits and retirements per month.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">visits_retirements_tidy2 &lt;-<span class="st"> </span>visits_retirements_tidy <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">pivot_wider</span>(<span class="dt">id_cols =</span> <span class="kw">c</span>(Employee, <span class="st">`</span><span class="dt">Visit Location</span><span class="st">`</span>, Type), <span class="dt">names_from =</span> Type, <span class="dt">values_from =</span> value)
-
-<span class="kw">print</span>(visits_retirements_tidy2)</code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1">visits_retirements_tidy2 &lt;-<span class="st"> </span>visits_retirements_tidy <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb13-2" data-line-number="2"><span class="st">  </span><span class="kw">pivot_wider</span>(<span class="dt">id_cols =</span> <span class="kw">c</span>(Employee, <span class="st">`</span><span class="dt">Visit Location</span><span class="st">`</span>, Type), <span class="dt">names_from =</span> Type, <span class="dt">values_from =</span> value)</a>
+<a class="sourceLine" id="cb13-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb13-4" data-line-number="4"><span class="kw">print</span>(visits_retirements_tidy2)</a></code></pre></div>
 <pre><code>## # A tibble: 9 x 4
 ##   Employee `Visit Location` Visits Retirements
 ##   &lt;chr&gt;    &lt;chr&gt;             &lt;dbl&gt;       &lt;dbl&gt;
@@ -848,10 +864,10 @@ knitr<span class="op">::</span><span class="kw">kable</span>(visits_retirements,
 ## 8 Ross     Office               10           7
 ## 9 Ross     Online               10           9</code></pre>
 <p>From here, it is easy to do calculations based on fields, rather than cells. For example, in R or Get and Transform, you could add the following:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">visits_pct &lt;-<span class="st"> </span>visits_retirements_tidy2 <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">pct_retirements =</span> Retirements <span class="op">/</span><span class="st"> </span>Visits)
-
-<span class="kw">print</span>(visits_pct)</code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1">visits_pct &lt;-<span class="st"> </span>visits_retirements_tidy2 <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb15-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">pct_retirements =</span> Retirements <span class="op">/</span><span class="st"> </span>Visits)</a>
+<a class="sourceLine" id="cb15-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb15-4" data-line-number="4"><span class="kw">print</span>(visits_pct)</a></code></pre></div>
 <pre><code>## # A tibble: 9 x 5
 ##   Employee `Visit Location` Visits Retirements pct_retirements
 ##   &lt;chr&gt;    &lt;chr&gt;             &lt;dbl&gt;       &lt;dbl&gt;           &lt;dbl&gt;
@@ -877,8 +893,8 @@ knitr<span class="op">::</span><span class="kw">kable</span>(visits_retirements,
 <div class="footnotes">
 <hr />
 <ol start="5">
-<li id="fn5"><p>Data was created for demonstration purposes<a href="tidy-data.html#fnref5">↩</a></p></li>
-<li id="fn6"><p>powerquery hints<a href="tidy-data.html#fnref6">↩</a></p></li>
+<li id="fn5"><p>Data was created for demonstration purposes<a href="tidy-data.html#fnref5" class="footnote-back">↩</a></p></li>
+<li id="fn6"><p>powerquery hints<a href="tidy-data.html#fnref6" class="footnote-back">↩</a></p></li>
 </ol>
 </div>
             </section>

@@ -1,73 +1,32 @@
 # Introduction {#intro}
 
-## WRITE ABOUT BIG THEMES FIRST AND HERE
 
-## DEFINE PRINCIPLES AND PRACTICES
+## Principles and Practices
+This handbook is composed of five principles of democratic data analysis. Democratic data analysis is:
+* Tidy
+* Reproducible
+* Honest
+* Visual, and; 
+* Decision-oriented.
 
-## What is democratic data analysis?
-This is little-d democracy here, people. Not a guide to data analysis for Democrats, but an approach to data that empowers the subject matter experts within public organizations to do their best work. 
+Each of those principles has a seperate chapter in this book. As this isn't a how-to manual, per say, each chapter will begin with a description of the *principles* outlined above and arguments for why they are important. Each chapter will then have a *practices* section where I walk through examples of how to implement these principles in common situations. Chapters will conclude with a link to other resources for additonal information. 
 
+Why seperate principles and practices? The nature of data analysis is heavily influenced by the technologies that we have access to. Whether it be the venerable pivot table, or a new-school dashboard platform, or a data-oriented programming language, the principles that I lay out here supersede specific technologies. Think of it like grammer. You may write by hand, on a computer, using text-to-speech. You may be writing a poem, a novel, an argument, or an instruction manual. But the basic rules of grammer are relevant in whatever medium you choose. Similarily, this guide will teach you the basic "grammar" of democratic data analysis. This will alllow you to apply this knowledge in whatever platform or technology you are interested in or have access to. But similar to learning language, it helps to practice. That's where the *practices* section comes in to play. 
 
-## Do I need to be an Excel god before I begin?
-**No.**
-
-## What tools should I use?
-
-This guide is written to be technology-agnostic and is not a tutorial on specific tools. The changing nature of technology and the lag of state agencies to pick up tools means that the principles outlined in this book supersede specific technologies. 
-
-However, you should start somewhere. This guide will include examples in both Excel and `R`. Government runs on Excel, so all of the examples and exercises will be Excel compatible. If you are comfortable with Excel^[aka you use `vlookup`, `index(match)`, pivot tables, or *Get & Transform* on a somewhat regular basis] and want to challenge yourself, boost your resume, and become a data wizard^[For example, I used R to create this entire website], I would highly recommend learning `R`. This guide will wshow examples on how to analyze data democratically using both tools, but focusing on the principles and practices that are vital regardless of technology. I will link to specific resources that provide more detailed walk through's as necessary. 
-
-## How to use this book
-
-
-## Quickstart Guide to Excel
-Get & Transform and Data Model
-
-
-## Quickstart Guide to R
-I would **HIGHLY** recommend you take an afternoon to work through Chapters 1, 2, and 3 of "[*R for Excel Users*](https://rstudio-conf-2020.github.io/r-for-excel/index.html)". You will thank me later. 
-
+This guide will include examples in both Excel and `R`. Government runs on Excel, so all of the examples and exercises will be Excel compatible. If you are comfortable with Excel^[aka you use `vlookup`, `index(match)`, pivot tables, or *Get & Transform* on a somewhat regular basis] and want to challenge yourself, boost your resume, and become a data wizard^[For example, I used R to create this entire website], I would highly recommend learning `R`. This guide will wshow examples on how to analyze data democratically using both tools, but focusing on the principles and practices that are vital regardless of technology. I will link to specific resources that provide more detailed walk through's as necessary. 
 
 ## How to Think about Democratic Data Analysis
 
 What is data analysis? It may be easier to start with what data analysis isn't. 
 
-1. Data analysis isn't math in Excel or a set of specific calculations. 
+1. Data analysis isn't math.
   + Calculations are great, but `a7 + b8` in Excel is deterministic. It gives you one answer. This book is not interested in data analysis that gives you the right answer, because there is no such thing. There are many answers to many questions, depending on how those questions are asked and how the data is analyzed. 
 2. Data analysis isn't statistics. 
- + Look, regressions are great, but that isn't the crux of this book. This book is about reading and telling the story of your data in a way that can complement expertise and experience to make better decisions. Statistics are often used as a cheap stand-in for domain expertise and are often abused in favor of trusting the analyst or administrator to back up their assumptions with both quantitative and qualitiative data. 
+ + This book is about reading and telling the story of your data in a way that can complement expertise and experience to make better decisions. Statistics are often used as a cheap stand-in for domain expertise and are often abused in favor of trusting the analyst or administrator to back up their assumptions with both quantitative and qualitiative data. 
 3. Data analysis isn't research methods. 
   + No set of tools and practices can stand in for asking the right questions, and transforming data into information to answer that question. This book will give you the tools to work with your quantitative data to answer relevant questions, but all good analysis begins with a good question. 
   
-So what are the principles of democratic data analysis?
-
-1. Democratic data analysis gives power to the subject matter expert. 
-  + Working with your own data lets you answer your question, rather than outsource those questions to IT departments who don't have the context necessary to turn data into information. 
-2. Democratic data analysis is easily shared and reproduced. 
-3. Democratic data analysis is honest about its assumptions and limitations. 
-4. Democratic data analysis is structured to be easily understood and communicated. 
-5. Democratic data analysis is approached methodically. 
-
-
-
-## Alternate Forms of Data Analysis
-
-I want to contrast democratic data analysis with alternate forms of analysis that I have seen in my time working in the public sector. 
-
-### Oligarchic Data Analysis {-}
-* small group of "data people"
-
-### Monarchic Data Analysis {-}
-
-* Spreadsheets created decades ago, patched as necessary, and owned by a single or small group of people. Very unnaproachable. Can't ask questions. 
-
-### Dictitorial Data Analysis {-}
-
-*Not reproducible, all hard-coded, can't ask questions, 
-
-### Technocratic Data Analysis {-}
-
-*Excel workbooks straight from the depths of hell. Formulas on formulas on macros. 
+ 
 
 ## Principles of Democratic Data Analysis
 
@@ -79,7 +38,7 @@ I want to contrast democratic data analysis with alternate forms of analysis tha
 
 ## The Language of Data Analysis^[Adapted from Hadley Wickham's paper on [Tidy Data](https://vita.had.co.nz/papers/tidy-data.pdf)]
 
-If you have ever typed a formula in excel, congrats! You are a programmer. Embrace it! If you haven't, you will soon, and then you will be a programmer too. Excel is the world's largest and most underrated programming language. Now, you just have to embrace thinking programmaticlly-- tidy. It's like grammar. There are rules so these sentances (hopefully) make sense to you, the reader. Similarily, by following common conventions of tidy data analysis, others will be able to "read" your analysis like you are reading this sentance. And also, like grammar, you can break the rules-- but it helps to know them first. 
+As I mentioned before, democratic data analysis has an underlying structure, like grammar. There are rules so these sentances (hopefully) make sense to you, the reader. Similarily, by following common conventions of tidy data analysis, others will be able to "read" your analysis like you are reading this sentance. And also, like grammar, you can break the rules-- but it helps to know them first. 
 
 Here are a couple definitions that will help as you move through this text. Don't worry about memorizing them, as I will refer back to these definitions frequently. 
 
@@ -97,3 +56,8 @@ Here are a couple definitions that will help as you move through this text. Don'
   
 * Table
     * A table is the grouping of all observations of a similar type. 
+    
+You may already be able to see how these definitions foreshadow some of what is coming in later sections. For example, there are no references to cells. This is intentional. The most importatant distinction between democratic data analysis and simply working in excel is that in democratic data analysis, (virtually) *everything* is done on the `field` level. Changes are made to entire columns, calculations are made on entire columns. Thinking in `fields` is the first step on the path to democratic data enlightement. Having data formatted in the strucutre outlined above forces good data hygiene that will pay massive dividends later on. 
+
+
+
