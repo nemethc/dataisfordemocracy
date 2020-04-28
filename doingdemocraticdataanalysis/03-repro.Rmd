@@ -14,7 +14,23 @@ The practices of reproducability that you will use here apply throughout the oth
 
 As I mentioned before, the existential dread that occurs when opening someone else's workbook and immediatly recieving broken links, color-coding^[for the love of democracy, PLEASE do not color code your data], and a spiderweb of formulas may be a universal experience in the public sector. But there is a better way to do things. Reproducible analysis is linear. It progresses in a certain direction-- from data load to final analysis. Things happen discretely. The blessing and curse of spreadsheets is that they are unbooud by time. There is no natural direction, just a sea of little boxes spreading out as far as the eye can see^[This is where programming languages such as R have an inherent advantage. Code runs in order, from first to last]. However, there are ways to impose a linear structure to your analysis. 
 
-The first thing I want to emphasize is PLEASE DO NOT DESTROY, ALTER, OR MANIPULATE YOUR UNDERLYING DATA. Your underlying data is like the foundation of your house. 
+The first thing I want to emphasize is PLEASE DO NOT DESTROY, ALTER, OR MANIPULATE YOUR UNDERLYING DATA. Your underlying data is like the foundation of your house. Democratic data analysis starts with a foundation of data, and builds on top of it. Oftentimes, it seems easier to simply click and drag cells around in an excel workbook, changing values here and there as you see fit. This may work in small use cases, but what if you have another idea? Or come up with a different question, where your data needs to be coded differently? Reproducible analysis makes it substantially easier to revise and rewrite after the fact. If you were writing a well-sourced research article, you wouldn't delete your notes and references for the material that didn't make it into your final product. In the same way, keeping record of the changes that you make to your analysis will pay dividends when your approach changes. 
+
+### Red flags for reproduciblitly
+
+I'll start with a list of things you want to avoid in the pursuit of reproducible democratic data analysis
+
+#### Copy and Paste
+
+If you find yourself copying and pasting values in an excel workbook, you are not engaging in reproducible analsys-- full stop. Copy and paste (or worse, cut and paste) doesn't leave breadcrumbs for you or anyone who may come after you. It is incredibly difficult to follow the trail of an analysis built on top of copy-paste. 
+
+#### Repeating Yourself
+
+There is an old adage in programming - *D*on't *R*epeat *Y*ourself. DRY. Keeping your data analysis DRY is a good habit to get in to. If you find yourself repeating the same task more than three times, chances are there is a better, more programamatic way to go about what you are doing. 
+
+What do I mean by repeating yourself? This would be going through every row of an 100-row table to add (or remove)a space between words, capitalizing letters, doing specific calcualtions. All of these tasks can be **easily** automated using virtually all data analysis tools. This not only saves you time, but makes it easier for your reader to see how the data has changed in the course of your analysis. 
+
+To preview the Practices section, Get and Transform allows you to make flexible value transformations on entire fields at a time. This reduces the need for repetitive data cleaning. And if you are already taking my advice and no longer editing individual data cells, you will have a much easier time avoiding repeating yourself. 
 
 ### Comment Everything
 
