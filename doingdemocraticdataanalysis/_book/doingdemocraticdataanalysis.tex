@@ -130,56 +130,38 @@ Big questions will, and should, be asked of big data--- the role of government i
 
 Public administrators and analysts who are data literate will be able to make and inform better decisions while avoiding the pitfalls posed by the latest technological trends. This book represents an opportunity for public administrators and policy analysts to join their subject matter expertise with foundation principles and practices of democratic data analysis--- data analysis that is \textbf{transparent, relevant, and grounded in the context of ethical and effective governance}.
 
-\hypertarget{who-is-this-guide-for}{%
-\section*{Who is this guide for?}\label{who-is-this-guide-for}}
-\addcontentsline{toc}{section}{Who is this guide for?}
+In this guide, I present an opinionated framework for data analysis in public sector organizations. By opinionated, I mean that I will teach you what I think is the right way to do things given my own experience as a public sector policy and data analyst. Your experience might differ-- and that's great. I hope that where you can use your experience in place of mine, you do to the fullest extent. With that in mind, it is often said that you have to know the rules to break them, so I will teach you the ``rules'' as I understand them.
 
-This guide is for:
-
-\begin{itemize}
-\tightlist
-\item
-  the budget analyst at the Department of Fish and Wildlife who has to compile a monthly report analyzing revenues,
-\item
-  the manager at the Department of Social and Health Services who is tracking inventory, and
-\item
-  the research analyst working for the state Legislature who wants to incorporate data into her work session on the latest policy debate.
-\end{itemize}
-
-\hypertarget{what-will-i-learn}{%
-\section*{What will I learn?}\label{what-will-i-learn}}
-\addcontentsline{toc}{section}{What will I learn?}
-
-You will learn an opinionated framework for data analysis in public sector organizations. By opinionated, I mean that I will teach you what I think is the right way to do things given my own experience as a public sector policy and data analyst. Your experience might differ-- and that's great. I hope that where you can use your experience in place of mine, you do to the fullest extent. With that in mind, it is often said that you have to know the rules to break them, so I will teach you the ``rules'' as I understand them.
-
-\hypertarget{what-is-this-guide-not}{%
-\section*{What is this guide not?}\label{what-is-this-guide-not}}
-\addcontentsline{toc}{section}{What is this guide not?}
-
-This is not an excel how-to manual. My hope is that the principles and practices outlined here will allow you to explore whatever analysis tools you are interested in in a democratic manner. With that said, practical examples are given in Excel and in R. You can download the accompanying workbook \href{www.google.com}{here}.
+This is guide is not an excel how-to manual. My hope is that the principles and practices outlined here will allow you to explore whatever analysis tools you are interested in in a democratic manner. With that said, practical examples are given in Excel and in R.
 
 \hypertarget{intro}{%
 \chapter{Introduction}\label{intro}}
 
+\begin{quote}
+Data analysis is a process of inspecting, cleansing, transforming, and modeling data with the goal of discovering useful information, informing conclusions and supporting decision-making.
+\end{quote}
+
+-*Wikipedia (shame on me)
+
 \hypertarget{principles-and-practices}{%
 \section{Principles and Practices}\label{principles-and-practices}}
 
-This handbook is composed of five principles of democratic data analysis. Democratic data analysis is:
+In this handbook, I propose four principles of democratic data analysis. Democratic data analysis is:
 * Tidy
 * Reproducible,
 * Uncertainty-oriented, and
 * Audience-focused
 
-Each of those principles has a seperate chapter in this book. As this isn't a how-to manual, per say, each chapter will begin with a description of the \emph{principles} outlined above and arguments for why they are important. Each chapter will then have a \emph{practices} section where I walk through examples of how to implement these principles in common situations. Chapters will conclude with a link to other resources for additonal information.
+As this isn't a how-to manual, each chapter will begin with a description of the \emph{principles} outlined above and arguments for why they are important. This will be followed by \emph{practices} section where I walk through examples of how to implement these principles in common situations and provide additional materials for you to learn how to apply these principles using common data analysis tools.
 
-Why maintain the distinciton between principles and practices? The nature of data analysis is heavily influenced by the technologies that we have access to. Whether it be the venerable pivot table, or a new-school dashboard platform, or a data-oriented programming language, the principles that I lay out here supersede specific technologies. Think of it like grammer. You may write by hand, on a computer, using text-to-speech. You may be writing a poem, a novel, an argument, or an instruction manual. But the basic rules of grammer are relevant in whatever medium you choose. Similarily, this guide will teach you the basic ``grammar'' of democratic data analysis. This will alllow you to apply this knowledge in whatever platform or technology you are interested in or have access to. But similar to learning language, it helps to practice. That's where the \emph{practices} section comes in to play.
+Why maintain the distinction between principles and practices? Data analysis is driven by the technologies that we have access to. Whether it be the venerable pivot table, or a new-school dashboard platform, or a data-oriented programming language, the principles that I lay out in this handbook supersede specific technologies. Think of it like grammar. You may write by hand, on a computer, using text-to-speech. You may be writing a poem, a novel, an argument, or an instruction manual. But the basic rules of grammar are relevant in whatever medium you choose. Similarly, this guide will teach you the basic ``grammar'' of democratic data analysis. This will allow you to apply this knowledge in whatever platform or technology you are interested in or have access to. But similar to learning language, it helps to practice. It isn't much to use to study grammar without ever writing a sentance.
 
-This guide will include examples in both Excel and \texttt{R}. Government runs on Excel, so all of the examples and exercises will be Excel compatible. If you are comfortable with Excel\footnote{aka you use \texttt{vlookup}, \texttt{index(match)}, pivot tables, or \emph{Get \& Transform} on a somewhat regular basis} and want to challenge yourself, boost your resume, and become a data wizard\footnote{For example, I used R to create this entire website}, I would highly recommend learning \texttt{R}. This guide will wshow examples on how to analyze data democratically using both tools, but focusing on the principles and practices that are vital regardless of technology. I will link to specific resources that provide more detailed walk through's as necessary.
+The principles section of this guide will include examples in both Excel and \texttt{R}. Government runs on Excel, so all of the examples and exercises will be Excel compatible. If you are comfortable with Excel\footnote{aka you use \texttt{vlookup}, \texttt{index(match)}, pivot tables, or \emph{Get \& Transform} on a somewhat regular basis} and want to challenge yourself, boost your resume, and become a data superstar, I would highly recommend learning \texttt{R}.
 
 \hypertarget{what-is-data-analysis}{%
 \section{What is data analysis?}\label{what-is-data-analysis}}
 
-Data analysis is the process of transforming numbers on a page to insight into the real world. It's looking at a table and gaining insight from it. Data analysis can be as simple as adding totals into a column to see cumulative effects, or as complicated as time-series forecasting. But fundementally, all data analysis is taking inputs and applying those inputs to the real world to gain insight into the real world. It also may be helpful to think about what data analysis \emph{isn't}:
+Data analysis is the process of transforming numbers on a page to insight into the real world. It's looking at a table and gaining insight from it. Data analysis can be as simple as adding totals into a column to see cumulative effects, or as complicated as time-series forecasting. But fundamentally, all data analysis is taking inputs and applying those inputs to the real world to gain insight into the real world. It also may be helpful to think about what data analysis \emph{isn't}:
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -205,7 +187,7 @@ Data analysis is the process of transforming numbers on a page to insight into t
 \begin{itemize}
 \tightlist
 \item
-  This book is about reading and telling the story of your data in a way that can complement expertise and experience to make better decisions. Statistics are often used as a cheap stand-in for domain expertise and are often abused in favor of trusting the analyst or administrator to back up their assumptions with both quantitative and qualitiative data.
+  This book is about reading and telling the story of your data in a way that can complement expertise and experience to make better decisions. Statistics are often used as a cheap stand-in for domain expertise and are often abused in favor of trusting the analyst or administrator to back up their assumptions with both quantitative and qualitative data.
 \end{itemize}
 
 \begin{enumerate}
@@ -222,10 +204,10 @@ Data analysis is the process of transforming numbers on a page to insight into t
   No set of tools and practices can stand in for asking the right questions, and transforming data into information to answer that question. This book will give you the tools to work with your quantitative data to answer relevant questions, but all good analysis begins with a good question.
 \end{itemize}
 
-\hypertarget{the-language-of-data-analysis}{%
-\section[The Language of Data Analysis]{\texorpdfstring{The Language of Data Analysis\footnote{Adapted from Hadley Wickham's paper on \href{https://vita.had.co.nz/papers/tidy-data.pdf}{Tidy Data}}}{The Language of Data Analysis}}\label{the-language-of-data-analysis}}
+\hypertarget{the-grammar-of-data-analysis}{%
+\section[The Grammar of Data Analysis]{\texorpdfstring{The Grammar of Data Analysis\footnote{Adapted from Hadley Wickham's paper on \href{https://vita.had.co.nz/papers/tidy-data.pdf}{Tidy Data}}}{The Grammar of Data Analysis}}\label{the-grammar-of-data-analysis}}
 
-As I mentioned before, democratic data analysis has an underlying structure, like grammar. There are rules so these sentances (hopefully) make sense to you, the reader. Similarily, by following common conventions of tidy data analysis, others will be able to ``read'' your analysis like you are reading this sentance. And also, like grammar, you can break the rules-- but it helps to know them first.
+As I mentioned before, democratic data analysis has an underlying structure, like a sentance There are rules so these sentences (hopefully) make sense to you, the reader. Similarly, by following common conventions of democratic data analysis, others will be able to ``read'' your analysis like you are reading this sentence. And also, like grammar, you can break the rules-- but it helps to know them first.
 
 Here are a couple definitions that will help as you move through this text. Don't worry about memorizing them, as I will refer back to these definitions frequently.
 
@@ -237,7 +219,7 @@ Here are a couple definitions that will help as you move through this text. Don'
   \begin{itemize}
   \tightlist
   \item
-    A field is a fancy name for a column. From here on out, every calculation, manipulation, formula, you name it, will be on a column. I want you to forget that you could ever modify a lone cell in Excel. No more formulas in cells. No more typing in values to a cell. Certainly no more writing over data in a cell. Democratic data analysis depends on formulas that work on entire fields. Everything you would need to do to a single cell in Excel can-- and should!-- be done to an entire column. This will be immensly valuable, as you will hopefully see while working through this material.
+    A field is a fancy name for a column. From here on out, every calculation, manipulation, formula, you name it, will be on a column. I want you to forget that you could ever modify a lone cell in Excel. No more formulas in cells. No more typing in values to a cell. Certainly no more writing over data in a cell. Democratic data analysis depends on formulas that work on entire fields. Everything you would need to do to a single cell in Excel can-- and should!-- be done to an entire column.
   \end{itemize}
 \item
   Variables
@@ -245,7 +227,7 @@ Here are a couple definitions that will help as you move through this text. Don'
   \begin{itemize}
   \tightlist
   \item
-    A variable is something in your data that can change. That's it! Variables become very important when looking at how to structure your data.
+    A variable is something in your data that can change. That's it! Variables become very important when looking at how to structure your data. Each variable should have its own field.
   \end{itemize}
 \item
   Observations
@@ -253,7 +235,7 @@ Here are a couple definitions that will help as you move through this text. Don'
   \begin{itemize}
   \tightlist
   \item
-    Observations make up the rows of your dataset. Each observation should correspond to a specific ``thing.'' This will make more sense later, I promise.
+    Observations make up the rows of your data set. Each observation should correspond to a specific ``thing.'' This will make more sense later, I promise.
   \end{itemize}
 \item
   Values
@@ -273,28 +255,31 @@ Here are a couple definitions that will help as you move through this text. Don'
   \end{itemize}
 \end{itemize}
 
-You may already be able to see how these definitions foreshadow some of what is coming in later sections. For example, there are no references to cells. This is intentional. The most importatant distinction between democratic data analysis and simply working in excel is that in democratic data analysis, (virtually) \emph{everything} is done on the \texttt{field} level. Changes are made to entire columns, calculations are made on entire columns. Thinking in \texttt{fields} is the first step on the path to democratic data enlightement. Having data formatted in the strucutre outlined above forces good data hygiene that will pay massive dividends later on.
-
-\hypertarget{a-quick-note-on-tools}{%
-\section{A Quick Note on Tools}\label{a-quick-note-on-tools}}
-
-As I mentioned in the intro, examples in this guide will be given in R and Excel. Most of the Excel examples will use a tool called Get \& Transform Data (formerly known as PowerQuery). If you are a Mac user, it is likely that you will not have access to this tool (which is a shame). My first encouragement would be to give \texttt{r} a try. However, you can also download the desktop version of Microsoft PowerBI for free. It uses the same set of data tools as Get \& Transform in Excel, and the ability to make nice interactive charts (because everything in data analysis is a pivot table-- but more on that later.)
+You may already be able to see how these definitions foreshadow some of what is coming in later sections. For example, there are no references to cells. This is intentional. The most important distinction between democratic data analysis and simply working in excel is that in democratic data analysis, (virtually) \emph{everything} is done on the \texttt{field} level. Changes are made to entire columns, calculations are made on entire columns. Thinking in \texttt{fields} is the first step on the path to democratic data enlightenment. Having data formatted in the structure outlined above forces good data hygiene that will pay massive dividends later on.
 
 \hypertarget{tidy-data}{%
 \chapter{Tidy Data}\label{tidy-data}}
 
+Tidy data refers to having your data organized in a specific manner suitable for analysis. An obscene amount of time in data analysis is spent getting data into a tidy format. This chapter will walk through common problems and approaches in cleaning and tidying your data, that will make it easier for others to follow and easier for you to work across technologies and subject areas. Keeping your data in a tidy format for analysis will help because it is a fundamentally flexible way of working with data. Keeping scattered, lose data in spreadsheets is a sure way to cause confusion for yourself and others.
+
+\hypertarget{the-importance-of-tables}{%
+\section{The Importance of Tables}\label{the-importance-of-tables}}
+
+If I could convince you of one thing, it would be the value in keeping your data in a table-based excel format. Again, this is true for data analysis purposes. If you are trying to do math or statistics, then the table based framework can sometimes fall short. But if you are concerned with working with data to draw conclusions, then tables are the way to go.
+
 \hypertarget{cleaning-vs-tidying}{%
 \section{Cleaning vs Tidying}\label{cleaning-vs-tidying}}
 
-My wife gives me a hard time because I hate cleaning, but love tidying. Similar things could be said about my mentality when it comes to data cleaning versus data tidying. Unfortunately, as in with life, one must clean before one tidies. But let's start with some conceptual definitions.
+I hate cleaning, but love tidying. Unfortunately, as in with life, one must clean before one tidies. But let's start with some conceptual definitions.
 
-Cleaning refers to the process of scrubbing the data into a way that makes sense to you, the analyst. Oftentimes, and especially in public sector organizations, the data is not clean. Whether you are looking at the output of a SurveyMonkey survey or a canned report that is run from the IT department, your data will come in all shapes and sizes.
+Cleaning refers to the process of scrubbing the data into a way that makes sense to you, the analyst. Oftentimes, and especially in public sector organizations, the data is not clean. Whether you are looking at the output of a SurveyMonkey survey or a canned report that is run from the IT department, your data will come in all shapes and sizes. Cleaning data is the process of transforming data values into ones that make sense for the purposes of your analysis.
 
 Here is the first major departure from what you may have been taught about data analysis in Excel. When you get messy data \emph{do not} change individual cell values (if you can at all help it). Recall from the introductory chapter the difference between cells and fields. Fields, as a reminder, are columns that represent one variable. Whenever possible, use data analysis tools to make changes to the entire field, rather than specific cells. Most data analysis software, outside of Excel, make it difficult or impossible to change individual cell values. This is important for several reasons, most of which we will get to in the next chapter on reproducibility. But for now, thinking in terms of fields, and making changes to entire fields, will save you \emph{a lot} of work and headache in the long run. Let's look at a sample dataset that may be similar to one you would encounter in real life. Here is a survey collected by a field manager of a local parks and recreation department on employment.
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{library}\NormalTok{(tidyverse)}
+\KeywordTok{library}\NormalTok{(DT)}
 
 \NormalTok{sites <-}\StringTok{ }\KeywordTok{tribble}\NormalTok{(}
   \OperatorTok{~}\StringTok{"Employee"}\NormalTok{, }\OperatorTok{~}\StringTok{"Location"}\NormalTok{, }\OperatorTok{~}\StringTok{"Telecommute?"}\NormalTok{, }\OperatorTok{~}\StringTok{"Hire Date"}\NormalTok{,}
@@ -314,36 +299,54 @@ Here is the first major departure from what you may have been taught about data 
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{htmlwidget-655fdbc8f06d77323408}{}
+\hypertarget{htmlwidget-216e490c2d9a95d0cebe}{}
 
 In this example, it would be trivial to go in to the Excel file and clean up the dates, names, and locations by hand. However, you could imagine this survey replicated for a department of forty employees. It quickly becomes unfeasable to make those edits by hand. When this is the case, there are functions in Excel and R that will make your life much easier.
 
-Here is annotated code for how I would go about cleaning this table in R. The friendly syntax of the \texttt{tidyverse} packages makes it easy to follow along, even if you aren't comfortable writing it yourself.
+Here is annotated code for how I would go about cleaning this table in R. The friendly syntax of the \texttt{tidyverse} packages makes it easy to follow along, even if you aren't comfortable writing it yourself. You can accomplish all these similar transformations using \href{https://support.microsoft.com/en-us/office/power-query-101-008b3f46-5b14-4f8b-9a07-d3da689091b5}{Get \& Transform in Excel}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{sites_cleaned <-}\StringTok{ }\NormalTok{sites }\OperatorTok{%>%}\StringTok{ }\CommentTok{#creating a new table called "sites_cleaned", starting with the old table "sites"}
+\CommentTok{#creating a new table called "sites_cleaned", starting with the old table "sites"}
+\NormalTok{sites_cleaned <-}\StringTok{ }\NormalTok{sites }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\CommentTok{#switching the order of names that are backwards}
 \StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{Employee =} \KeywordTok{if_else}\NormalTok{(Employee }\OperatorTok{==}\StringTok{ "Knope, Leslie"}\NormalTok{, }\StringTok{"Leslie Knope"}\NormalTok{, Employee)) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\CommentTok{#seperate employee names into two columns}
 \StringTok{  }\KeywordTok{separate}\NormalTok{(Employee, }\DataTypeTok{into =} \KeywordTok{c}\NormalTok{(}\StringTok{"first_name"}\NormalTok{, }\StringTok{"last_name"}\NormalTok{)) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\CommentTok{#renaming column names to standard format}
 \StringTok{  }\KeywordTok{rename}\NormalTok{(}\DataTypeTok{location =}\NormalTok{ Location,}
          \DataTypeTok{telecommute_hours =}\StringTok{`}\DataTypeTok{Telecommute?}\StringTok{`}\NormalTok{,}
          \DataTypeTok{hire_date =} \StringTok{`}\DataTypeTok{Hire Date}\StringTok{`}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\CommentTok{#changing first and last names and locations to Title Case}
 \StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{first_name =} \KeywordTok{str_to_title}\NormalTok{(first_name),}
          \DataTypeTok{last_name =} \KeywordTok{str_to_title}\NormalTok{(last_name),}
          \DataTypeTok{location =} \KeywordTok{str_to_title}\NormalTok{(location)) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\CommentTok{#coding location data to three categories, In Office, In Field, or Other}
 \StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{location =} \KeywordTok{case_when}\NormalTok{(}
            \KeywordTok{str_detect}\NormalTok{(location, }\StringTok{"City Hall"}\NormalTok{) }\OperatorTok{~}\StringTok{ "In Office"}\NormalTok{,}
            \KeywordTok{str_detect}\NormalTok{(location, }\StringTok{"Field"}\NormalTok{) }\OperatorTok{~}\StringTok{ "In Field"}\NormalTok{,}
            \KeywordTok{str_detect}\NormalTok{(location, }\StringTok{"Street"}\NormalTok{) }\OperatorTok{~}\StringTok{ "In Field"}\NormalTok{,}
            \OtherTok{TRUE} \OperatorTok{~}\StringTok{ "Other"}\NormalTok{),}
+  \CommentTok{#coding hours to numeric}
          \DataTypeTok{telecommute_hours =} \KeywordTok{case_when}\NormalTok{(}
 \NormalTok{           telecommute_hours }\OperatorTok{==}\StringTok{ "never"} \OperatorTok{~}\StringTok{ }\DecValTok{0}\NormalTok{,}
 \NormalTok{           telecommute_hours }\OperatorTok{==}\StringTok{ "1 day/week"} \OperatorTok{~}\StringTok{ }\DecValTok{8}\NormalTok{,}
 \NormalTok{           telecommute_hours }\OperatorTok{==}\StringTok{ "40 hours"} \OperatorTok{~}\StringTok{ }\DecValTok{40}
 \NormalTok{         )}
 \NormalTok{         )}
+
+\CommentTok{#print to datatable}
+\NormalTok{sites_cleaned}\OperatorTok{%>%}\StringTok{ }\KeywordTok{datatable}\NormalTok{(}
+    \DataTypeTok{extensions =} \StringTok{'Buttons'}\NormalTok{, }
+    \DataTypeTok{options =} \KeywordTok{list}\NormalTok{(}\DataTypeTok{dom =} \StringTok{'Bfrtip'}\NormalTok{, }
+                   \DataTypeTok{buttons =} \StringTok{'excel'}\NormalTok{,}
+                   \DataTypeTok{searching =} \OtherTok{FALSE}\NormalTok{))}
 \end{Highlighting}
 \end{Shaded}
+
+\hypertarget{htmlwidget-6a7207c5323903c22246}{}
+
+This may seem like a lot of work for a small table. But as your data grows, it is much easier to operate on entire fields at a time. This is especially true in Get \& Transform, which makes it very easy to transform and clean data using all the same steps as the \texttt{R} code above. As you can see, our table is now ``cleaned'' and organized consistently.
 
 \hypertarget{pivot-tables-and-the-meaning-of-everything}{%
 \section{Pivot Tables and the Meaning of Everything}\label{pivot-tables-and-the-meaning-of-everything}}
@@ -354,7 +357,7 @@ Here is annotated code for how I would go about cleaning this table in R. The fr
 
 -Dougas Adams/Corban Nemeth
 
-Pivot tables are the world's most common, most helpful, and most underrated data analysis tool. If you understand the mechanics of the pivot table, you have everything you need to be a data analysis expert. PowerBI interactive charts and graphs are just pivot tables in disguise. Understanding what is needed to make a pivot table work is the key to the wide world of data analysis.
+Pivot tables are the world's most common, most helpful, and most underrated data analysis tool. If you understand the mechanics of the pivot table, you have everything you need to be a data analysis expert. PowerBI or Tableau interactive charts and graphs are just pivot tables in disguise. Understanding what is needed to make a pivot table work is the key to the wide world of data analysis.
 
 What is so important about pivot tables? First and foremost, pivot tables force you to think in terms of fields, not in terms of cells. In order for a pivot table to be effective, the data has to be organized in a table. And there is a right and a wrong way to putting data in a table. If your pivot table is not working properly, it is likely because your data isn't tidy.
 
@@ -368,6 +371,7 @@ Below is a table\footnote{Data was created for demonstration purposes} that show
 
 \begin{Shaded}
 \begin{Highlighting}[]
+\CommentTok{#build sample data table}
 \NormalTok{visits <-}\StringTok{ }\KeywordTok{tribble}\NormalTok{(}
   \OperatorTok{~}\StringTok{"Employee"}\NormalTok{, }\OperatorTok{~}\StringTok{"Phone Visits"}\NormalTok{, }\OperatorTok{~}\StringTok{"Office Visits"}\NormalTok{, }\OperatorTok{~}\StringTok{"Online Visits"}\NormalTok{,}
   \StringTok{"Danielle"}\NormalTok{, }\DecValTok{6}\NormalTok{, }\DecValTok{11}\NormalTok{, }\DecValTok{23}\NormalTok{,}
@@ -375,30 +379,22 @@ Below is a table\footnote{Data was created for demonstration purposes} that show
   \StringTok{"Ross"}\NormalTok{, }\DecValTok{10}\NormalTok{, }\DecValTok{10}\NormalTok{, }\DecValTok{10} 
 \NormalTok{)}
 
-\NormalTok{knitr}\OperatorTok{::}\KeywordTok{kable}\NormalTok{(visits, }\DataTypeTok{caption =} \StringTok{"Visits to the Dept. of Retirement Services in a given month"}\NormalTok{)}
+\CommentTok{#print to datatable}
+\NormalTok{visits}\OperatorTok{%>%}\StringTok{ }\KeywordTok{datatable}\NormalTok{(}
+    \DataTypeTok{extensions =} \StringTok{'Buttons'}\NormalTok{, }
+    \DataTypeTok{options =} \KeywordTok{list}\NormalTok{(}\DataTypeTok{dom =} \StringTok{'Bfrtip'}\NormalTok{, }
+                   \DataTypeTok{buttons =} \StringTok{'excel'}\NormalTok{,}
+                   \DataTypeTok{searching =} \OtherTok{FALSE}\NormalTok{),}
+                   \DataTypeTok{caption =} \StringTok{"Visits to the Dept. of Retirement Services in a given month by employee"}
+\NormalTok{                   )}
 \end{Highlighting}
 \end{Shaded}
 
-\begin{table}
-
-\caption{\label{tab:tables-visits}Visits to the Dept. of Retirement Services in a given month}
-\centering
-\begin{tabular}[t]{l|r|r|r}
-\hline
-Employee & Phone Visits & Office Visits & Online Visits\\
-\hline
-Danielle & 6 & 11 & 23\\
-\hline
-Ramona & 11 & 5 & 18\\
-\hline
-Ross & 10 & 10 & 10\\
-\hline
-\end{tabular}
-\end{table}
+\hypertarget{htmlwidget-c22785c33baf02244872}{}
 
 Data are frequently displayed in this ``wide'' format. It works great for presentation, but not great for data analysis.
 
-The shortcomings of data in this format may become apparent when you attempt to work with the data in a pivot table. This is becuase our columns aren't truly variables. You can drag the fields from the top row to the grey box below, for columns, and the left, for rows. This becomes unmanegable quickly.
+The shortcomings of data in this format may become apparent when you attempt to work with the data in a pivot table. This is becuase our columns aren't truly variables. Remember, variables are elements of an observation that can change. You can drag the fields from the top row to the grey box below, for columns, and the left, for rows. This becomes unmanegable quickly.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -406,7 +402,7 @@ The shortcomings of data in this format may become apparent when you attempt to 
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{htmlwidget-4a1aac9c0bcbc76a1b52}{}
+\hypertarget{htmlwidget-c03bd9bb730bcc215da5}{}
 
 \hypertarget{tidy-data--from-wide-to-long}{%
 \section{Tidy Data- From Wide to Long}\label{tidy-data--from-wide-to-long}}
@@ -421,18 +417,19 @@ Let's apply our criteria of tidy data to this set:
   \begin{itemize}
   \tightlist
   \item
-    At first glance, it doensn't look like this is a problem. But think again. Is \texttt{phone\ visits} really a variable? Or is the real variable of interest number of visits? And are our column names actually variables too (type of visit)?
+    At first glance, it doensn't look like this is a problem. But think again. Is \texttt{phone\ visits} really a variable? Or is the real variable of interest number of visits? And are our column names are actually variables too (type of visit)?
   \end{itemize}
 \end{itemize}
 
-Let's take another swing at setting up our table for data analysis purposes. This can be accomplished easily in R using the code below, or in Excel by loading the data with \texttt{Get\ and\ Transform} -\textgreater{} selecting the three ``visits'' columns -\textgreater{} right clicking -\textgreater{} and selecting ``unpivot columns.''
+Let's take another swing at setting up our table for data analysis purposes. This can be accomplished easily in R using the code below, or in Excel by loading the data with \href{https://support.microsoft.com/en-us/office/unpivot-columns-power-query-0f7bad4b-9ea1-49c1-9d95-f588221c7098}{\texttt{Get\ and\ Transform}} -\textgreater{} selecting the three ``visits'' columns -\textgreater{} right clicking -\textgreater{} and selecting ``unpivot columns.''
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{#We have already loaded the "tidyverse" library so we do not have to do it again}
-
-\NormalTok{pivot_visits <-}\StringTok{ }\NormalTok{visits }\OperatorTok{%>%}\StringTok{ }\CommentTok{#we are editing the "visits" table already created by storing it in a new table pivot_visits}
-\StringTok{  }\KeywordTok{pivot_longer}\NormalTok{(}\OperatorTok{-}\NormalTok{Employee, }\DataTypeTok{names_to =} \StringTok{"Visit Type"}\NormalTok{, }\DataTypeTok{values_to =} \StringTok{"Number of Visits"}\NormalTok{) }\CommentTok{#using pivot_longer on every column except "employee" and setting the name of the new columns}
+\CommentTok{#we are editing the "visits" table already created by storing it in a new table pivot_visits}
+\NormalTok{pivot_visits <-}\StringTok{ }\NormalTok{visits }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\CommentTok{#using pivot_longer on every column except "employee" and setting the name of the new columns}
+\StringTok{  }\KeywordTok{pivot_longer}\NormalTok{(}\OperatorTok{-}\NormalTok{Employee, }\DataTypeTok{names_to =} \StringTok{"Visit Type"}\NormalTok{, }\DataTypeTok{values_to =} \StringTok{"Number of Visits"}\NormalTok{) }
 
 
 \NormalTok{knitr}\OperatorTok{::}\KeywordTok{kable}\NormalTok{(pivot_visits, }\DataTypeTok{caption =} \StringTok{"Visits to the Dept. of Retirement Services in a given month"}\NormalTok{)}
@@ -468,7 +465,7 @@ Ross & Online Visits & 10\\
 \end{tabular}
 \end{table}
 
-Now this is a table that is much easier to analyze in an Excel pivot table or with a variety of R functions. Using data in this format, it is easy to recreate the original table for presentation, while also giving a variety of options for formatting and plotting. Use the pivot table below to recreate the original table using the tidy data. *Hint- Instead of Count, select Sum -\textgreater{} Number of Visits as the value field. It is far easier to work with fields when they are in a tidy format.
+Now this is a table that is much easier to analyze in an Excel pivot table or with a variety of R functions. However, it does look worse and is less intuitive for human readers. Thankfully, using data in this format, it is easy to recreate the original table for presentation, while also giving a variety of options for formatting and plotting. Use the pivot table below to recreate the original table using the tidy data. *Hint- Instead of Count, select Sum -\textgreater{} Number of Visits as the value field. It is far easier to work with fields when they are in a tidy format.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -476,9 +473,17 @@ Now this is a table that is much easier to analyze in an Excel pivot table or wi
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{htmlwidget-4393f45be24d3027e427}{}
+\hypertarget{htmlwidget-bf8d8040a86ab82b3540}{}
 
-When we get to the next chapter, you will learn several alternatives to pivot tables that use the same principles, but are more reproducible.
+It is also easier to do a variety of calculations on the data now that is in a ``tidy'' format. For example, creating descriptive statistics accross groups is very straightforward.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{desc_visits <-}\StringTok{ }\NormalTok{pivot_visits }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{group_by}\NormalTok{(}\StringTok{`}\DataTypeTok{Visit Type}\StringTok{`}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{summarise}\NormalTok{(}\StringTok{`}\DataTypeTok{Avg Visits}\StringTok{`}\NormalTok{ =}\StringTok{ }\KeywordTok{mean}\NormalTok{(}\StringTok{`}\DataTypeTok{Number of Visits}\StringTok{`}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
 
 \hypertarget{using-lower-level-data}{%
 \section{Using lower level data}\label{using-lower-level-data}}
@@ -500,7 +505,7 @@ Let's introduce a slightly more complicated tidy data problem, using the same ba
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-5}Visits to the Dept. of Retirement Services in a given month by employee and associated client retirements}
+\caption{\label{tab:unnamed-chunk-6}Visits to the Dept. of Retirement Services in a given month by employee and associated client retirements}
 \centering
 \begin{tabular}[t]{l|r|r|r|r|r|r}
 \hline
@@ -528,7 +533,7 @@ Hopefully you will see a similar pattern here. Now, there are three variables: V
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{htmlwidget-36387e3860d83e21ca3c}{}
+\hypertarget{htmlwidget-0e5457ee453f679e9eb4}{}
 
 Try to tidy this in R or Excel Get and Transform. See this footnote\footnote{powerquery hints} or look at the code if you need a hint.
 
@@ -621,11 +626,11 @@ From here, it is easy to do calculations based on fields, rather than cells. For
 
 And then, one of the most useful things you can do is develop formulas by grouping of rows. For example, you may want to know the total number of visits and retirements by retiree, regardless of visit location. That can be accomplished in a pivot table.
 
-\hypertarget{so-how-is-this-democratic}{%
-\section{So how is this democratic?}\label{so-how-is-this-democratic}}
+\hypertarget{conclusion}{%
+\section{Conclusion}\label{conclusion}}
 
-\hypertarget{practice-problems}{%
-\section{Practice problems}\label{practice-problems}}
+\hypertarget{practicesresources}{%
+\section{Practices/Resources}\label{practicesresources}}
 
 \hypertarget{reproducible-analysis}{%
 \chapter{Reproducible Analysis}\label{reproducible-analysis}}
@@ -739,8 +744,8 @@ Models transform data into decision making. Models are useful exactly because th
 
 Talk about modeling implies math or statistics, when it really doesn't. All a model seeks to do is to simply phenomena in a manner that can be comprehended and used to make decisions in conjunction with subject matter expertise.
 
-\hypertarget{visualization}{%
-\chapter{Visualization}\label{visualization}}
+\hypertarget{audience-focused}{%
+\chapter{Audience-Focused}\label{audience-focused}}
 
 \hypertarget{show-and-tell}{%
 \section{Show and Tell}\label{show-and-tell}}

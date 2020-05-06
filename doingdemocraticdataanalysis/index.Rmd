@@ -61,18 +61,8 @@ Big questions will, and should, be asked of big data— the role of government i
 
 Public administrators and analysts who are data literate will be able to make and inform better decisions while avoiding the pitfalls posed by the latest technological trends. This book represents an opportunity for public administrators and policy analysts to join their subject matter expertise with foundation principles and practices of democratic data analysis— data analysis that is **transparent, relevant, and grounded in the context of ethical and effective governance**.
 
-## Who is this guide for? {-}
+In this guide, I present an opinionated framework for data analysis in public sector organizations. By opinionated, I mean that I will teach you what I think is the right way to do things given my own experience as a public sector policy and data analyst. Your experience might differ-- and that's great. I hope that where you can use your experience in place of mine, you do to the fullest extent. With that in mind, it is often said that you have to know the rules to break them, so I will teach you the "rules" as I understand them. 
 
-This guide is for: 
+This is guide is not an excel how-to manual. My hope is that the principles and practices outlined here will allow you to explore whatever analysis tools you are interested in in a democratic manner. With that said, practical examples are given in Excel and in R.
 
-- the budget analyst at the Department of Fish and Wildlife who has to compile a monthly report analyzing revenues, 
-- the manager at the Department of Social and Health Services who is tracking inventory, and 
-- the research analyst working for the state Legislature who wants to incorporate data into her work session on the latest policy debate.
 
-## What will I learn? {-}
-
-You will learn an opinionated framework for data analysis in public sector organizations. By opinionated, I mean that I will teach you what I think is the right way to do things given my own experience as a public sector policy and data analyst. Your experience might differ-- and that's great. I hope that where you can use your experience in place of mine, you do to the fullest extent. With that in mind, it is often said that you have to know the rules to break them, so I will teach you the "rules" as I understand them. 
-
-## What is this guide not? {-}
-
-This is not an excel how-to manual. My hope is that the principles and practices outlined here will allow you to explore whatever analysis tools you are interested in in a democratic manner. With that said, practical examples are given in Excel and in R. You can download the accompanying workbook [here](www.google.com). 
