@@ -1,6 +1,6 @@
 # Reproducible Analysis
 
-## Principles to Make Your Life Easier
+## Do It For Your Future Self
 
 Many things take more time to do up front, but save you from massive headaches down the road. Brushing your teeth. Oil changes. Preventative maintenence is the name of the game. The same thing applies in democratic data analysis. Learning how to brush the teeth of your analysis will pay massive dividends down the road, as someone else (or you, more likely), need to go back through and understand, replicate, or validate your findings. 
 
@@ -32,11 +32,25 @@ What do I mean by repeating yourself? This would be going through every row of a
 
 To preview the Practices section, Get and Transform allows you to make flexible value transformations on entire fields at a time. This reduces the need for repetitive data cleaning. And if you are already taking my advice and no longer editing individual data cells, you will have a much easier time avoiding repeating yourself. 
 
-### Comment Everything
+## Comment Everything
 
 Comments are wonderful. They are notes to yourself that you should leave at almost every step of your analysis. I frequently do not leave comments. Never have I come back to an uncommented data transformation and been happy with my past self. At worst, leaving comments takes a couple seconds of your time you will never get back. At best, it saves you or your organization from a massive headache when you are able to catch your own errors or update your analysis easier in the future. 
 
-## Practices
 
-## Comment Comment Comment
+## Give Yourself Credit
+Don't hard code Excel values in cells, etc. This is easier to do when you use the tools shown in the practices section. 
+
+## Version Control
+
+### Save as
+
+### Git/GitHub
+
+## Practices
+The value of Get & Transform Data is that it forces you to build iteratively on top of your data foundation. It also convineiently records each step along the way. You even have the ability to save comments right there in the query editor. This is a remarkly easy and intuitive way to build a data tranformation pipeline that will be valuable know and into the future. 
+
+
+
+
+
 

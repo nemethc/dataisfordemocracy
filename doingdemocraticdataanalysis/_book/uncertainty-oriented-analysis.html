@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 1 Introduction | Doing Democratic Data Analysis</title>
+  <title>Chapter 4 Uncertainty Oriented Analysis | Doing Democratic Data Analysis</title>
   <meta name="description" content="An opinionated guide to data analysis for public administrators and policy analysts" />
   <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 1 Introduction | Doing Democratic Data Analysis" />
+  <meta property="og:title" content="Chapter 4 Uncertainty Oriented Analysis | Doing Democratic Data Analysis" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 1 Introduction | Doing Democratic Data Analysis" />
+  <meta name="twitter:title" content="Chapter 4 Uncertainty Oriented Analysis | Doing Democratic Data Analysis" />
   
   <meta name="twitter:description" content="An opinionated guide to data analysis for public administrators and policy analysts" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html"/>
-<link rel="next" href="tidy-data.html"/>
+<link rel="prev" href="reproducible-analysis.html"/>
+<link rel="next" href="visualization.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -586,90 +586,50 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="intro" class="section level1">
-<h1><span class="header-section-number">Chapter 1</span> Introduction</h1>
-<div id="principles-and-practices" class="section level2">
-<h2><span class="header-section-number">1.1</span> Principles and Practices</h2>
-<p>This handbook is composed of five principles of democratic data analysis. Democratic data analysis is:
-* Tidy
-* Reproducible,
-* Uncertainty-oriented, and
-* Audience-focused</p>
-<p>Each of those principles has a seperate chapter in this book. As this isn’t a how-to manual, per say, each chapter will begin with a description of the <em>principles</em> outlined above and arguments for why they are important. Each chapter will then have a <em>practices</em> section where I walk through examples of how to implement these principles in common situations. Chapters will conclude with a link to other resources for additonal information.</p>
-<p>Why maintain the distinciton between principles and practices? The nature of data analysis is heavily influenced by the technologies that we have access to. Whether it be the venerable pivot table, or a new-school dashboard platform, or a data-oriented programming language, the principles that I lay out here supersede specific technologies. Think of it like grammer. You may write by hand, on a computer, using text-to-speech. You may be writing a poem, a novel, an argument, or an instruction manual. But the basic rules of grammer are relevant in whatever medium you choose. Similarily, this guide will teach you the basic “grammar” of democratic data analysis. This will alllow you to apply this knowledge in whatever platform or technology you are interested in or have access to. But similar to learning language, it helps to practice. That’s where the <em>practices</em> section comes in to play.</p>
-<p>This guide will include examples in both Excel and <code>R</code>. Government runs on Excel, so all of the examples and exercises will be Excel compatible. If you are comfortable with Excel<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> and want to challenge yourself, boost your resume, and become a data wizard<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>, I would highly recommend learning <code>R</code>. This guide will wshow examples on how to analyze data democratically using both tools, but focusing on the principles and practices that are vital regardless of technology. I will link to specific resources that provide more detailed walk through’s as necessary.</p>
+<div id="uncertainty-oriented-analysis" class="section level1">
+<h1><span class="header-section-number">Chapter 4</span> Uncertainty Oriented Analysis</h1>
+<blockquote>
+<p><em>All models are wrong, but some are useful</em></p>
+</blockquote>
+<p>– Gearge Box</p>
+<div id="embracing-uncertainty-for-better-outcomes" class="section level2">
+<h2><span class="header-section-number">4.1</span> Embracing Uncertainty for Better Outcomes</h2>
+<p>What is the point of data analysis? Often, it is to use data to summarize the world around you. In a sense, all data analysis is model building, and by definition, a model is a simplified version of the world. Any time the analyst is using data analysis to inform decision making, she is in a sense making a model. Models are commonly thought of to provide answers to the question at hand. Model buidling, and data analysis more generally, never gives you “the” answer. Data analysis only gives you a answer, if it gives you an answer at all. If you have been following along to this point, you have learned the value of data analysis that is structured and built up, not out. Frequently, data analysis is valuable because it tells you what isn’t the answer. Knowing how to build uncertainty into your analysis is incredibly valuble as analysis – models– are used to implement important policies that impact the public good. Incorporating uncertainty into your analysis will make you both more credible and force you to use your subject matter expertise in addition to your data skills.</p>
+<p>Any data analysis that simplifies the world (hint– that’s all of it) can be considered a model. So I will use those phrases interchangeablly in this section.</p>
 </div>
-<div id="what-is-data-analysis" class="section level2">
-<h2><span class="header-section-number">1.2</span> What is data analysis?</h2>
-<p>Data analysis is the process of transforming numbers on a page to insight into the real world. It’s looking at a table and gaining insight from it. Data analysis can be as simple as adding totals into a column to see cumulative effects, or as complicated as time-series forecasting. But fundementally, all data analysis is taking inputs and applying those inputs to the real world to gain insight into the real world. It also may be helpful to think about what data analysis <em>isn’t</em>:</p>
-<ol style="list-style-type: decimal">
-<li>Data analysis isn’t math.</li>
-</ol>
-<ul>
-<li>Calculations are great, but <code>a7 + b8</code> in Excel is deterministic. It gives you one answer. This book is not interested in data analysis that gives you the right answer, because there is no such thing. There are many answers to many questions, depending on how those questions are asked and how the data is analyzed.</li>
-</ul>
-<ol start="2" style="list-style-type: decimal">
-<li>Data analysis isn’t statistics.</li>
-</ol>
-<ul>
-<li>This book is about reading and telling the story of your data in a way that can complement expertise and experience to make better decisions. Statistics are often used as a cheap stand-in for domain expertise and are often abused in favor of trusting the analyst or administrator to back up their assumptions with both quantitative and qualitiative data.</li>
-</ul>
-<ol start="3" style="list-style-type: decimal">
-<li>Data analysis isn’t research methods.</li>
-</ol>
-<ul>
-<li>No set of tools and practices can stand in for asking the right questions, and transforming data into information to answer that question. This book will give you the tools to work with your quantitative data to answer relevant questions, but all good analysis begins with a good question.</li>
-</ul>
+<div id="why-model" class="section level2">
+<h2><span class="header-section-number">4.2</span> Why Model?</h2>
+<p>Models transform data into decision making. Models are useful exactly because they are wrong! Because models are wrong, we can critically examine the</p>
 </div>
-<div id="the-language-of-data-analysis" class="section level2">
-<h2><span class="header-section-number">1.3</span> The Language of Data Analysis<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a></h2>
-<p>As I mentioned before, democratic data analysis has an underlying structure, like grammar. There are rules so these sentances (hopefully) make sense to you, the reader. Similarily, by following common conventions of tidy data analysis, others will be able to “read” your analysis like you are reading this sentance. And also, like grammar, you can break the rules– but it helps to know them first.</p>
-<p>Here are a couple definitions that will help as you move through this text. Don’t worry about memorizing them, as I will refer back to these definitions frequently.</p>
-<ul>
-<li>Fields
-<ul>
-<li>A field is a fancy name for a column. From here on out, every calculation, manipulation, formula, you name it, will be on a column. I want you to forget that you could ever modify a lone cell in Excel. No more formulas in cells. No more typing in values to a cell. Certainly no more writing over data in a cell. Democratic data analysis depends on formulas that work on entire fields. Everything you would need to do to a single cell in Excel can– and should!– be done to an entire column. This will be immensly valuable, as you will hopefully see while working through this material.</li>
-</ul></li>
-<li>Variables
-<ul>
-<li>A variable is something in your data that can change. That’s it! Variables become very important when looking at how to structure your data.</li>
-</ul></li>
-<li>Observations
-<ul>
-<li>Observations make up the rows of your dataset. Each observation should correspond to a specific “thing.” This will make more sense later, I promise.</li>
-</ul></li>
-<li>Values
-<ul>
-<li>Values are the actual data in your table. Each value belongs to 1 (one) observation and 1 (one) variable.</li>
-</ul></li>
-<li>Table
-<ul>
-<li>A table is the grouping of all observations of a similar type.</li>
-</ul></li>
-</ul>
-<p>You may already be able to see how these definitions foreshadow some of what is coming in later sections. For example, there are no references to cells. This is intentional. The most importatant distinction between democratic data analysis and simply working in excel is that in democratic data analysis, (virtually) <em>everything</em> is done on the <code>field</code> level. Changes are made to entire columns, calculations are made on entire columns. Thinking in <code>fields</code> is the first step on the path to democratic data enlightement. Having data formatted in the strucutre outlined above forces good data hygiene that will pay massive dividends later on.</p>
+<div id="example-two" class="section level2">
+<h2><span class="header-section-number">4.3</span> Example two</h2>
+<div class="figure">
+<img src="images/map.png" alt="electoral 2016 map" />
+<p class="caption">electoral 2016 map</p>
 </div>
-<div id="a-quick-note-on-tools" class="section level2">
-<h2><span class="header-section-number">1.4</span> A Quick Note on Tools</h2>
-<p>As I mentioned in the intro, examples in this guide will be given in R and Excel. Most of the Excel examples will use a tool called Get &amp; Transform Data (formerly known as PowerQuery). If you are a Mac user, it is likely that you will not have access to this tool (which is a shame). My first encouragement would be to give <code>r</code> a try. However, you can also download the desktop version of Microsoft PowerBI for free. It uses the same set of data tools as Get &amp; Transform in Excel, and the ability to make nice interactive charts (because everything in data analysis is a pivot table– but more on that later.)</p>
+<div class="figure">
+<img src="images/uncertain_dist.png" alt="distribution of possible results" />
+<p class="caption">distribution of possible results</p>
+</div>
+</div>
+<div id="use-assumptions-and-document-them" class="section level2">
+<h2><span class="header-section-number">4.4</span> Use Assumptions, and Document Them</h2>
+<p>(create dummy model regarding time saved through learning democratic data practices)</p>
+</div>
+<div id="dont-get-out-over-your-skis" class="section level2">
+<h2><span class="header-section-number">4.5</span> Don’t get out over your skis</h2>
+<p>##Practices</p>
+<p>Talk about modeling implies math or statistics, when it really doesn’t. All a model seeks to do is to simply phenomena in a manner that can be comprehended and used to make decisions in conjunction with subject matter expertise.</p>
 
 </div>
-</div>
-<div class="footnotes">
-<hr />
-<ol start="2">
-<li id="fn2"><p>aka you use <code>vlookup</code>, <code>index(match)</code>, pivot tables, or <em>Get &amp; Transform</em> on a somewhat regular basis<a href="intro.html#fnref2" class="footnote-back">↩</a></p></li>
-<li id="fn3"><p>For example, I used R to create this entire website<a href="intro.html#fnref3" class="footnote-back">↩</a></p></li>
-<li id="fn4"><p>Adapted from Hadley Wickham’s paper on <a href="https://vita.had.co.nz/papers/tidy-data.pdf">Tidy Data</a><a href="intro.html#fnref4" class="footnote-back">↩</a></p></li>
-</ol>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="tidy-data.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="reproducible-analysis.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="visualization.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

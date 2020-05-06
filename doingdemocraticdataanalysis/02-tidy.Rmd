@@ -64,9 +64,14 @@ sites_cleaned <- sites %>% #creating a new table called "sites_cleaned", startin
 ```
 
 
-## Thinking in Pivot Tables-- From Wide to Long. 
+## Pivot Tables and the Meaning of Everything
+ > *The Ultimate Answer to Life, The Universe and Everything is... **the pivot table***
 
-Pivot tables are amazing. THey are the world's most common, most helpful, and most underrated data analysis tool. PowerBI interactive charts and graphs are just pivot tables in disguise. Understanding what is needed to make a pivot table work is the key to the wide world of data analysis. 
+-Dougas Adams/Corban Nemeth
+
+Pivot tables are the world's most common, most helpful, and most underrated data analysis tool. If you understand the mechanics of the pivot table, you have everything you need to be a data analysis expert. PowerBI interactive charts and graphs are just pivot tables in disguise. Understanding what is needed to make a pivot table work is the key to the wide world of data analysis. 
+
+What is so important about pivot tables? First and foremost, pivot tables force you to think in terms of fields, not in terms of cells. In order for a pivot table to be effective, the data has to be organized in a table. And there is a right and a wrong way to putting data in a table. If your pivot table is not working properly, it is likely because your data isn't tidy. 
 
 A pivot table groups data by field and allows the user to drag fields to the rows or columns of the pivot table. This is effective when each field is a variable (something that can change), and each row is a seperate observation of some phenomena of interest. 
 
@@ -97,7 +102,7 @@ rpivotTable::rpivotTable(visits, width = "60%", height = "60%")
 ```
 
 
-
+## Tidy Data- From Wide to Long
 
 
 Let's apply our criteria of tidy data to this set:

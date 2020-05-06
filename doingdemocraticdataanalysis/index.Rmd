@@ -73,7 +73,6 @@ This guide is for:
 
 You will learn an opinionated framework for data analysis in public sector organizations. By opinionated, I mean that I will teach you what I think is the right way to do things given my own experience as a public sector policy and data analyst. Your experience might differ-- and that's great. I hope that where you can use your experience in place of mine, you do to the fullest extent. With that in mind, it is often said that you have to know the rules to break them, so I will teach you the "rules" as I understand them. 
 
+## What is this guide not? {-}
 
-```{r echo=TRUE}
-summary(cars)
-```
+This is not an excel how-to manual. My hope is that the principles and practices outlined here will allow you to explore whatever analysis tools you are interested in in a democratic manner. With that said, practical examples are given in Excel and in R. You can download the accompanying workbook [here](www.google.com). 

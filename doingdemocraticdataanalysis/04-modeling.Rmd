@@ -1,9 +1,0 @@
-# Data Modeling
-
-## Why Model?
-
-Models transform data into decision making. 
-## Example two
-
-
-## Assumptions
