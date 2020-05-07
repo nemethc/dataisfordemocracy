@@ -16,48 +16,7 @@ A pivot table groups data by field and allows the user to drag fields to the row
 
 In short, pivot tables depend on **tidy data**. 
 
-Tidy data is the way your data should be organized before you begin your analysis. In tidy data, each column is a *variable*, each row is an *observation*, and each table is an *associated set of observations*. What does that mean in practice? Consider the following example. 
-
-Below is a table^[Data was created for demonstration purposes] that shows types of retirement visits for a month at a state's Department of Retirement Services by the employee who took the visit and the visit type. 
-  
-```{r tables-visits, message=FALSE, warning = FALSE, echo=TRUE}
-#build sample data table
-visits <- tribble(
-  ~"Employee", ~"Phone Visits", ~"Office Visits", ~"Online Visits",
-  "Danielle", 6, 11, 23,
-  "Ramona", 11, 5, 18,
-  "Ross", 10, 10, 10 
-)
-
-#print to datatable
-visits%>% datatable(
-    extensions = 'Buttons', 
-    options = list(dom = 'Bfrtip', 
-                   buttons = 'excel',
-                   searching = FALSE),
-                   caption = "Visits to the Dept. of Retirement Services in a given month by employee"
-                   )
-
-```
-  
-Data are frequently displayed in this "wide" format. It works great for presentation, but not great for data analysis. 
-
-The shortcomings of data in this format may become apparent when you attempt to work with the data in a pivot table. This is because our columns aren't truly variables. Remember, variables are elements of an observation that can change. You can drag the fields from the top row to the grey box below, for columns, and the left, for rows. This becomes unmanageable quickly. 
-
-```{r}
-rpivotTable::rpivotTable(visits, width = "60%", height = "60%")
-```
-
-
-## Tidy Data- From Wide to Long
-
-
-Let's apply our criteria of tidy data to this set:
-
-* Variables
-    * At first glance, it doesn't look like this is a problem. But think again. Is `phone visits` really a variable? Or is the real variable of interest number of visits? And are our column names are actually variables too (type of visit)? 
-    
-Let's take another swing at setting up our table for data analysis purposes. This can be accomplished easily in R using the code below, or in Excel by loading the data with [`Get and Transform`](https://support.microsoft.com/en-us/office/unpivot-columns-power-query-0f7bad4b-9ea1-49c1-9d95-f588221c7098) -> selecting the three "visits" columns -> right clicking -> and selecting "unpivot columns."
+Recall our sample data from the last chapter:
 
 ```{r}
 #We have already loaded the "tidyverse" library so we do not have to do it again
@@ -70,8 +29,7 @@ pivot_visits <- visits %>%
 knitr::kable(pivot_visits, caption = "Visits to the Dept. of Retirement Services in a given month")
 ```
 
-Now this is a table that is much easier to analyze in an Excel pivot table or with a variety of R functions. However, it does look worse and is less intuitive for human readers. Thankfully, using data in this format, it is easy to recreate the original table for presentation, while also giving a variety of options for formatting and plotting. Use the pivot table below to recreate the original table using the tidy data. *Hint- Instead of Count, select Sum -> Number of Visits as the value field. It is far easier to work with fields when they are in a tidy format. 
-
+Once the data has been tidied, it is easy to manipulate fields in pivot tables. 
 
 ```{r}
 rpivotTable::rpivotTable(pivot_visits, width = "60%", height = "400px")

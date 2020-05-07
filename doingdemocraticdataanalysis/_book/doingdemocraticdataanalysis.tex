@@ -309,7 +309,7 @@ Here is the first major departure from what you may have been taught about data 
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{htmlwidget-911442e7cbd07cf2437b}{}
+\hypertarget{htmlwidget-a982b1c48f101bf77014}{}
 
 In this example, it would be trivial to go in to the Excel file and clean up the dates, names, and locations by hand. However, you could imagine this survey replicated for a department of forty employees. It quickly becomes unfeasible to make those edits by hand. When this is the case, there are functions in Excel and R that will make your life much easier.
 
@@ -354,9 +354,114 @@ Here is annotated code for how I would go about cleaning this table in R. The fr
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{htmlwidget-88fbd7aa398f5d6c81bd}{}
+\hypertarget{htmlwidget-c602902c1e551127612a}{}
 
 This may seem like a lot of work for a small table. But as your data grows, it is much easier to operate on entire fields at a time. This is especially true in Get \& Transform, which makes it very easy to transform and clean data using all the same steps as the \texttt{R} code above. As you can see, our table is now ``cleaned'' and organized consistently.
+
+\hypertarget{tidying}{%
+\section{Tidying}\label{tidying}}
+
+Tidy data is the way your data should be organized before you begin your analysis. In tidy data, each column is a \emph{variable}, each row is an \emph{observation}, and each table is an \emph{associated set of observations}. What does that mean in practice? Consider the following example.
+
+Below is a table\footnote{Data was created for demonstration purposes} that shows types of retirement visits for a month at a state's Department of Retirement Services by the employee who took the visit and the visit type.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#build sample data table}
+\NormalTok{visits <-}\StringTok{ }\KeywordTok{tribble}\NormalTok{(}
+  \OperatorTok{~}\StringTok{"Employee"}\NormalTok{, }\OperatorTok{~}\StringTok{"Phone Visits"}\NormalTok{, }\OperatorTok{~}\StringTok{"Office Visits"}\NormalTok{, }\OperatorTok{~}\StringTok{"Online Visits"}\NormalTok{,}
+  \StringTok{"Danielle"}\NormalTok{, }\DecValTok{6}\NormalTok{, }\DecValTok{11}\NormalTok{, }\DecValTok{23}\NormalTok{,}
+  \StringTok{"Ramona"}\NormalTok{, }\DecValTok{11}\NormalTok{, }\DecValTok{5}\NormalTok{, }\DecValTok{18}\NormalTok{,}
+  \StringTok{"Ross"}\NormalTok{, }\DecValTok{10}\NormalTok{, }\DecValTok{10}\NormalTok{, }\DecValTok{10} 
+\NormalTok{)}
+
+\CommentTok{#print to datatable}
+\NormalTok{visits}\OperatorTok{%>%}\StringTok{ }\KeywordTok{datatable}\NormalTok{(}
+    \DataTypeTok{extensions =} \StringTok{'Buttons'}\NormalTok{, }
+    \DataTypeTok{options =} \KeywordTok{list}\NormalTok{(}\DataTypeTok{dom =} \StringTok{'Bfrtip'}\NormalTok{, }
+                   \DataTypeTok{buttons =} \StringTok{'excel'}\NormalTok{,}
+                   \DataTypeTok{searching =} \OtherTok{FALSE}\NormalTok{),}
+                   \DataTypeTok{caption =} \StringTok{"Visits to the Dept. of Retirement Services in a given month by employee"}
+\NormalTok{                   )}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{htmlwidget-40c7fefce120ded2f795}{}
+
+Data are frequently displayed in this ``wide'' format. It works great for presentation, but not great for data analysis.
+
+The shortcomings of data in this format may become apparent when you attempt to work with the data in a pivot table. This is because our columns aren't truly variables. Remember, variables are elements of an observation that can change. You can drag the fields from the top row to the grey box below, for columns, and the left, for rows. This becomes unmanageable quickly.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{rpivotTable}\OperatorTok{::}\KeywordTok{rpivotTable}\NormalTok{(visits, }\DataTypeTok{width =} \StringTok{"60%"}\NormalTok{, }\DataTypeTok{height =} \StringTok{"60%"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{htmlwidget-a42db6a62c6a1796acdb}{}
+
+\hypertarget{tidy-data--from-wide-to-long}{%
+\section{Tidy Data- From Wide to Long}\label{tidy-data--from-wide-to-long}}
+
+Let's apply our criteria of tidy data to this set:
+
+\begin{itemize}
+\tightlist
+\item
+  Variables
+
+  \begin{itemize}
+  \tightlist
+  \item
+    At first glance, it doesn't look like this is a problem. But think again. Is \texttt{phone\ visits} really a variable? Or is the real variable of interest number of visits? And are our column names are actually variables too (type of visit)?
+  \end{itemize}
+\end{itemize}
+
+Let's take another swing at setting up our table for data analysis purposes. This can be accomplished easily in R using the code below, or in Excel by loading the data with \href{https://support.microsoft.com/en-us/office/unpivot-columns-power-query-0f7bad4b-9ea1-49c1-9d95-f588221c7098}{\texttt{Get\ and\ Transform}} -\textgreater{} selecting the three ``visits'' columns -\textgreater{} right clicking -\textgreater{} and selecting ``unpivot columns.''
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#We have already loaded the "tidyverse" library so we do not have to do it again}
+\CommentTok{#we are editing the "visits" table already created by storing it in a new table pivot_visits}
+\NormalTok{pivot_visits <-}\StringTok{ }\NormalTok{visits }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\CommentTok{#using pivot_longer on every column except "employee" and setting the name of the new columns}
+\StringTok{  }\KeywordTok{pivot_longer}\NormalTok{(}\OperatorTok{-}\NormalTok{Employee, }\DataTypeTok{names_to =} \StringTok{"Visit Type"}\NormalTok{, }\DataTypeTok{values_to =} \StringTok{"Number of Visits"}\NormalTok{) }
+
+
+\NormalTok{knitr}\OperatorTok{::}\KeywordTok{kable}\NormalTok{(pivot_visits, }\DataTypeTok{caption =} \StringTok{"Visits to the Dept. of Retirement Services in a given month"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{table}
+
+\caption{\label{tab:unnamed-chunk-3}Visits to the Dept. of Retirement Services in a given month}
+\centering
+\begin{tabular}[t]{l|l|r}
+\hline
+Employee & Visit Type & Number of Visits\\
+\hline
+Danielle & Phone Visits & 6\\
+\hline
+Danielle & Office Visits & 11\\
+\hline
+Danielle & Online Visits & 23\\
+\hline
+Ramona & Phone Visits & 11\\
+\hline
+Ramona & Office Visits & 5\\
+\hline
+Ramona & Online Visits & 18\\
+\hline
+Ross & Phone Visits & 10\\
+\hline
+Ross & Office Visits & 10\\
+\hline
+Ross & Online Visits & 10\\
+\hline
+\end{tabular}
+\end{table}
+
+Now this is a table that is much easier to analyze in an Excel pivot table or with a variety of R functions. However, it does look worse and is less intuitive for human readers. Thankfully, using data in this format, it is easy to recreate the original table for presentation, while also giving a variety of options for formatting and plotting. Use the pivot table below to recreate the original table using the tidy data. *Hint- Instead of Count, select Sum -\textgreater{} Number of Visits as the value field. It is far easier to work with fields when they are in a tidy format.
 
 \hypertarget{using-lower-level-data}{%
 \section{Using lower level data}\label{using-lower-level-data}}
@@ -378,7 +483,7 @@ Let's introduce a slightly more complicated tidy data problem, using the same ba
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-2}Visits to the Dept. of Retirement Services in a given month by employee and associated client retirements}
+\caption{\label{tab:unnamed-chunk-4}Visits to the Dept. of Retirement Services in a given month by employee and associated client retirements}
 \centering
 \begin{tabular}[t]{l|r|r|r|r|r|r}
 \hline
@@ -406,7 +511,7 @@ Hopefully you will see a similar pattern here. Now, there are three variables: V
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{htmlwidget-0780f32175b100d12cef}{}
+\hypertarget{htmlwidget-6daea1c82a672ffff853}{}
 
 Try to tidy this in R or Excel Get and Transform. See this footnote\footnote{powerquery hints} or look at the code if you need a hint.
 
@@ -497,7 +602,7 @@ From here, it is easy to do calculations based on fields, rather than cells. For
 ## 9 Ross     Online               10           9           0.9
 \end{verbatim}
 
-And then, one of the most useful things you can do is develop formulas by grouping of rows. For example, you may want to know the total number of visits and retirements by retiree, regardless of visit location. That can be accomplished in a pivot table.
+And then, one of the most useful things you can do is develop formulas by grouping of rows. For example, you may want to know the total number of visits and retirements by retiree, regardless of visit location. That can be accomplished in a pivot table, which we will cover in the next section.
 
 \hypertarget{how-is-this-democratic}{%
 \section{How is this democratic?}\label{how-is-this-democratic}}
@@ -532,63 +637,7 @@ A pivot table groups data by field and allows the user to drag fields to the row
 
 In short, pivot tables depend on \textbf{tidy data}.
 
-Tidy data is the way your data should be organized before you begin your analysis. In tidy data, each column is a \emph{variable}, each row is an \emph{observation}, and each table is an \emph{associated set of observations}. What does that mean in practice? Consider the following example.
-
-Below is a table\footnote{Data was created for demonstration purposes} that shows types of retirement visits for a month at a state's Department of Retirement Services by the employee who took the visit and the visit type.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{#build sample data table}
-\NormalTok{visits <-}\StringTok{ }\KeywordTok{tribble}\NormalTok{(}
-  \OperatorTok{~}\StringTok{"Employee"}\NormalTok{, }\OperatorTok{~}\StringTok{"Phone Visits"}\NormalTok{, }\OperatorTok{~}\StringTok{"Office Visits"}\NormalTok{, }\OperatorTok{~}\StringTok{"Online Visits"}\NormalTok{,}
-  \StringTok{"Danielle"}\NormalTok{, }\DecValTok{6}\NormalTok{, }\DecValTok{11}\NormalTok{, }\DecValTok{23}\NormalTok{,}
-  \StringTok{"Ramona"}\NormalTok{, }\DecValTok{11}\NormalTok{, }\DecValTok{5}\NormalTok{, }\DecValTok{18}\NormalTok{,}
-  \StringTok{"Ross"}\NormalTok{, }\DecValTok{10}\NormalTok{, }\DecValTok{10}\NormalTok{, }\DecValTok{10} 
-\NormalTok{)}
-
-\CommentTok{#print to datatable}
-\NormalTok{visits}\OperatorTok{%>%}\StringTok{ }\KeywordTok{datatable}\NormalTok{(}
-    \DataTypeTok{extensions =} \StringTok{'Buttons'}\NormalTok{, }
-    \DataTypeTok{options =} \KeywordTok{list}\NormalTok{(}\DataTypeTok{dom =} \StringTok{'Bfrtip'}\NormalTok{, }
-                   \DataTypeTok{buttons =} \StringTok{'excel'}\NormalTok{,}
-                   \DataTypeTok{searching =} \OtherTok{FALSE}\NormalTok{),}
-                   \DataTypeTok{caption =} \StringTok{"Visits to the Dept. of Retirement Services in a given month by employee"}
-\NormalTok{                   )}
-\end{Highlighting}
-\end{Shaded}
-
-\hypertarget{htmlwidget-7398777c45f3825902c2}{}
-
-Data are frequently displayed in this ``wide'' format. It works great for presentation, but not great for data analysis.
-
-The shortcomings of data in this format may become apparent when you attempt to work with the data in a pivot table. This is because our columns aren't truly variables. Remember, variables are elements of an observation that can change. You can drag the fields from the top row to the grey box below, for columns, and the left, for rows. This becomes unmanageable quickly.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{rpivotTable}\OperatorTok{::}\KeywordTok{rpivotTable}\NormalTok{(visits, }\DataTypeTok{width =} \StringTok{"60%"}\NormalTok{, }\DataTypeTok{height =} \StringTok{"60%"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\hypertarget{htmlwidget-2ff69d002c22cd28040e}{}
-
-\hypertarget{tidy-data--from-wide-to-long}{%
-\section{Tidy Data- From Wide to Long}\label{tidy-data--from-wide-to-long}}
-
-Let's apply our criteria of tidy data to this set:
-
-\begin{itemize}
-\tightlist
-\item
-  Variables
-
-  \begin{itemize}
-  \tightlist
-  \item
-    At first glance, it doesn't look like this is a problem. But think again. Is \texttt{phone\ visits} really a variable? Or is the real variable of interest number of visits? And are our column names are actually variables too (type of visit)?
-  \end{itemize}
-\end{itemize}
-
-Let's take another swing at setting up our table for data analysis purposes. This can be accomplished easily in R using the code below, or in Excel by loading the data with \href{https://support.microsoft.com/en-us/office/unpivot-columns-power-query-0f7bad4b-9ea1-49c1-9d95-f588221c7098}{\texttt{Get\ and\ Transform}} -\textgreater{} selecting the three ``visits'' columns -\textgreater{} right clicking -\textgreater{} and selecting ``unpivot columns.''
+Recall our sample data from the last chapter:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -632,7 +681,7 @@ Ross & Online Visits & 10\\
 \end{tabular}
 \end{table}
 
-Now this is a table that is much easier to analyze in an Excel pivot table or with a variety of R functions. However, it does look worse and is less intuitive for human readers. Thankfully, using data in this format, it is easy to recreate the original table for presentation, while also giving a variety of options for formatting and plotting. Use the pivot table below to recreate the original table using the tidy data. *Hint- Instead of Count, select Sum -\textgreater{} Number of Visits as the value field. It is far easier to work with fields when they are in a tidy format.
+Once the data has been tidied, it is easy to manipulate fields in pivot tables.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -640,7 +689,7 @@ Now this is a table that is much easier to analyze in an Excel pivot table or wi
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{htmlwidget-a2d8a69d84581603af12}{}
+\hypertarget{htmlwidget-adc297c34e9a85cc5b37}{}
 
 The key with pivot tables, such as the one above, is you are moving \emph{fields} into the rows and columns of a new table. This is often referred to as ``pivoting''. You are then selecting a calculation to \emph{summarize} the intersection of the \emph{fields} that you drug into rows and columns. Above, you can click on the ``Count'' button to see the other ways this lightweight pivot table allows you to \emph{summarize} your data. More powerful data analysis tools, such as PowerPivot in Excel, PowerBI, and several R packages allow you infinitely flexible formulas to define what happens at the intersection of fields in a pivot table. This is the core of all (most) data analysis. Think in terms of fields and calculated summaries and you are well on your way to becoming a democratic data master.
 

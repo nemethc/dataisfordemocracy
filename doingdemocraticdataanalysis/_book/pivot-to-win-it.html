@@ -530,17 +530,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2" data-path="tidy-data.html"><a href="tidy-data.html"><i class="fa fa-check"></i><b>2</b> Tidy Data</a><ul>
 <li class="chapter" data-level="2.1" data-path="tidy-data.html"><a href="tidy-data.html#the-importance-of-tables"><i class="fa fa-check"></i><b>2.1</b> The Importance of Tables</a></li>
 <li class="chapter" data-level="2.2" data-path="tidy-data.html"><a href="tidy-data.html#cleaning-vs-tidying"><i class="fa fa-check"></i><b>2.2</b> Cleaning vs Tidying</a></li>
-<li class="chapter" data-level="2.3" data-path="tidy-data.html"><a href="tidy-data.html#using-lower-level-data"><i class="fa fa-check"></i><b>2.3</b> Using lower level data</a></li>
-<li class="chapter" data-level="2.4" data-path="tidy-data.html"><a href="tidy-data.html#how-is-this-democratic"><i class="fa fa-check"></i><b>2.4</b> How is this democratic?</a></li>
-<li class="chapter" data-level="2.5" data-path="tidy-data.html"><a href="tidy-data.html#conclusion"><i class="fa fa-check"></i><b>2.5</b> Conclusion</a></li>
-<li class="chapter" data-level="2.6" data-path="tidy-data.html"><a href="tidy-data.html#practicesresources"><i class="fa fa-check"></i><b>2.6</b> Practices/Resources</a></li>
+<li class="chapter" data-level="2.3" data-path="tidy-data.html"><a href="tidy-data.html#tidying"><i class="fa fa-check"></i><b>2.3</b> Tidying</a></li>
+<li class="chapter" data-level="2.4" data-path="tidy-data.html"><a href="tidy-data.html#tidy-data--from-wide-to-long"><i class="fa fa-check"></i><b>2.4</b> Tidy Data- From Wide to Long</a></li>
+<li class="chapter" data-level="2.5" data-path="tidy-data.html"><a href="tidy-data.html#using-lower-level-data"><i class="fa fa-check"></i><b>2.5</b> Using lower level data</a></li>
+<li class="chapter" data-level="2.6" data-path="tidy-data.html"><a href="tidy-data.html#how-is-this-democratic"><i class="fa fa-check"></i><b>2.6</b> How is this democratic?</a></li>
+<li class="chapter" data-level="2.7" data-path="tidy-data.html"><a href="tidy-data.html#conclusion"><i class="fa fa-check"></i><b>2.7</b> Conclusion</a></li>
+<li class="chapter" data-level="2.8" data-path="tidy-data.html"><a href="tidy-data.html#practicesresources"><i class="fa fa-check"></i><b>2.8</b> Practices/Resources</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="pivot-to-win-it.html"><a href="pivot-to-win-it.html"><i class="fa fa-check"></i><b>3</b> Pivot to Win It</a><ul>
 <li class="chapter" data-level="3.1" data-path="pivot-to-win-it.html"><a href="pivot-to-win-it.html#pivot-tables-and-the-meaning-of-everything"><i class="fa fa-check"></i><b>3.1</b> Pivot Tables and the Meaning of Everything</a></li>
-<li class="chapter" data-level="3.2" data-path="pivot-to-win-it.html"><a href="pivot-to-win-it.html#tidy-data--from-wide-to-long"><i class="fa fa-check"></i><b>3.2</b> Tidy Data- From Wide to Long</a></li>
-<li class="chapter" data-level="3.3" data-path="pivot-to-win-it.html"><a href="pivot-to-win-it.html#advanced-data-summaries"><i class="fa fa-check"></i><b>3.3</b> Advanced Data Summaries</a></li>
-<li class="chapter" data-level="3.4" data-path="pivot-to-win-it.html"><a href="pivot-to-win-it.html#conclusion-1"><i class="fa fa-check"></i><b>3.4</b> Conclusion</a></li>
-<li class="chapter" data-level="3.5" data-path="pivot-to-win-it.html"><a href="pivot-to-win-it.html#practices"><i class="fa fa-check"></i><b>3.5</b> Practices</a></li>
+<li class="chapter" data-level="3.2" data-path="pivot-to-win-it.html"><a href="pivot-to-win-it.html#advanced-data-summaries"><i class="fa fa-check"></i><b>3.2</b> Advanced Data Summaries</a></li>
+<li class="chapter" data-level="3.3" data-path="pivot-to-win-it.html"><a href="pivot-to-win-it.html#conclusion-1"><i class="fa fa-check"></i><b>3.3</b> Conclusion</a></li>
+<li class="chapter" data-level="3.4" data-path="pivot-to-win-it.html"><a href="pivot-to-win-it.html#practices"><i class="fa fa-check"></i><b>3.4</b> Practices</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="reproducible-analysis.html"><a href="reproducible-analysis.html"><i class="fa fa-check"></i><b>4</b> Reproducible Analysis</a><ul>
 <li class="chapter" data-level="4.1" data-path="reproducible-analysis.html"><a href="reproducible-analysis.html#do-it-for-your-future-self"><i class="fa fa-check"></i><b>4.1</b> Do It For Your Future Self</a><ul>
@@ -606,50 +607,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>What is so important about pivot tables? First and foremost, pivot tables force you to think in terms of fields, not in terms of cells. In order for a pivot table to be effective, the data has to be organized in a table. And there is a right and a wrong way to putting data in a table. If your pivot table is not working properly, it is likely because your data isn’t tidy.</p>
 <p>A pivot table groups data by field and allows the user to drag fields to the rows or columns of the pivot table. This is effective when each field is a variable (something that can change), and each row is a separate observation of some phenomena of interest.</p>
 <p>In short, pivot tables depend on <strong>tidy data</strong>.</p>
-<p>Tidy data is the way your data should be organized before you begin your analysis. In tidy data, each column is a <em>variable</em>, each row is an <em>observation</em>, and each table is an <em>associated set of observations</em>. What does that mean in practice? Consider the following example.</p>
-<p>Below is a table<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a> that shows types of retirement visits for a month at a state’s Department of Retirement Services by the employee who took the visit and the visit type.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="co">#build sample data table</span></a>
-<a class="sourceLine" id="cb11-2" data-line-number="2">visits &lt;-<span class="st"> </span><span class="kw">tribble</span>(</a>
-<a class="sourceLine" id="cb11-3" data-line-number="3">  <span class="op">~</span><span class="st">&quot;Employee&quot;</span>, <span class="op">~</span><span class="st">&quot;Phone Visits&quot;</span>, <span class="op">~</span><span class="st">&quot;Office Visits&quot;</span>, <span class="op">~</span><span class="st">&quot;Online Visits&quot;</span>,</a>
-<a class="sourceLine" id="cb11-4" data-line-number="4">  <span class="st">&quot;Danielle&quot;</span>, <span class="dv">6</span>, <span class="dv">11</span>, <span class="dv">23</span>,</a>
-<a class="sourceLine" id="cb11-5" data-line-number="5">  <span class="st">&quot;Ramona&quot;</span>, <span class="dv">11</span>, <span class="dv">5</span>, <span class="dv">18</span>,</a>
-<a class="sourceLine" id="cb11-6" data-line-number="6">  <span class="st">&quot;Ross&quot;</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span> </a>
-<a class="sourceLine" id="cb11-7" data-line-number="7">)</a>
-<a class="sourceLine" id="cb11-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb11-9" data-line-number="9"><span class="co">#print to datatable</span></a>
-<a class="sourceLine" id="cb11-10" data-line-number="10">visits<span class="op">%&gt;%</span><span class="st"> </span><span class="kw">datatable</span>(</a>
-<a class="sourceLine" id="cb11-11" data-line-number="11">    <span class="dt">extensions =</span> <span class="st">&#39;Buttons&#39;</span>, </a>
-<a class="sourceLine" id="cb11-12" data-line-number="12">    <span class="dt">options =</span> <span class="kw">list</span>(<span class="dt">dom =</span> <span class="st">&#39;Bfrtip&#39;</span>, </a>
-<a class="sourceLine" id="cb11-13" data-line-number="13">                   <span class="dt">buttons =</span> <span class="st">&#39;excel&#39;</span>,</a>
-<a class="sourceLine" id="cb11-14" data-line-number="14">                   <span class="dt">searching =</span> <span class="ot">FALSE</span>),</a>
-<a class="sourceLine" id="cb11-15" data-line-number="15">                   <span class="dt">caption =</span> <span class="st">&quot;Visits to the Dept. of Retirement Services in a given month by employee&quot;</span></a>
-<a class="sourceLine" id="cb11-16" data-line-number="16">                   )</a></code></pre></div>
-<div id="htmlwidget-7da423c2d132132d09b5" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-7da423c2d132132d09b5">{"x":{"filter":"none","extensions":["Buttons"],"caption":"<caption>Visits to the Dept. of Retirement Services in a given month by employee<\/caption>","data":[["1","2","3"],["Danielle","Ramona","Ross"],[6,11,10],[11,5,10],[23,18,10]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Employee<\/th>\n      <th>Phone Visits<\/th>\n      <th>Office Visits<\/th>\n      <th>Online Visits<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"Bfrtip","buttons":["excel"],"searching":false,"columnDefs":[{"className":"dt-right","targets":[2,3,4]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
-<p>Data are frequently displayed in this “wide” format. It works great for presentation, but not great for data analysis.</p>
-<p>The shortcomings of data in this format may become apparent when you attempt to work with the data in a pivot table. This is because our columns aren’t truly variables. Remember, variables are elements of an observation that can change. You can drag the fields from the top row to the grey box below, for columns, and the left, for rows. This becomes unmanageable quickly.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1">rpivotTable<span class="op">::</span><span class="kw">rpivotTable</span>(visits, <span class="dt">width =</span> <span class="st">&quot;60%&quot;</span>, <span class="dt">height =</span> <span class="st">&quot;60%&quot;</span>)</a></code></pre></div>
-<div id="htmlwidget-859dc7cbaf02732d7827" style="width:60%;height:60%;" class="rpivotTable html-widget"></div>
-<script type="application/json" data-for="htmlwidget-859dc7cbaf02732d7827">{"x":{"data":{"Employee":["Danielle","Ramona","Ross"],"Phone Visits":[6,11,10],"Office Visits":[11,5,10],"Online Visits":[23,18,10]},"params":{},"locale":"en","subtotals":false},"evals":[],"jsHooks":[]}</script>
-</div>
-<div id="tidy-data--from-wide-to-long" class="section level2">
-<h2><span class="header-section-number">3.2</span> Tidy Data- From Wide to Long</h2>
-<p>Let’s apply our criteria of tidy data to this set:</p>
-<ul>
-<li>Variables
-<ul>
-<li>At first glance, it doesn’t look like this is a problem. But think again. Is <code>phone visits</code> really a variable? Or is the real variable of interest number of visits? And are our column names are actually variables too (type of visit)?</li>
-</ul></li>
-</ul>
-<p>Let’s take another swing at setting up our table for data analysis purposes. This can be accomplished easily in R using the code below, or in Excel by loading the data with <a href="https://support.microsoft.com/en-us/office/unpivot-columns-power-query-0f7bad4b-9ea1-49c1-9d95-f588221c7098"><code>Get and Transform</code></a> -&gt; selecting the three “visits” columns -&gt; right clicking -&gt; and selecting “unpivot columns.”</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="co">#We have already loaded the &quot;tidyverse&quot; library so we do not have to do it again</span></a>
-<a class="sourceLine" id="cb13-2" data-line-number="2"><span class="co">#we are editing the &quot;visits&quot; table already created by storing it in a new table pivot_visits</span></a>
-<a class="sourceLine" id="cb13-3" data-line-number="3">pivot_visits &lt;-<span class="st"> </span>visits <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb13-4" data-line-number="4"><span class="st">  </span><span class="co">#using pivot_longer on every column except &quot;employee&quot; and setting the name of the new columns</span></a>
-<a class="sourceLine" id="cb13-5" data-line-number="5"><span class="st">  </span><span class="kw">pivot_longer</span>(<span class="op">-</span>Employee, <span class="dt">names_to =</span> <span class="st">&quot;Visit Type&quot;</span>, <span class="dt">values_to =</span> <span class="st">&quot;Number of Visits&quot;</span>) </a>
-<a class="sourceLine" id="cb13-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb13-7" data-line-number="7"></a>
-<a class="sourceLine" id="cb13-8" data-line-number="8">knitr<span class="op">::</span><span class="kw">kable</span>(pivot_visits, <span class="dt">caption =</span> <span class="st">&quot;Visits to the Dept. of Retirement Services in a given month&quot;</span>)</a></code></pre></div>
+<p>Recall our sample data from the last chapter:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" data-line-number="1"><span class="co">#We have already loaded the &quot;tidyverse&quot; library so we do not have to do it again</span></a>
+<a class="sourceLine" id="cb14-2" data-line-number="2"><span class="co">#we are editing the &quot;visits&quot; table already created by storing it in a new table pivot_visits</span></a>
+<a class="sourceLine" id="cb14-3" data-line-number="3">pivot_visits &lt;-<span class="st"> </span>visits <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb14-4" data-line-number="4"><span class="st">  </span><span class="co">#using pivot_longer on every column except &quot;employee&quot; and setting the name of the new columns</span></a>
+<a class="sourceLine" id="cb14-5" data-line-number="5"><span class="st">  </span><span class="kw">pivot_longer</span>(<span class="op">-</span>Employee, <span class="dt">names_to =</span> <span class="st">&quot;Visit Type&quot;</span>, <span class="dt">values_to =</span> <span class="st">&quot;Number of Visits&quot;</span>) </a>
+<a class="sourceLine" id="cb14-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb14-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb14-8" data-line-number="8">knitr<span class="op">::</span><span class="kw">kable</span>(pivot_visits, <span class="dt">caption =</span> <span class="st">&quot;Visits to the Dept. of Retirement Services in a given month&quot;</span>)</a></code></pre></div>
 <table>
 <caption><span id="tab:unnamed-chunk-9">Table 3.1: </span>Visits to the Dept. of Retirement Services in a given month</caption>
 <thead>
@@ -707,38 +673,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tr>
 </tbody>
 </table>
-<p>Now this is a table that is much easier to analyze in an Excel pivot table or with a variety of R functions. However, it does look worse and is less intuitive for human readers. Thankfully, using data in this format, it is easy to recreate the original table for presentation, while also giving a variety of options for formatting and plotting. Use the pivot table below to recreate the original table using the tidy data. *Hint- Instead of Count, select Sum -&gt; Number of Visits as the value field. It is far easier to work with fields when they are in a tidy format.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" data-line-number="1">rpivotTable<span class="op">::</span><span class="kw">rpivotTable</span>(pivot_visits, <span class="dt">width =</span> <span class="st">&quot;60%&quot;</span>, <span class="dt">height =</span> <span class="st">&quot;400px&quot;</span>)</a></code></pre></div>
-<div id="htmlwidget-a2e50ef28d52de34aee4" style="width:60%;height:400px;" class="rpivotTable html-widget"></div>
-<script type="application/json" data-for="htmlwidget-a2e50ef28d52de34aee4">{"x":{"data":{"Employee":["Danielle","Danielle","Danielle","Ramona","Ramona","Ramona","Ross","Ross","Ross"],"Visit Type":["Phone Visits","Office Visits","Online Visits","Phone Visits","Office Visits","Online Visits","Phone Visits","Office Visits","Online Visits"],"Number of Visits":[6,11,23,11,5,18,10,10,10]},"params":{},"locale":"en","subtotals":false},"evals":[],"jsHooks":[]}</script>
+<p>Once the data has been tidied, it is easy to manipulate fields in pivot tables.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1">rpivotTable<span class="op">::</span><span class="kw">rpivotTable</span>(pivot_visits, <span class="dt">width =</span> <span class="st">&quot;60%&quot;</span>, <span class="dt">height =</span> <span class="st">&quot;400px&quot;</span>)</a></code></pre></div>
+<div id="htmlwidget-b0de5f7f3df115698117" style="width:60%;height:400px;" class="rpivotTable html-widget"></div>
+<script type="application/json" data-for="htmlwidget-b0de5f7f3df115698117">{"x":{"data":{"Employee":["Danielle","Danielle","Danielle","Ramona","Ramona","Ramona","Ross","Ross","Ross"],"Visit Type":["Phone Visits","Office Visits","Online Visits","Phone Visits","Office Visits","Online Visits","Phone Visits","Office Visits","Online Visits"],"Number of Visits":[6,11,23,11,5,18,10,10,10]},"params":{},"locale":"en","subtotals":false},"evals":[],"jsHooks":[]}</script>
 <p>The key with pivot tables, such as the one above, is you are moving <em>fields</em> into the rows and columns of a new table. This is often referred to as “pivoting”. You are then selecting a calculation to <em>summarize</em> the intersection of the <em>fields</em> that you drug into rows and columns. Above, you can click on the “Count” button to see the other ways this lightweight pivot table allows you to <em>summarize</em> your data. More powerful data analysis tools, such as PowerPivot in Excel, PowerBI, and several R packages allow you infinitely flexible formulas to define what happens at the intersection of fields in a pivot table. This is the core of all (most) data analysis. Think in terms of fields and calculated summaries and you are well on your way to becoming a democratic data master.</p>
 <p>It is also easier to do a variety of calculations on the data now that is in a “tidy” format. For example, creating descriptive statistics across groups is very straightforward. This can also be accomplished in an Excel pivot table with the basic <a href="https://support.microsoft.com/en-gb/office/show-different-calculations-in-pivottable-value-fields-014d2777-baaf-480b-a32b-98431f48bfec">“show values as” functions</a>.</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1">desc_visits &lt;-<span class="st"> </span>pivot_visits <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb15-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(<span class="st">`</span><span class="dt">Visit Type</span><span class="st">`</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb15-3" data-line-number="3"><span class="st">  </span><span class="kw">summarise</span>(<span class="st">`</span><span class="dt">Avg Visits</span><span class="st">`</span> =<span class="st"> </span><span class="kw">mean</span>(<span class="st">`</span><span class="dt">Number of Visits</span><span class="st">`</span>),</a>
-<a class="sourceLine" id="cb15-4" data-line-number="4">            <span class="st">`</span><span class="dt">Total Visits</span><span class="st">`</span> =<span class="st"> </span><span class="kw">sum</span>(<span class="st">`</span><span class="dt">Number of Visits</span><span class="st">`</span>),</a>
-<a class="sourceLine" id="cb15-5" data-line-number="5">            <span class="st">`</span><span class="dt">Std Dev of Visits</span><span class="st">`</span> =<span class="st"> </span><span class="kw">sd</span>(<span class="st">`</span><span class="dt">Number of Visits</span><span class="st">`</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" data-line-number="1">desc_visits &lt;-<span class="st"> </span>pivot_visits <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb16-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(<span class="st">`</span><span class="dt">Visit Type</span><span class="st">`</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb16-3" data-line-number="3"><span class="st">  </span><span class="kw">summarise</span>(<span class="st">`</span><span class="dt">Avg Visits</span><span class="st">`</span> =<span class="st"> </span><span class="kw">mean</span>(<span class="st">`</span><span class="dt">Number of Visits</span><span class="st">`</span>),</a>
+<a class="sourceLine" id="cb16-4" data-line-number="4">            <span class="st">`</span><span class="dt">Total Visits</span><span class="st">`</span> =<span class="st"> </span><span class="kw">sum</span>(<span class="st">`</span><span class="dt">Number of Visits</span><span class="st">`</span>),</a>
+<a class="sourceLine" id="cb16-5" data-line-number="5">            <span class="st">`</span><span class="dt">Std Dev of Visits</span><span class="st">`</span> =<span class="st"> </span><span class="kw">sd</span>(<span class="st">`</span><span class="dt">Number of Visits</span><span class="st">`</span>))</a></code></pre></div>
 <p>This is where pivot tables, and the way they force you to think about data, become <em>enormously</em> powerful. Enter <strong>PowerPivot</strong>, stage left. PowerPivot allows you to write very detailed and useful functions for the values that appear in the middle of a pivot table. Above, I used R to calculate the average number of visits, total visits, and standard deviation of visits by visit type. But what if I quickly wanted to view this by Employee instead? Or what if I wanted to group by both visit type and employee, and generate the same descriptions? R and PowerPivot make this very easy. I’m not going to go into detail on the mechanics and tutorials of PowerPivot, as it is extensively covered elsewhere– see the Practices section of this guide.</p>
 <p>Here’s the key– Every fancy data dashboard, analysis technique, interactive visualization– is a pivot table with a “calculated field” (formula for values in a pivot table). That’s it. If you can think in terms of fields and calculated values based on those fields, PowerBI, PowerPivot, Tableau, Qlik, ggplot2, etc. will be second nature. The only thing that changes when crating a viz instead of a pivot table is that your fields that you drag into a pivot table become the axis of your chart, and your calculated field becomes a “mark” on your plot. If you are interested more in a universal so-called “grammar of graphics” that is based on the principles outlined here, there is a wealth of resources available. (link to resources.)</p>
 </div>
 <div id="advanced-data-summaries" class="section level2">
-<h2><span class="header-section-number">3.3</span> Advanced Data Summaries</h2>
+<h2><span class="header-section-number">3.2</span> Advanced Data Summaries</h2>
 <p>Frequently, public administrators are interested in how things have changed over a period of time. Here’s an example dataset that shows referrals to the same Dept. of Retirement Systems we have used in previous examples.</p>
 </div>
 <div id="conclusion-1" class="section level2">
-<h2><span class="header-section-number">3.4</span> Conclusion</h2>
+<h2><span class="header-section-number">3.3</span> Conclusion</h2>
 <p>Thinking in terms of pivot tables is the core of democratic data analysis. This may not feel intuitive at first glance. But thinking this way forces the analyst to avoid the classic pitfalls of <em>un</em>democratic data analysis. Those pitfalls are the cell-based, hard-coded, pages and pages of tabs excel workbook nightmare that only the analyst themselves understands (and that’s if they are lucky). Thinking in terms of the language of data analysis, emphasizing the use of fields and summaries, forces your analysis to be flexible, understandable, and reproducible. It is easy for an analyst who is also fluent in data analysis to pick up your work and immediately see how it operates because it is constructed using best practices and principles. It is also easy for someone else, or your future self, to write new calculations for data summaries, compare results, and use different fields.</p>
 </div>
 <div id="practices" class="section level2">
-<h2><span class="header-section-number">3.5</span> Practices</h2>
+<h2><span class="header-section-number">3.4</span> Practices</h2>
 
 </div>
-</div>
-<div class="footnotes">
-<hr />
-<ol start="4">
-<li id="fn4"><p>Data was created for demonstration purposes<a href="pivot-to-win-it.html#fnref4" class="footnote-back">↩</a></p></li>
-</ol>
 </div>
             </section>
 
