@@ -38,7 +38,7 @@ Comments are wonderful. They are notes to yourself that you should leave at almo
 
 
 ## Give Yourself Credit
-Don't hard code Excel values in cells, etc. This is easier to do when you use the tools shown in the practices section. 
+Don't hard code (e.g. manually type) Excel values in cells. Build calculated summaries as discussed in the pivot-powered tab. Link to data sources. Highlight your expertise. This is easier to do when you use the tools shown in the practices section. 
 
 ## Version Control
 

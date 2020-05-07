@@ -309,7 +309,7 @@ Here is the first major departure from what you may have been taught about data 
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{htmlwidget-2b9073e75c623c0b5c30}{}
+\hypertarget{htmlwidget-9df9c9d6e6a941bfdad9}{}
 
 In this example, it would be trivial to go in to the Excel file and clean up the dates, names, and locations by hand. However, you could imagine this survey replicated for a department of forty employees. It quickly becomes unfeasable to make those edits by hand. When this is the case, there are functions in Excel and R that will make your life much easier.
 
@@ -354,7 +354,7 @@ Here is annotated code for how I would go about cleaning this table in R. The fr
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{htmlwidget-0c8f1e401fbd4fc09a33}{}
+\hypertarget{htmlwidget-ad0ecd6328ab4ad9dbf2}{}
 
 This may seem like a lot of work for a small table. But as your data grows, it is much easier to operate on entire fields at a time. This is especially true in Get \& Transform, which makes it very easy to transform and clean data using all the same steps as the \texttt{R} code above. As you can see, our table is now ``cleaned'' and organized consistently.
 
@@ -406,7 +406,7 @@ Hopefully you will see a similar pattern here. Now, there are three variables: V
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{htmlwidget-a8f6e22555abf852b817}{}
+\hypertarget{htmlwidget-4cf59d41cfddf39b1e61}{}
 
 Try to tidy this in R or Excel Get and Transform. See this footnote\footnote{powerquery hints} or look at the code if you need a hint.
 
@@ -557,7 +557,7 @@ Below is a table\footnote{Data was created for demonstration purposes} that show
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{htmlwidget-21463b764d6edcf9cc81}{}
+\hypertarget{htmlwidget-d8769801f44a4cfc1cf3}{}
 
 Data are frequently displayed in this ``wide'' format. It works great for presentation, but not great for data analysis.
 
@@ -569,7 +569,7 @@ The shortcomings of data in this format may become apparent when you attempt to 
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{htmlwidget-0d9b1bf541fa70cfd044}{}
+\hypertarget{htmlwidget-ce05fa7d033c8e668c12}{}
 
 \hypertarget{tidy-data--from-wide-to-long}{%
 \section{Tidy Data- From Wide to Long}\label{tidy-data--from-wide-to-long}}
@@ -640,7 +640,7 @@ Now this is a table that is much easier to analyze in an Excel pivot table or wi
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{htmlwidget-085defacc69604cabe67}{}
+\hypertarget{htmlwidget-782e8a2c8f9b7b5c121e}{}
 
 The key with pivot tables, such as the one above, is you are moving \emph{fields} into the rows and columns of a new table. This is often referred to as ``pivoting''. You are then selecting a calculation to \emph{summarize} the intersection of the \emph{fields} that you drug into rows and columns. Above, you can click on the ``Count'' button to see the other ways this lightweight pivot table allows you to \emph{summarize} your data. More powerful data analysis tools, such as PowerPivot in Excel, PowerBI, and several R packages allow you infinitely flexible formulas to define what happens at the intersection of fields in a pivot table. This is the core of all (most) data analysis. Think in terms of fields and calculated summaries and you are well on your way to becoming a democratic data master.
 
@@ -721,7 +721,7 @@ Comments are wonderful. They are notes to yourself that you should leave at almo
 \hypertarget{give-yourself-credit}{%
 \section{Give Yourself Credit}\label{give-yourself-credit}}
 
-Don't hard code Excel values in cells, etc. This is easier to do when you use the tools shown in the practices section.
+Don't hard code (e.g.~manually type) Excel values in cells. Build calculated summaries as discussed in the pivot-powered tab. Link to data sources. Highlight your expertise. This is easier to do when you use the tools shown in the practices section.
 
 \hypertarget{version-control}{%
 \section{Version Control}\label{version-control}}
@@ -843,7 +843,7 @@ This probem is largely solved by using dashboards and other online solutions. Da
 \hypertarget{my-audience-is-all-of-the-above--an-introduction-to-literate-data-analysis}{%
 \section{My audience is all of the above- An Introduction to Literate Data Analysis}\label{my-audience-is-all-of-the-above--an-introduction-to-literate-data-analysis}}
 
-That brings me to what form democratic data analysis would take in the World-According-To-Corban. Another tool for presenting data analysis to decision-makers are interactive notebooks that merge explanatory text, data, code, and graphics in one file that can be tailored for a variety of audiences. I call this approach \textbf{\emph{literate data analysis}}\footnote{derived from Literatre Programming, but specific to subject matter expert data analysis}. Code-and-text driven notebooks are becoming exceedingly common in academic domains. In fact, this handbook is an example of an interactive HTML document written in \texttt{r}\footnote{using Rmarkdown files and the \href{bookdown.org}{bookdown} package}, but they certainly do not have to be this involved. Interactive notebooks combine text, code, and output in one place. They can be structured so that the file shows either plain-text analysis and charts in a web browser, but all of the code that generates it if you open the file in an editor such as RStudio. For example, here is an R notebook that I authored for a research project on state pension funding, and I'll link to other interactive notebooks in the Practices section.
+That brings me to what form democratic data analysis would take in the World-According-To-Corban. Another tool for presenting data analysis to decision-makers are interactive notebooks that merge explanatory text, data, code, and graphics in one file that can be tailored for a variety of audiences. I call this approach \textbf{\emph{literate data analysis}}\footnote{derived from Literatre Programming, but specific to subject matter expert data analysis}. Code-and-text driven notebooks are becoming exceedingly common in academic domains. In fact, this handbook is an example of an interactive HTML document written in \texttt{r}\footnote{using Rmarkdown files and the \href{bookdown.org}{bookdown} package}, but they certainly do not have to be this involved. Interactive notebooks combine text, code, and output in one place. They can be structured so that the file shows either plain-text analysis and charts in a web browser, but all of the code that generates it if you open the file in an editor such as RStudio. For example, \href{https://nemethc.com/evaluating_legislator_efficiency.nb.html\#}{here is an R notebook that I authored for a research project on legislative voting behavior}, and I'll link to other interactive notebooks in the Practices section.
 
 Here are three platforms of interactive, code-driven data analysis notebooks:
 
