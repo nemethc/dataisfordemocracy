@@ -2,13 +2,13 @@
 
 > *All models are wrong, but some are useful*
 
--- Gearge Box
+-- George Box
 
 ## Embracing Uncertainty for Better Outcomes
 
-What is the point of data analysis? Often, it is to use data to summarize the world around you. In a sense, all data analysis is model building, and by definition, a model is a simplified version of the world. Any time the analyst is using data analysis to inform decision making, she is in a sense making a model. Models are commonly thought of to provide answers to the question at hand. Model buidling, and data analysis more generally, never gives you "the" answer. Data analysis only gives you a answer, if it gives you an answer at all. If you have been following along to this point, you have learned the value of data analysis that is structured and built up, not out. Frequently, data analysis is valuable because it tells you what isn't the answer. Knowing how to build uncertainty into your analysis is incredibly valuble as analysis -- models-- are used to implement important policies that impact the public good. Incorporating uncertainty into your analysis will make you both more credible and force you to use your subject matter expertise in addition to your data skills. 
+What is the point of data analysis? Often, it is to use data to summarize the world around you. In a sense, all data analysis is model building, and by definition, a model is a simplified version of the world. Any time the analyst is using data analysis to inform decision making, she is in a sense making a model. Models are commonly thought of to provide answers to the question at hand. Model building, and data analysis more generally, never gives you "the" answer. Data analysis only gives you a answer, if it gives you an answer at all. If you have been following along to this point, you have learned the value of data analysis that is structured and built up, not out. Frequently, data analysis is valuable because it tells you what isn't the answer. Knowing how to build uncertainty into your analysis is incredibly valuable as analysis -- models-- are used to implement important policies that impact the public good. Incorporating uncertainty into your analysis will make you both more credible and force you to use your subject matter expertise in addition to your data skills. 
 
-Any data analysis that simplifies the world (hint-- that's all of it) can be considered a model. So I will use those phrases interchangeablly in this section. 
+Any data analysis that simplifies the world (hint-- that's all of it) can be considered a model. So I will use those phrases interchangeably in this section. 
 
 ## Why Model?
 

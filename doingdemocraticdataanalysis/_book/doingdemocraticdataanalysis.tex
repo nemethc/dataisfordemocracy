@@ -164,7 +164,7 @@ In this handbook, I propose four principles of democratic data analysis. Democra
 
 As this isn't a how-to manual, each chapter will begin with a description of the \emph{principles} outlined above and arguments for why they are important. This will be followed by \emph{practices} section where I walk through examples of how to implement these principles in common situations and provide additional materials for you to learn how to apply these principles using common data analysis tools.
 
-Why maintain the distinction between principles and practices? Data analysis is driven by the technologies that we have access to. Whether it be the venerable pivot table, or a new-school dashboard platform, or a data-oriented programming language, the principles that I lay out in this handbook supersede specific technologies. Think of it like grammar. You may write by hand, on a computer, using text-to-speech. You may be writing a poem, a novel, an argument, or an instruction manual. But the basic rules of grammar are relevant in whatever medium you choose. Similarly, this guide will teach you the basic ``grammar'' of democratic data analysis. This will allow you to apply this knowledge in whatever platform or technology you are interested in or have access to. But similar to learning language, it helps to practice. It isn't much to use to study grammar without ever writing a sentance.
+Why maintain the distinction between principles and practices? Data analysis is driven by the technologies that we have access to. Whether it be the venerable pivot table, or a new-school dashboard platform, or a data-oriented programming language, the principles that I lay out in this handbook supersede specific technologies. Think of it like grammar. You may write by hand, on a computer, using text-to-speech. You may be writing a poem, a novel, an argument, or an instruction manual. But the basic rules of grammar are relevant in whatever medium you choose. Similarly, this guide will teach you the basic ``grammar'' of democratic data analysis. This will allow you to apply this knowledge in whatever platform or technology you are interested in or have access to. But similar to learning language, it helps to practice. It isn't much to use to study grammar without ever writing a sentence.
 
 The principles section of this guide will include examples in both Excel and \texttt{R}. Government runs on Excel, so all of the examples and exercises will be Excel compatible. If you are comfortable with Excel\footnote{aka you use \texttt{vlookup}, \texttt{index(match)}, pivot tables, or \emph{Get \& Transform}/PowerPivot on a somewhat regular basis} and want to challenge yourself, boost your resume, and become a data superstar, I would highly recommend learning \texttt{R}.
 
@@ -217,7 +217,7 @@ Data analysis is the process of transforming numbers on a page to insight into t
 \hypertarget{the-grammar-of-data-analysis}{%
 \section[The Grammar of Data Analysis]{\texorpdfstring{The Grammar of Data Analysis\footnote{Adapted from Hadley Wickham's paper on \href{https://vita.had.co.nz/papers/tidy-data.pdf}{Tidy Data}}}{The Grammar of Data Analysis}}\label{the-grammar-of-data-analysis}}
 
-As I mentioned before, democratic data analysis has an underlying structure, like a sentance There are rules so these sentences (hopefully) make sense to you, the reader. Similarly, by following common conventions of democratic data analysis, others will be able to ``read'' your analysis like you are reading this sentence. And also, like grammar, you can break the rules-- but it helps to know them first.
+As I mentioned before, democratic data analysis has an underlying structure, like a sentence There are rules so these sentences (hopefully) make sense to you, the reader. Similarly, by following common conventions of democratic data analysis, others will be able to ``read'' your analysis like you are reading this sentence. And also, like grammar, you can break the rules-- but it helps to know them first.
 
 Here are a couple definitions that will help as you move through this text. Don't worry about memorizing them, as I will refer back to these definitions frequently.
 
@@ -282,7 +282,7 @@ If I could convince you of one thing, it would be the value in keeping your data
 
 I hate cleaning, but love tidying. Unfortunately, as in with life, one must clean before one tidies. But let's start with some conceptual definitions.
 
-Cleaning refers to the process of scrubbing the data into a way that makes sense to you, the analyst. Oftentimes, and especially in public sector organizations, the data is not clean. Whether you are looking at the output of a SurveyMonkey survey or a canned report that is run from the IT department, your data will come in all shapes and sizes. Cleaning data is the process of transforming data values into ones that make sense for the purposes of your analysis.
+Cleaning refers to the process of scrubbing the data into a way that makes sense to you, the analyst. Oftentimes, and especially in public sector organizations, the data is not clean. Whether you are looking at the output of a Survey Monkey survey or a canned report that is run from the IT department, your data will come in all shapes and sizes. Cleaning data is the process of transforming data values into ones that make sense for the purposes of your analysis.
 
 Here is the first major departure from what you may have been taught about data analysis in Excel. When you get messy data \emph{do not} change individual cell values (if you can at all help it). Recall from the introductory chapter the difference between cells and fields. Fields, as a reminder, are columns that represent one variable. Whenever possible, use data analysis tools to make changes to the entire field, rather than specific cells. Most data analysis software, outside of Excel, make it difficult or impossible to change individual cell values. This is important for several reasons, most of which we will get to in the next chapter on reproducibility. But for now, thinking in terms of fields, and making changes to entire fields, will save you \emph{a lot} of work and headache in the long run. Let's look at a sample dataset that may be similar to one you would encounter in real life. Here is a survey collected by a field manager of a local parks and recreation department on employment.
 
@@ -309,9 +309,9 @@ Here is the first major departure from what you may have been taught about data 
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{htmlwidget-9df9c9d6e6a941bfdad9}{}
+\hypertarget{htmlwidget-911442e7cbd07cf2437b}{}
 
-In this example, it would be trivial to go in to the Excel file and clean up the dates, names, and locations by hand. However, you could imagine this survey replicated for a department of forty employees. It quickly becomes unfeasable to make those edits by hand. When this is the case, there are functions in Excel and R that will make your life much easier.
+In this example, it would be trivial to go in to the Excel file and clean up the dates, names, and locations by hand. However, you could imagine this survey replicated for a department of forty employees. It quickly becomes unfeasible to make those edits by hand. When this is the case, there are functions in Excel and R that will make your life much easier.
 
 Here is annotated code for how I would go about cleaning this table in R. The friendly syntax of the \texttt{tidyverse} packages makes it easy to follow along, even if you aren't comfortable writing it yourself. You can accomplish all these similar transformations using \href{https://support.microsoft.com/en-us/office/power-query-101-008b3f46-5b14-4f8b-9a07-d3da689091b5}{Get \& Transform in Excel}.
 
@@ -354,7 +354,7 @@ Here is annotated code for how I would go about cleaning this table in R. The fr
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{htmlwidget-ad0ecd6328ab4ad9dbf2}{}
+\hypertarget{htmlwidget-88fbd7aa398f5d6c81bd}{}
 
 This may seem like a lot of work for a small table. But as your data grows, it is much easier to operate on entire fields at a time. This is especially true in Get \& Transform, which makes it very easy to transform and clean data using all the same steps as the \texttt{R} code above. As you can see, our table is now ``cleaned'' and organized consistently.
 
@@ -406,7 +406,7 @@ Hopefully you will see a similar pattern here. Now, there are three variables: V
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{htmlwidget-4cf59d41cfddf39b1e61}{}
+\hypertarget{htmlwidget-0780f32175b100d12cef}{}
 
 Try to tidy this in R or Excel Get and Transform. See this footnote\footnote{powerquery hints} or look at the code if you need a hint.
 
@@ -522,13 +522,13 @@ Why did we go through all the trouble of tidying data in the last section? So we
 \emph{The Ultimate Answer to Life, The Universe and Everything is\ldots{} \textbf{the pivot table}}
 \end{quote}
 
--Dougas Adams/Corban Nemeth
+-Douglas Adams/Corban Nemeth
 
 Pivot tables are the world's most common, most helpful, and most underrated data analysis tool. If you understand the mechanics of the pivot table, you have everything you need to be a data analysis expert. PowerBI or Tableau interactive charts and graphs are just pivot tables in disguise. Understanding what is needed to make a pivot table work is the key to the wide world of data analysis.
 
 What is so important about pivot tables? First and foremost, pivot tables force you to think in terms of fields, not in terms of cells. In order for a pivot table to be effective, the data has to be organized in a table. And there is a right and a wrong way to putting data in a table. If your pivot table is not working properly, it is likely because your data isn't tidy.
 
-A pivot table groups data by field and allows the user to drag fields to the rows or columns of the pivot table. This is effective when each field is a variable (something that can change), and each row is a seperate observation of some phenomena of interest.
+A pivot table groups data by field and allows the user to drag fields to the rows or columns of the pivot table. This is effective when each field is a variable (something that can change), and each row is a separate observation of some phenomena of interest.
 
 In short, pivot tables depend on \textbf{tidy data}.
 
@@ -557,11 +557,11 @@ Below is a table\footnote{Data was created for demonstration purposes} that show
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{htmlwidget-d8769801f44a4cfc1cf3}{}
+\hypertarget{htmlwidget-7398777c45f3825902c2}{}
 
 Data are frequently displayed in this ``wide'' format. It works great for presentation, but not great for data analysis.
 
-The shortcomings of data in this format may become apparent when you attempt to work with the data in a pivot table. This is becuase our columns aren't truly variables. Remember, variables are elements of an observation that can change. You can drag the fields from the top row to the grey box below, for columns, and the left, for rows. This becomes unmanegable quickly.
+The shortcomings of data in this format may become apparent when you attempt to work with the data in a pivot table. This is because our columns aren't truly variables. Remember, variables are elements of an observation that can change. You can drag the fields from the top row to the grey box below, for columns, and the left, for rows. This becomes unmanageable quickly.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -569,7 +569,7 @@ The shortcomings of data in this format may become apparent when you attempt to 
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{htmlwidget-ce05fa7d033c8e668c12}{}
+\hypertarget{htmlwidget-2ff69d002c22cd28040e}{}
 
 \hypertarget{tidy-data--from-wide-to-long}{%
 \section{Tidy Data- From Wide to Long}\label{tidy-data--from-wide-to-long}}
@@ -584,7 +584,7 @@ Let's apply our criteria of tidy data to this set:
   \begin{itemize}
   \tightlist
   \item
-    At first glance, it doensn't look like this is a problem. But think again. Is \texttt{phone\ visits} really a variable? Or is the real variable of interest number of visits? And are our column names are actually variables too (type of visit)?
+    At first glance, it doesn't look like this is a problem. But think again. Is \texttt{phone\ visits} really a variable? Or is the real variable of interest number of visits? And are our column names are actually variables too (type of visit)?
   \end{itemize}
 \end{itemize}
 
@@ -640,11 +640,11 @@ Now this is a table that is much easier to analyze in an Excel pivot table or wi
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{htmlwidget-782e8a2c8f9b7b5c121e}{}
+\hypertarget{htmlwidget-a2d8a69d84581603af12}{}
 
 The key with pivot tables, such as the one above, is you are moving \emph{fields} into the rows and columns of a new table. This is often referred to as ``pivoting''. You are then selecting a calculation to \emph{summarize} the intersection of the \emph{fields} that you drug into rows and columns. Above, you can click on the ``Count'' button to see the other ways this lightweight pivot table allows you to \emph{summarize} your data. More powerful data analysis tools, such as PowerPivot in Excel, PowerBI, and several R packages allow you infinitely flexible formulas to define what happens at the intersection of fields in a pivot table. This is the core of all (most) data analysis. Think in terms of fields and calculated summaries and you are well on your way to becoming a democratic data master.
 
-It is also easier to do a variety of calculations on the data now that is in a ``tidy'' format. For example, creating descriptive statistics accross groups is very straightforward. This can also be accomplished in an Excel pivot table with the basic \href{https://support.microsoft.com/en-gb/office/show-different-calculations-in-pivottable-value-fields-014d2777-baaf-480b-a32b-98431f48bfec}{``show values as'' functions}.
+It is also easier to do a variety of calculations on the data now that is in a ``tidy'' format. For example, creating descriptive statistics across groups is very straightforward. This can also be accomplished in an Excel pivot table with the basic \href{https://support.microsoft.com/en-gb/office/show-different-calculations-in-pivottable-value-fields-014d2777-baaf-480b-a32b-98431f48bfec}{``show values as'' functions}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -656,9 +656,9 @@ It is also easier to do a variety of calculations on the data now that is in a `
 \end{Highlighting}
 \end{Shaded}
 
-This is where pivot tables, and the way they force you to think about data, become \emph{enormously} powerful. Enter \textbf{PowerPivot}, stage left. PowerPivot allows you to write very detailed and useful functions for the values that appear in the middle of a pivot table. Above, I used R to calculate the average number of visits, total visits, and standard deviation of visits by visit type. But what if I quickly wanted to view this by Employee instead? Or what if I wanted to group by both visit type and employee, and generate the same descriptions? R and PowerPivot make this very easy. I'm not going to go into detail on the mechanics and tutorials of PowerPivot, as it is extensivly covered elsewhere-- see the Practices section of this guide.
+This is where pivot tables, and the way they force you to think about data, become \emph{enormously} powerful. Enter \textbf{PowerPivot}, stage left. PowerPivot allows you to write very detailed and useful functions for the values that appear in the middle of a pivot table. Above, I used R to calculate the average number of visits, total visits, and standard deviation of visits by visit type. But what if I quickly wanted to view this by Employee instead? Or what if I wanted to group by both visit type and employee, and generate the same descriptions? R and PowerPivot make this very easy. I'm not going to go into detail on the mechanics and tutorials of PowerPivot, as it is extensively covered elsewhere-- see the Practices section of this guide.
 
-Here's the key-- Every fancy data dashboard, analysis technique, interactive visualiztion-- is a pivot table with a ``calculated field'' (formula for values in a pivot table). That's it. If you can think in terms of fields and calculated values based on those fields, PowerBI, PowerPivot, Tableau, Qlik, ggplot2, etc. will be second nature. The only thing that changes when crating a viz instead of a pivot table is that your fields that you drag into a pivot table become the axis of your chart, and your calculated field becomes a ``mark'' on your plot. If you are interested more in a universal so-called ``grammer of graphics'' that is based on the principles outlined here, there is a wealth of resources available. (link to resources.)
+Here's the key-- Every fancy data dashboard, analysis technique, interactive visualization-- is a pivot table with a ``calculated field'' (formula for values in a pivot table). That's it. If you can think in terms of fields and calculated values based on those fields, PowerBI, PowerPivot, Tableau, Qlik, ggplot2, etc. will be second nature. The only thing that changes when crating a viz instead of a pivot table is that your fields that you drag into a pivot table become the axis of your chart, and your calculated field becomes a ``mark'' on your plot. If you are interested more in a universal so-called ``grammar of graphics'' that is based on the principles outlined here, there is a wealth of resources available. (link to resources.)
 
 \hypertarget{advanced-data-summaries}{%
 \section{Advanced Data Summaries}\label{advanced-data-summaries}}
@@ -668,7 +668,7 @@ Frequently, public administrators are interested in how things have changed over
 \hypertarget{conclusion-1}{%
 \section{Conclusion}\label{conclusion-1}}
 
-Thinking in terms of pivot tables is the core of democratic data analysis. This may not feel intuitive at first glance. But thinking this way forces the analyst to avoid the classic pitfalls of \emph{un}democratic data analysis. Those pitfalls are the cell-based, hard-coded, pages and pages of tabs excel workbook nightmare that only the analyst themself understands (and that's if they are lucky). Thinking in terms of the language of data analysis, emphasizing the use of fields and summaries, forces your analysis to be flexible, understandable, and reproducible. It is easy for an analyst who is also fluent in data analysis to pick up your work and immediatly see how it operates because it is constructed using best practices and principles. It is also easy for someone else, or your future self, to write new calculations for data summaries, compare results, and use different fields.
+Thinking in terms of pivot tables is the core of democratic data analysis. This may not feel intuitive at first glance. But thinking this way forces the analyst to avoid the classic pitfalls of \emph{un}democratic data analysis. Those pitfalls are the cell-based, hard-coded, pages and pages of tabs excel workbook nightmare that only the analyst themselves understands (and that's if they are lucky). Thinking in terms of the language of data analysis, emphasizing the use of fields and summaries, forces your analysis to be flexible, understandable, and reproducible. It is easy for an analyst who is also fluent in data analysis to pick up your work and immediately see how it operates because it is constructed using best practices and principles. It is also easy for someone else, or your future self, to write new calculations for data summaries, compare results, and use different fields.
 
 \hypertarget{practices}{%
 \section{Practices}\label{practices}}
@@ -679,37 +679,37 @@ Thinking in terms of pivot tables is the core of democratic data analysis. This 
 \hypertarget{do-it-for-your-future-self}{%
 \section{Do It For Your Future Self}\label{do-it-for-your-future-self}}
 
-Many things take more time to do up front, but save you from massive headaches down the road. Brushing your teeth. Oil changes. Preventative maintenence is the name of the game. The same thing applies in democratic data analysis. Learning how to brush the teeth of your analysis will pay massive dividends down the road, as someone else (or you, more likely), need to go back through and understand, replicate, or validate your findings.
+Many things take more time to do up front, but save you from massive headaches down the road. Brushing your teeth. Oil changes. Preventative maintenance is the name of the game. The same thing applies in democratic data analysis. Learning how to brush the teeth of your analysis will pay massive dividends down the road, as someone else (or you, more likely), need to go back through and understand, replicate, or validate your findings.
 
-The second principle of democratic data analysis is reproducability. By this, I mean anything that makes it easy to look at your analysis and understand what is going on. This is where classic data analysis in Excel falls short. I believe it is almost a universal experience in the public sector to recieve a workbook full of broken links, formulas pointing in every direction, and no sense of where the original data is or what has happened to it since.
+The second principle of democratic data analysis is reproducability. By this, I mean anything that makes it easy to look at your analysis and understand what is going on. This is where classic data analysis in Excel falls short. I believe it is almost a universal experience in the public sector to receive a workbook full of broken links, formulas pointing in every direction, and no sense of where the original data is or what has happened to it since.
 
-In thinking about creating reproducible data analysis, it is important to keep in mind that data analasys should be structured from beginning to end, like a story. In the beginning, there is raw data that you pulled from a report, compiled yourself, or otherwise recieved. In Act 1, you use the practices we learned in the previous section to make the raw data tidy-- without distroying the original data. You should use tools that allow to to non-destructively manipulate and iterate on your data. Both Get \& Transform and R allow you to do this by default. In Act 2, which will be the next chapter, you use your data to create a picture of the world before you share it with others in the final Act 3.
+In thinking about creating reproducible data analysis, it is important to keep in mind that data analysis should be structured from beginning to end, like a story. In the beginning, there is raw data that you pulled from a report, compiled yourself, or otherwise received. In Act 1, you use the practices we learned in the previous section to make the raw data tidy-- without destroying the original data. You should use tools that allow to to non-destructively manipulate and iterate on your data. Both Get \& Transform and R allow you to do this by default. In Act 2, which will be the next chapter, you use your data to create a picture of the world before you share it with others in the final Act 3.
 
 The practices of reproducability that you will use here apply throughout the other chapters. It may seem like a waste of time, but if you have ever come back to a complicated excel workbook after spending even days away, this will make your life much easier.
 
 \hypertarget{do-not-destroy}{%
 \subsection{Do Not Destroy}\label{do-not-destroy}}
 
-As I mentioned before, the existential dread that occurs when opening someone else's workbook and immediatly recieving broken links, color-coding\footnote{for the love of democracy, PLEASE do not color code your data}, and a spiderweb of formulas may be a universal experience in the public sector. But there is a better way to do things. Reproducible analysis is linear. It progresses in a certain direction-- from data load to final analysis. Things happen discretely. The blessing and curse of spreadsheets is that they are unbooud by time. There is no natural direction, just a sea of little boxes spreading out as far as the eye can see\footnote{This is where programming languages such as R have an inherent advantage. Code runs in order, from first to last}. However, there are ways to impose a linear structure to your analysis.
+As I mentioned before, the existential dread that occurs when opening someone else's workbook and immediately receiving broken links, color-coding\footnote{for the love of democracy, PLEASE do not color code your data}, and a spiderweb of formulas may be a universal experience in the public sector. But there is a better way to do things. Reproducible analysis is linear. It progresses in a certain direction-- from data load to final analysis. Things happen discretely. The blessing and curse of spreadsheets is that they are unbound by time. There is no natural direction, just a sea of little boxes spreading out as far as the eye can see\footnote{This is where programming languages such as R have an inherent advantage. Code runs in order, from first to last}. However, there are ways to impose a linear structure to your analysis.
 
 The first thing I want to emphasize is PLEASE DO NOT DESTROY, ALTER, OR MANIPULATE YOUR UNDERLYING DATA. Your underlying data is like the foundation of your house. Democratic data analysis starts with a foundation of data, and builds on top of it. Oftentimes, it seems easier to simply click and drag cells around in an excel workbook, changing values here and there as you see fit. This may work in small use cases, but what if you have another idea? Or come up with a different question, where your data needs to be coded differently? Reproducible analysis makes it substantially easier to revise and rewrite after the fact. If you were writing a well-sourced research article, you wouldn't delete your notes and references for the material that didn't make it into your final product. In the same way, keeping record of the changes that you make to your analysis will pay dividends when your approach changes.
 
-\hypertarget{red-flags-for-reproduciblitly}{%
-\subsection{Red flags for reproduciblitly}\label{red-flags-for-reproduciblitly}}
+\hypertarget{red-flags-for-reproducibility}{%
+\subsection{Red flags for reproducibility}\label{red-flags-for-reproducibility}}
 
 I'll start with a list of things you want to avoid in the pursuit of reproducible democratic data analysis
 
 \hypertarget{copy-and-paste}{%
 \subsubsection{Copy and Paste}\label{copy-and-paste}}
 
-If you find yourself copying and pasting values in an excel workbook, you are not engaging in reproducible analsys-- full stop. Copy and paste (or worse, cut and paste) doesn't leave breadcrumbs for you or anyone who may come after you. It is incredibly difficult to follow the trail of an analysis built on top of copy-paste.
+If you find yourself copying and pasting values in an excel workbook, you are not engaging in reproducible analysis-- full stop. Copy and paste (or worse, cut and paste) doesn't leave breadcrumbs for you or anyone who may come after you. It is incredibly difficult to follow the trail of an analysis built on top of copy-paste.
 
 \hypertarget{repeating-yourself}{%
 \subsubsection{Repeating Yourself}\label{repeating-yourself}}
 
-There is an old adage in programming - \emph{D}on't \emph{R}epeat \emph{Y}ourself. DRY. Keeping your data analysis DRY is a good habit to get in to. If you find yourself repeating the same task more than three times, chances are there is a better, more programamatic way to go about what you are doing.
+There is an old adage in programming - \emph{D}on't \emph{R}epeat \emph{Y}ourself. DRY. Keeping your data analysis DRY is a good habit to get in to. If you find yourself repeating the same task more than three times, chances are there is a better, more programmatic way to go about what you are doing.
 
-What do I mean by repeating yourself? This would be going through every row of an 100-row table to add (or remove)a space between words, capitalizing letters, doing specific calcualtions. All of these tasks can be \textbf{easily} automated using virtually all data analysis tools. This not only saves you time, but makes it easier for your reader to see how the data has changed in the course of your analysis.
+What do I mean by repeating yourself? This would be going through every row of an 100-row table to add (or remove)a space between words, capitalizing letters, doing specific calculations. All of these tasks can be \textbf{easily} automated using virtually all data analysis tools. This not only saves you time, but makes it easier for your reader to see how the data has changed in the course of your analysis.
 
 To preview the Practices section, Get and Transform allows you to make flexible value transformations on entire fields at a time. This reduces the need for repetitive data cleaning. And if you are already taking my advice and no longer editing individual data cells, you will have a much easier time avoiding repeating yourself.
 
@@ -739,7 +739,7 @@ Git is an automated version control system that backs up your changes to the clo
 \hypertarget{practices-1}{%
 \section{Practices}\label{practices-1}}
 
-The value of Get \& Transform Data is that it forces you to build iteratively on top of your data foundation. It also convineiently records each step along the way. You even have the ability to save comments right there in the query editor. This is a remarkly easy and intuitive way to build a data tranformation pipeline that will be valuable know and into the future.
+The value of Get \& Transform Data is that it forces you to build on top of your data foundation. It also conveniently records each step along the way. You even have the ability to save comments right there in the query editor. This is a remarkably easy and intuitive way to build a data transformation pipeline that will be valuable know and into the future.
 
 \hypertarget{uncertainty-oriented-analysis}{%
 \chapter{Uncertainty Oriented Analysis}\label{uncertainty-oriented-analysis}}
@@ -748,14 +748,14 @@ The value of Get \& Transform Data is that it forces you to build iteratively on
 \emph{All models are wrong, but some are useful}
 \end{quote}
 
--- Gearge Box
+-- George Box
 
 \hypertarget{embracing-uncertainty-for-better-outcomes}{%
 \section{Embracing Uncertainty for Better Outcomes}\label{embracing-uncertainty-for-better-outcomes}}
 
-What is the point of data analysis? Often, it is to use data to summarize the world around you. In a sense, all data analysis is model building, and by definition, a model is a simplified version of the world. Any time the analyst is using data analysis to inform decision making, she is in a sense making a model. Models are commonly thought of to provide answers to the question at hand. Model buidling, and data analysis more generally, never gives you ``the'' answer. Data analysis only gives you a answer, if it gives you an answer at all. If you have been following along to this point, you have learned the value of data analysis that is structured and built up, not out. Frequently, data analysis is valuable because it tells you what isn't the answer. Knowing how to build uncertainty into your analysis is incredibly valuble as analysis -- models-- are used to implement important policies that impact the public good. Incorporating uncertainty into your analysis will make you both more credible and force you to use your subject matter expertise in addition to your data skills.
+What is the point of data analysis? Often, it is to use data to summarize the world around you. In a sense, all data analysis is model building, and by definition, a model is a simplified version of the world. Any time the analyst is using data analysis to inform decision making, she is in a sense making a model. Models are commonly thought of to provide answers to the question at hand. Model building, and data analysis more generally, never gives you ``the'' answer. Data analysis only gives you a answer, if it gives you an answer at all. If you have been following along to this point, you have learned the value of data analysis that is structured and built up, not out. Frequently, data analysis is valuable because it tells you what isn't the answer. Knowing how to build uncertainty into your analysis is incredibly valuable as analysis -- models-- are used to implement important policies that impact the public good. Incorporating uncertainty into your analysis will make you both more credible and force you to use your subject matter expertise in addition to your data skills.
 
-Any data analysis that simplifies the world (hint-- that's all of it) can be considered a model. So I will use those phrases interchangeablly in this section.
+Any data analysis that simplifies the world (hint-- that's all of it) can be considered a model. So I will use those phrases interchangeably in this section.
 
 \hypertarget{why-model}{%
 \section{Why Model?}\label{why-model}}
@@ -797,7 +797,7 @@ Just like writing, your data analysis always has an audience. Whether the audien
 \hypertarget{the-audience-is-you}{%
 \section{The audience is you}\label{the-audience-is-you}}
 
-This is where your reproducible principles are key. Becuase you are likely to forget that you edited cell B7, did a few copy/pastes, and hard-coded over some values when you come back to your workbook in a few weeks (or days, for that matter).
+This is where your reproducible principles are key. Because you are likely to forget that you edited cell B7, did a few copy/pastes, and hard-coded over some values when you come back to your workbook in a few weeks (or days, for that matter).
 
 \hypertarget{the-audience-is-a-peer}{%
 \section{The audience is a peer}\label{the-audience-is-a-peer}}
@@ -818,12 +818,12 @@ Rmarkdown/notebook format-- the future.
 Interactive documents
 Classic papers with accompanying backup.
 
-\#\#Vizualizaiton is anything that presents your evidence-- think critically about it!
+\#\#Visualization is anything that presents your evidence-- think critically about it!
 
-\hypertarget{the-audience-is-a-policydecisionmaker}{%
-\section{The audience is a policy/decisionmaker}\label{the-audience-is-a-policydecisionmaker}}
+\hypertarget{the-audience-is-a-policydecision-maker}{%
+\section{The audience is a policy/decision maker}\label{the-audience-is-a-policydecision-maker}}
 
-When sharing data analysis with a policymaker or decisionmaker, it is importat to keep in mind that the audience will often be much wider than initially assumed. Once your analysis is in the hands of a policymaker, it may go to the press, lobbyist organizations, other interest groups, or others inside or outside your organization. Additionally, policymakers often prefer paper or other ``hardcopy'' type analysis, limiting your flexibility to simply share a file. This poses two unique constraints:
+When sharing data analysis with a policymaker or decision maker, it is important to keep in mind that the audience will often be much wider than initially assumed. Once your analysis is in the hands of a policymaker, it may go to the press, lobbyist organizations, other interest groups, or others inside or outside your organization. Additionally, policymakers often prefer paper or other ``hard copy'' type analysis, limiting your flexibility to simply share a file. This poses two unique constraints:
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi})}
@@ -836,14 +836,14 @@ When sharing data analysis with a policymaker or decisionmaker, it is importat t
 
 This is where having tidy, reproducible, and flexible backup becomes incredibly important. By having this backup ready to go as soon as you present or deliver your analysis to the policymaker, you are putting yourself in a strong position to share backup when questions inevitably arise.
 
-If you are sharing your work electronically, then there are several emerging technologies and techniques that make this process easier. It is possible to embed Excel workbooks within Word documents, which ensures that the recipient has access to both your analysis and your methods. However, this can be tricky for ensuring adequate version control and reproduciblity, as these workbooks will often link to data that the end user doesn't have access to.
+If you are sharing your work electronically, then there are several emerging technologies and techniques that make this process easier. It is possible to embed Excel workbooks within Word documents, which ensures that the recipient has access to both your analysis and your methods. However, this can be tricky for ensuring adequate version control and reproducible, as these workbooks will often link to data that the end user doesn't have access to.
 
-This probem is largely solved by using dashboards and other online solutions. Dashboards are an effective way to share analysis with decision makers because you can present your conclusions and also offer the tailored flexibility for the end user to interact as well. Tools such as PowerBI and Tableau run on the same tidy data and pivot-oriented platform discussed here. It is also straightforward to share the mechanics of the model with anyone who is interested-- especially if you follow the best practices for reproducibility outlined earlier. The downside of such dashboard solutions is they can be expensive, proprietary, and it can be difficult to configure them for specific audiences.
+This problem is largely solved by using dashboards and other online solutions. Dashboards are an effective way to share analysis with decision makers because you can present your conclusions and also offer the tailored flexibility for the end user to interact as well. Tools such as PowerBI and Tableau run on the same tidy data and pivot-oriented platform discussed here. It is also straightforward to share the mechanics of the model with anyone who is interested-- especially if you follow the best practices for reproducibility outlined earlier. The downside of such dashboard solutions is they can be expensive, proprietary, and it can be difficult to configure them for specific audiences.
 
 \hypertarget{my-audience-is-all-of-the-above--an-introduction-to-literate-data-analysis}{%
 \section{My audience is all of the above- An Introduction to Literate Data Analysis}\label{my-audience-is-all-of-the-above--an-introduction-to-literate-data-analysis}}
 
-That brings me to what form democratic data analysis would take in the World-According-To-Corban. Another tool for presenting data analysis to decision-makers are interactive notebooks that merge explanatory text, data, code, and graphics in one file that can be tailored for a variety of audiences. I call this approach \textbf{\emph{literate data analysis}}\footnote{derived from Literatre Programming, but specific to subject matter expert data analysis}. Code-and-text driven notebooks are becoming exceedingly common in academic domains. In fact, this handbook is an example of an interactive HTML document written in \texttt{r}\footnote{using Rmarkdown files and the \href{bookdown.org}{bookdown} package}, but they certainly do not have to be this involved. Interactive notebooks combine text, code, and output in one place. They can be structured so that the file shows either plain-text analysis and charts in a web browser, but all of the code that generates it if you open the file in an editor such as RStudio. For example, \href{https://nemethc.com/evaluating_legislator_efficiency.nb.html\#}{here is an R notebook that I authored for a research project on legislative voting behavior}, and I'll link to other interactive notebooks in the Practices section.
+That brings me to what form democratic data analysis would take in the World-According-To-Corban. Another tool for presenting data analysis to decision-makers are interactive notebooks that merge explanatory text, data, code, and graphics in one file that can be tailored for a variety of audiences. I call this approach \textbf{\emph{literate data analysis}}\footnote{derived from Literate Programming, but specific to subject matter expert data analysis}. Code-and-text driven notebooks are becoming exceedingly common in academic domains. In fact, this handbook is an example of an interactive HTML document written in \texttt{r}\footnote{using Rmarkdown files and the \href{bookdown.org}{bookdown} package}, but they certainly do not have to be this involved. Interactive notebooks combine text, code, and output in one place. They can be structured so that the file shows either plain-text analysis and charts in a web browser, but all of the code that generates it if you open the file in an editor such as RStudio. For example, \href{https://nemethc.com/evaluating_legislator_efficiency.nb.html\#}{here is an R notebook that I authored for a research project on legislative voting behavior}, and I'll link to other interactive notebooks in the Practices section.
 
 Here are three platforms of interactive, code-driven data analysis notebooks:
 
@@ -857,13 +857,13 @@ Here are three platforms of interactive, code-driven data analysis notebooks:
   \href{https://observablehq.com}{Observable notebooks}
 \end{itemize}
 
-I firmly believe that the notebook approach is the future of policy and data analysis in the public sector. These tools are free, robust, and accessible to those with varying levels of technical expertise. They also inherently solve the challenges of reproducible data analysis that I have been examining here. Version-controlled interactive notebooks are flexible, sharable, editable, and allow both decision-makers and analysts to use the same file to either draw conclusions or validate results.
+I firmly believe that the notebook approach is the future of policy and data analysis in the public sector. These tools are free, robust, and accessible to those with varying levels of technical expertise. They also inherently solve the challenges of reproducible data analysis that I have been examining here. Version-controlled interactive notebooks are flexible, shareable, editable, and allow both decision-makers and analysts to use the same file to either draw conclusions or validate results.
 
-I dream of a future when bedugetary fiscal notes, quantitative bill analysis, and data models in the public sector are written as interactive notebooks, with explanatory text and analysis bundeled together, version controlled, and presented with assumptions clearly documented.
+I dream of a future when budgetary fiscal notes, quantitative bill analysis, and data models in the public sector are written as interactive notebooks, with explanatory text and analysis bundled together, version controlled, and presented with assumptions clearly documented.
 
 This isn't to say that there aren't downsides to these approaches. The largest, as it currently stands, is the learning curve required to use these tools. I have yet to come across a notebook format that is as easily intuitive as an Excel workbook\footnote{\href{https://beta.grid.is/@grid/what-is-grid-yBYeOyirSSKBlknj25F98A}{Grid} looks promising, but I haven't had a chance to full look into it yet}. For now, the biggest downside of these tools is that they require at least a baseline understanding of \texttt{r}, \texttt{python}, \texttt{javascript}, or another similar scripting language. As we have already covered, Excel is a programming language, and probably the world's most common one at that. But Excel is familiar and relatively beginner friendly because it hides the fact that the user is actually programming.
 
-Once that baseline level of understanding is aquired, the notebook format becomes an intuitive output for reports. The same document can result in a PDF file to be shared with decisionmakers, an interactive docuemtn to be shared online, and a complete record of your analysis for a peer. Long story short, I'm excited to work towards integrating the notebook philosophy to the public sector as the next frontier of democratic data analysis.
+Once that baseline level of understanding is acquired, the notebook format becomes an intuitive output for reports. The same document can result in a PDF file to be shared with decision makers, an interactive document to be shared online, and a complete record of your analysis for a peer. Long story short, I'm excited to work towards integrating the notebook philosophy to the public sector as the next frontier of democratic data analysis.
 
 Yihui Xie, the creator of Rmarkdown, summarizes these principles nicely:
 \textgreater{} I think notebooks are popular for the same reason that explains the popularity of spreadsheets such as Excel. I haven't met a single software engineer who loves Excel. Everyone hates it and makes fun of it, but why do so many users still use it? Again, Excel makes things tangible. You can touch the data (although it is usually a very bad idea), and draw graphics in a sheet that contains the source data (bad idea again). It makes you feel everything is well under your control: oh here is my data, and here is a graph next to it; oh I should use that column to draw the graph instead, so let me change it and I can see the updated graph immediately.2 You can do everything in a single place, and the short distance between the source (data) and the output is ace.
