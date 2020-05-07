@@ -81,87 +81,6 @@ sites_cleaned%>% datatable(
 This may seem like a lot of work for a small table. But as your data grows, it is much easier to operate on entire fields at a time. This is especially true in Get & Transform, which makes it very easy to transform and clean data using all the same steps as the `R` code above. As you can see, our table is now "cleaned" and organized consistently.
 
 
-## Pivot Tables and the Meaning of Everything
- > *The Ultimate Answer to Life, The Universe and Everything is... **the pivot table***
-
--Dougas Adams/Corban Nemeth
-
-Pivot tables are the world's most common, most helpful, and most underrated data analysis tool. If you understand the mechanics of the pivot table, you have everything you need to be a data analysis expert. PowerBI or Tableau interactive charts and graphs are just pivot tables in disguise. Understanding what is needed to make a pivot table work is the key to the wide world of data analysis. 
-
-What is so important about pivot tables? First and foremost, pivot tables force you to think in terms of fields, not in terms of cells. In order for a pivot table to be effective, the data has to be organized in a table. And there is a right and a wrong way to putting data in a table. If your pivot table is not working properly, it is likely because your data isn't tidy. 
-
-A pivot table groups data by field and allows the user to drag fields to the rows or columns of the pivot table. This is effective when each field is a variable (something that can change), and each row is a seperate observation of some phenomena of interest. 
-
-In short, pivot tables depend on **tidy data**. 
-
-Tidy data is the way your data should be organized before you begin your analysis. In tidy data, each column is a *variable*, each row is an *observation*, and each table is an *associated set of observations*. What does that mean in practice? Consider the following example. 
-
-Below is a table^[Data was created for demonstration purposes] that shows types of retirement visits for a month at a state's Department of Retirement Services by the employee who took the visit and the visit type. 
-  
-```{r tables-visits, message=FALSE, warning = FALSE, echo=TRUE}
-#build sample data table
-visits <- tribble(
-  ~"Employee", ~"Phone Visits", ~"Office Visits", ~"Online Visits",
-  "Danielle", 6, 11, 23,
-  "Ramona", 11, 5, 18,
-  "Ross", 10, 10, 10 
-)
-
-#print to datatable
-visits%>% datatable(
-    extensions = 'Buttons', 
-    options = list(dom = 'Bfrtip', 
-                   buttons = 'excel',
-                   searching = FALSE),
-                   caption = "Visits to the Dept. of Retirement Services in a given month by employee"
-                   )
-
-```
-  
-Data are frequently displayed in this "wide" format. It works great for presentation, but not great for data analysis. 
-
-The shortcomings of data in this format may become apparent when you attempt to work with the data in a pivot table. This is becuase our columns aren't truly variables. Remember, variables are elements of an observation that can change. You can drag the fields from the top row to the grey box below, for columns, and the left, for rows. This becomes unmanegable quickly. 
-
-```{r}
-rpivotTable::rpivotTable(visits, width = "60%", height = "60%")
-```
-
-
-## Tidy Data- From Wide to Long
-
-
-Let's apply our criteria of tidy data to this set:
-
-* Variables
-    * At first glance, it doensn't look like this is a problem. But think again. Is `phone visits` really a variable? Or is the real variable of interest number of visits? And are our column names are actually variables too (type of visit)? 
-    
-Let's take another swing at setting up our table for data analysis purposes. This can be accomplished easily in R using the code below, or in Excel by loading the data with [`Get and Transform`](https://support.microsoft.com/en-us/office/unpivot-columns-power-query-0f7bad4b-9ea1-49c1-9d95-f588221c7098) -> selecting the three "visits" columns -> right clicking -> and selecting "unpivot columns."
-
-```{r}
-#We have already loaded the "tidyverse" library so we do not have to do it again
-#we are editing the "visits" table already created by storing it in a new table pivot_visits
-pivot_visits <- visits %>% 
-  #using pivot_longer on every column except "employee" and setting the name of the new columns
-  pivot_longer(-Employee, names_to = "Visit Type", values_to = "Number of Visits") 
-
-
-knitr::kable(pivot_visits, caption = "Visits to the Dept. of Retirement Services in a given month")
-```
-
-Now this is a table that is much easier to analyze in an Excel pivot table or with a variety of R functions. However, it does look worse and is less intuitive for human readers. Thankfully, using data in this format, it is easy to recreate the original table for presentation, while also giving a variety of options for formatting and plotting. Use the pivot table below to recreate the original table using the tidy data. *Hint- Instead of Count, select Sum -> Number of Visits as the value field. It is far easier to work with fields when they are in a tidy format. 
-
-
-```{r}
-rpivotTable::rpivotTable(pivot_visits, width = "60%", height = "400px")
-```
-
-It is  also easier to do a variety of calculations on the data now that is in a "tidy" format. For example, creating descriptive statistics accross groups is very straightforward. 
-
-```{r}
-desc_visits <- pivot_visits %>% 
-  group_by(`Visit Type`) %>% 
-  summarise(`Avg Visits` = mean(`Number of Visits`))
-```
 
 
 ## Using lower level data
@@ -226,6 +145,10 @@ And then, one of the most useful things you can do is develop formulas by groupi
 
 ```
 
+
+## How is this democratic?
+
+ Thinking of your analysis in terms of tidy data is the first step on your way to democratic data analysis. 
 
 ## Conclusion
 

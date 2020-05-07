@@ -3,11 +3,13 @@
 
 > Data analysis is a process of inspecting, cleansing, transforming, and modeling data with the goal of discovering useful information, informing conclusions and supporting decision-making.
 
--*Wikipedia (shame on me)
+-*Wikipedia (shame on me)*
 
 ## Principles and Practices
 In this handbook, I propose four principles of democratic data analysis. Democratic data analysis is:
+
 * Tidy
+* Pivot-able
 * Reproducible,
 * Uncertainty-oriented, and
 * Audience-focused
@@ -16,7 +18,7 @@ As this isn't a how-to manual, each chapter will begin with a description of the
 
 Why maintain the distinction between principles and practices? Data analysis is driven by the technologies that we have access to. Whether it be the venerable pivot table, or a new-school dashboard platform, or a data-oriented programming language, the principles that I lay out in this handbook supersede specific technologies. Think of it like grammar. You may write by hand, on a computer, using text-to-speech. You may be writing a poem, a novel, an argument, or an instruction manual. But the basic rules of grammar are relevant in whatever medium you choose. Similarly, this guide will teach you the basic "grammar" of democratic data analysis. This will allow you to apply this knowledge in whatever platform or technology you are interested in or have access to. But similar to learning language, it helps to practice. It isn't much to use to study grammar without ever writing a sentance.
 
-The principles section of this guide will include examples in both Excel and `R`. Government runs on Excel, so all of the examples and exercises will be Excel compatible. If you are comfortable with Excel^[aka you use `vlookup`, `index(match)`, pivot tables, or *Get & Transform* on a somewhat regular basis] and want to challenge yourself, boost your resume, and become a data superstar, I would highly recommend learning `R`. 
+The principles section of this guide will include examples in both Excel and `R`. Government runs on Excel, so all of the examples and exercises will be Excel compatible. If you are comfortable with Excel^[aka you use `vlookup`, `index(match)`, pivot tables, or *Get & Transform*/PowerPivot on a somewhat regular basis] and want to challenge yourself, boost your resume, and become a data superstar, I would highly recommend learning `R`. 
 
 ## What is data analysis?
 

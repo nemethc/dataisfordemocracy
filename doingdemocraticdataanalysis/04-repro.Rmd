@@ -46,6 +46,10 @@ Don't hard code Excel values in cells, etc. This is easier to do when you use th
 
 ### Git/GitHub
 
+If you are inclined to use R or another programming language for data analysis (and you really should be) then git is an essential tool in your toolkit. Full disclosure, even I am not an expert on it. But there are several tools available to make version control using git seamless and effortless. 
+
+Git is an automated version control system that backs up your changes to the cloud, typically to github.com or another similar provider. It is very cool. For example, you can examine all the source code for this very book on [GitHub](https://github.com/nemethc/dataisfordemocracy/tree/master/doingdemocraticdataanalysis). 
+
 ## Practices
 The value of Get & Transform Data is that it forces you to build iteratively on top of your data foundation. It also convineiently records each step along the way. You even have the ability to save comments right there in the query editor. This is a remarkly easy and intuitive way to build a data tranformation pipeline that will be valuable know and into the future. 
 

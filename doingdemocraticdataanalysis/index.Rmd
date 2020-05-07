@@ -55,7 +55,7 @@ readr::write_lines(htmlhead, path = "header.html")
 
 # Preface {-}
 
-I believe that data, *in the hands of public administrators and policy analysts*^[*Not IT departments*], has the power to transform the way government works. 
+I believe that data, *in the hands of public administrators and policy analysts*, has the power to transform the way government works. 
 
 Big questions will, and should, be asked of big data— the role of government in regulating algorithmic bias, facial recognition, and consumer data privacy is a vital conversation. However, these topics should not detract or deter public administrators and policy analysts from leaning into **small data** for decision-making purposes. 
 
