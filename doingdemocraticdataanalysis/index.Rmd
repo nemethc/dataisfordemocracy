@@ -4,6 +4,9 @@ author: "Corban Nemeth"
 date: "`r Sys.Date()`"
 output:
   bookdown::gitbook:
+    config:
+      toc:
+        collapse: section
     includes:
       in_header: header.html
 site: bookdown::bookdown_site

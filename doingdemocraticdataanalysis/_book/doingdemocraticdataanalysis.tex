@@ -309,7 +309,7 @@ Here is the first major departure from what you may have been taught about data 
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{htmlwidget-a982b1c48f101bf77014}{}
+\hypertarget{htmlwidget-585da1a2e56c12f87c0b}{}
 
 In this example, it would be trivial to go in to the Excel file and clean up the dates, names, and locations by hand. However, you could imagine this survey replicated for a department of forty employees. It quickly becomes unfeasible to make those edits by hand. When this is the case, there are functions in Excel and R that will make your life much easier.
 
@@ -354,7 +354,7 @@ Here is annotated code for how I would go about cleaning this table in R. The fr
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{htmlwidget-c602902c1e551127612a}{}
+\hypertarget{htmlwidget-fd28a29fa942687a57a4}{}
 
 This may seem like a lot of work for a small table. But as your data grows, it is much easier to operate on entire fields at a time. This is especially true in Get \& Transform, which makes it very easy to transform and clean data using all the same steps as the \texttt{R} code above. As you can see, our table is now ``cleaned'' and organized consistently.
 
@@ -386,7 +386,7 @@ Below is a table\footnote{Data was created for demonstration purposes} that show
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{htmlwidget-40c7fefce120ded2f795}{}
+\hypertarget{htmlwidget-2e934347929279a07a7b}{}
 
 Data are frequently displayed in this ``wide'' format. It works great for presentation, but not great for data analysis.
 
@@ -398,7 +398,7 @@ The shortcomings of data in this format may become apparent when you attempt to 
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{htmlwidget-a42db6a62c6a1796acdb}{}
+\hypertarget{htmlwidget-50445831ed21a3970e9d}{}
 
 \hypertarget{tidy-data--from-wide-to-long}{%
 \section{Tidy Data- From Wide to Long}\label{tidy-data--from-wide-to-long}}
@@ -511,7 +511,7 @@ Hopefully you will see a similar pattern here. Now, there are three variables: V
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{htmlwidget-6daea1c82a672ffff853}{}
+\hypertarget{htmlwidget-22119204e89ad493f039}{}
 
 Try to tidy this in R or Excel Get and Transform. See this footnote\footnote{powerquery hints} or look at the code if you need a hint.
 
@@ -689,7 +689,7 @@ Once the data has been tidied, it is easy to manipulate fields in pivot tables.
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{htmlwidget-adc297c34e9a85cc5b37}{}
+\hypertarget{htmlwidget-d9a074650fdf606528e1}{}
 
 The key with pivot tables, such as the one above, is you are moving \emph{fields} into the rows and columns of a new table. This is often referred to as ``pivoting''. You are then selecting a calculation to \emph{summarize} the intersection of the \emph{fields} that you drug into rows and columns. Above, you can click on the ``Count'' button to see the other ways this lightweight pivot table allows you to \emph{summarize} your data. More powerful data analysis tools, such as PowerPivot in Excel, PowerBI, and several R packages allow you infinitely flexible formulas to define what happens at the intersection of fields in a pivot table. This is the core of all (most) data analysis. Think in terms of fields and calculated summaries and you are well on your way to becoming a democratic data master.
 
