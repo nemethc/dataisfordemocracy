@@ -3,10 +3,10 @@
 
 > Data analysis is a process of inspecting, cleansing, transforming, and modeling data with the goal of discovering useful information, informing conclusions and supporting decision-making.
 
--*Wikipedia (shame on me)*
+-*Wikipedia*
 
 ## Principles and Practices
-In this handbook, I propose four principles of democratic data analysis. Democratic data analysis is:
+In this handbook, I will try to convince you that data analysis is worth doing purposely, especially if you are someone who does not consider yourself a data analyst. I propose four principles of democratic data analysis. Democratic data analysis is:
 
 * Tidy
 * Pivot-able
@@ -53,6 +53,7 @@ Here are a couple definitions that will help as you move through this text. Don'
 * Table
     * A table is the grouping of all observations of a similar type. 
     
+
 You may already be able to see how these definitions foreshadow some of what is coming in later sections. For example, there are no references to cells. This is intentional. The most important distinction between democratic data analysis and simply working in excel is that in democratic data analysis, (virtually) *everything* is done on the `field` level. Changes are made to entire columns, calculations are made on entire columns. Thinking in `fields` is the first step on the path to democratic data enlightenment. Having data formatted in the structure outlined above forces good data hygiene that will pay massive dividends later on. 
 
 

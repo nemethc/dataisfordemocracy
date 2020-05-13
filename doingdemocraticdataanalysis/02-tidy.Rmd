@@ -85,7 +85,7 @@ This may seem like a lot of work for a small table. But as your data grows, it i
 Tidy data is the way your data should be organized before you begin your analysis. In tidy data, each column is a *variable*, each row is an *observation*, and each table is an *associated set of observations*. What does that mean in practice? Consider the following example. 
 
 Below is a table^[Data was created for demonstration purposes] that shows types of retirement visits for a month at a state's Department of Retirement Services by the employee who took the visit and the visit type. 
-  
+
 ```{r tables-visits, message=FALSE, warning = FALSE, echo=TRUE}
 #build sample data table
 visits <- tribble(
@@ -105,7 +105,7 @@ visits%>% datatable(
                    )
 
 ```
-  
+
 Data are frequently displayed in this "wide" format. It works great for presentation, but not great for data analysis. 
 
 The shortcomings of data in this format may become apparent when you attempt to work with the data in a pivot table. This is because our columns aren't truly variables. Remember, variables are elements of an observation that can change. You can drag the fields from the top row to the grey box below, for columns, and the left, for rows. This becomes unmanageable quickly. 
@@ -123,6 +123,7 @@ Let's apply our criteria of tidy data to this set:
 * Variables
     * At first glance, it doesn't look like this is a problem. But think again. Is `phone visits` really a variable? Or is the real variable of interest number of visits? And are our column names are actually variables too (type of visit)? 
     
+
 Let's take another swing at setting up our table for data analysis purposes. This can be accomplished easily in R using the code below, or in Excel by loading the data with [`Get and Transform`](https://support.microsoft.com/en-us/office/unpivot-columns-power-query-0f7bad4b-9ea1-49c1-9d95-f588221c7098) -> selecting the three "visits" columns -> right clicking -> and selecting "unpivot columns."
 
 ```{r}
