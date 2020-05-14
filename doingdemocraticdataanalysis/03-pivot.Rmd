@@ -1,13 +1,11 @@
 # Pivot to Win It
 
+> Has anyone in this family ever even seen a pivot table? - Michael Bluth
+
 
 Why did we go through all the trouble of tidying data in the last section? So we can pivot. Thinking in terms of pivots, aka fields and summaries, is the key to effective democratic data analysis
 
 ## Pivot Tables and the Meaning of Everything
- > *The Ultimate Answer to Life, The Universe and Everything is... **the pivot table***
-
--Douglas Adams/Corban Nemeth
-
 Pivot tables are the world's most common, most helpful, and most underrated data analysis tool. If you understand the mechanics of the pivot table, you have everything you need to be a data analysis expert. PowerBI or Tableau interactive charts and graphs are just pivot tables in disguise. Understanding what is needed to make a pivot table work is the key to the wide world of data analysis. 
 
 What is so important about pivot tables? First and foremost, pivot tables force you to think in terms of fields, not in terms of cells. In order for a pivot table to be effective, the data has to be organized in a table. And there is a right and a wrong way to putting data in a table. If your pivot table is not working properly, it is likely because your data isn't tidy. 

@@ -1,8 +1,8 @@
 # Uncertainty Oriented Analysis 
 
-> *All models are wrong, but some are useful*
+> *“I mean its one banana Michael. What could it cost, $10?”*- Lucille Bluth
 
--- George Box
+> *All models are wrong, but some are useful*-- George Box
 
 ## Embracing Uncertainty for Better Outcomes
 

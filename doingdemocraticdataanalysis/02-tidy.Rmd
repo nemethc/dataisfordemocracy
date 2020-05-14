@@ -1,18 +1,58 @@
 # Tidy Data
 
-Tidy data refers to having your data organized in a specific manner suitable for analysis. An obscene amount of time in data analysis is spent getting data into a tidy format. This chapter will walk through common problems and approaches in cleaning and tidying your data, that will make it easier for others to follow and easier for you to work across technologies and subject areas. Keeping your data in a tidy format for analysis will help because it is a fundamentally flexible way of working with data. Keeping scattered, lose data in spreadsheets is a sure way to cause confusion for yourself and others. 
+> “Hey, Mom, remember we had that conversation about trying to cut back on things that aren’t necessities?” - Michael Bluth
 
-## The Importance of Tables
+Tidy data refers to having your data organized in a specific manner suitable for analysis.  This chapter will walk through common problems and approaches to cleaning and tidying your data. Keeping your data in a tidy format for analysis will help because it is a fundamentally flexible way of working with data. Keeping scattered, lose data in spreadsheets is a sure way to cause confusion for yourself and others. 
 
-If I could convince you of one thing, it would be the value in keeping your data in a table-based excel format. Again, this is true for data analysis purposes. If you are trying to do math or statistics, then the table based framework can sometimes fall short. But if you are concerned with working with data to draw conclusions, then tables are the way to go. 
+## The Grammar of Tidy Data^[Adapted from Hadley Wickham's paper on [Tidy Data](https://vita.had.co.nz/papers/tidy-data.pdf)]
 
-## Cleaning vs Tidying
+Democratic data analysis has an underlying structure, like a sentence. Rules exist so sentences (hopefully) make sense to you, the reader. Similarly, by following common conventions of democratic data analysis, others will be able to "read" your analysis like you are reading this sentence. And also, like grammar, you can and should break the rules-- but it helps to know them first. 
+
+Here are a couple definitions that will help as you move through this text. Don't worry about memorizing them, as I will refer back to these definitions frequently. 
+
+### Fields
+
+A field is a fancy name for a column. 
+
+From here on out, ***every calculation, manipulation, formula, will be operated on a field**. 
+
+I want you to forget that you could ever modify a lonely cell in Excel. No more formulas in cells. No more typing in values to a cell. Certainly no more writing over data in a cell. And for the love of eveything that is good, no more color coding cells. Democratic data analysis depends on formulas that work on entire fields. Everything you would need to do to a single cell in Excel can-- and should!-- be done to an entire column.  This may sound extreme, but this approach will pay big dividends in your democratic data analysis journey. 
+
+### Variables
+
+A variable is something in your data that can change. That's it! Variables become very important when looking at how to structure your data. Each variable should have its own field (column).
+
+### Observations
+
+Observations make up the rows of your data set. Each observation should correspond to a specific "thing." This will make more sense later, I promise. 
+
+### Values
+
+Values are the actual data in your table. 
+
+Each value belongs to 1 (one) (uno) observation and 1 (one) variable. That's it. 
+
+This means, among other things, no more merged cells, merged rows, or groups. A one-to-one relationship between fields and observations is critical for getting the most out of your data analysis. 
+
+### Tables
+
+A table is the grouping of all observations of a similar type. 
+
+The table sets the foundation for analyzing your data. **If I could only convince you of one thing, it would be the value in keeping your data in a table-based excel format**. If you are trying to do math or statistics (again, not data anlysis. These things are different!), then the table based framework can sometimes fall short. But if you are concerned with working with data to draw conclusions, then tables are the way to go. 
+
+You may already be able to see how these definitions foreshadow some of what is coming in later sections. For example, there are no references to cells. This is intentional. The most important distinction between democratic data analysis and simply working in excel is that in democratic data analysis, (virtually) *everything* is done on the `field` level. Changes are made to entire columns, calculations are made on entire columns. Thinking in `fields` is the first step on the path to democratic data enlightenment. Having data formatted in the structure outlined above forces good data hygiene that will pay massive dividends later on. 
+
+## Cleaning and Tidying
 
 I hate cleaning, but love tidying. Unfortunately, as in with life, one must clean before one tidies. But let's start with some conceptual definitions. 
 
 Cleaning refers to the process of scrubbing the data into a way that makes sense to you, the analyst. Oftentimes, and especially in public sector organizations, the data is not clean. Whether you are looking at the output of a Survey Monkey survey or a canned report that is run from the IT department, your data will come in all shapes and sizes. Cleaning data is the process of transforming data values into ones that make sense for the purposes of your analysis. 
 
-Here is the first major departure from what you may have been taught about data analysis in Excel. When you get messy data *do not* change individual cell values (if you can at all help it). Recall from the introductory chapter the difference between cells and fields. Fields, as a reminder, are columns that represent one variable. Whenever possible, use data analysis tools to make changes to the entire field, rather than specific cells. Most data analysis software, outside of Excel, make it difficult or impossible to change individual cell values. This is important for several reasons, most of which we will get to in the next chapter on reproducibility. But for now, thinking in terms of fields, and making changes to entire fields, will save you *a lot* of work and  headache in the long run. Let's look at a sample dataset that may be similar to one you would encounter in real life. Here is a survey collected by a field manager of a local parks and recreation department on employment. 
+Here is the first major departure from what you may have been taught about data analysis in Excel. When you get messy data *do not* change individual cell values. Recall from the introductory chapter the difference between cells and fields. Fields, as a reminder, are columns that represent one variable. Use data analysis tools to make changes to the entire field, rather than specific cells. 
+
+Most data analysis software, outside of Excel, make it difficult or impossible to change individual cell values. At first glance, this can seem unnecessary, limiting, and supremely annoying. But it's actually very helpful. Thinking in terms of fields, and making changes to entire fields, will save you *a lot* of work and  headache in the long run. 
+
+Let's look at a sample dataset that may be similar to one you would encounter in real life. Here is a survey collected by a field manager of a local parks and recreation department on employment. 
 
 ```{r dirty-data, message=FALSE, warning=FALSE, echo=TRUE}
 library(tidyverse)

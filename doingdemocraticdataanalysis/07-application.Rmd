@@ -1,4 +1,8 @@
-# Applications
+# Applications and Resources
+
+> “I hear the jury’s still out on science.” - Gob Bluth
+>
+> “There are dozens of us. Dozens!” - Tobias Fünke
 
 ## Tying it all together
 
@@ -14,3 +18,42 @@ How can I pivot off of this data?
 How can I think in terms of fields?
 
 How can I make this more democratic?
+
+## Situations and Examples
+
+## Data Analysis in the Wild
+
+## Additional Resources
+
+### R
+
+* [R for Data Science](https://r4ds.had.co.nz/)
+* [R for Journalism](https://learn.r-journalism.com/en/)
+* [BBC Journalism Guide to R Graphics](https://bbc.github.io/rcookbook/)
+* Graphing in R- [ggplot2 cheat sheet](https://rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf), [Fundamentals of Data Visualization](https://serialmentor.com/dataviz/)
+* Interactive Documents in R- [Guide to Rmarkdown](https://bookdown.org/yihui/rmarkdown/); *learn how to make books and reports like this one!*
+* Data Wrangling in R- [dplyr](https://dplyr.tidyverse.org/) for manipulation and [tidyr](https://github.com/tyleransom/EconometricsLabs/blob/master/tidyRcheatsheet.pdf) for tidying
+
+### Excel
+
+* [Getting Started with PowerPivot](https://support.office.com/en-us/article/get-started-with-power-pivot-in-microsoft-excel-fdfcf944-7876-424a-8437-1a6c1043a80b)
+* [Principles for Data Organization in Spreadsheets](https://www.tandfonline.com/doi/full/10.1080/00031305.2017.1375989)
+* I am not the only one saying these things, [promise!](https://towardsdatascience.com/microsoft-excel-in-the-era-of-big-data-401e67ca28a5)
+* [Power Pivot Quick Reference Card](https://powerpivotpro.com/2015/10/giving-back-steal-this-reference-card/#downloads)
+
+### Reproduciblity
+
+* [ROpenSci](https://ropensci.org)
+* [UK Government Data Science repository](https://github.com/ukgovdatascience)
+* I really promise I'm not the only one-- [The Berkeley Open Policy Analysis Initiative](https://www.bitss.org/opa/)
+  * [Open Policy Analysis Guidelines](https://www.bitss.org/wp-content/uploads/2019/03/OPA-Guidelines.pdf)
+
+### Examples of Democratic Data Analysis in the Wild
+
+* [Dynamic Documentation for Senator Warren's Wealth Tax Policy Analysis](http://wealthtaxsimulator.org/analysis/)
+* [Using version control to change laws](https://arstechnica.com/tech-policy/2018/11/how-i-changed-the-law-with-a-github-pull-request/)
+* [UK publishing official government statistics with Rmarkdown}(https://blog.revolutionanalytics.com/2017/03/uk-statistics.html)
+  * [Template](https://ukgovdatascience.github.io/govdown/)
+* 
+* 
+

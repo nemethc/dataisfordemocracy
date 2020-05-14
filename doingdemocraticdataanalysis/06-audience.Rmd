@@ -1,5 +1,7 @@
 # Audience-Focused
 
+> Theres always money in the banana stand - George Bluth
+
 Just like writing, your data analysis always has an audience. Whether the audience is you, your coworker, your boss, or a policymaker, knowing your audience helps tailor how you present your findings. 
 
 ## The audience is you

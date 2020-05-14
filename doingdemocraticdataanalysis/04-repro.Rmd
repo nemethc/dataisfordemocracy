@@ -1,5 +1,7 @@
 # Reproducible Analysis
 
+> *“And that’s why you always leave a note.”* — J. Walter Weatherman
+
 ## Do It For Your Future Self
 
 Many things take more time to do up front, but save you from massive headaches down the road. Brushing your teeth. Oil changes. Preventative maintenance is the name of the game. The same thing applies in democratic data analysis. Learning how to brush the teeth of your analysis will pay massive dividends down the road, as someone else (or you, more likely), need to go back through and understand, replicate, or validate your findings. 
