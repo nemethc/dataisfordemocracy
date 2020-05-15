@@ -55,7 +55,9 @@ Git is an automated version control system that backs up your changes to the clo
 ## Practices
 The value of Get & Transform Data is that it forces you to build  on top of your data foundation. It also conveniently records each step along the way. You even have the ability to save comments right there in the query editor. This is a remarkably easy and intuitive way to build a data transformation pipeline that will be valuable know and into the future. 
 
+[The Berkeley Open Policy Analysis Initiative](https://www.bitss.org/opa/)
 
+[Open Policy Analysis Guidelines](https://www.bitss.org/wp-content/uploads/2019/03/OPA-Guidelines.pdf)
 
 
 

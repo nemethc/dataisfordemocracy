@@ -8,10 +8,6 @@
 
 How does this play out in the real world?
 
-Saez and Zucman open policy analysis of Warren proposals
-
-Fiscal notes-- quantifying uncertainty and employing reproducibility
-
 Questions to ask yourself:
 How can I pivot off of this data?
 
@@ -21,7 +17,21 @@ How can I make this more democratic?
 
 ## Situations and Examples
 
-## Data Analysis in the Wild
+### Fiscal Analyis
+
+Fiscal notes-- quantifying uncertainty and employing reproducibility
+
+### Policy Analysis
+
+Saez and Zucman open policy analysis of Warren proposals
+
+### Budget Analysis
+
+### Surveys and Samples
+
+
+
+
 
 ## Additional Resources
 

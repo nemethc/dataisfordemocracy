@@ -111,7 +111,7 @@
 
 \title{Doing Democratic Data Analysis}
 \author{Corban Nemeth}
-\date{2020-05-13}
+\date{2020-05-14}
 
 \begin{document}
 \maketitle
@@ -146,7 +146,7 @@ Data analysis is a process of inspecting, cleansing, transforming, and modeling 
 \hypertarget{principles-and-practices}{%
 \section{Principles and Practices}\label{principles-and-practices}}
 
-Nobody \emph{teaches} Excel anymore. At least, that's been my experience in public sector organizations. For many folks, data anlysis and Excel are synonymous. And most often-- again, in my experience-- that consists of finding the ``Excel Person'' (usually one of two types of people-- the young'un who is also the \emph{``Sharepoint/Teams/How-Do-I-Use-This-New-Technology?''} guru, or long-timer who started using Lotus 1-2-3 when Ronald Reagan was president). Now, there is nothing wrong with being the ``Excel person'' (as you may have guessed, this is a role that I fill frequently). However, I strongly believe there is value in intentionally learning how to analyze data outside of just compiling survey results from your manager or making a chart from a canned report.
+Nobody \emph{teaches} Excel anymore. At least, that's been my experience in public sector organizations. For many folks, data anlysis and Excel are synonymous. And most often-- again, in my experience-- that consists of finding the ``Excel Person'' (usually one of two types of people-- the young'un who is also the \emph{``Sharepoint/Teams/How-Do-I-Use-This-New-Technology?''} guru, or long-timer who started using Lotus 1-2-3 when Ronald Reagan was president). Now, there is nothing wrong with being the ``Excel person'' (as you may have guessed, this is a role that I fill frequently). However, I strongly believe there is value in intentionally learning how to analyze data outside of just compiling survey results from your manager or making a chart from a canned report. And there is so much more out there than traditional Excel-based tools.
 
 The public sector increasingly runs on data. \emph{Data-driven decision making}. \emph{Objective}. \emph{Based on the facts}. Too often, these terms are meaningless platitudes thrown around to discard dissenting opinions. The truth is, \textbf{the data can never answer your question}. Only you can answer your question. Data can certainly help. But \textbf{data can never speak for themselves}. Data, and data anlysis, is always intepreted through humans, and humans are inherently messy decisionmakers who weigh experience, intuition, and hueristics when making the call.
 
@@ -155,7 +155,7 @@ This may seem like a strange way to introduce a book on data analysis. But I wou
 \hypertarget{what-is-data-analysis}{%
 \section{What is data analysis?}\label{what-is-data-analysis}}
 
-Data analysis is the process of transforming numbers on a page to insight into the real world. It's looking at a table and gaining insight from it. Data analysis can be as simple as adding totals into a column to see cumulative effects, or as complicated as time-series forecasting. But fundamentally, all data analysis is taking inputs and applying those inputs to the real world to gain insight into the real world. It also may be helpful to think about what data analysis \emph{isn't}:
+Data analysis, in the way I am using the term, is the process of examining, transforming, and modeling collected facts and figures on a screen to insight into the real world. It's looking data and gaining insight from it. Data analysis can be as simple as adding totals into a column to see cumulative effects, or as complicated as time-series forecasting. But fundamentally, all data analysis is taking inputs and applying those inputs to the real world to gain insight into the real world. It also may be helpful to think about what data analysis \emph{isn't}:
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -219,16 +219,16 @@ I propose the following four principles of democratic data analysis. Democratic 
 
 As this isn't a how-to manual, each chapter will begin with a description of the \emph{principles} outlined above and arguments for why they are important. This will be followed by \emph{practices} section where I walk through examples of how to implement these principles in common situations and provide additional materials for you to learn how to apply these principles using common data analysis tools.
 
-Why maintain the distinction between principles and practices? Data analysis is driven by the technologies that we have access to. Whether it be the venerable pivot table, or a new-school dashboard platform, or a data-oriented programming language, the principles that I lay out in this handbook supersede specific technologies. Think of it like grammar. You may write by hand, on a computer, using text-to-speech. You may be writing a poem, a novel, an argument, or an instruction manual. But the basic rules of grammar are relevant in whatever medium you choose. Similarly, this guide will teach you the basic ``grammar'' of democratic data analysis. This will allow you to apply this knowledge in whatever platform or technology you are interested in or have access to. But similar to learning language, it helps to practice. It isn't much to use to study grammar without ever writing a sentence.
+Why maintain the distinction between principles and practices? Data analysis is enabled by the technologies that we have access to. Whether it be the venerable pivot table, or a new-school dashboard platform, or a data-oriented programming language, the principles that I lay out in this handbook supersede specific technologies. Think of it like grammar. You may write by hand, on a computer, using text-to-speech. You may be writing a poem, a novel, an argument, or an instruction manual. But the basic rules of grammar are relevant in whatever medium you choose.
 
-The principles section of this guide will include examples in both Excel and \texttt{R}. Government runs on Excel, so all of the examples and exercises will be Excel compatible. If you are comfortable with Excel\footnote{aka you use \texttt{vlookup}, \texttt{index(match)}, pivot tables, or \emph{Get \& Transform}/PowerPivot on a somewhat regular basis} and want to challenge yourself, boost your resume, and become a data superstar, I would highly recommend learning \texttt{R}.
+Similarly, this guide will teach you the basic ``grammar'' of democratic data analysis. This will allow you to apply this knowledge in whatever platform or technology you are interested in or have access to. But similar to learning language, it helps to practice. It isn't much to use to study grammar without ever writing a sentence.
 
 \hypertarget{tools-and-techniques}{%
 \section{Tools and Techniques}\label{tools-and-techniques}}
 
-This is guide is not an Excel how-to manual. My hope is that the principles and practices outlined here will allow you to explore whatever analysis tools you are interested in in a democratic manner. With that said, practical examples are given in Excel and in R.
+The principles section of this guide will include examples in both Excel and \texttt{R}. Government runs on Excel, so all of the examples and exercises will be Excel compatible. If you are comfortable with Excel\footnote{aka you use \texttt{vlookup}, \texttt{index(match)}, pivot tables, or \emph{Get \& Transform}/PowerPivot on a somewhat regular basis} and want to challenge yourself, boost your resume, and become a data superstar, I would highly recommend learning \texttt{R}. But run what you brung, as they say.
 
-And a note on Excel-- use modern Excel tools! No one teaches these things and it's a real shame, because they make life \emph{so} much better. Institutional knowledge and inertia is strong in public sector organizations, and there are extremely capabale tools sitting under your nose just waiting to take your analysis to the next level. The ``Power'' (PowerPivot, PowerQuery, PowerBI) Stack integrate perfectly into the principles that I outline here. Adopting Get and Transform and Modeling with DAX was how I started on this path of incorporating reproducible and democratic data analysis in public sector organizations. By adopting these tools, you will quickly learn why the principles outlined here are important, as you are forced to think about tabular data and calculated summaries. But more on that later. To start, here is a quick start guide to \href{https://support.office.com/en-us/article/get-started-with-power-pivot-in-microsoft-excel-fdfcf944-7876-424a-8437-1a6c1043a80b}{Power Query/Get and Transform and Power Pivot/DAX}.
+And a note on Excel-- if you are comfortable in Excel, use modern Excel tools! Institutional knowledge and inertia is strong in large organizations, and there are extremely capabale tools sitting under your nose just waiting for you to innovate off of. The ``Power'' (PowerPivot, PowerQuery, PowerBI) Excel stack integrate neatly into the principles that I outline here. Adopting these tools was how I started on the path of incorporating reproducible and democratic data analysis in public sector organizations. By adopting these tools, you will quickly learn why the principles outlined here are important, as you are forced to think about tabular data and calculated summaries. But more on that later. To start, here is a quick start guide to \href{https://support.office.com/en-us/article/get-started-with-power-pivot-in-microsoft-excel-fdfcf944-7876-424a-8437-1a6c1043a80b}{Power Query/Get and Transform and Power Pivot/DAX}.
 
 \hypertarget{tidy-data}{%
 \chapter{Tidy Data}\label{tidy-data}}
@@ -238,6 +238,14 @@ And a note on Excel-- use modern Excel tools! No one teaches these things and it
 \end{quote}
 
 Tidy data refers to having your data organized in a specific manner suitable for analysis. This chapter will walk through common problems and approaches to cleaning and tidying your data. Keeping your data in a tidy format for analysis will help because it is a fundamentally flexible way of working with data. Keeping scattered, lose data in spreadsheets is a sure way to cause confusion for yourself and others.
+
+\begin{figure}
+\centering
+\includegraphics{images/spreadsheet_hell.png}
+\caption{spreadsheet hell}
+\end{figure}
+
+*Image courtesy of \href{https://www.hive9.com/blog/just-say-no-to-spreadsheets}{hive9.com}
 
 \hypertarget{the-grammar-of-tidy-data}{%
 \section[The Grammar of Tidy Data]{\texorpdfstring{The Grammar of Tidy Data\footnote{Adapted from Hadley Wickham's paper on \href{https://vita.had.co.nz/papers/tidy-data.pdf}{Tidy Data}}}{The Grammar of Tidy Data}}\label{the-grammar-of-tidy-data}}
@@ -251,9 +259,9 @@ Here are a couple definitions that will help as you move through this text. Don'
 
 A field is a fancy name for a column.
 
-From here on out, *\textbf{every calculation, manipulation, formula, will be operated on a field}.
+From here on out, \textbf{every calculation, manipulation, formula, will be operated on a field}.
 
-I want you to forget that you could ever modify a lonely cell in Excel. No more formulas in cells. No more typing in values to a cell. Certainly no more writing over data in a cell. And for the love of eveything that is good, no more color coding cells. Democratic data analysis depends on formulas that work on entire fields. Everything you would need to do to a single cell in Excel can-- and should!-- be done to an entire column. This may sound extreme, but this approach will pay big dividends in your democratic data analysis journey.
+I want you to forget that you could ever modify a lonely cell in Excel. No more formulas in cells. No more typing in values to a cell. Certainly no more writing over data in a cell. And for the love of eveything that is good, no more color coding cells. Democratic data analysis depends on formulas that work on entire fields. Everything you would need to do to a single cell in Excel can-- and should!-- be done to an entire column. This may sound extreme and restrictive, but this approach will pay big dividends in your democratic data analysis journey and ultimately allow you to be more creative in your analysis.
 
 \hypertarget{variables}{%
 \subsection{Variables}\label{variables}}
@@ -281,7 +289,7 @@ A table is the grouping of all observations of a similar type.
 
 The table sets the foundation for analyzing your data. \textbf{If I could only convince you of one thing, it would be the value in keeping your data in a table-based excel format}. If you are trying to do math or statistics (again, not data anlysis. These things are different!), then the table based framework can sometimes fall short. But if you are concerned with working with data to draw conclusions, then tables are the way to go.
 
-You may already be able to see how these definitions foreshadow some of what is coming in later sections. For example, there are no references to cells. This is intentional. The most important distinction between democratic data analysis and simply working in excel is that in democratic data analysis, (virtually) \emph{everything} is done on the \texttt{field} level. Changes are made to entire columns, calculations are made on entire columns. Thinking in \texttt{fields} is the first step on the path to democratic data enlightenment. Having data formatted in the structure outlined above forces good data hygiene that will pay massive dividends later on.
+You may already be able to see how these definitions foreshadow some of what is coming in later sections. For example, there are no references to cells. This is intentional. The most important distinction between democratic data analysis and simply working in excel is that in democratic data analysis, (virtually) \emph{everything} is done on the \texttt{field} level. Changes are made to entire columns, calculations are made on entire columns. Thinking in \texttt{fields} is the first step on the path to democratic data enlightenment. Having data formatted in the structure outlined above forces good data hygiene that will be very helpful later on when discussing reproduciblity and pivot-ability.
 
 \hypertarget{cleaning-and-tidying}{%
 \section{Cleaning and Tidying}\label{cleaning-and-tidying}}
@@ -319,7 +327,7 @@ Let's look at a sample dataset that may be similar to one you would encounter in
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{htmlwidget-cd19bcf9101dd4725956}{}
+\hypertarget{htmlwidget-6d669d781f234624c579}{}
 
 In this example, it would be trivial to go in to the Excel file and clean up the dates, names, and locations by hand. However, you could imagine this survey replicated for a department of forty employees. It quickly becomes unfeasible to make those edits by hand. When this is the case, there are functions in Excel and R that will make your life much easier.
 
@@ -364,7 +372,7 @@ Here is annotated code for how I would go about cleaning this table in R. The fr
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{htmlwidget-1066ec05497750cd03da}{}
+\hypertarget{htmlwidget-1c45cfe6f2901a5e7e9e}{}
 
 This may seem like a lot of work for a small table. But as your data grows, it is much easier to operate on entire fields at a time. This is especially true in Get \& Transform, which makes it very easy to transform and clean data using all the same steps as the \texttt{R} code above. As you can see, our table is now ``cleaned'' and organized consistently.
 
@@ -396,7 +404,7 @@ Below is a table\footnote{Data was created for demonstration purposes} that show
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{htmlwidget-8129f9376aeeec82bc6d}{}
+\hypertarget{htmlwidget-cb62e070176eb1ed9737}{}
 
 Data are frequently displayed in this ``wide'' format. It works great for presentation, but not great for data analysis.
 
@@ -408,7 +416,7 @@ The shortcomings of data in this format may become apparent when you attempt to 
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{htmlwidget-cad8e95dc60d88f716e6}{}
+\hypertarget{htmlwidget-4770e46f7048113660e7}{}
 
 \hypertarget{tidy-data--from-wide-to-long}{%
 \section{Tidy Data- From Wide to Long}\label{tidy-data--from-wide-to-long}}
@@ -521,7 +529,7 @@ Hopefully you will see a similar pattern here. Now, there are three variables: V
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{htmlwidget-36854066b4dd96d177f7}{}
+\hypertarget{htmlwidget-2a48ffe3848219e5b4b5}{}
 
 Try to tidy this in R or Excel Get and Transform. See this footnote\footnote{powerquery hints} or look at the code if you need a hint.
 
@@ -629,7 +637,7 @@ Thinking of your analysis in terms of tidy data is the first step on your way to
 \chapter{Pivot to Win It}\label{pivot-to-win-it}}
 
 \begin{quote}
-Has anyone in this family ever even seen a pivot table? - Michael Bluth
+\emph{Has anyone in this family ever even seen a pivot table?} - Michael Bluth
 \end{quote}
 
 Why did we go through all the trouble of tidying data in the last section? So we can pivot. Thinking in terms of pivots, aka fields and summaries, is the key to effective democratic data analysis
@@ -697,7 +705,7 @@ Once the data has been tidied, it is easy to manipulate fields in pivot tables.
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{htmlwidget-dc09c17fca31dc2f0f0b}{}
+\hypertarget{htmlwidget-0b8106dfc7e01e6fff53}{}
 
 The key with pivot tables, such as the one above, is you are moving \emph{fields} into the rows and columns of a new table. This is often referred to as ``pivoting''. You are then selecting a calculation to \emph{summarize} the intersection of the \emph{fields} that you drug into rows and columns. Above, you can click on the ``Count'' button to see the other ways this lightweight pivot table allows you to \emph{summarize} your data. More powerful data analysis tools, such as PowerPivot in Excel, PowerBI, and several R packages allow you infinitely flexible formulas to define what happens at the intersection of fields in a pivot table. This is the core of all (most) data analysis. Think in terms of fields and calculated summaries and you are well on your way to becoming a democratic data master.
 
@@ -802,6 +810,10 @@ Git is an automated version control system that backs up your changes to the clo
 
 The value of Get \& Transform Data is that it forces you to build on top of your data foundation. It also conveniently records each step along the way. You even have the ability to save comments right there in the query editor. This is a remarkably easy and intuitive way to build a data transformation pipeline that will be valuable know and into the future.
 
+\href{https://www.bitss.org/opa/}{The Berkeley Open Policy Analysis Initiative}
+
+\href{https://www.bitss.org/wp-content/uploads/2019/03/OPA-Guidelines.pdf}{Open Policy Analysis Guidelines}
+
 \hypertarget{uncertainty-oriented-analysis}{%
 \chapter{Uncertainty Oriented Analysis}\label{uncertainty-oriented-analysis}}
 
@@ -813,17 +825,29 @@ The value of Get \& Transform Data is that it forces you to build on top of your
 \emph{All models are wrong, but some are useful}-- George Box
 \end{quote}
 
+\begin{quote}
+\emph{A person with a watch knows what time it is. A man with two watches is never sure}- Segal's Law
+\end{quote}
+
 \hypertarget{embracing-uncertainty-for-better-outcomes}{%
 \section{Embracing Uncertainty for Better Outcomes}\label{embracing-uncertainty-for-better-outcomes}}
 
-What is the point of data analysis? Often, it is to use data to summarize the world around you. In a sense, all data analysis is model building, and by definition, a model is a simplified version of the world. Any time the analyst is using data analysis to inform decision making, she is in a sense making a model. Models are commonly thought of to provide answers to the question at hand. Model building, and data analysis more generally, never gives you ``the'' answer. Data analysis only gives you a answer, if it gives you an answer at all. If you have been following along to this point, you have learned the value of data analysis that is structured and built up, not out. Frequently, data analysis is valuable because it tells you what isn't the answer. Knowing how to build uncertainty into your analysis is incredibly valuable as analysis -- models-- are used to implement important policies that impact the public good. Incorporating uncertainty into your analysis will make you both more credible and force you to use your subject matter expertise in addition to your data skills.
+What is the point of data analysis? Often, it is to use data to summarize the world around you. In a sense, all data analysis is model building, and by definition, a model is a simplified version of the world. Any time the analyst is using data analysis to inform decision making, she is in a sense making a model. Models are commonly thought of to provide answers to the question at hand. Model building, and data analysis more generally, never gives you ``the'' answer. Data analysis only gives you a answer, if it gives you an answer at all. If you have been following along to this point, you have learned the value of data analysis that is structured and built up, not out. Frequently, data analysis is valuable because it tells you what isn't the answer. As in the quote above, knowing the difference between the watches tells you something important. One watch doesn't tell you what you don't know\^{}{[}adapted from {[}Statistical Modeling, by Daniel T Kaplan{]}(\url{https://dtkaplan.github.io/SM2-bookdown/introduction.html}. Knowing how to build uncertainty into your analysis is incredibly valuable as analysis -- models-- are used to implement important policies that impact the public good. Incorporating uncertainty into your analysis will make you both more credible and force you to use your subject matter expertise in addition to your data skills.
 
-Any data analysis that simplifies the world (hint-- that's all of it) can be considered a model. So I will use those phrases interchangeably in this section.
+\hypertarget{what-is-a-model}{%
+\section{What is a Model?}\label{what-is-a-model}}
 
-\hypertarget{why-model}{%
-\section{Why Model?}\label{why-model}}
+A model is anything that is used to represent the world. By definition, anything that represents the world simplifies it, becuase the world is vastly complex. An average value of a dataset is a model. Same with the median, mode, and the other so-called \emph{descriptive statistics} that you may be familiar with.
 
-Models transform data into decision making. Models are useful exactly because they are wrong! Because models are wrong, we can critically examine the
+When you create a data model, you bring all your expertise, subjectivity, and creativity to the table. Data modeling can
+
+Models transform data into decision making. Models are useful exactly because they are wrong! Because models are wrong, we can critically examine the wrong-ness of them to inform decisionmaking in a way that embraces uncertainty.
+
+\hypertarget{examples-of-models-in-the-public-sector}{%
+\section{Examples of Models in the Public Sector}\label{examples-of-models-in-the-public-sector}}
+
+\hypertarget{incorporating-uncertainty-into-models}{%
+\section{Incorporating Uncertainty Into Models}\label{incorporating-uncertainty-into-models}}
 
 \hypertarget{example-two}{%
 \section{Example two}\label{example-two}}
@@ -843,12 +867,10 @@ Models transform data into decision making. Models are useful exactly because th
 \hypertarget{use-assumptions-and-document-them}{%
 \section{Use Assumptions, and Document Them}\label{use-assumptions-and-document-them}}
 
-(create dummy model regarding time saved through learning democratic data practices)
+By clearly documenting your assumptions, you allow them to vary as your understanding changes.
 
-\hypertarget{dont-get-out-over-your-skis}{%
-\section{Don't get out over your skis}\label{dont-get-out-over-your-skis}}
-
-\#\#Practices
+\hypertarget{practices-2}{%
+\section{Practices}\label{practices-2}}
 
 Talk about modeling implies math or statistics, when it really doesn't. All a model seeks to do is to simply phenomena in a manner that can be comprehended and used to make decisions in conjunction with subject matter expertise.
 
@@ -955,10 +977,6 @@ Excel makes things tangible at the price of making things messy (e.g., it may co
 
 How does this play out in the real world?
 
-Saez and Zucman open policy analysis of Warren proposals
-
-Fiscal notes-- quantifying uncertainty and employing reproducibility
-
 Questions to ask yourself:
 How can I pivot off of this data?
 
@@ -969,8 +987,21 @@ How can I make this more democratic?
 \hypertarget{situations-and-examples}{%
 \section{Situations and Examples}\label{situations-and-examples}}
 
-\hypertarget{data-analysis-in-the-wild}{%
-\section{Data Analysis in the Wild}\label{data-analysis-in-the-wild}}
+\hypertarget{fiscal-analyis}{%
+\subsection{Fiscal Analyis}\label{fiscal-analyis}}
+
+Fiscal notes-- quantifying uncertainty and employing reproducibility
+
+\hypertarget{policy-analysis}{%
+\subsection{Policy Analysis}\label{policy-analysis}}
+
+Saez and Zucman open policy analysis of Warren proposals
+
+\hypertarget{budget-analysis}{%
+\subsection{Budget Analysis}\label{budget-analysis}}
+
+\hypertarget{surveys-and-samples}{%
+\subsection{Surveys and Samples}\label{surveys-and-samples}}
 
 \hypertarget{additional-resources}{%
 \section{Additional Resources}\label{additional-resources}}

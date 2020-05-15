@@ -1,6 +1,6 @@
 # Pivot to Win It
 
-> Has anyone in this family ever even seen a pivot table? - Michael Bluth
+> *Has anyone in this family ever even seen a pivot table?* - Michael Bluth
 
 
 Why did we go through all the trouble of tidying data in the last section? So we can pivot. Thinking in terms of pivots, aka fields and summaries, is the key to effective democratic data analysis
