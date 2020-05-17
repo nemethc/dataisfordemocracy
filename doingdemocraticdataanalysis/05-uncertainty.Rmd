@@ -8,7 +8,9 @@
 
 ## Embracing Uncertainty for Better Outcomes
 
-What is the point of data analysis? Often, it is to use data to summarize the world around you. In a sense, all data analysis is model building, and by definition, a model is a simplified version of the world. Any time the analyst is using data analysis to inform decision making, she is in a sense making a model. Models are commonly thought of to provide answers to the question at hand. Model building, and data analysis more generally, never gives you "the" answer. Data analysis only gives you a answer, if it gives you an answer at all. If you have been following along to this point, you have learned the value of data analysis that is structured and built up, not out. Frequently, data analysis is valuable because it tells you what isn't the answer. As in the quote above, knowing the difference between the watches tells you something important. One watch doesn't tell you what you don't know^[adapted from [Statistical Modeling, by Daniel T Kaplan](https://dtkaplan.github.io/SM2-bookdown/introduction.html.  Knowing how to build uncertainty into your analysis is incredibly valuable as analysis -- models-- are used to implement important policies that impact the public good. Incorporating uncertainty into your analysis will make you both more credible and force you to use your subject matter expertise in addition to your data skills. 
+What is the point of data analysis? Often, it is to use data to summarize the world around you. In a sense, all data analysis is model building, and by definition, a model is a simplified version of the world. Any time the analyst is using data analysis to inform decision making, she is in a sense making a model. Models are commonly thought of to provide answers to the question at hand. Model building, and data analysis more generally, never gives you "the" answer. Data analysis only gives you a answer, if it gives you an answer at all. 
+
+If you have been following along to this point, you have learned the value of data analysis that is structured and built up, not out. Frequently, data analysis is valuable because it tells you what isn't the answer. As in the quote above, knowing the difference between the watches tells you something important. One watch doesn't tell you what you don't know^[adapted from [Statistical Modeling, by Daniel T Kaplan](https://dtkaplan.github.io/SM2-bookdown/introduction.html.  Knowing how to build uncertainty into your analysis is incredibly valuable as analysis -- models-- are used to implement important policies that impact the public good. Incorporating uncertainty into your analysis will make you both more credible and force you to use your subject matter expertise in addition to your data skills. 
 
 ## What is a Model?
 
@@ -18,23 +20,35 @@ When you create a data model, you bring all your expertise, subjectivity, and cr
 
 Models transform data into decision making. Models are useful exactly because they are wrong! Because models are wrong, we can critically examine the wrong-ness of them to inform decisionmaking in a way that embraces uncertainty. 
 
+## Incorporating Uncertainty Into Models
+
+As I mentioned before, something as simple as the mean value of a field can be thought of as a model. You may recall from Chapter 3 on pivoting that we walked though many such examples of creating calculated summaries of our data. Am I telling you that a pivot table is a model? Yes. Anything that is a representation of the real world is a model. 
+
+Consider the following model of the 2016 presidential election from the popular data journalism website 538. How does, or doesn't, this representation of a model communicate uncertainty? Through the use of the chance of winning bar at the top. How uncertain does this projecton *feel* to you? If you are like me, not very uncertain. THere are decimal places to the tenth of a percent, state maps, and that big blue bar that communciates authoritativly that Clinton will win the election.
+
+![](images/map.png)
+
+
+
+Now consider the following histogram of possible election outcomes. This chart takes a bit more effort to decipher, but it communicates uncertainly much more effectively than the bar and map above. If you look at it, the actual outcome of the 2016 election falls in the thick part of the probability distribution-- not an outlier at all. 
+
+![distribution of possible results](images/uncertain_dist.png)
+
+Thinking critically about how to communicate the uncertainty of your models will make your analysis more democratic by revealing what you do and do not know. I would argue this promotes better decision-making and outcomes than false confidence brought about by hiding, rather than promoting, uncertainty in analysis. 
+
+You may be thinking that the election forecasting model above is far and above the data analysis work that you do in your public sector organization. But think back to earlier in this section when we talked about the simplest of models, the average. Does presenting the average of a field show uncertainty? No. If you are making decisions based on averages, then there is a high likelhihood that your decisionmaking is highly influenced by outliers, becuase averages are highly influenced by outliers. How could you communicate an average for decisionmaking purposes, but also show potential outliers? This is where data visualization plays a key role. making sure to always look at your data before presenting summary statistics is vitally important to embedding uncertainty into your analysis. 
+
 
 
 ## Examples of Models in the Public Sector
 
+Models may seem complicated or unnecessary. Why build uncertainty into a mean? How is that even possible?
 
-
-## Incorporating Uncertainty Into Models
-
-## Example two
-
-![electoral 2016 map](images/map.png)
-
-![distribution of possible results](images/uncertain_dist.png)
+Every analysis you conduct you will have the incredible power to choose what to include and exclude. how do you go about making those choices?
 
 ## Use Assumptions, and Document Them
 
-By clearly documenting your assumptions, you allow them to vary as your understanding changes. 
+What is an assumption? Any time that you are making observations about the real world, you will be making assumptions. Whether you make those assumptions implicit or explicit is up to you, and I would suggest you consider doing the latter. 
 
 ## Practices
 

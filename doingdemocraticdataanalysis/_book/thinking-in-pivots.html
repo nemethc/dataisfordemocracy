@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 4 Reproducible Analysis | Doing Democratic Data Analysis</title>
+  <title>Chapter 3 Thinking in Pivots | Doing Democratic Data Analysis</title>
   <meta name="description" content="An opinionated guide to data analysis for public administrators and policy analysts" />
   <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 4 Reproducible Analysis | Doing Democratic Data Analysis" />
+  <meta property="og:title" content="Chapter 3 Thinking in Pivots | Doing Democratic Data Analysis" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 4 Reproducible Analysis | Doing Democratic Data Analysis" />
+  <meta name="twitter:title" content="Chapter 3 Thinking in Pivots | Doing Democratic Data Analysis" />
   
   <meta name="twitter:description" content="An opinionated guide to data analysis for public administrators and policy analysts" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="thinking-in-pivots.html"/>
-<link rel="next" href="uncertainty-oriented-analysis.html"/>
+<link rel="prev" href="tidy-data.html"/>
+<link rel="next" href="reproducible-analysis.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -613,78 +613,152 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="reproducible-analysis" class="section level1">
-<h1><span class="header-section-number">Chapter 4</span> Reproducible Analysis</h1>
+<div id="thinking-in-pivots" class="section level1">
+<h1><span class="header-section-number">Chapter 3</span> Thinking in Pivots</h1>
 <blockquote>
-<p><em>“And that’s why you always leave a note.”</em> — J. Walter Weatherman</p>
+<p><em>Has anyone in this family ever even seen a pivot table?</em> - Michael Bluth</p>
 </blockquote>
-<div id="do-it-for-your-future-self" class="section level2">
-<h2><span class="header-section-number">4.1</span> Do It For Your Future Self</h2>
-<p>Many things take more time to do up front, but save you from massive headaches down the road. Brushing your teeth. Oil changes. Preventative maintenance is the name of the game. The same thing applies in democratic data analysis. Learning how to brush the teeth of your analysis will pay massive dividends down the road, as someone else (or you, more likely), need to go back through and understand, replicate, or validate your findings.</p>
-<p>The second principle of democratic data analysis is reproducability. By this, I mean anything that makes it easy to look at your analysis and understand what is going on. This is where classic data analysis in Excel falls short. I believe it is almost a universal experience in the public sector to receive a workbook full of broken links, formulas pointing in every direction, and no sense of where the original data is or what has happened to it since.</p>
-<p>In thinking about creating reproducible data analysis, it is important to keep in mind that data analysis should be structured from beginning to end, like a story. In the beginning, there is raw data that you pulled from a report, compiled yourself, or otherwise received. In Act 1, you use the practices we learned in the previous section to make the raw data tidy– without destroying the original data. You should use tools that allow to to non-destructively manipulate and iterate on your data. Both Get &amp; Transform and R allow you to do this by default. In Act 2, which will be the next chapter, you use your data to create a picture of the world before you share it with others in the final Act 3.</p>
-<p>The practices of reproducability that you will use here apply throughout the other chapters. It may seem like a waste of time, but if you have ever come back to a complicated excel workbook after spending even days away, this will make your life much easier.</p>
-<div id="do-not-destroy" class="section level3">
-<h3><span class="header-section-number">4.1.1</span> Do Not Destroy</h3>
-<p>As I mentioned before, the existential dread that occurs when opening someone else’s workbook and immediately receiving broken links, color-coding<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a>, and a spiderweb of formulas may be a universal experience in the public sector. But there is a better way to do things. Reproducible analysis is linear. It progresses in a certain direction– from data load to final analysis. Things happen discretely. The blessing and curse of spreadsheets is that they are unbound by time. There is no natural direction, just a sea of little boxes spreading out as far as the eye can see<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a>. However, there are ways to impose a linear structure to your analysis.</p>
-<p>The first thing I want to emphasize is PLEASE DO NOT DESTROY, ALTER, OR MANIPULATE YOUR UNDERLYING DATA. Your underlying data is like the foundation of your house. Democratic data analysis starts with a foundation of data, and builds on top of it. Oftentimes, it seems easier to simply click and drag cells around in an excel workbook, changing values here and there as you see fit. This may work in small use cases, but what if you have another idea? Or come up with a different question, where your data needs to be coded differently? Reproducible analysis makes it substantially easier to revise and rewrite after the fact. If you were writing a well-sourced research article, you wouldn’t delete your notes and references for the material that didn’t make it into your final product. In the same way, keeping record of the changes that you make to your analysis will pay dividends when your approach changes.</p>
+<p>Why did we go through all the trouble of tidying data in the last section? So we can pivot. Thinking in terms of pivots, by which I mean fields and summaries, is an important component of doing democratic data analysis.</p>
+<div id="pivot-tables-and-the-meaning-of-everything" class="section level2">
+<h2><span class="header-section-number">3.1</span> Pivot Tables and the Meaning of Everything</h2>
+<p>Pivot tables offer a common, helpful, and underrated framework for data analysis . If you understand the mechanics of the pivot table, you have everything you need to be a data analysis expert in the technology of your choice. PowerBI/Tableau interactive charts and graphs are simply pivot tables in disguise. Understanding what is needed to make a pivot table effective is the key to the wide world of data analysis.</p>
+<p>What is so important about pivot tables? First and foremost, pivot tables force you to think in terms of fields, not in terms of cells. In order for a pivot table to be effective, the data has to be organized in a table. And there is a right and a wrong way to putting data in a table. If your pivot table is not working properly, it is likely because your data isn’t tidy.</p>
+<p>A pivot table groups data by field and allows the user to drag fields to the rows or columns of the pivot table. This is effective when each field is a variable (something that can change), and each row is a separate observation of some phenomena of interest.</p>
+<p>In short, pivot tables depend on <strong>tidy data</strong>.</p>
+<p>Recall our sample data from the last chapter:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" data-line-number="1"><span class="co">#We have already loaded the &quot;tidyverse&quot; library so we do not have to do it again</span></a>
+<a class="sourceLine" id="cb14-2" data-line-number="2"><span class="co">#we are editing the &quot;visits&quot; table already created by storing it in a new table pivot_visits</span></a>
+<a class="sourceLine" id="cb14-3" data-line-number="3">pivot_visits &lt;-<span class="st"> </span>visits <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb14-4" data-line-number="4"><span class="st">  </span><span class="co">#using pivot_longer on every column except &quot;employee&quot; and setting the name of the new columns</span></a>
+<a class="sourceLine" id="cb14-5" data-line-number="5"><span class="st">  </span><span class="kw">pivot_longer</span>(<span class="op">-</span>Employee, <span class="dt">names_to =</span> <span class="st">&quot;Visit Type&quot;</span>, <span class="dt">values_to =</span> <span class="st">&quot;Number of Visits&quot;</span>) </a>
+<a class="sourceLine" id="cb14-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb14-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb14-8" data-line-number="8">knitr<span class="op">::</span><span class="kw">kable</span>(pivot_visits, <span class="dt">caption =</span> <span class="st">&quot;Visits to the Dept. of Retirement Services in a given month&quot;</span>)</a></code></pre></div>
+<table>
+<caption><span id="tab:unnamed-chunk-9">Table 3.1: </span>Visits to the Dept. of Retirement Services in a given month</caption>
+<thead>
+<tr class="header">
+<th align="left">Employee</th>
+<th align="left">Visit Type</th>
+<th align="right">Number of Visits</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Danielle</td>
+<td align="left">Phone Visits</td>
+<td align="right">6</td>
+</tr>
+<tr class="even">
+<td align="left">Danielle</td>
+<td align="left">Office Visits</td>
+<td align="right">11</td>
+</tr>
+<tr class="odd">
+<td align="left">Danielle</td>
+<td align="left">Online Visits</td>
+<td align="right">23</td>
+</tr>
+<tr class="even">
+<td align="left">Ramona</td>
+<td align="left">Phone Visits</td>
+<td align="right">11</td>
+</tr>
+<tr class="odd">
+<td align="left">Ramona</td>
+<td align="left">Office Visits</td>
+<td align="right">5</td>
+</tr>
+<tr class="even">
+<td align="left">Ramona</td>
+<td align="left">Online Visits</td>
+<td align="right">18</td>
+</tr>
+<tr class="odd">
+<td align="left">Ross</td>
+<td align="left">Phone Visits</td>
+<td align="right">10</td>
+</tr>
+<tr class="even">
+<td align="left">Ross</td>
+<td align="left">Office Visits</td>
+<td align="right">10</td>
+</tr>
+<tr class="odd">
+<td align="left">Ross</td>
+<td align="left">Online Visits</td>
+<td align="right">10</td>
+</tr>
+</tbody>
+</table>
+<p>Once the data has been tidied, it is easy to manipulate fields in pivot tables.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1">rpivotTable<span class="op">::</span><span class="kw">rpivotTable</span>(pivot_visits, <span class="dt">width =</span> <span class="st">&quot;40%&quot;</span>, <span class="dt">height =</span> <span class="st">&quot;400px&quot;</span>)</a></code></pre></div>
+<div id="htmlwidget-87a537e8c559aa3b913c" style="width:40%;height:400px;" class="rpivotTable html-widget"></div>
+<script type="application/json" data-for="htmlwidget-87a537e8c559aa3b913c">{"x":{"data":{"Employee":["Danielle","Danielle","Danielle","Ramona","Ramona","Ramona","Ross","Ross","Ross"],"Visit Type":["Phone Visits","Office Visits","Online Visits","Phone Visits","Office Visits","Online Visits","Phone Visits","Office Visits","Online Visits"],"Number of Visits":[6,11,23,11,5,18,10,10,10]},"params":{},"locale":"en","subtotals":false},"evals":[],"jsHooks":[]}</script>
+<p>The key with pivot tables, such as the one above, is you are moving <em>fields</em> into the rows and columns of a new table. Hence the term “pivot”. You are then selecting a calculation to <strong><em>summarize</em></strong> the intersection of the two <em>fields</em> that you brought into the rows and columns of your pivot table. Above, you can click on the “Count” button to see the other ways this lightweight pivot table allows you to <em>summarize</em> your data. More powerful data analysis tools, such as PowerPivot in Excel, PowerBI, and several R packages allow you infinitely flexible formulas to define your <strong><em>summaries</em></strong> - what happens at the intersection of the fields that you brought into a pivot table. Think in terms of fields and summaries and you are well on your way to effective data analysis.</p>
+<p>In a pivot table, the field that you drag to the row becomes your <strong>group</strong>. Grouping allows you to perform summaries on the distinct values of the field that you brought to the row of the pivot table. In the pivot table above, drag the <code>employee</code> field to the row. You are now grouping by the distinct <strong>levels</strong> of employee– namely, Danielle, Ross, and Ramona. You will see that the column of the pivot table defaults to <code>count</code>. This is true in Excel as well. The pivot table will default to summarizing your data by showing how many times each <strong>level</strong> of your <strong>group</strong> appeared in the field. Most commonly, you will group by the <strong>categorical</strong> elements of your table– the fields with names, rather than numbers.</p>
+<p>You can also drag another categorical field to the top of the pivot table to become a column. This will now show your data grouped by the two elements you have selected. For example, drag <code>visit type</code> to the columns in the above table. You will now see the count of the intersection of those elements. However, I typically do not recommend using the columns of your pivot table for additional categorical groupings. Instead, I recommmend dragging both fields to the row section of the pivot table. In the table above, drage <code>visit type</code> underneath <code>employee</code>. You will now see the data grouped the same way as before, but with only a <code>totals</code> column. I find reserving the columns of the pivot table for summaries to be helpful, as it makes things simpler and allows for easy totalling.</p>
+<p>Reserving columns for <strong>summaries</strong> makes it easy to change what those summaries are. Excel gives you a variety of options with the <code>show values as</code> button. The table above gives you additional options. Remove <code>visit type</code> from the rows, and play around with the different summaries that you can apply to the number of visits per employee.</p>
+<p><strong>Summarizing</strong> your fields also doesn’t have to happen within the context of a pivot table. However, the same concepts of pivot tables apply. First, create your groupings (rows). Then, select how you want to summarize your data (mean, median, minimum, maximum, etc.). Then create columns out of those summaries. This same principle applies when creating charts, dashboards, and more complicated forms of modeling.</p>
+<p>For example, creating descriptive statistics across groupings is very straightforward. You can replicate the <code>R</code> code below with the pivot table above. But the <code>R</code> syntax makes it very clear what the data analysis is accomplishing. See if you can replicate the values with the pivot table above.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" data-line-number="1">desc_visits &lt;-<span class="st"> </span>pivot_visits <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb16-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(<span class="st">`</span><span class="dt">Visit Type</span><span class="st">`</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb16-3" data-line-number="3"><span class="st">  </span><span class="kw">summarise</span>(<span class="st">`</span><span class="dt">Avg Visits</span><span class="st">`</span> =<span class="st"> </span><span class="kw">mean</span>(<span class="st">`</span><span class="dt">Number of Visits</span><span class="st">`</span>),</a>
+<a class="sourceLine" id="cb16-4" data-line-number="4">            <span class="st">`</span><span class="dt">Total Visits</span><span class="st">`</span> =<span class="st"> </span><span class="kw">sum</span>(<span class="st">`</span><span class="dt">Number of Visits</span><span class="st">`</span>),</a>
+<a class="sourceLine" id="cb16-5" data-line-number="5">            <span class="st">`</span><span class="dt">Std Dev of Visits</span><span class="st">`</span> =<span class="st"> </span><span class="kw">sd</span>(<span class="st">`</span><span class="dt">Number of Visits</span><span class="st">`</span>))</a>
+<a class="sourceLine" id="cb16-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb16-7" data-line-number="7">knitr<span class="op">::</span><span class="kw">kable</span>(desc_visits, <span class="dt">caption =</span> <span class="st">&quot;Data summaries of number of visits by visity type&quot;</span>)</a></code></pre></div>
+<table>
+<caption><span id="tab:unnamed-chunk-11">Table 3.2: </span>Data summaries of number of visits by visity type</caption>
+<thead>
+<tr class="header">
+<th align="left">Visit Type</th>
+<th align="right">Avg Visits</th>
+<th align="right">Total Visits</th>
+<th align="right">Std Dev of Visits</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Office Visits</td>
+<td align="right">8.666667</td>
+<td align="right">26</td>
+<td align="right">3.214550</td>
+</tr>
+<tr class="even">
+<td align="left">Online Visits</td>
+<td align="right">17.000000</td>
+<td align="right">51</td>
+<td align="right">6.557438</td>
+</tr>
+<tr class="odd">
+<td align="left">Phone Visits</td>
+<td align="right">9.000000</td>
+<td align="right">27</td>
+<td align="right">2.645751</td>
+</tr>
+</tbody>
+</table>
+<p>This is where pivot tables, and the way they force you to think about data, become <em>enormously</em> powerful. Enter <strong>PowerPivot</strong>, stage left. PowerPivot allows you to write very detailed and useful functions for the values that appear in the <strong>summaries</strong> of your pivot table. These summaries, or <strong>calculated fields</strong> or <strong>measures</strong> as they are called in PowerPivot and PowerBI, allow you to define precisely what you want to calculate by group for your data summaries.</p>
+<p>Above, I used R to calculate the average number of visits, total visits, and standard deviation of visits by visit type. But what if I quickly wanted to view this by Employee instead? Or what if I wanted to summarize the number of visits as the percent of a whole, or as a proportion to another value? R and PowerPivot make this very easy. I’m not going to go into detail on the mechanics and tutorials of PowerPivot, as it is extensively covered elsewhere– see the Practices section of this guide.</p>
+<p>Here’s the key– Every fancy data dashboard, analysis technique, interactive visualization– is a pivot table with a defined data <strong>summary</strong> that operates on the group you select. That’s it. If you can think in terms of fields and calculated summaries based on those fields, PowerBI, PowerPivot, Tableau, Qlik, ggplot2, etc. will be second nature. The only thing that changes when crating a viz instead of a pivot table is that your fields that you drag into a pivot table become the axis of your chart, and your calculated field becomes a “mark” on your plot. Scroll back up to our sample pivot table and select a different way to view the data than just a table in the upper left hand corner. Our humble pivot table can become a chart, heatmap, or dashboard with little additional effort.</p>
 </div>
-<div id="red-flags-for-reproducibility" class="section level3">
-<h3><span class="header-section-number">4.1.2</span> Red flags for reproducibility</h3>
-<p>I’ll start with a list of things you want to avoid in the pursuit of reproducible democratic data analysis</p>
-<div id="copy-and-paste" class="section level4">
-<h4><span class="header-section-number">4.1.2.1</span> Copy and Paste</h4>
-<p>If you find yourself copying and pasting values in an excel workbook, you are not engaging in reproducible analysis– full stop. Copy and paste (or worse, cut and paste) doesn’t leave breadcrumbs for you or anyone who may come after you. It is incredibly difficult to follow the trail of an analysis built on top of copy-paste.</p>
+<div id="conclusion-1" class="section level2">
+<h2><span class="header-section-number">3.2</span> Conclusion</h2>
+<p>Thinking in terms of pivot tables is the core of democratic data analysis. This may not feel intuitive at first glance. But thinking this way forces the analyst to avoid the classic pitfalls of <em>un</em>democratic data analysis. Those pitfalls are the cell-based, hard-coded, pages and pages of tabs excel workbook nightmare that only the analyst themselves understands (and that’s if they are lucky). Thinking in terms of the language of data analysis, emphasizing the use of fields and summaries, forces your analysis to be flexible, understandable, and reproducible. It is easy for an analyst who is also fluent in data analysis to pick up your work and immediately see how it operates because it is constructed using best practices and principles. It is also easy for someone else, or your future self, to write new calculations for data summaries, compare results, and use different fields.</p>
 </div>
-<div id="repeating-yourself" class="section level4">
-<h4><span class="header-section-number">4.1.2.2</span> Repeating Yourself</h4>
-<p>There is an old adage in programming - <em>D</em>on’t <em>R</em>epeat <em>Y</em>ourself. DRY. Keeping your data analysis DRY is a good habit to get in to. If you find yourself repeating the same task more than three times, chances are there is a better, more programmatic way to go about what you are doing.</p>
-<p>What do I mean by repeating yourself? This would be going through every row of an 100-row table to add (or remove)a space between words, capitalizing letters, doing specific calculations. All of these tasks can be <strong>easily</strong> automated using virtually all data analysis tools. This not only saves you time, but makes it easier for your reader to see how the data has changed in the course of your analysis.</p>
-<p>To preview the Practices section, Get and Transform allows you to make flexible value transformations on entire fields at a time. This reduces the need for repetitive data cleaning. And if you are already taking my advice and no longer editing individual data cells, you will have a much easier time avoiding repeating yourself.</p>
-</div>
-</div>
-</div>
-<div id="comment-everything" class="section level2">
-<h2><span class="header-section-number">4.2</span> Comment Everything</h2>
-<p>Comments are wonderful. They are notes to yourself that you should leave at almost every step of your analysis. I frequently do not leave comments. Never have I come back to an uncommented data transformation and been happy with my past self. At worst, leaving comments takes a couple seconds of your time you will never get back. At best, it saves you or your organization from a massive headache when you are able to catch your own errors or update your analysis easier in the future.</p>
-</div>
-<div id="give-yourself-credit" class="section level2">
-<h2><span class="header-section-number">4.3</span> Give Yourself Credit</h2>
-<p>Don’t hard code (e.g. manually type) Excel values in cells. Build calculated summaries as discussed in the pivot-powered tab. Link to data sources. Highlight your expertise. This is easier to do when you use the tools shown in the practices section.</p>
-</div>
-<div id="version-control" class="section level2">
-<h2><span class="header-section-number">4.4</span> Version Control</h2>
-<div id="save-as" class="section level3">
-<h3><span class="header-section-number">4.4.1</span> Save as</h3>
-</div>
-<div id="gitgithub" class="section level3">
-<h3><span class="header-section-number">4.4.2</span> Git/GitHub</h3>
-<p>If you are inclined to use R or another programming language for data analysis (and you really should be) then git is an essential tool in your toolkit. Full disclosure, even I am not an expert on it. But there are several tools available to make version control using git seamless and effortless.</p>
-<p>Git is an automated version control system that backs up your changes to the cloud, typically to github.com or another similar provider. It is very cool. For example, you can examine all the source code for this very book on <a href="https://github.com/nemethc/dataisfordemocracy/tree/master/doingdemocraticdataanalysis">GitHub</a>.</p>
-</div>
-</div>
-<div id="practices-1" class="section level2">
-<h2><span class="header-section-number">4.5</span> Practices</h2>
-<p>The value of Get &amp; Transform Data is that it forces you to build on top of your data foundation. It also conveniently records each step along the way. You even have the ability to save comments right there in the query editor. This is a remarkably easy and intuitive way to build a data transformation pipeline that will be valuable know and into the future.</p>
-<p><a href="https://www.bitss.org/opa/">The Berkeley Open Policy Analysis Initiative</a></p>
-<p><a href="https://www.bitss.org/wp-content/uploads/2019/03/OPA-Guidelines.pdf">Open Policy Analysis Guidelines</a></p>
+<div id="practices" class="section level2">
+<h2><span class="header-section-number">3.3</span> Practices</h2>
 
 </div>
-</div>
-<div class="footnotes">
-<hr />
-<ol start="5">
-<li id="fn5"><p>for the love of democracy, PLEASE do not color code your data<a href="reproducible-analysis.html#fnref5" class="footnote-back">↩</a></p></li>
-<li id="fn6"><p>This is where programming languages such as R have an inherent advantage. Code runs in order, from first to last<a href="reproducible-analysis.html#fnref6" class="footnote-back">↩</a></p></li>
-</ol>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="thinking-in-pivots.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="uncertainty-oriented-analysis.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="tidy-data.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="reproducible-analysis.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

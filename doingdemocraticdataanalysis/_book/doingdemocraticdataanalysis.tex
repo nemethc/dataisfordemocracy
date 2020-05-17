@@ -111,7 +111,7 @@
 
 \title{Doing Democratic Data Analysis}
 \author{Corban Nemeth}
-\date{2020-05-14}
+\date{2020-05-16}
 
 \begin{document}
 \maketitle
@@ -327,7 +327,7 @@ Let's look at a sample dataset that may be similar to one you would encounter in
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{htmlwidget-6d669d781f234624c579}{}
+\hypertarget{htmlwidget-e4ee1231a64813611273}{}
 
 In this example, it would be trivial to go in to the Excel file and clean up the dates, names, and locations by hand. However, you could imagine this survey replicated for a department of forty employees. It quickly becomes unfeasible to make those edits by hand. When this is the case, there are functions in Excel and R that will make your life much easier.
 
@@ -372,7 +372,7 @@ Here is annotated code for how I would go about cleaning this table in R. The fr
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{htmlwidget-1c45cfe6f2901a5e7e9e}{}
+\hypertarget{htmlwidget-c20dea9d778f0b1519ef}{}
 
 This may seem like a lot of work for a small table. But as your data grows, it is much easier to operate on entire fields at a time. This is especially true in Get \& Transform, which makes it very easy to transform and clean data using all the same steps as the \texttt{R} code above. As you can see, our table is now ``cleaned'' and organized consistently.
 
@@ -404,7 +404,7 @@ Below is a table\footnote{Data was created for demonstration purposes} that show
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{htmlwidget-cb62e070176eb1ed9737}{}
+\hypertarget{htmlwidget-8e654a4cc5f689b1b6f4}{}
 
 Data are frequently displayed in this ``wide'' format. It works great for presentation, but not great for data analysis.
 
@@ -416,7 +416,7 @@ The shortcomings of data in this format may become apparent when you attempt to 
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{htmlwidget-4770e46f7048113660e7}{}
+\hypertarget{htmlwidget-77371db1ff1b746e0a05}{}
 
 \hypertarget{tidy-data--from-wide-to-long}{%
 \section{Tidy Data- From Wide to Long}\label{tidy-data--from-wide-to-long}}
@@ -529,7 +529,7 @@ Hopefully you will see a similar pattern here. Now, there are three variables: V
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{htmlwidget-2a48ffe3848219e5b4b5}{}
+\hypertarget{htmlwidget-907002bdb57736cc5ee1}{}
 
 Try to tidy this in R or Excel Get and Transform. See this footnote\footnote{powerquery hints} or look at the code if you need a hint.
 
@@ -633,19 +633,19 @@ Thinking of your analysis in terms of tidy data is the first step on your way to
 \hypertarget{practicesresources}{%
 \section{Practices/Resources}\label{practicesresources}}
 
-\hypertarget{pivot-to-win-it}{%
-\chapter{Pivot to Win It}\label{pivot-to-win-it}}
+\hypertarget{thinking-in-pivots}{%
+\chapter{Thinking in Pivots}\label{thinking-in-pivots}}
 
 \begin{quote}
 \emph{Has anyone in this family ever even seen a pivot table?} - Michael Bluth
 \end{quote}
 
-Why did we go through all the trouble of tidying data in the last section? So we can pivot. Thinking in terms of pivots, aka fields and summaries, is the key to effective democratic data analysis
+Why did we go through all the trouble of tidying data in the last section? So we can pivot. Thinking in terms of pivots, by which I mean fields and summaries, is an important component of doing democratic data analysis.
 
 \hypertarget{pivot-tables-and-the-meaning-of-everything}{%
 \section{Pivot Tables and the Meaning of Everything}\label{pivot-tables-and-the-meaning-of-everything}}
 
-Pivot tables are the world's most common, most helpful, and most underrated data analysis tool. If you understand the mechanics of the pivot table, you have everything you need to be a data analysis expert. PowerBI or Tableau interactive charts and graphs are just pivot tables in disguise. Understanding what is needed to make a pivot table work is the key to the wide world of data analysis.
+Pivot tables offer a common, helpful, and underrated framework for data analysis . If you understand the mechanics of the pivot table, you have everything you need to be a data analysis expert in the technology of your choice. PowerBI/Tableau interactive charts and graphs are simply pivot tables in disguise. Understanding what is needed to make a pivot table effective is the key to the wide world of data analysis.
 
 What is so important about pivot tables? First and foremost, pivot tables force you to think in terms of fields, not in terms of cells. In order for a pivot table to be effective, the data has to be organized in a table. And there is a right and a wrong way to putting data in a table. If your pivot table is not working properly, it is likely because your data isn't tidy.
 
@@ -701,15 +701,23 @@ Once the data has been tidied, it is easy to manipulate fields in pivot tables.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{rpivotTable}\OperatorTok{::}\KeywordTok{rpivotTable}\NormalTok{(pivot_visits, }\DataTypeTok{width =} \StringTok{"60%"}\NormalTok{, }\DataTypeTok{height =} \StringTok{"400px"}\NormalTok{)}
+\NormalTok{rpivotTable}\OperatorTok{::}\KeywordTok{rpivotTable}\NormalTok{(pivot_visits, }\DataTypeTok{width =} \StringTok{"40%"}\NormalTok{, }\DataTypeTok{height =} \StringTok{"400px"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{htmlwidget-0b8106dfc7e01e6fff53}{}
+\hypertarget{htmlwidget-59691f8895902efc3169}{}
 
-The key with pivot tables, such as the one above, is you are moving \emph{fields} into the rows and columns of a new table. This is often referred to as ``pivoting''. You are then selecting a calculation to \emph{summarize} the intersection of the \emph{fields} that you drug into rows and columns. Above, you can click on the ``Count'' button to see the other ways this lightweight pivot table allows you to \emph{summarize} your data. More powerful data analysis tools, such as PowerPivot in Excel, PowerBI, and several R packages allow you infinitely flexible formulas to define what happens at the intersection of fields in a pivot table. This is the core of all (most) data analysis. Think in terms of fields and calculated summaries and you are well on your way to becoming a democratic data master.
+The key with pivot tables, such as the one above, is you are moving \emph{fields} into the rows and columns of a new table. Hence the term ``pivot''. You are then selecting a calculation to \textbf{\emph{summarize}} the intersection of the two \emph{fields} that you brought into the rows and columns of your pivot table. Above, you can click on the ``Count'' button to see the other ways this lightweight pivot table allows you to \emph{summarize} your data. More powerful data analysis tools, such as PowerPivot in Excel, PowerBI, and several R packages allow you infinitely flexible formulas to define your \textbf{\emph{summaries}} - what happens at the intersection of the fields that you brought into a pivot table. Think in terms of fields and summaries and you are well on your way to effective data analysis.
 
-It is also easier to do a variety of calculations on the data now that is in a ``tidy'' format. For example, creating descriptive statistics across groups is very straightforward. This can also be accomplished in an Excel pivot table with the basic \href{https://support.microsoft.com/en-gb/office/show-different-calculations-in-pivottable-value-fields-014d2777-baaf-480b-a32b-98431f48bfec}{``show values as'' functions}.
+In a pivot table, the field that you drag to the row becomes your \textbf{group}. Grouping allows you to perform summaries on the distinct values of the field that you brought to the row of the pivot table. In the pivot table above, drag the \texttt{employee} field to the row. You are now grouping by the distinct \textbf{levels} of employee-- namely, Danielle, Ross, and Ramona. You will see that the column of the pivot table defaults to \texttt{count}. This is true in Excel as well. The pivot table will default to summarizing your data by showing how many times each \textbf{level} of your \textbf{group} appeared in the field. Most commonly, you will group by the \textbf{categorical} elements of your table-- the fields with names, rather than numbers.
+
+You can also drag another categorical field to the top of the pivot table to become a column. This will now show your data grouped by the two elements you have selected. For example, drag \texttt{visit\ type} to the columns in the above table. You will now see the count of the intersection of those elements. However, I typically do not recommend using the columns of your pivot table for additional categorical groupings. Instead, I recommmend dragging both fields to the row section of the pivot table. In the table above, drage \texttt{visit\ type} underneath \texttt{employee}. You will now see the data grouped the same way as before, but with only a \texttt{totals} column. I find reserving the columns of the pivot table for summaries to be helpful, as it makes things simpler and allows for easy totalling.
+
+Reserving columns for \textbf{summaries} makes it easy to change what those summaries are. Excel gives you a variety of options with the \texttt{show\ values\ as} button. The table above gives you additional options. Remove \texttt{visit\ type} from the rows, and play around with the different summaries that you can apply to the number of visits per employee.
+
+\textbf{Summarizing} your fields also doesn't have to happen within the context of a pivot table. However, the same concepts of pivot tables apply. First, create your groupings (rows). Then, select how you want to summarize your data (mean, median, minimum, maximum, etc.). Then create columns out of those summaries. This same principle applies when creating charts, dashboards, and more complicated forms of modeling.
+
+For example, creating descriptive statistics across groupings is very straightforward. You can replicate the \texttt{R} code below with the pivot table above. But the \texttt{R} syntax makes it very clear what the data analysis is accomplishing. See if you can replicate the values with the pivot table above.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -718,17 +726,33 @@ It is also easier to do a variety of calculations on the data now that is in a `
 \StringTok{  }\KeywordTok{summarise}\NormalTok{(}\StringTok{`}\DataTypeTok{Avg Visits}\StringTok{`}\NormalTok{ =}\StringTok{ }\KeywordTok{mean}\NormalTok{(}\StringTok{`}\DataTypeTok{Number of Visits}\StringTok{`}\NormalTok{),}
             \StringTok{`}\DataTypeTok{Total Visits}\StringTok{`}\NormalTok{ =}\StringTok{ }\KeywordTok{sum}\NormalTok{(}\StringTok{`}\DataTypeTok{Number of Visits}\StringTok{`}\NormalTok{),}
             \StringTok{`}\DataTypeTok{Std Dev of Visits}\StringTok{`}\NormalTok{ =}\StringTok{ }\KeywordTok{sd}\NormalTok{(}\StringTok{`}\DataTypeTok{Number of Visits}\StringTok{`}\NormalTok{))}
+
+\NormalTok{knitr}\OperatorTok{::}\KeywordTok{kable}\NormalTok{(desc_visits, }\DataTypeTok{caption =} \StringTok{"Data summaries of number of visits by visity type"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
-This is where pivot tables, and the way they force you to think about data, become \emph{enormously} powerful. Enter \textbf{PowerPivot}, stage left. PowerPivot allows you to write very detailed and useful functions for the values that appear in the middle of a pivot table. Above, I used R to calculate the average number of visits, total visits, and standard deviation of visits by visit type. But what if I quickly wanted to view this by Employee instead? Or what if I wanted to group by both visit type and employee, and generate the same descriptions? R and PowerPivot make this very easy. I'm not going to go into detail on the mechanics and tutorials of PowerPivot, as it is extensively covered elsewhere-- see the Practices section of this guide.
+\begin{table}
 
-Here's the key-- Every fancy data dashboard, analysis technique, interactive visualization-- is a pivot table with a ``calculated field'' (formula for values in a pivot table). That's it. If you can think in terms of fields and calculated values based on those fields, PowerBI, PowerPivot, Tableau, Qlik, ggplot2, etc. will be second nature. The only thing that changes when crating a viz instead of a pivot table is that your fields that you drag into a pivot table become the axis of your chart, and your calculated field becomes a ``mark'' on your plot. If you are interested more in a universal so-called ``grammar of graphics'' that is based on the principles outlined here, there is a wealth of resources available. (link to resources.)
+\caption{\label{tab:unnamed-chunk-11}Data summaries of number of visits by visity type}
+\centering
+\begin{tabular}[t]{l|r|r|r}
+\hline
+Visit Type & Avg Visits & Total Visits & Std Dev of Visits\\
+\hline
+Office Visits & 8.666667 & 26 & 3.214550\\
+\hline
+Online Visits & 17.000000 & 51 & 6.557438\\
+\hline
+Phone Visits & 9.000000 & 27 & 2.645751\\
+\hline
+\end{tabular}
+\end{table}
 
-\hypertarget{advanced-data-summaries}{%
-\section{Advanced Data Summaries}\label{advanced-data-summaries}}
+This is where pivot tables, and the way they force you to think about data, become \emph{enormously} powerful. Enter \textbf{PowerPivot}, stage left. PowerPivot allows you to write very detailed and useful functions for the values that appear in the \textbf{summaries} of your pivot table. These summaries, or \textbf{calculated fields} or \textbf{measures} as they are called in PowerPivot and PowerBI, allow you to define precisely what you want to calculate by group for your data summaries.
 
-Frequently, public administrators are interested in how things have changed over a period of time. Here's an example dataset that shows referrals to the same Dept. of Retirement Systems we have used in previous examples.
+Above, I used R to calculate the average number of visits, total visits, and standard deviation of visits by visit type. But what if I quickly wanted to view this by Employee instead? Or what if I wanted to summarize the number of visits as the percent of a whole, or as a proportion to another value? R and PowerPivot make this very easy. I'm not going to go into detail on the mechanics and tutorials of PowerPivot, as it is extensively covered elsewhere-- see the Practices section of this guide.
+
+Here's the key-- Every fancy data dashboard, analysis technique, interactive visualization-- is a pivot table with a defined data \textbf{summary} that operates on the group you select. That's it. If you can think in terms of fields and calculated summaries based on those fields, PowerBI, PowerPivot, Tableau, Qlik, ggplot2, etc. will be second nature. The only thing that changes when crating a viz instead of a pivot table is that your fields that you drag into a pivot table become the axis of your chart, and your calculated field becomes a ``mark'' on your plot. Scroll back up to our sample pivot table and select a different way to view the data than just a table in the upper left hand corner. Our humble pivot table can become a chart, heatmap, or dashboard with little additional effort.
 
 \hypertarget{conclusion-1}{%
 \section{Conclusion}\label{conclusion-1}}
@@ -832,7 +856,9 @@ The value of Get \& Transform Data is that it forces you to build on top of your
 \hypertarget{embracing-uncertainty-for-better-outcomes}{%
 \section{Embracing Uncertainty for Better Outcomes}\label{embracing-uncertainty-for-better-outcomes}}
 
-What is the point of data analysis? Often, it is to use data to summarize the world around you. In a sense, all data analysis is model building, and by definition, a model is a simplified version of the world. Any time the analyst is using data analysis to inform decision making, she is in a sense making a model. Models are commonly thought of to provide answers to the question at hand. Model building, and data analysis more generally, never gives you ``the'' answer. Data analysis only gives you a answer, if it gives you an answer at all. If you have been following along to this point, you have learned the value of data analysis that is structured and built up, not out. Frequently, data analysis is valuable because it tells you what isn't the answer. As in the quote above, knowing the difference between the watches tells you something important. One watch doesn't tell you what you don't know\^{}{[}adapted from {[}Statistical Modeling, by Daniel T Kaplan{]}(\url{https://dtkaplan.github.io/SM2-bookdown/introduction.html}. Knowing how to build uncertainty into your analysis is incredibly valuable as analysis -- models-- are used to implement important policies that impact the public good. Incorporating uncertainty into your analysis will make you both more credible and force you to use your subject matter expertise in addition to your data skills.
+What is the point of data analysis? Often, it is to use data to summarize the world around you. In a sense, all data analysis is model building, and by definition, a model is a simplified version of the world. Any time the analyst is using data analysis to inform decision making, she is in a sense making a model. Models are commonly thought of to provide answers to the question at hand. Model building, and data analysis more generally, never gives you ``the'' answer. Data analysis only gives you a answer, if it gives you an answer at all.
+
+If you have been following along to this point, you have learned the value of data analysis that is structured and built up, not out. Frequently, data analysis is valuable because it tells you what isn't the answer. As in the quote above, knowing the difference between the watches tells you something important. One watch doesn't tell you what you don't know\^{}{[}adapted from {[}Statistical Modeling, by Daniel T Kaplan{]}(\url{https://dtkaplan.github.io/SM2-bookdown/introduction.html}. Knowing how to build uncertainty into your analysis is incredibly valuable as analysis -- models-- are used to implement important policies that impact the public good. Incorporating uncertainty into your analysis will make you both more credible and force you to use your subject matter expertise in addition to your data skills.
 
 \hypertarget{what-is-a-model}{%
 \section{What is a Model?}\label{what-is-a-model}}
@@ -843,20 +869,16 @@ When you create a data model, you bring all your expertise, subjectivity, and cr
 
 Models transform data into decision making. Models are useful exactly because they are wrong! Because models are wrong, we can critically examine the wrong-ness of them to inform decisionmaking in a way that embraces uncertainty.
 
-\hypertarget{examples-of-models-in-the-public-sector}{%
-\section{Examples of Models in the Public Sector}\label{examples-of-models-in-the-public-sector}}
-
 \hypertarget{incorporating-uncertainty-into-models}{%
 \section{Incorporating Uncertainty Into Models}\label{incorporating-uncertainty-into-models}}
 
-\hypertarget{example-two}{%
-\section{Example two}\label{example-two}}
+As I mentioned before, something as simple as the mean value of a field can be thought of as a model. You may recall from Chapter 3 on pivoting that we walked though many such examples of creating calculated summaries of our data. Am I telling you that a pivot table is a model? Yes. Anything that is a representation of the real world is a model.
 
-\begin{figure}
-\centering
+Consider the following model of the 2016 presidential election from the popular data journalism website 538. How does, or doesn't, this representation of a model communicate uncertainty? Through the use of the chance of winning bar at the top. How uncertain does this projecton \emph{feel} to you? If you are like me, not very uncertain. THere are decimal places to the tenth of a percent, state maps, and that big blue bar that communciates authoritativly that Clinton will win the election.
+
 \includegraphics{images/map.png}
-\caption{electoral 2016 map}
-\end{figure}
+
+Now consider the following histogram of possible election outcomes. This chart takes a bit more effort to decipher, but it communicates uncertainly much more effectively than the bar and map above. If you look at it, the actual outcome of the 2016 election falls in the thick part of the probability distribution-- not an outlier at all.
 
 \begin{figure}
 \centering
@@ -864,10 +886,21 @@ Models transform data into decision making. Models are useful exactly because th
 \caption{distribution of possible results}
 \end{figure}
 
+Thinking critically about how to communicate the uncertainty of your models will make your analysis more democratic by revealing what you do and do not know. I would argue this promotes better decision-making and outcomes than false confidence brought about by hiding, rather than promoting, uncertainty in analysis.
+
+You may be thinking that the election forecasting model above is far and above the data analysis work that you do in your public sector organization. But think back to earlier in this section when we talked about the simplest of models, the average. Does presenting the average of a field show uncertainty? No.~If you are making decisions based on averages, then there is a high likelhihood that your decisionmaking is highly influenced by outliers, becuase averages are highly influenced by outliers. How could you communicate an average for decisionmaking purposes, but also show potential outliers? This is where data visualization plays a key role. making sure to always look at your data before presenting summary statistics is vitally important to embedding uncertainty into your analysis.
+
+\hypertarget{examples-of-models-in-the-public-sector}{%
+\section{Examples of Models in the Public Sector}\label{examples-of-models-in-the-public-sector}}
+
+Models may seem complicated or unnecessary. Why build uncertainty into a mean? How is that even possible?
+
+Every analysis you conduct you will have the incredible power to choose what to include and exclude. how do you go about making those choices?
+
 \hypertarget{use-assumptions-and-document-them}{%
 \section{Use Assumptions, and Document Them}\label{use-assumptions-and-document-them}}
 
-By clearly documenting your assumptions, you allow them to vary as your understanding changes.
+What is an assumption? Any time that you are making observations about the real world, you will be making assumptions. Whether you make those assumptions implicit or explicit is up to you, and I would suggest you consider doing the latter.
 
 \hypertarget{practices-2}{%
 \section{Practices}\label{practices-2}}

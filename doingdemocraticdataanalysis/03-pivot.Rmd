@@ -1,12 +1,12 @@
-# Pivot to Win It
+# Thinking in Pivots
 
 > *Has anyone in this family ever even seen a pivot table?* - Michael Bluth
 
 
-Why did we go through all the trouble of tidying data in the last section? So we can pivot. Thinking in terms of pivots, aka fields and summaries, is the key to effective democratic data analysis
+Why did we go through all the trouble of tidying data in the last section? So we can pivot. Thinking in terms of pivots, by which I mean fields and summaries, is an important component of doing democratic data analysis. 
 
 ## Pivot Tables and the Meaning of Everything
-Pivot tables are the world's most common, most helpful, and most underrated data analysis tool. If you understand the mechanics of the pivot table, you have everything you need to be a data analysis expert. PowerBI or Tableau interactive charts and graphs are just pivot tables in disguise. Understanding what is needed to make a pivot table work is the key to the wide world of data analysis. 
+Pivot tables offer a common,  helpful, and underrated framework for data analysis . If you understand the mechanics of the pivot table, you have everything you need to be a data analysis expert in the technology of your choice. PowerBI/Tableau interactive charts and graphs are simply pivot tables in disguise. Understanding what is needed to make a pivot table effective is the key to the wide world of data analysis. 
 
 What is so important about pivot tables? First and foremost, pivot tables force you to think in terms of fields, not in terms of cells. In order for a pivot table to be effective, the data has to be organized in a table. And there is a right and a wrong way to putting data in a table. If your pivot table is not working properly, it is likely because your data isn't tidy. 
 
@@ -30,12 +30,20 @@ knitr::kable(pivot_visits, caption = "Visits to the Dept. of Retirement Services
 Once the data has been tidied, it is easy to manipulate fields in pivot tables. 
 
 ```{r}
-rpivotTable::rpivotTable(pivot_visits, width = "60%", height = "400px")
+rpivotTable::rpivotTable(pivot_visits, width = "40%", height = "400px")
 ```
 
-The key with pivot tables, such as the one above, is you are moving *fields* into the rows and columns of a new table. This is often referred to as "pivoting". You are then selecting a calculation to *summarize* the intersection of the *fields* that you drug into rows and columns. Above, you can click on the "Count" button to see the other ways this lightweight pivot table allows you to *summarize* your data. More powerful data analysis tools, such as PowerPivot in Excel, PowerBI, and several R packages allow you infinitely flexible formulas to define what happens at the intersection of fields in a pivot table. This is the core of all (most) data analysis. Think in terms of fields and calculated summaries and you are well on your way to becoming a democratic data master. 
+The key with pivot tables, such as the one above, is you are moving *fields* into the rows and columns of a new table. Hence the term "pivot". You are then selecting a calculation to ***summarize*** the intersection of the two *fields* that you brought into the rows and columns of your pivot table. Above, you can click on the "Count" button to see the other ways this lightweight pivot table allows you to *summarize* your data. More powerful data analysis tools, such as PowerPivot in Excel, PowerBI, and several R packages allow you infinitely flexible formulas to define your ***summaries*** -  what happens at the intersection of the fields that you brought into a pivot table.  Think in terms of fields and summaries and you are well on your way to effective data analysis. 
 
-It is  also easier to do a variety of calculations on the data now that is in a "tidy" format. For example, creating descriptive statistics across groups is very straightforward. This can also be accomplished in an Excel pivot table with the basic ["show values as" functions](https://support.microsoft.com/en-gb/office/show-different-calculations-in-pivottable-value-fields-014d2777-baaf-480b-a32b-98431f48bfec).
+In a pivot table, the field that you drag to the row becomes your **group**. Grouping allows you to perform summaries on the distinct values of the field that you brought to the row of the pivot table. In the pivot table above, drag the `employee` field to the row. You are now grouping by the distinct **levels** of employee-- namely, Danielle, Ross, and Ramona. You will see that the column of the pivot table defaults to `count`. This is true in Excel as well. The pivot table will default to summarizing your data by showing how many times each **level** of your **group** appeared in the field. Most commonly, you will group by the **categorical** elements of your table-- the fields with names, rather than numbers. 
+
+You can also drag another categorical field to the top of the pivot table to become a column. This will now show your data grouped by the two elements you have selected. For example, drag `visit type` to the columns in the above table. You will now see the count of the intersection of those elements. However, I typically do not recommend using the columns of your pivot table for additional categorical groupings. Instead, I recommmend dragging both fields to the row section of the pivot table. In the table above, drage `visit type` underneath `employee`. You will now see the data grouped the same way as before, but with only a `totals` column. I find reserving the columns of the pivot table for summaries to be helpful, as it makes things simpler and allows for easy totalling. 
+
+Reserving columns for **summaries** makes it easy to change what those summaries are. Excel gives you a variety of options with the `show values as` button. The table above gives you additional options. Remove `visit type` from the rows, and play around with the different summaries that you can apply to the number of visits per employee.
+
+**Summarizing** your fields also doesn't have to happen within the context of a pivot table. However, the same concepts of pivot tables apply. First, create your groupings (rows). Then, select how you want to summarize your data (mean, median, minimum, maximum, etc.). Then create columns out of those summaries. This same principle applies when creating charts, dashboards, and more complicated forms of modeling. 
+
+For example, creating descriptive statistics across groupings is very straightforward. You can replicate the `R` code below with the pivot table above. But the `R` syntax makes it very clear what the data analysis is accomplishing. See if you can replicate the values with the pivot table above. 
 
 ```{r}
 desc_visits <- pivot_visits %>% 
@@ -44,14 +52,15 @@ desc_visits <- pivot_visits %>%
             `Total Visits` = sum(`Number of Visits`),
             `Std Dev of Visits` = sd(`Number of Visits`))
 
+knitr::kable(desc_visits, caption = "Data summaries of number of visits by visity type")
+
 ```
 
-This is where pivot tables, and the way they force you to think about data, become *enormously* powerful. Enter **PowerPivot**, stage left. PowerPivot allows you to write very detailed and useful functions for the values that appear in the middle of a pivot table. Above, I used R to calculate the average number of visits, total visits, and standard deviation of visits by visit type. But what if I quickly wanted to view this by Employee instead? Or what if I wanted to group by both visit type and employee, and generate the same descriptions? R and PowerPivot make this very easy. I'm not going to go into detail on the mechanics and tutorials of PowerPivot, as it is extensively covered elsewhere-- see the Practices section of this guide. 
+This is where pivot tables, and the way they force you to think about data, become *enormously* powerful. Enter **PowerPivot**, stage left. PowerPivot allows you to write very detailed and useful functions for the values that appear in the **summaries** of your  pivot table. These summaries, or **calculated fields** or **measures** as they are called in PowerPivot and PowerBI, allow you to define precisely what you want to calculate by group for your data summaries.
 
-Here's the key-- Every fancy data dashboard, analysis technique, interactive visualization-- is a pivot table with a "calculated field" (formula for values in a pivot table). That's it. If you can think in terms of fields and calculated values based on those fields, PowerBI, PowerPivot, Tableau, Qlik, ggplot2, etc. will be second nature. The only thing that changes when crating a viz instead of a pivot table is that your fields that you drag into a pivot table become the axis of your chart, and your calculated field becomes a "mark" on your plot. If  you are interested more in a universal so-called "grammar of graphics" that is based on the principles outlined here, there is a wealth of resources available. (link to resources.)
+Above, I used R to calculate the average number of visits, total visits, and standard deviation of visits by visit type. But what if I quickly wanted to view this by Employee instead? Or what if I wanted to summarize the number of visits as the percent of a whole, or as a proportion to another value? R and PowerPivot make this very easy. I'm not going to go into detail on the mechanics and tutorials of PowerPivot, as it is extensively covered elsewhere-- see the Practices section of this guide. 
 
-## Advanced Data Summaries
-Frequently, public administrators are interested in how things have changed over a period of time. Here's an example dataset that shows referrals to the same Dept. of Retirement Systems we have used in previous examples. 
+Here's the key-- Every fancy data dashboard, analysis technique, interactive visualization-- is a pivot table with a defined data **summary** that operates on the group you select. That's it. If you can think in terms of fields and calculated summaries based on those fields, PowerBI, PowerPivot, Tableau, Qlik, ggplot2, etc. will be second nature. The only thing that changes when crating a viz instead of a pivot table is that your fields that you drag into a pivot table become the axis of your chart, and your calculated field becomes a "mark" on your plot. Scroll back up to our sample pivot table and select a different way to view the data than just a table in the upper left hand corner. Our humble pivot table can become a chart, heatmap, or dashboard with little additional effort. 
 
 ## Conclusion
 Thinking in terms of pivot tables is the core of democratic data analysis. This may not feel intuitive at first glance. But thinking this way forces the analyst to avoid the classic pitfalls of *un*democratic data analysis. Those pitfalls are the cell-based, hard-coded, pages and pages of tabs excel workbook nightmare that only the analyst themselves understands (and that's if they are lucky). Thinking in terms of the language of data analysis, emphasizing the use of fields and summaries, forces your analysis to be flexible, understandable, and reproducible. It is easy for an analyst who is also fluent in data analysis to pick up your work and immediately see how it operates because it is constructed using best practices and principles. It is also easy for someone else, or your future self, to write new calculations for data summaries, compare results, and use different fields.
