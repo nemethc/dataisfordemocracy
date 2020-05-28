@@ -111,7 +111,7 @@
 
 \title{Doing Democratic Data Analysis}
 \author{Corban Nemeth}
-\date{2020-05-16}
+\date{2020-05-27}
 
 \begin{document}
 \maketitle
@@ -327,7 +327,7 @@ Let's look at a sample dataset that may be similar to one you would encounter in
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{htmlwidget-e4ee1231a64813611273}{}
+\hypertarget{htmlwidget-abb60dd5de6ce1783834}{}
 
 In this example, it would be trivial to go in to the Excel file and clean up the dates, names, and locations by hand. However, you could imagine this survey replicated for a department of forty employees. It quickly becomes unfeasible to make those edits by hand. When this is the case, there are functions in Excel and R that will make your life much easier.
 
@@ -372,7 +372,7 @@ Here is annotated code for how I would go about cleaning this table in R. The fr
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{htmlwidget-c20dea9d778f0b1519ef}{}
+\hypertarget{htmlwidget-2d7dc58a8f04901c0748}{}
 
 This may seem like a lot of work for a small table. But as your data grows, it is much easier to operate on entire fields at a time. This is especially true in Get \& Transform, which makes it very easy to transform and clean data using all the same steps as the \texttt{R} code above. As you can see, our table is now ``cleaned'' and organized consistently.
 
@@ -404,7 +404,7 @@ Below is a table\footnote{Data was created for demonstration purposes} that show
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{htmlwidget-8e654a4cc5f689b1b6f4}{}
+\hypertarget{htmlwidget-6542da5b442965655f25}{}
 
 Data are frequently displayed in this ``wide'' format. It works great for presentation, but not great for data analysis.
 
@@ -416,7 +416,7 @@ The shortcomings of data in this format may become apparent when you attempt to 
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{htmlwidget-77371db1ff1b746e0a05}{}
+\hypertarget{htmlwidget-7d593ebf3e83c7dec57c}{}
 
 \hypertarget{tidy-data--from-wide-to-long}{%
 \section{Tidy Data- From Wide to Long}\label{tidy-data--from-wide-to-long}}
@@ -529,7 +529,7 @@ Hopefully you will see a similar pattern here. Now, there are three variables: V
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{htmlwidget-907002bdb57736cc5ee1}{}
+\hypertarget{htmlwidget-be12765a7fb9fb6a9fe5}{}
 
 Try to tidy this in R or Excel Get and Transform. See this footnote\footnote{powerquery hints} or look at the code if you need a hint.
 
@@ -705,7 +705,7 @@ Once the data has been tidied, it is easy to manipulate fields in pivot tables.
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{htmlwidget-59691f8895902efc3169}{}
+\hypertarget{htmlwidget-7f7a493df82e9b8cb34b}{}
 
 The key with pivot tables, such as the one above, is you are moving \emph{fields} into the rows and columns of a new table. Hence the term ``pivot''. You are then selecting a calculation to \textbf{\emph{summarize}} the intersection of the two \emph{fields} that you brought into the rows and columns of your pivot table. Above, you can click on the ``Count'' button to see the other ways this lightweight pivot table allows you to \emph{summarize} your data. More powerful data analysis tools, such as PowerPivot in Excel, PowerBI, and several R packages allow you infinitely flexible formulas to define your \textbf{\emph{summaries}} - what happens at the intersection of the fields that you brought into a pivot table. Think in terms of fields and summaries and you are well on your way to effective data analysis.
 
@@ -727,13 +727,13 @@ For example, creating descriptive statistics across groupings is very straightfo
             \StringTok{`}\DataTypeTok{Total Visits}\StringTok{`}\NormalTok{ =}\StringTok{ }\KeywordTok{sum}\NormalTok{(}\StringTok{`}\DataTypeTok{Number of Visits}\StringTok{`}\NormalTok{),}
             \StringTok{`}\DataTypeTok{Std Dev of Visits}\StringTok{`}\NormalTok{ =}\StringTok{ }\KeywordTok{sd}\NormalTok{(}\StringTok{`}\DataTypeTok{Number of Visits}\StringTok{`}\NormalTok{))}
 
-\NormalTok{knitr}\OperatorTok{::}\KeywordTok{kable}\NormalTok{(desc_visits, }\DataTypeTok{caption =} \StringTok{"Data summaries of number of visits by visity type"}\NormalTok{)}
+\NormalTok{knitr}\OperatorTok{::}\KeywordTok{kable}\NormalTok{(desc_visits, }\DataTypeTok{caption =} \StringTok{"Data summaries of number of visits by visit type"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-11}Data summaries of number of visits by visity type}
+\caption{\label{tab:unnamed-chunk-11}Data summaries of number of visits by visit type}
 \centering
 \begin{tabular}[t]{l|r|r|r}
 \hline
@@ -744,6 +744,37 @@ Office Visits & 8.666667 & 26 & 3.214550\\
 Online Visits & 17.000000 & 51 & 6.557438\\
 \hline
 Phone Visits & 9.000000 & 27 & 2.645751\\
+\hline
+\end{tabular}
+\end{table}
+
+And it is then trivial to change the grouping to generate different summary statistics.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{emp_visits <-}\StringTok{ }\NormalTok{pivot_visits }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{group_by}\NormalTok{(Employee) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{summarise}\NormalTok{(}\StringTok{`}\DataTypeTok{Avg Visits}\StringTok{`}\NormalTok{ =}\StringTok{ }\KeywordTok{mean}\NormalTok{(}\StringTok{`}\DataTypeTok{Number of Visits}\StringTok{`}\NormalTok{),}
+            \StringTok{`}\DataTypeTok{Total Visits}\StringTok{`}\NormalTok{ =}\StringTok{ }\KeywordTok{sum}\NormalTok{(}\StringTok{`}\DataTypeTok{Number of Visits}\StringTok{`}\NormalTok{),}
+            \StringTok{`}\DataTypeTok{Std Dev of Visits}\StringTok{`}\NormalTok{ =}\StringTok{ }\KeywordTok{sd}\NormalTok{(}\StringTok{`}\DataTypeTok{Number of Visits}\StringTok{`}\NormalTok{))}
+
+\NormalTok{knitr}\OperatorTok{::}\KeywordTok{kable}\NormalTok{(emp_visits, }\DataTypeTok{caption =} \StringTok{"Data summaries of number of visits by employee"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{table}
+
+\caption{\label{tab:unnamed-chunk-12}Data summaries of number of visits by employee}
+\centering
+\begin{tabular}[t]{l|r|r|r}
+\hline
+Employee & Avg Visits & Total Visits & Std Dev of Visits\\
+\hline
+Danielle & 13.33333 & 40 & 8.736895\\
+\hline
+Ramona & 11.33333 & 34 & 6.506407\\
+\hline
+Ross & 10.00000 & 30 & 0.000000\\
 \hline
 \end{tabular}
 \end{table}

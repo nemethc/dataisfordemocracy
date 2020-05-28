@@ -24,7 +24,7 @@
 <meta name="author" content="Corban Nemeth" />
 
 
-<meta name="date" content="2020-05-16" />
+<meta name="date" content="2020-05-27" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -693,8 +693,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </table>
 <p>Once the data has been tidied, it is easy to manipulate fields in pivot tables.</p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1">rpivotTable<span class="op">::</span><span class="kw">rpivotTable</span>(pivot_visits, <span class="dt">width =</span> <span class="st">&quot;40%&quot;</span>, <span class="dt">height =</span> <span class="st">&quot;400px&quot;</span>)</a></code></pre></div>
-<div id="htmlwidget-87a537e8c559aa3b913c" style="width:40%;height:400px;" class="rpivotTable html-widget"></div>
-<script type="application/json" data-for="htmlwidget-87a537e8c559aa3b913c">{"x":{"data":{"Employee":["Danielle","Danielle","Danielle","Ramona","Ramona","Ramona","Ross","Ross","Ross"],"Visit Type":["Phone Visits","Office Visits","Online Visits","Phone Visits","Office Visits","Online Visits","Phone Visits","Office Visits","Online Visits"],"Number of Visits":[6,11,23,11,5,18,10,10,10]},"params":{},"locale":"en","subtotals":false},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-2e02685aa3fbff669a41" style="width:40%;height:400px;" class="rpivotTable html-widget"></div>
+<script type="application/json" data-for="htmlwidget-2e02685aa3fbff669a41">{"x":{"data":{"Employee":["Danielle","Danielle","Danielle","Ramona","Ramona","Ramona","Ross","Ross","Ross"],"Visit Type":["Phone Visits","Office Visits","Online Visits","Phone Visits","Office Visits","Online Visits","Phone Visits","Office Visits","Online Visits"],"Number of Visits":[6,11,23,11,5,18,10,10,10]},"params":{},"locale":"en","subtotals":false},"evals":[],"jsHooks":[]}</script>
 <p>The key with pivot tables, such as the one above, is you are moving <em>fields</em> into the rows and columns of a new table. Hence the term “pivot”. You are then selecting a calculation to <strong><em>summarize</em></strong> the intersection of the two <em>fields</em> that you brought into the rows and columns of your pivot table. Above, you can click on the “Count” button to see the other ways this lightweight pivot table allows you to <em>summarize</em> your data. More powerful data analysis tools, such as PowerPivot in Excel, PowerBI, and several R packages allow you infinitely flexible formulas to define your <strong><em>summaries</em></strong> - what happens at the intersection of the fields that you brought into a pivot table. Think in terms of fields and summaries and you are well on your way to effective data analysis.</p>
 <p>In a pivot table, the field that you drag to the row becomes your <strong>group</strong>. Grouping allows you to perform summaries on the distinct values of the field that you brought to the row of the pivot table. In the pivot table above, drag the <code>employee</code> field to the row. You are now grouping by the distinct <strong>levels</strong> of employee– namely, Danielle, Ross, and Ramona. You will see that the column of the pivot table defaults to <code>count</code>. This is true in Excel as well. The pivot table will default to summarizing your data by showing how many times each <strong>level</strong> of your <strong>group</strong> appeared in the field. Most commonly, you will group by the <strong>categorical</strong> elements of your table– the fields with names, rather than numbers.</p>
 <p>You can also drag another categorical field to the top of the pivot table to become a column. This will now show your data grouped by the two elements you have selected. For example, drag <code>visit type</code> to the columns in the above table. You will now see the count of the intersection of those elements. However, I typically do not recommend using the columns of your pivot table for additional categorical groupings. Instead, I recommmend dragging both fields to the row section of the pivot table. In the table above, drage <code>visit type</code> underneath <code>employee</code>. You will now see the data grouped the same way as before, but with only a <code>totals</code> column. I find reserving the columns of the pivot table for summaries to be helpful, as it makes things simpler and allows for easy totalling.</p>
@@ -707,9 +707,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb16-4" data-line-number="4">            <span class="st">`</span><span class="dt">Total Visits</span><span class="st">`</span> =<span class="st"> </span><span class="kw">sum</span>(<span class="st">`</span><span class="dt">Number of Visits</span><span class="st">`</span>),</a>
 <a class="sourceLine" id="cb16-5" data-line-number="5">            <span class="st">`</span><span class="dt">Std Dev of Visits</span><span class="st">`</span> =<span class="st"> </span><span class="kw">sd</span>(<span class="st">`</span><span class="dt">Number of Visits</span><span class="st">`</span>))</a>
 <a class="sourceLine" id="cb16-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb16-7" data-line-number="7">knitr<span class="op">::</span><span class="kw">kable</span>(desc_visits, <span class="dt">caption =</span> <span class="st">&quot;Data summaries of number of visits by visity type&quot;</span>)</a></code></pre></div>
+<a class="sourceLine" id="cb16-7" data-line-number="7">knitr<span class="op">::</span><span class="kw">kable</span>(desc_visits, <span class="dt">caption =</span> <span class="st">&quot;Data summaries of number of visits by visit type&quot;</span>)</a></code></pre></div>
 <table>
-<caption><span id="tab:unnamed-chunk-11">Table 3.2: </span>Data summaries of number of visits by visity type</caption>
+<caption><span id="tab:unnamed-chunk-11">Table 3.2: </span>Data summaries of number of visits by visit type</caption>
 <thead>
 <tr class="header">
 <th align="left">Visit Type</th>
@@ -736,6 +736,45 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <td align="right">9.000000</td>
 <td align="right">27</td>
 <td align="right">2.645751</td>
+</tr>
+</tbody>
+</table>
+<p>And it is then trivial to change the grouping to generate different summary statistics.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" data-line-number="1">emp_visits &lt;-<span class="st"> </span>pivot_visits <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb17-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(Employee) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb17-3" data-line-number="3"><span class="st">  </span><span class="kw">summarise</span>(<span class="st">`</span><span class="dt">Avg Visits</span><span class="st">`</span> =<span class="st"> </span><span class="kw">mean</span>(<span class="st">`</span><span class="dt">Number of Visits</span><span class="st">`</span>),</a>
+<a class="sourceLine" id="cb17-4" data-line-number="4">            <span class="st">`</span><span class="dt">Total Visits</span><span class="st">`</span> =<span class="st"> </span><span class="kw">sum</span>(<span class="st">`</span><span class="dt">Number of Visits</span><span class="st">`</span>),</a>
+<a class="sourceLine" id="cb17-5" data-line-number="5">            <span class="st">`</span><span class="dt">Std Dev of Visits</span><span class="st">`</span> =<span class="st"> </span><span class="kw">sd</span>(<span class="st">`</span><span class="dt">Number of Visits</span><span class="st">`</span>))</a>
+<a class="sourceLine" id="cb17-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb17-7" data-line-number="7">knitr<span class="op">::</span><span class="kw">kable</span>(emp_visits, <span class="dt">caption =</span> <span class="st">&quot;Data summaries of number of visits by employee&quot;</span>)</a></code></pre></div>
+<table>
+<caption><span id="tab:unnamed-chunk-12">Table 3.3: </span>Data summaries of number of visits by employee</caption>
+<thead>
+<tr class="header">
+<th align="left">Employee</th>
+<th align="right">Avg Visits</th>
+<th align="right">Total Visits</th>
+<th align="right">Std Dev of Visits</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Danielle</td>
+<td align="right">13.33333</td>
+<td align="right">40</td>
+<td align="right">8.736895</td>
+</tr>
+<tr class="even">
+<td align="left">Ramona</td>
+<td align="right">11.33333</td>
+<td align="right">34</td>
+<td align="right">6.506407</td>
+</tr>
+<tr class="odd">
+<td align="left">Ross</td>
+<td align="right">10.00000</td>
+<td align="right">30</td>
+<td align="right">0.000000</td>
 </tr>
 </tbody>
 </table>

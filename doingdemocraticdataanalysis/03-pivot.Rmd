@@ -52,9 +52,23 @@ desc_visits <- pivot_visits %>%
             `Total Visits` = sum(`Number of Visits`),
             `Std Dev of Visits` = sd(`Number of Visits`))
 
-knitr::kable(desc_visits, caption = "Data summaries of number of visits by visity type")
+knitr::kable(desc_visits, caption = "Data summaries of number of visits by visit type")
 
 ```
+
+And it is then trivial to change the grouping to generate different summary statistics. 
+
+```{r}
+emp_visits <- pivot_visits %>% 
+  group_by(Employee) %>% 
+  summarise(`Avg Visits` = mean(`Number of Visits`),
+            `Total Visits` = sum(`Number of Visits`),
+            `Std Dev of Visits` = sd(`Number of Visits`))
+
+knitr::kable(emp_visits, caption = "Data summaries of number of visits by employee")
+
+```
+
 
 This is where pivot tables, and the way they force you to think about data, become *enormously* powerful. Enter **PowerPivot**, stage left. PowerPivot allows you to write very detailed and useful functions for the values that appear in the **summaries** of your  pivot table. These summaries, or **calculated fields** or **measures** as they are called in PowerPivot and PowerBI, allow you to define precisely what you want to calculate by group for your data summaries.
 
