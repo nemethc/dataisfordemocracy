@@ -24,7 +24,7 @@
 <meta name="author" content="Corban Nemeth" />
 
 
-<meta name="date" content="2020-05-27" />
+<meta name="date" content="2020-06-02" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -443,9 +443,9 @@ $(document).ready(function () {
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
@@ -454,14 +454,16 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -470,9 +472,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -540,14 +542,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.3" data-path="tidy-data.html"><a href="tidy-data.html#tidying"><i class="fa fa-check"></i><b>2.3</b> Tidying</a></li>
 <li class="chapter" data-level="2.4" data-path="tidy-data.html"><a href="tidy-data.html#tidy-data--from-wide-to-long"><i class="fa fa-check"></i><b>2.4</b> Tidy Data- From Wide to Long</a></li>
 <li class="chapter" data-level="2.5" data-path="tidy-data.html"><a href="tidy-data.html#using-lower-level-data"><i class="fa fa-check"></i><b>2.5</b> Using lower level data</a></li>
-<li class="chapter" data-level="2.6" data-path="tidy-data.html"><a href="tidy-data.html#how-is-this-democratic"><i class="fa fa-check"></i><b>2.6</b> How is this democratic?</a></li>
-<li class="chapter" data-level="2.7" data-path="tidy-data.html"><a href="tidy-data.html#conclusion"><i class="fa fa-check"></i><b>2.7</b> Conclusion</a></li>
-<li class="chapter" data-level="2.8" data-path="tidy-data.html"><a href="tidy-data.html#practicesresources"><i class="fa fa-check"></i><b>2.8</b> Practices/Resources</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="thinking-in-pivots.html"><a href="thinking-in-pivots.html"><i class="fa fa-check"></i><b>3</b> Thinking in Pivots</a><ul>
 <li class="chapter" data-level="3.1" data-path="thinking-in-pivots.html"><a href="thinking-in-pivots.html#pivot-tables-and-the-meaning-of-everything"><i class="fa fa-check"></i><b>3.1</b> Pivot Tables and the Meaning of Everything</a></li>
-<li class="chapter" data-level="3.2" data-path="thinking-in-pivots.html"><a href="thinking-in-pivots.html#conclusion-1"><i class="fa fa-check"></i><b>3.2</b> Conclusion</a></li>
-<li class="chapter" data-level="3.3" data-path="thinking-in-pivots.html"><a href="thinking-in-pivots.html#practices"><i class="fa fa-check"></i><b>3.3</b> Practices</a></li>
+<li class="chapter" data-level="3.2" data-path="thinking-in-pivots.html"><a href="thinking-in-pivots.html#conclusion"><i class="fa fa-check"></i><b>3.2</b> Conclusion</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="reproducible-analysis.html"><a href="reproducible-analysis.html"><i class="fa fa-check"></i><b>4</b> Reproducible Analysis</a><ul>
 <li class="chapter" data-level="4.1" data-path="reproducible-analysis.html"><a href="reproducible-analysis.html#do-it-for-your-future-self"><i class="fa fa-check"></i><b>4.1</b> Do It For Your Future Self</a><ul>
@@ -556,41 +554,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="4.2" data-path="reproducible-analysis.html"><a href="reproducible-analysis.html#comment-everything"><i class="fa fa-check"></i><b>4.2</b> Comment Everything</a></li>
 <li class="chapter" data-level="4.3" data-path="reproducible-analysis.html"><a href="reproducible-analysis.html#give-yourself-credit"><i class="fa fa-check"></i><b>4.3</b> Give Yourself Credit</a></li>
-<li class="chapter" data-level="4.4" data-path="reproducible-analysis.html"><a href="reproducible-analysis.html#version-control"><i class="fa fa-check"></i><b>4.4</b> Version Control</a><ul>
-<li class="chapter" data-level="4.4.1" data-path="reproducible-analysis.html"><a href="reproducible-analysis.html#save-as"><i class="fa fa-check"></i><b>4.4.1</b> Save as</a></li>
-<li class="chapter" data-level="4.4.2" data-path="reproducible-analysis.html"><a href="reproducible-analysis.html#gitgithub"><i class="fa fa-check"></i><b>4.4.2</b> Git/GitHub</a></li>
+<li class="chapter" data-level="4.4" data-path="reproducible-analysis.html"><a href="reproducible-analysis.html#reproducible-resources"><i class="fa fa-check"></i><b>4.4</b> Reproducible Resources</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="reproducible-analysis.html"><a href="reproducible-analysis.html#gitgithub"><i class="fa fa-check"></i><b>4.4.1</b> Git/GitHub</a></li>
+<li class="chapter" data-level="4.4.2" data-path="reproducible-analysis.html"><a href="reproducible-analysis.html#code-based-solutions-even-when-the-code-is-hidden"><i class="fa fa-check"></i><b>4.4.2</b> Code based solutions (even when the code is hidden)</a></li>
 </ul></li>
-<li class="chapter" data-level="4.5" data-path="reproducible-analysis.html"><a href="reproducible-analysis.html#practices-1"><i class="fa fa-check"></i><b>4.5</b> Practices</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="uncertainty-oriented-analysis.html"><a href="uncertainty-oriented-analysis.html"><i class="fa fa-check"></i><b>5</b> Uncertainty Oriented Analysis</a><ul>
 <li class="chapter" data-level="5.1" data-path="uncertainty-oriented-analysis.html"><a href="uncertainty-oriented-analysis.html#embracing-uncertainty-for-better-outcomes"><i class="fa fa-check"></i><b>5.1</b> Embracing Uncertainty for Better Outcomes</a></li>
-<li class="chapter" data-level="5.2" data-path="uncertainty-oriented-analysis.html"><a href="uncertainty-oriented-analysis.html#what-is-a-model"><i class="fa fa-check"></i><b>5.2</b> What is a Model?</a></li>
-<li class="chapter" data-level="5.3" data-path="uncertainty-oriented-analysis.html"><a href="uncertainty-oriented-analysis.html#incorporating-uncertainty-into-models"><i class="fa fa-check"></i><b>5.3</b> Incorporating Uncertainty Into Models</a></li>
-<li class="chapter" data-level="5.4" data-path="uncertainty-oriented-analysis.html"><a href="uncertainty-oriented-analysis.html#examples-of-models-in-the-public-sector"><i class="fa fa-check"></i><b>5.4</b> Examples of Models in the Public Sector</a></li>
-<li class="chapter" data-level="5.5" data-path="uncertainty-oriented-analysis.html"><a href="uncertainty-oriented-analysis.html#use-assumptions-and-document-them"><i class="fa fa-check"></i><b>5.5</b> Use Assumptions, and Document Them</a></li>
-<li class="chapter" data-level="5.6" data-path="uncertainty-oriented-analysis.html"><a href="uncertainty-oriented-analysis.html#practices-2"><i class="fa fa-check"></i><b>5.6</b> Practices</a></li>
+<li class="chapter" data-level="5.2" data-path="uncertainty-oriented-analysis.html"><a href="uncertainty-oriented-analysis.html#incorporating-uncertainty-into-models"><i class="fa fa-check"></i><b>5.2</b> Incorporating Uncertainty Into Models</a></li>
+<li class="chapter" data-level="5.3" data-path="uncertainty-oriented-analysis.html"><a href="uncertainty-oriented-analysis.html#how-does-this-impact-democratic-data-analysis"><i class="fa fa-check"></i><b>5.3</b> How does this impact democratic data analysis?</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="audience-focused.html"><a href="audience-focused.html"><i class="fa fa-check"></i><b>6</b> Audience-Focused</a><ul>
-<li class="chapter" data-level="6.1" data-path="audience-focused.html"><a href="audience-focused.html#the-audience-is-you"><i class="fa fa-check"></i><b>6.1</b> The audience is you</a></li>
-<li class="chapter" data-level="6.2" data-path="audience-focused.html"><a href="audience-focused.html#the-audience-is-a-peer"><i class="fa fa-check"></i><b>6.2</b> The audience is a peer</a></li>
-<li class="chapter" data-level="6.3" data-path="audience-focused.html"><a href="audience-focused.html#the-audience-is-your-manager"><i class="fa fa-check"></i><b>6.3</b> The audience is your manager</a></li>
-<li class="chapter" data-level="6.4" data-path="audience-focused.html"><a href="audience-focused.html#show-and-tell--use-highlights-and-captions.-design-your-data-visualization.-please-god-dont-use-the-defaults"><i class="fa fa-check"></i><b>6.4</b> Show and Tell- Use highlights and captions. Design your data visualization. Please god don’t use the defaults</a></li>
-<li class="chapter" data-level="6.5" data-path="audience-focused.html"><a href="audience-focused.html#the-audience-is-a-policydecision-maker"><i class="fa fa-check"></i><b>6.5</b> The audience is a policy/decision maker</a></li>
-<li class="chapter" data-level="6.6" data-path="audience-focused.html"><a href="audience-focused.html#my-audience-is-all-of-the-above--an-introduction-to-literate-data-analysis"><i class="fa fa-check"></i><b>6.6</b> My audience is all of the above- An Introduction to Literate Data Analysis</a></li>
+<li class="chapter" data-level="6.1" data-path="audience-focused.html"><a href="audience-focused.html#considerations-for-public-sector-analysis"><i class="fa fa-check"></i><b>6.1</b> Considerations for Public Sector Analysis</a></li>
+<li class="chapter" data-level="6.2" data-path="audience-focused.html"><a href="audience-focused.html#an-introduction-to-literate-data-analysis"><i class="fa fa-check"></i><b>6.2</b> An Introduction to Literate Data Analysis</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="applications-and-resources.html"><a href="applications-and-resources.html"><i class="fa fa-check"></i><b>7</b> Applications and Resources</a><ul>
-<li class="chapter" data-level="7.1" data-path="applications-and-resources.html"><a href="applications-and-resources.html#tying-it-all-together"><i class="fa fa-check"></i><b>7.1</b> Tying it all together</a></li>
-<li class="chapter" data-level="7.2" data-path="applications-and-resources.html"><a href="applications-and-resources.html#situations-and-examples"><i class="fa fa-check"></i><b>7.2</b> Situations and Examples</a><ul>
-<li class="chapter" data-level="7.2.1" data-path="applications-and-resources.html"><a href="applications-and-resources.html#fiscal-analyis"><i class="fa fa-check"></i><b>7.2.1</b> Fiscal Analyis</a></li>
-<li class="chapter" data-level="7.2.2" data-path="applications-and-resources.html"><a href="applications-and-resources.html#policy-analysis"><i class="fa fa-check"></i><b>7.2.2</b> Policy Analysis</a></li>
-<li class="chapter" data-level="7.2.3" data-path="applications-and-resources.html"><a href="applications-and-resources.html#budget-analysis"><i class="fa fa-check"></i><b>7.2.3</b> Budget Analysis</a></li>
-<li class="chapter" data-level="7.2.4" data-path="applications-and-resources.html"><a href="applications-and-resources.html#surveys-and-samples"><i class="fa fa-check"></i><b>7.2.4</b> Surveys and Samples</a></li>
-</ul></li>
-<li class="chapter" data-level="7.3" data-path="applications-and-resources.html"><a href="applications-and-resources.html#additional-resources"><i class="fa fa-check"></i><b>7.3</b> Additional Resources</a><ul>
-<li class="chapter" data-level="7.3.1" data-path="applications-and-resources.html"><a href="applications-and-resources.html#r"><i class="fa fa-check"></i><b>7.3.1</b> R</a></li>
-<li class="chapter" data-level="7.3.2" data-path="applications-and-resources.html"><a href="applications-and-resources.html#excel"><i class="fa fa-check"></i><b>7.3.2</b> Excel</a></li>
-<li class="chapter" data-level="7.3.3" data-path="applications-and-resources.html"><a href="applications-and-resources.html#reproduciblity"><i class="fa fa-check"></i><b>7.3.3</b> Reproduciblity</a></li>
-<li class="chapter" data-level="7.3.4" data-path="applications-and-resources.html"><a href="applications-and-resources.html#examples-of-democratic-data-analysis-in-the-wild"><i class="fa fa-check"></i><b>7.3.4</b> Examples of Democratic Data Analysis in the Wild</a></li>
+<li class="chapter" data-level="7.1" data-path="applications-and-resources.html"><a href="applications-and-resources.html#applications-of-democratic-data-analysis"><i class="fa fa-check"></i><b>7.1</b> Applications of Democratic Data Analysis</a></li>
+<li class="chapter" data-level="7.2" data-path="applications-and-resources.html"><a href="applications-and-resources.html#additional-resources"><i class="fa fa-check"></i><b>7.2</b> Additional Resources</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="applications-and-resources.html"><a href="applications-and-resources.html#r"><i class="fa fa-check"></i><b>7.2.1</b> R</a></li>
+<li class="chapter" data-level="7.2.2" data-path="applications-and-resources.html"><a href="applications-and-resources.html#excel"><i class="fa fa-check"></i><b>7.2.2</b> Excel</a></li>
+<li class="chapter" data-level="7.2.3" data-path="applications-and-resources.html"><a href="applications-and-resources.html#reproduciblity"><i class="fa fa-check"></i><b>7.2.3</b> Reproduciblity</a></li>
 </ul></li>
 </ul></li>
 <li class="divider"></li>
@@ -626,8 +609,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The practices of reproducability that you will use here apply throughout the other chapters. It may seem like a waste of time, but if you have ever come back to a complicated excel workbook after spending even days away, this will make your life much easier.</p>
 <div id="do-not-destroy" class="section level3">
 <h3><span class="header-section-number">4.1.1</span> Do Not Destroy</h3>
-<p>As I mentioned before, the existential dread that occurs when opening someone else’s workbook and immediately receiving broken links, color-coding<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a>, and a spiderweb of formulas may be a universal experience in the public sector. But there is a better way to do things. Reproducible analysis is linear. It progresses in a certain direction– from data load to final analysis. Things happen discretely. The blessing and curse of spreadsheets is that they are unbound by time. There is no natural direction, just a sea of little boxes spreading out as far as the eye can see<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a>. However, there are ways to impose a linear structure to your analysis.</p>
-<p>The first thing I want to emphasize is PLEASE DO NOT DESTROY, ALTER, OR MANIPULATE YOUR UNDERLYING DATA. Your underlying data is like the foundation of your house. Democratic data analysis starts with a foundation of data, and builds on top of it. Oftentimes, it seems easier to simply click and drag cells around in an excel workbook, changing values here and there as you see fit. This may work in small use cases, but what if you have another idea? Or come up with a different question, where your data needs to be coded differently? Reproducible analysis makes it substantially easier to revise and rewrite after the fact. If you were writing a well-sourced research article, you wouldn’t delete your notes and references for the material that didn’t make it into your final product. In the same way, keeping record of the changes that you make to your analysis will pay dividends when your approach changes.</p>
+<p>As I mentioned before, the existential dread that occurs when opening a colleague’s workbook and immediately receiving broken links, color-coding<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a>, and a spiderweb of formulas may be a universal experience in the public sector. But there is a better way to do things. Reproducible analysis is linear. It progresses in a certain direction– from data load to final analysis. Things happen discretely. The blessing and curse of spreadsheets is that they are unbound by time. There is no natural direction, just a sea of little boxes spreading out as far as the eye can see<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a>. However, there are ways to impose a linear structure to your analysis.</p>
+<p>The first thing I want to emphasize is PLEASE DO NOT DESTROY, ALTER, OR MANIPULATE YOUR UNDERLYING DATA. Your underlying data is like the foundation of your house. Democratic data analysis starts with a foundation of data, and builds on top of it. Often, it seems easier to simply click and drag cells around in an excel workbook, changing values here and there as you see fit. This may work in small use cases, but what if you have another idea? Or come up with a different question, where your data needs to be coded differently? Reproducible analysis makes it substantially easier to revise and rewrite after the fact. If you were writing a well-sourced research article, you wouldn’t delete your notes and references for the material that didn’t make it into your final product. In the same way, keeping record of the changes that you make to your analysis will pay dividends when your approach changes.</p>
 </div>
 <div id="red-flags-for-reproducibility" class="section level3">
 <h3><span class="header-section-number">4.1.2</span> Red flags for reproducibility</h3>
@@ -652,30 +635,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">4.3</span> Give Yourself Credit</h2>
 <p>Don’t hard code (e.g. manually type) Excel values in cells. Build calculated summaries as discussed in the pivot-powered tab. Link to data sources. Highlight your expertise. This is easier to do when you use the tools shown in the practices section.</p>
 </div>
-<div id="version-control" class="section level2">
-<h2><span class="header-section-number">4.4</span> Version Control</h2>
-<div id="save-as" class="section level3">
-<h3><span class="header-section-number">4.4.1</span> Save as</h3>
-</div>
+<div id="reproducible-resources" class="section level2">
+<h2><span class="header-section-number">4.4</span> Reproducible Resources</h2>
 <div id="gitgithub" class="section level3">
-<h3><span class="header-section-number">4.4.2</span> Git/GitHub</h3>
+<h3><span class="header-section-number">4.4.1</span> Git/GitHub</h3>
 <p>If you are inclined to use R or another programming language for data analysis (and you really should be) then git is an essential tool in your toolkit. Full disclosure, even I am not an expert on it. But there are several tools available to make version control using git seamless and effortless.</p>
 <p>Git is an automated version control system that backs up your changes to the cloud, typically to github.com or another similar provider. It is very cool. For example, you can examine all the source code for this very book on <a href="https://github.com/nemethc/dataisfordemocracy/tree/master/doingdemocraticdataanalysis">GitHub</a>.</p>
 </div>
-</div>
-<div id="practices-1" class="section level2">
-<h2><span class="header-section-number">4.5</span> Practices</h2>
+<div id="code-based-solutions-even-when-the-code-is-hidden" class="section level3">
+<h3><span class="header-section-number">4.4.2</span> Code based solutions (even when the code is hidden)</h3>
 <p>The value of Get &amp; Transform Data is that it forces you to build on top of your data foundation. It also conveniently records each step along the way. You even have the ability to save comments right there in the query editor. This is a remarkably easy and intuitive way to build a data transformation pipeline that will be valuable know and into the future.</p>
 <p><a href="https://www.bitss.org/opa/">The Berkeley Open Policy Analysis Initiative</a></p>
 <p><a href="https://www.bitss.org/wp-content/uploads/2019/03/OPA-Guidelines.pdf">Open Policy Analysis Guidelines</a></p>
 
 </div>
 </div>
+</div>
 <div class="footnotes">
 <hr />
 <ol start="5">
-<li id="fn5"><p>for the love of democracy, PLEASE do not color code your data<a href="reproducible-analysis.html#fnref5" class="footnote-back">↩</a></p></li>
-<li id="fn6"><p>This is where programming languages such as R have an inherent advantage. Code runs in order, from first to last<a href="reproducible-analysis.html#fnref6" class="footnote-back">↩</a></p></li>
+<li id="fn5"><p>for the love of democracy, PLEASE do not color code your data<a href="reproducible-analysis.html#fnref5" class="footnote-back">↩︎</a></p></li>
+<li id="fn6"><p>This is where programming languages such as R have an inherent advantage. Code runs in order, from first to last<a href="reproducible-analysis.html#fnref6" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

@@ -14,9 +14,9 @@ The practices of reproducability that you will use here apply throughout the oth
 
 ### Do Not Destroy
 
-As I mentioned before, the existential dread that occurs when opening someone else's workbook and immediately receiving broken links, color-coding^[for the love of democracy, PLEASE do not color code your data], and a spiderweb of formulas may be a universal experience in the public sector. But there is a better way to do things. Reproducible analysis is linear. It progresses in a certain direction-- from data load to final analysis. Things happen discretely. The blessing and curse of spreadsheets is that they are unbound by time. There is no natural direction, just a sea of little boxes spreading out as far as the eye can see^[This is where programming languages such as R have an inherent advantage. Code runs in order, from first to last]. However, there are ways to impose a linear structure to your analysis. 
+As I mentioned before, the existential dread that occurs when opening a colleague's workbook and immediately receiving broken links, color-coding^[for the love of democracy, PLEASE do not color code your data], and a spiderweb of formulas may be a universal experience in the public sector. But there is a better way to do things. Reproducible analysis is linear. It progresses in a certain direction-- from data load to final analysis. Things happen discretely. The blessing and curse of spreadsheets is that they are unbound by time. There is no natural direction, just a sea of little boxes spreading out as far as the eye can see^[This is where programming languages such as R have an inherent advantage. Code runs in order, from first to last]. However, there are ways to impose a linear structure to your analysis. 
 
-The first thing I want to emphasize is PLEASE DO NOT DESTROY, ALTER, OR MANIPULATE YOUR UNDERLYING DATA. Your underlying data is like the foundation of your house. Democratic data analysis starts with a foundation of data, and builds on top of it. Oftentimes, it seems easier to simply click and drag cells around in an excel workbook, changing values here and there as you see fit. This may work in small use cases, but what if you have another idea? Or come up with a different question, where your data needs to be coded differently? Reproducible analysis makes it substantially easier to revise and rewrite after the fact. If you were writing a well-sourced research article, you wouldn't delete your notes and references for the material that didn't make it into your final product. In the same way, keeping record of the changes that you make to your analysis will pay dividends when your approach changes. 
+The first thing I want to emphasize is PLEASE DO NOT DESTROY, ALTER, OR MANIPULATE YOUR UNDERLYING DATA. Your underlying data is like the foundation of your house. Democratic data analysis starts with a foundation of data, and builds on top of it. Often, it seems easier to simply click and drag cells around in an excel workbook, changing values here and there as you see fit. This may work in small use cases, but what if you have another idea? Or come up with a different question, where your data needs to be coded differently? Reproducible analysis makes it substantially easier to revise and rewrite after the fact. If you were writing a well-sourced research article, you wouldn't delete your notes and references for the material that didn't make it into your final product. In the same way, keeping record of the changes that you make to your analysis will pay dividends when your approach changes. 
 
 ### Red flags for reproducibility
 
@@ -42,9 +42,7 @@ Comments are wonderful. They are notes to yourself that you should leave at almo
 ## Give Yourself Credit
 Don't hard code (e.g. manually type) Excel values in cells. Build calculated summaries as discussed in the pivot-powered tab. Link to data sources. Highlight your expertise. This is easier to do when you use the tools shown in the practices section. 
 
-## Version Control
-
-### Save as
+## Reproducible Resources
 
 ### Git/GitHub
 
@@ -52,7 +50,8 @@ If you are inclined to use R or another programming language for data analysis (
 
 Git is an automated version control system that backs up your changes to the cloud, typically to github.com or another similar provider. It is very cool. For example, you can examine all the source code for this very book on [GitHub](https://github.com/nemethc/dataisfordemocracy/tree/master/doingdemocraticdataanalysis). 
 
-## Practices
+### Code based solutions (even when the code is hidden)
+
 The value of Get & Transform Data is that it forces you to build  on top of your data foundation. It also conveniently records each step along the way. You even have the ability to save comments right there in the query editor. This is a remarkably easy and intuitive way to build a data transformation pipeline that will be valuable know and into the future. 
 
 [The Berkeley Open Policy Analysis Initiative](https://www.bitss.org/opa/)

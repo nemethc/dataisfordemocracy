@@ -4,32 +4,21 @@
 >
 > “There are dozens of us. Dozens!” - Tobias Fünke
 
-## Tying it all together
+What does democratic data analysis look like in the real world? And how can you, as a public servant, incorporate this  into your everyday work? The examples collected below show what democratic data analysis can look like, and how it can be used, to promote transparency and good governance.
 
-How does this play out in the real world?
+## Applications of Democratic Data Analysis
 
-Questions to ask yourself:
-How can I pivot off of this data?
-
-How can I think in terms of fields?
-
-How can I make this more democratic?
-
-## Situations and Examples
-
-### Fiscal Analyis
-
-Fiscal notes-- quantifying uncertainty and employing reproducibility
-
-### Policy Analysis
-
-Saez and Zucman open policy analysis of Warren proposals
-
-### Budget Analysis
-
-### Surveys and Samples
-
-
+* [Dynamic Documentation for Senator Warren's Wealth Tax Policy Analysis](http://wealthtaxsimulator.org/analysis/)
+* [The Berkeley Open Policy Analysis Initiative](https://www.bitss.org/opa/)
+* [Open Policy Analysis Guidelines](https://www.bitss.org/wp-content/uploads/2019/03/OPA-Guidelines.pdf)
+* [Using version control to change laws](https://arstechnica.com/tech-policy/2018/11/how-i-changed-the-law-with-a-github-pull-request/)
+* [UK Government Data Science repository](https://github.com/ukgovdatascience)
+* [UK publishing official government statistics with Rmarkdown](https://blog.revolutionanalytics.com/2017/03/uk-statistics.html)
+* The Consumer Financial Protection Bureau on [Github](https://github.com/cfpb)
+* [Federal Spending Transparency](https://fedspendingtransparency.github.io)
+* [Make your own tax plan](https://taxjusticenow.org/#/)
+  * [Documentation](https://eml.berkeley.edu/~saez/taxsimulator.pdf)
+* And all of the spreadsheets created by public servants using tidy, pivot-powered, reproducible, uncertainty-oriented, and audience focused principles! Share examples as you are able at [dataisfordemocracy@gmail.com](mailto:dataisfordemocracy@gmail.com).
 
 
 
@@ -54,16 +43,4 @@ Saez and Zucman open policy analysis of Warren proposals
 ### Reproduciblity
 
 * [ROpenSci](https://ropensci.org)
-* [UK Government Data Science repository](https://github.com/ukgovdatascience)
-* I really promise I'm not the only one-- [The Berkeley Open Policy Analysis Initiative](https://www.bitss.org/opa/)
-  * [Open Policy Analysis Guidelines](https://www.bitss.org/wp-content/uploads/2019/03/OPA-Guidelines.pdf)
-
-### Examples of Democratic Data Analysis in the Wild
-
-* [Dynamic Documentation for Senator Warren's Wealth Tax Policy Analysis](http://wealthtaxsimulator.org/analysis/)
-* [Using version control to change laws](https://arstechnica.com/tech-policy/2018/11/how-i-changed-the-law-with-a-github-pull-request/)
-* [UK publishing official government statistics with Rmarkdown}(https://blog.revolutionanalytics.com/2017/03/uk-statistics.html)
-  * [Template](https://ukgovdatascience.github.io/govdown/)
-* 
-* 
 

@@ -1,7 +1,5 @@
 # Tidy Data
 
-> “Hey, Mom, remember we had that conversation about trying to cut back on things that aren’t necessities?” - Michael Bluth
-
 Tidy data refers to having your data organized in a specific manner suitable for analysis.  This chapter will walk through common problems and approaches to cleaning and tidying your data. Keeping your data in a tidy format for analysis will help because it is a fundamentally flexible way of working with data. Keeping scattered, lose data in spreadsheets is a sure way to cause confusion for yourself and others. 
 
 ![spreadsheet hell](images/spreadsheet_hell.png)
@@ -20,7 +18,7 @@ A field is a fancy name for a column.
 
 From here on out, **every calculation, manipulation, formula, will be operated on a field**. 
 
-I want you to forget that you could ever modify a lonely cell in Excel. No more formulas in cells. No more typing in values to a cell. Certainly no more writing over data in a cell. And for the love of eveything that is good, no more color coding cells. Democratic data analysis depends on formulas that work on entire fields. Everything you would need to do to a single cell in Excel can-- and should!-- be done to an entire column.  This may sound extreme and restrictive, but this approach will pay big dividends in your democratic data analysis journey and ultimately allow you to be more creative in your analysis. 
+I want you to forget that you could ever modify a lonely cell in Excel. No more formulas in cells. No more typing in values to a cell. Certainly no more writing over data in a cell. And for the love of everything that is good, no more color coding cells. Democratic data analysis depends on formulas that work on entire fields. Everything you would need to do to a single cell in Excel can-- and should!-- be done to an entire column.  This may sound extreme and restrictive, but this approach will pay big dividends in your democratic data analysis journey and ultimately allow you to be more creative in your analysis. 
 
 ### Variables
 
@@ -42,7 +40,7 @@ This means, among other things, no more merged cells, merged rows, or groups. A 
 
 A table is the grouping of all observations of a similar type. 
 
-The table sets the foundation for analyzing your data. **If I could only convince you of one thing, it would be the value in keeping your data in a table-based excel format**. If you are trying to do math or statistics (again, not data anlysis. These things are different!), then the table based framework can sometimes fall short. But if you are concerned with working with data to draw conclusions, then tables are the way to go. 
+The table sets the foundation for analyzing your data. **If I could only convince you of one thing, it would be the value in keeping your data in a table-based excel format**. If you are trying to do math or statistics (again, not data analysis. These things are different!), then the table based framework can sometimes fall short. But if you are concerned with working with data to draw conclusions, then tables are the way to go. 
 
 You may already be able to see how these definitions foreshadow some of what is coming in later sections. For example, there are no references to cells. This is intentional. The most important distinction between democratic data analysis and simply working in excel is that in democratic data analysis, (virtually) *everything* is done on the `field` level. Changes are made to entire columns, calculations are made on entire columns. Thinking in `fields` is the first step on the path to democratic data enlightenment. Having data formatted in the structure outlined above forces good data hygiene that will be very helpful later on when discussing reproduciblity and pivot-ability. 
 
@@ -88,7 +86,7 @@ Here is annotated code for how I would go about cleaning this table in R. The fr
 sites_cleaned <- sites %>% 
   #switching the order of names that are backwards
   mutate(Employee = if_else(Employee == "Knope, Leslie", "Leslie Knope", Employee)) %>% 
-  #seperate employee names into two columns
+  #separate employee names into two columns
   separate(Employee, into = c("first_name", "last_name")) %>% 
   #renaming column names to standard format
   rename(location = Location,
@@ -152,7 +150,7 @@ visits%>% datatable(
 
 Data are frequently displayed in this "wide" format. It works great for presentation, but not great for data analysis. 
 
-The shortcomings of data in this format may become apparent when you attempt to work with the data in a pivot table. This is because our columns aren't truly variables. Remember, variables are elements of an observation that can change. You can drag the fields from the top row to the grey box below, for columns, and the left, for rows. This becomes unmanageable quickly. 
+The shortcomings of data in this format may become apparent when you attempt to work with the data in a pivot table. This is because our columns aren't truly variables. Remember, variables are elements of an observation that can change. You can drag the fields from the top row to the gray box below, for columns, and the left, for rows. This becomes unmanageable quickly. 
 
 ```{r}
 rpivotTable::rpivotTable(visits, width = "60%", height = "60%")
@@ -240,15 +238,5 @@ print(visits_pct)
 
 
 And then, one of the most useful things you can do is develop formulas by grouping of rows. For example, you may want to know the total number of visits and retirements by retiree, regardless of visit location. That can be accomplished in a pivot table, which we will cover in the next section. 
-
-
-## How is this democratic?
-
- Thinking of your analysis in terms of tidy data is the first step on your way to democratic data analysis. 
-
-## Conclusion
-
-
-## Practices/Resources
 
   

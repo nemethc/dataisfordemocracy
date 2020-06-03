@@ -24,7 +24,7 @@
 <meta name="author" content="Corban Nemeth" />
 
 
-<meta name="date" content="2020-05-27" />
+<meta name="date" content="2020-06-02" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -443,9 +443,9 @@ $(document).ready(function () {
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
@@ -454,14 +454,16 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -470,9 +472,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -540,14 +542,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.3" data-path="tidy-data.html"><a href="tidy-data.html#tidying"><i class="fa fa-check"></i><b>2.3</b> Tidying</a></li>
 <li class="chapter" data-level="2.4" data-path="tidy-data.html"><a href="tidy-data.html#tidy-data--from-wide-to-long"><i class="fa fa-check"></i><b>2.4</b> Tidy Data- From Wide to Long</a></li>
 <li class="chapter" data-level="2.5" data-path="tidy-data.html"><a href="tidy-data.html#using-lower-level-data"><i class="fa fa-check"></i><b>2.5</b> Using lower level data</a></li>
-<li class="chapter" data-level="2.6" data-path="tidy-data.html"><a href="tidy-data.html#how-is-this-democratic"><i class="fa fa-check"></i><b>2.6</b> How is this democratic?</a></li>
-<li class="chapter" data-level="2.7" data-path="tidy-data.html"><a href="tidy-data.html#conclusion"><i class="fa fa-check"></i><b>2.7</b> Conclusion</a></li>
-<li class="chapter" data-level="2.8" data-path="tidy-data.html"><a href="tidy-data.html#practicesresources"><i class="fa fa-check"></i><b>2.8</b> Practices/Resources</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="thinking-in-pivots.html"><a href="thinking-in-pivots.html"><i class="fa fa-check"></i><b>3</b> Thinking in Pivots</a><ul>
 <li class="chapter" data-level="3.1" data-path="thinking-in-pivots.html"><a href="thinking-in-pivots.html#pivot-tables-and-the-meaning-of-everything"><i class="fa fa-check"></i><b>3.1</b> Pivot Tables and the Meaning of Everything</a></li>
-<li class="chapter" data-level="3.2" data-path="thinking-in-pivots.html"><a href="thinking-in-pivots.html#conclusion-1"><i class="fa fa-check"></i><b>3.2</b> Conclusion</a></li>
-<li class="chapter" data-level="3.3" data-path="thinking-in-pivots.html"><a href="thinking-in-pivots.html#practices"><i class="fa fa-check"></i><b>3.3</b> Practices</a></li>
+<li class="chapter" data-level="3.2" data-path="thinking-in-pivots.html"><a href="thinking-in-pivots.html#conclusion"><i class="fa fa-check"></i><b>3.2</b> Conclusion</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="reproducible-analysis.html"><a href="reproducible-analysis.html"><i class="fa fa-check"></i><b>4</b> Reproducible Analysis</a><ul>
 <li class="chapter" data-level="4.1" data-path="reproducible-analysis.html"><a href="reproducible-analysis.html#do-it-for-your-future-self"><i class="fa fa-check"></i><b>4.1</b> Do It For Your Future Self</a><ul>
@@ -556,41 +554,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="4.2" data-path="reproducible-analysis.html"><a href="reproducible-analysis.html#comment-everything"><i class="fa fa-check"></i><b>4.2</b> Comment Everything</a></li>
 <li class="chapter" data-level="4.3" data-path="reproducible-analysis.html"><a href="reproducible-analysis.html#give-yourself-credit"><i class="fa fa-check"></i><b>4.3</b> Give Yourself Credit</a></li>
-<li class="chapter" data-level="4.4" data-path="reproducible-analysis.html"><a href="reproducible-analysis.html#version-control"><i class="fa fa-check"></i><b>4.4</b> Version Control</a><ul>
-<li class="chapter" data-level="4.4.1" data-path="reproducible-analysis.html"><a href="reproducible-analysis.html#save-as"><i class="fa fa-check"></i><b>4.4.1</b> Save as</a></li>
-<li class="chapter" data-level="4.4.2" data-path="reproducible-analysis.html"><a href="reproducible-analysis.html#gitgithub"><i class="fa fa-check"></i><b>4.4.2</b> Git/GitHub</a></li>
+<li class="chapter" data-level="4.4" data-path="reproducible-analysis.html"><a href="reproducible-analysis.html#reproducible-resources"><i class="fa fa-check"></i><b>4.4</b> Reproducible Resources</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="reproducible-analysis.html"><a href="reproducible-analysis.html#gitgithub"><i class="fa fa-check"></i><b>4.4.1</b> Git/GitHub</a></li>
+<li class="chapter" data-level="4.4.2" data-path="reproducible-analysis.html"><a href="reproducible-analysis.html#code-based-solutions-even-when-the-code-is-hidden"><i class="fa fa-check"></i><b>4.4.2</b> Code based solutions (even when the code is hidden)</a></li>
 </ul></li>
-<li class="chapter" data-level="4.5" data-path="reproducible-analysis.html"><a href="reproducible-analysis.html#practices-1"><i class="fa fa-check"></i><b>4.5</b> Practices</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="uncertainty-oriented-analysis.html"><a href="uncertainty-oriented-analysis.html"><i class="fa fa-check"></i><b>5</b> Uncertainty Oriented Analysis</a><ul>
 <li class="chapter" data-level="5.1" data-path="uncertainty-oriented-analysis.html"><a href="uncertainty-oriented-analysis.html#embracing-uncertainty-for-better-outcomes"><i class="fa fa-check"></i><b>5.1</b> Embracing Uncertainty for Better Outcomes</a></li>
-<li class="chapter" data-level="5.2" data-path="uncertainty-oriented-analysis.html"><a href="uncertainty-oriented-analysis.html#what-is-a-model"><i class="fa fa-check"></i><b>5.2</b> What is a Model?</a></li>
-<li class="chapter" data-level="5.3" data-path="uncertainty-oriented-analysis.html"><a href="uncertainty-oriented-analysis.html#incorporating-uncertainty-into-models"><i class="fa fa-check"></i><b>5.3</b> Incorporating Uncertainty Into Models</a></li>
-<li class="chapter" data-level="5.4" data-path="uncertainty-oriented-analysis.html"><a href="uncertainty-oriented-analysis.html#examples-of-models-in-the-public-sector"><i class="fa fa-check"></i><b>5.4</b> Examples of Models in the Public Sector</a></li>
-<li class="chapter" data-level="5.5" data-path="uncertainty-oriented-analysis.html"><a href="uncertainty-oriented-analysis.html#use-assumptions-and-document-them"><i class="fa fa-check"></i><b>5.5</b> Use Assumptions, and Document Them</a></li>
-<li class="chapter" data-level="5.6" data-path="uncertainty-oriented-analysis.html"><a href="uncertainty-oriented-analysis.html#practices-2"><i class="fa fa-check"></i><b>5.6</b> Practices</a></li>
+<li class="chapter" data-level="5.2" data-path="uncertainty-oriented-analysis.html"><a href="uncertainty-oriented-analysis.html#incorporating-uncertainty-into-models"><i class="fa fa-check"></i><b>5.2</b> Incorporating Uncertainty Into Models</a></li>
+<li class="chapter" data-level="5.3" data-path="uncertainty-oriented-analysis.html"><a href="uncertainty-oriented-analysis.html#how-does-this-impact-democratic-data-analysis"><i class="fa fa-check"></i><b>5.3</b> How does this impact democratic data analysis?</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="audience-focused.html"><a href="audience-focused.html"><i class="fa fa-check"></i><b>6</b> Audience-Focused</a><ul>
-<li class="chapter" data-level="6.1" data-path="audience-focused.html"><a href="audience-focused.html#the-audience-is-you"><i class="fa fa-check"></i><b>6.1</b> The audience is you</a></li>
-<li class="chapter" data-level="6.2" data-path="audience-focused.html"><a href="audience-focused.html#the-audience-is-a-peer"><i class="fa fa-check"></i><b>6.2</b> The audience is a peer</a></li>
-<li class="chapter" data-level="6.3" data-path="audience-focused.html"><a href="audience-focused.html#the-audience-is-your-manager"><i class="fa fa-check"></i><b>6.3</b> The audience is your manager</a></li>
-<li class="chapter" data-level="6.4" data-path="audience-focused.html"><a href="audience-focused.html#show-and-tell--use-highlights-and-captions.-design-your-data-visualization.-please-god-dont-use-the-defaults"><i class="fa fa-check"></i><b>6.4</b> Show and Tell- Use highlights and captions. Design your data visualization. Please god don’t use the defaults</a></li>
-<li class="chapter" data-level="6.5" data-path="audience-focused.html"><a href="audience-focused.html#the-audience-is-a-policydecision-maker"><i class="fa fa-check"></i><b>6.5</b> The audience is a policy/decision maker</a></li>
-<li class="chapter" data-level="6.6" data-path="audience-focused.html"><a href="audience-focused.html#my-audience-is-all-of-the-above--an-introduction-to-literate-data-analysis"><i class="fa fa-check"></i><b>6.6</b> My audience is all of the above- An Introduction to Literate Data Analysis</a></li>
+<li class="chapter" data-level="6.1" data-path="audience-focused.html"><a href="audience-focused.html#considerations-for-public-sector-analysis"><i class="fa fa-check"></i><b>6.1</b> Considerations for Public Sector Analysis</a></li>
+<li class="chapter" data-level="6.2" data-path="audience-focused.html"><a href="audience-focused.html#an-introduction-to-literate-data-analysis"><i class="fa fa-check"></i><b>6.2</b> An Introduction to Literate Data Analysis</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="applications-and-resources.html"><a href="applications-and-resources.html"><i class="fa fa-check"></i><b>7</b> Applications and Resources</a><ul>
-<li class="chapter" data-level="7.1" data-path="applications-and-resources.html"><a href="applications-and-resources.html#tying-it-all-together"><i class="fa fa-check"></i><b>7.1</b> Tying it all together</a></li>
-<li class="chapter" data-level="7.2" data-path="applications-and-resources.html"><a href="applications-and-resources.html#situations-and-examples"><i class="fa fa-check"></i><b>7.2</b> Situations and Examples</a><ul>
-<li class="chapter" data-level="7.2.1" data-path="applications-and-resources.html"><a href="applications-and-resources.html#fiscal-analyis"><i class="fa fa-check"></i><b>7.2.1</b> Fiscal Analyis</a></li>
-<li class="chapter" data-level="7.2.2" data-path="applications-and-resources.html"><a href="applications-and-resources.html#policy-analysis"><i class="fa fa-check"></i><b>7.2.2</b> Policy Analysis</a></li>
-<li class="chapter" data-level="7.2.3" data-path="applications-and-resources.html"><a href="applications-and-resources.html#budget-analysis"><i class="fa fa-check"></i><b>7.2.3</b> Budget Analysis</a></li>
-<li class="chapter" data-level="7.2.4" data-path="applications-and-resources.html"><a href="applications-and-resources.html#surveys-and-samples"><i class="fa fa-check"></i><b>7.2.4</b> Surveys and Samples</a></li>
-</ul></li>
-<li class="chapter" data-level="7.3" data-path="applications-and-resources.html"><a href="applications-and-resources.html#additional-resources"><i class="fa fa-check"></i><b>7.3</b> Additional Resources</a><ul>
-<li class="chapter" data-level="7.3.1" data-path="applications-and-resources.html"><a href="applications-and-resources.html#r"><i class="fa fa-check"></i><b>7.3.1</b> R</a></li>
-<li class="chapter" data-level="7.3.2" data-path="applications-and-resources.html"><a href="applications-and-resources.html#excel"><i class="fa fa-check"></i><b>7.3.2</b> Excel</a></li>
-<li class="chapter" data-level="7.3.3" data-path="applications-and-resources.html"><a href="applications-and-resources.html#reproduciblity"><i class="fa fa-check"></i><b>7.3.3</b> Reproduciblity</a></li>
-<li class="chapter" data-level="7.3.4" data-path="applications-and-resources.html"><a href="applications-and-resources.html#examples-of-democratic-data-analysis-in-the-wild"><i class="fa fa-check"></i><b>7.3.4</b> Examples of Democratic Data Analysis in the Wild</a></li>
+<li class="chapter" data-level="7.1" data-path="applications-and-resources.html"><a href="applications-and-resources.html#applications-of-democratic-data-analysis"><i class="fa fa-check"></i><b>7.1</b> Applications of Democratic Data Analysis</a></li>
+<li class="chapter" data-level="7.2" data-path="applications-and-resources.html"><a href="applications-and-resources.html#additional-resources"><i class="fa fa-check"></i><b>7.2</b> Additional Resources</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="applications-and-resources.html"><a href="applications-and-resources.html#r"><i class="fa fa-check"></i><b>7.2.1</b> R</a></li>
+<li class="chapter" data-level="7.2.2" data-path="applications-and-resources.html"><a href="applications-and-resources.html#excel"><i class="fa fa-check"></i><b>7.2.2</b> Excel</a></li>
+<li class="chapter" data-level="7.2.3" data-path="applications-and-resources.html"><a href="applications-and-resources.html#reproduciblity"><i class="fa fa-check"></i><b>7.2.3</b> Reproduciblity</a></li>
 </ul></li>
 </ul></li>
 <li class="divider"></li>
@@ -616,50 +599,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="uncertainty-oriented-analysis" class="section level1">
 <h1><span class="header-section-number">Chapter 5</span> Uncertainty Oriented Analysis</h1>
 <blockquote>
-<p><em>“I mean its one banana Michael. What could it cost, $10?”</em>- Lucille Bluth</p>
-</blockquote>
-<blockquote>
 <p><em>All models are wrong, but some are useful</em>– George Box</p>
-</blockquote>
-<blockquote>
-<p><em>A person with a watch knows what time it is. A man with two watches is never sure</em>- Segal’s Law</p>
 </blockquote>
 <div id="embracing-uncertainty-for-better-outcomes" class="section level2">
 <h2><span class="header-section-number">5.1</span> Embracing Uncertainty for Better Outcomes</h2>
-<p>What is the point of data analysis? Often, it is to use data to summarize the world around you. In a sense, all data analysis is model building, and by definition, a model is a simplified version of the world. Any time the analyst is using data analysis to inform decision making, she is in a sense making a model. Models are commonly thought of to provide answers to the question at hand. Model building, and data analysis more generally, never gives you “the” answer. Data analysis only gives you a answer, if it gives you an answer at all.</p>
-<p>If you have been following along to this point, you have learned the value of data analysis that is structured and built up, not out. Frequently, data analysis is valuable because it tells you what isn’t the answer. As in the quote above, knowing the difference between the watches tells you something important. One watch doesn’t tell you what you don’t know^[adapted from [Statistical Modeling, by Daniel T Kaplan](<a href="https://dtkaplan.github.io/SM2-bookdown/introduction.html" class="uri">https://dtkaplan.github.io/SM2-bookdown/introduction.html</a>. Knowing how to build uncertainty into your analysis is incredibly valuable as analysis – models– are used to implement important policies that impact the public good. Incorporating uncertainty into your analysis will make you both more credible and force you to use your subject matter expertise in addition to your data skills.</p>
-</div>
-<div id="what-is-a-model" class="section level2">
-<h2><span class="header-section-number">5.2</span> What is a Model?</h2>
-<p>A model is anything that is used to represent the world. By definition, anything that represents the world simplifies it, becuase the world is vastly complex. An average value of a dataset is a model. Same with the median, mode, and the other so-called <em>descriptive statistics</em> that you may be familiar with.</p>
-<p>When you create a data model, you bring all your expertise, subjectivity, and creativity to the table. Data modeling can</p>
-<p>Models transform data into decision making. Models are useful exactly because they are wrong! Because models are wrong, we can critically examine the wrong-ness of them to inform decisionmaking in a way that embraces uncertainty.</p>
+<p>What is the point of data analysis? Often, it is to use data to summarize the world around you. In a sense, all data analysis is model building, and by definition, a model is a simplified version of the world. Any time an analyst is using data analysis to inform decision making, she is in a sense making a model. Model building, and data analysis more generally, never gives you “the” answer. Data analysis only gives you an answer, if it gives you an answer at all.</p>
+<p>If you have been following along to this point, you have learned the value of data analysis that is structured and built up, not out. Data analysis is valuable because it tells you what isn’t the answer. As in the quote above, knowing the difference between the watches tells you something important. Knowing how to build uncertainty into your analysis is incredibly valuable as models are used to implement important policies that impact the public good. Incorporating uncertainty into your analysis will make you both more credible and force you to use your subject matter expertise in addition to your data skills.</p>
 </div>
 <div id="incorporating-uncertainty-into-models" class="section level2">
-<h2><span class="header-section-number">5.3</span> Incorporating Uncertainty Into Models</h2>
+<h2><span class="header-section-number">5.2</span> Incorporating Uncertainty Into Models</h2>
 <p>As I mentioned before, something as simple as the mean value of a field can be thought of as a model. You may recall from Chapter 3 on pivoting that we walked though many such examples of creating calculated summaries of our data. Am I telling you that a pivot table is a model? Yes. Anything that is a representation of the real world is a model.</p>
-<p>Consider the following model of the 2016 presidential election from the popular data journalism website 538. How does, or doesn’t, this representation of a model communicate uncertainty? Through the use of the chance of winning bar at the top. How uncertain does this projecton <em>feel</em> to you? If you are like me, not very uncertain. THere are decimal places to the tenth of a percent, state maps, and that big blue bar that communciates authoritativly that Clinton will win the election.</p>
+<p>Consider the following model of the 2016 presidential election from the popular data journalism website 538. How does, or doesn’t, this representation of a model communicate uncertainty? Through the use of the chance of winning bar at the top. How uncertain does this projection <em>feel</em> to you? If you are like me, not very uncertain. There are decimal places to the tenth of a percent, state maps, and that big blue bar that communicates authoritatively that Clinton will win the election.</p>
 <p><img src="images/map.png" /></p>
 <p>Now consider the following histogram of possible election outcomes. This chart takes a bit more effort to decipher, but it communicates uncertainly much more effectively than the bar and map above. If you look at it, the actual outcome of the 2016 election falls in the thick part of the probability distribution– not an outlier at all.</p>
 <div class="figure">
-<img src="images/uncertain_dist.png" alt="distribution of possible results" />
+<img src="images/uncertain_dist.png" alt="" />
 <p class="caption">distribution of possible results</p>
 </div>
 <p>Thinking critically about how to communicate the uncertainty of your models will make your analysis more democratic by revealing what you do and do not know. I would argue this promotes better decision-making and outcomes than false confidence brought about by hiding, rather than promoting, uncertainty in analysis.</p>
-<p>You may be thinking that the election forecasting model above is far and above the data analysis work that you do in your public sector organization. But think back to earlier in this section when we talked about the simplest of models, the average. Does presenting the average of a field show uncertainty? No. If you are making decisions based on averages, then there is a high likelhihood that your decisionmaking is highly influenced by outliers, becuase averages are highly influenced by outliers. How could you communicate an average for decisionmaking purposes, but also show potential outliers? This is where data visualization plays a key role. making sure to always look at your data before presenting summary statistics is vitally important to embedding uncertainty into your analysis.</p>
+<p>You may be thinking that the election forecasting model above is far and above the data analysis work that you do in your public sector organization. But think back to earlier in this section when we talked about the simplest of models, the average. Does presenting the average of a field show uncertainty? No. If you are making decisions based on averages, then there is a high likelihood that your decisionmaking is highly influenced by outliers, because averages are highly influenced by outliers. How could you communicate an average for decisionmaking purposes, but also show potential outliers? This is where data visualization plays a key role. making sure to always look at your data before presenting summary statistics is vitally important to embedding uncertainty into your analysis. For example, consider <a href="https://en.wikipedia.org/wiki/Anscombe&#39;s_quartet">Anscombe’s Quartet</a>. These remarkable datasets have identical descriptive statistics, yet tell vastly different stories about the world. Consider how you can visualize your data for a decisionmaking audience to avoid the simplifications posed by models that don’t tell the whole story.</p>
 </div>
-<div id="examples-of-models-in-the-public-sector" class="section level2">
-<h2><span class="header-section-number">5.4</span> Examples of Models in the Public Sector</h2>
-<p>Models may seem complicated or unnecessary. Why build uncertainty into a mean? How is that even possible?</p>
-<p>Every analysis you conduct you will have the incredible power to choose what to include and exclude. how do you go about making those choices?</p>
-</div>
-<div id="use-assumptions-and-document-them" class="section level2">
-<h2><span class="header-section-number">5.5</span> Use Assumptions, and Document Them</h2>
-<p>What is an assumption? Any time that you are making observations about the real world, you will be making assumptions. Whether you make those assumptions implicit or explicit is up to you, and I would suggest you consider doing the latter.</p>
-</div>
-<div id="practices-2" class="section level2">
-<h2><span class="header-section-number">5.6</span> Practices</h2>
-<p>Talk about modeling implies math or statistics, when it really doesn’t. All a model seeks to do is to simply phenomena in a manner that can be comprehended and used to make decisions in conjunction with subject matter expertise.</p>
+<div id="how-does-this-impact-democratic-data-analysis" class="section level2">
+<h2><span class="header-section-number">5.3</span> How does this impact democratic data analysis?</h2>
+<p>A model is anything that is used to represent the world. By definition, anything that represents the world simplifies it, because the world is vastly complex. When you are summarizing your data, think critically about what is being simplified. Are there outliers waiting to tell a story, but obscured by a median value? What assumptions are being brought to the table, and what assumptions are taken for granted? Emphasizing and clarifying assumptions, uncertainties, and simplifications makes your analysis stronger, not weaker. This approach allows you to incorporate your expertise as you use data analysis to simplify and storytell for the public good.</p>
 
 </div>
 </div>

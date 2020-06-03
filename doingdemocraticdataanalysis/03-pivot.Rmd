@@ -1,7 +1,5 @@
 # Thinking in Pivots
 
-> *Has anyone in this family ever even seen a pivot table?* - Michael Bluth
-
 
 Why did we go through all the trouble of tidying data in the last section? So we can pivot. Thinking in terms of pivots, by which I mean fields and summaries, is an important component of doing democratic data analysis. 
 
@@ -37,7 +35,7 @@ The key with pivot tables, such as the one above, is you are moving *fields* int
 
 In a pivot table, the field that you drag to the row becomes your **group**. Grouping allows you to perform summaries on the distinct values of the field that you brought to the row of the pivot table. In the pivot table above, drag the `employee` field to the row. You are now grouping by the distinct **levels** of employee-- namely, Danielle, Ross, and Ramona. You will see that the column of the pivot table defaults to `count`. This is true in Excel as well. The pivot table will default to summarizing your data by showing how many times each **level** of your **group** appeared in the field. Most commonly, you will group by the **categorical** elements of your table-- the fields with names, rather than numbers. 
 
-You can also drag another categorical field to the top of the pivot table to become a column. This will now show your data grouped by the two elements you have selected. For example, drag `visit type` to the columns in the above table. You will now see the count of the intersection of those elements. However, I typically do not recommend using the columns of your pivot table for additional categorical groupings. Instead, I recommmend dragging both fields to the row section of the pivot table. In the table above, drage `visit type` underneath `employee`. You will now see the data grouped the same way as before, but with only a `totals` column. I find reserving the columns of the pivot table for summaries to be helpful, as it makes things simpler and allows for easy totalling. 
+You can also drag another categorical field to the top of the pivot table to become a column. This will now show your data grouped by the two elements you have selected. For example, drag `visit type` to the columns in the above table. You will now see the count of the intersection of those elements. However, I typically do not recommend using the columns of your pivot table for additional categorical groupings. Instead, I recommend dragging both fields to the row section of the pivot table. In the table above, drag `visit type` underneath `employee`. You will now see the data grouped the same way as before, but with only a `totals` column. I find reserving the columns of the pivot table for summaries to be helpful, as it makes things simpler and allows for easy totaling. 
 
 Reserving columns for **summaries** makes it easy to change what those summaries are. Excel gives you a variety of options with the `show values as` button. The table above gives you additional options. Remove `visit type` from the rows, and play around with the different summaries that you can apply to the number of visits per employee.
 
@@ -80,5 +78,4 @@ Here's the key-- Every fancy data dashboard, analysis technique, interactive vis
 Thinking in terms of pivot tables is the core of democratic data analysis. This may not feel intuitive at first glance. But thinking this way forces the analyst to avoid the classic pitfalls of *un*democratic data analysis. Those pitfalls are the cell-based, hard-coded, pages and pages of tabs excel workbook nightmare that only the analyst themselves understands (and that's if they are lucky). Thinking in terms of the language of data analysis, emphasizing the use of fields and summaries, forces your analysis to be flexible, understandable, and reproducible. It is easy for an analyst who is also fluent in data analysis to pick up your work and immediately see how it operates because it is constructed using best practices and principles. It is also easy for someone else, or your future self, to write new calculations for data summaries, compare results, and use different fields.
 
 
-## Practices
 
