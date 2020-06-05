@@ -30,9 +30,9 @@ If you find yourself copying and pasting values in an excel workbook, you are no
 
 There is an old adage in programming - *D*on't *R*epeat *Y*ourself. DRY. Keeping your data analysis DRY is a good habit to get in to. If you find yourself repeating the same task more than three times, chances are there is a better, more programmatic way to go about what you are doing. 
 
-What do I mean by repeating yourself? This would be going through every row of an 100-row table to add (or remove)a space between words, capitalizing letters, doing specific calculations. All of these tasks can be **easily** automated using virtually all data analysis tools. This not only saves you time, but makes it easier for your reader to see how the data has changed in the course of your analysis. 
+What do I mean by repeating yourself? This would be going through every row of an 100-row table to add (or remove) a space between words, capitalizing letters, doing specific calculations. All of these tasks can be **easily** automated using virtually all data analysis tools. This not only saves you time, but makes it easier for your reader to see how the data has changed in the course of your analysis. 
 
-To preview the Practices section, Get and Transform allows you to make flexible value transformations on entire fields at a time. This reduces the need for repetitive data cleaning. And if you are already taking my advice and no longer editing individual data cells, you will have a much easier time avoiding repeating yourself. 
+Get and Transform data tools in Excel allow you to make flexible value transformations on entire fields at a time. This reduces the need for repetitive data cleaning. And if you are already taking my advice and no longer editing individual data cells, you will have a much easier time avoiding repeating yourself. 
 
 #### Comment Everything
 
