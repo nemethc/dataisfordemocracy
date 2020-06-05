@@ -215,9 +215,7 @@ I propose the following four principles of democratic data analysis. Democratic 
   Audience-focused
 \end{itemize}
 
-As this isn't a how-to manual, each chapter will begin with a description of the \emph{principles} outlined above and arguments for why they are important. This will be followed by \emph{practices} section where I walk through examples of how to implement these principles in common situations and provide additional materials for you to learn how to apply these principles using common data analysis tools.
-
-Why maintain the distinction between principles and practices? Data analysis is enabled by the technologies that we have access to. Whether it be the venerable pivot table, or a new-school dashboard platform, or a data-oriented programming language, the principles that I lay out in this handbook supersede specific technologies. Think of it like grammar. You may write by hand, on a computer, using text-to-speech. You may be writing a poem, a novel, an argument, or an instruction manual. But the basic rules of grammar are relevant in whatever medium you choose.
+Why focus on principles rather then specific tutorials? Data analysis is enabled by the technologies that we have access to. Whether it be the venerable pivot table, or a new-school dashboard platform, or a data-oriented programming language, the principles that I lay out in this handbook supersede specific technologies. Think of it like grammar. You may write by hand, on a computer, using text-to-speech. You may be writing a poem, a novel, an argument, or an instruction manual. But the basic rules of grammar are relevant in whatever medium you choose.
 
 Similarly, this guide will teach you the basic ``grammar'' of democratic data analysis. This will allow you to apply this knowledge in whatever platform or technology you are interested in or have access to. But similar to learning language, it helps to practice. It isn't much to use to study grammar without ever writing a sentence.
 
@@ -778,18 +776,18 @@ As I mentioned before, the existential dread that occurs when opening a colleagu
 
 The first thing I want to emphasize is PLEASE DO NOT DESTROY, ALTER, OR MANIPULATE YOUR UNDERLYING DATA. Your underlying data is like the foundation of your house. Democratic data analysis starts with a foundation of data, and builds on top of it. Often, it seems easier to simply click and drag cells around in an excel workbook, changing values here and there as you see fit. This may work in small use cases, but what if you have another idea? Or come up with a different question, where your data needs to be coded differently? Reproducible analysis makes it substantially easier to revise and rewrite after the fact. If you were writing a well-sourced research article, you wouldn't delete your notes and references for the material that didn't make it into your final product. In the same way, keeping record of the changes that you make to your analysis will pay dividends when your approach changes.
 
-\hypertarget{red-flags-for-reproducibility}{%
-\subsection{Red flags for reproducibility}\label{red-flags-for-reproducibility}}
+\hypertarget{healthy-habits-for-reproducability}{%
+\subsection{Healthy Habits for Reproducability}\label{healthy-habits-for-reproducability}}
 
 I'll start with a list of things you want to avoid in the pursuit of reproducible democratic data analysis
 
-\hypertarget{copy-and-paste}{%
-\subsubsection{Copy and Paste}\label{copy-and-paste}}
+\hypertarget{avoid-copy-and-paste}{%
+\subsubsection{Avoid Copy and Paste}\label{avoid-copy-and-paste}}
 
 If you find yourself copying and pasting values in an excel workbook, you are not engaging in reproducible analysis-- full stop. Copy and paste (or worse, cut and paste) doesn't leave breadcrumbs for you or anyone who may come after you. It is incredibly difficult to follow the trail of an analysis built on top of copy-paste.
 
-\hypertarget{repeating-yourself}{%
-\subsubsection{Repeating Yourself}\label{repeating-yourself}}
+\hypertarget{avoid-repeating-yourself}{%
+\subsubsection{Avoid Repeating Yourself}\label{avoid-repeating-yourself}}
 
 There is an old adage in programming - \emph{D}on't \emph{R}epeat \emph{Y}ourself. DRY. Keeping your data analysis DRY is a good habit to get in to. If you find yourself repeating the same task more than three times, chances are there is a better, more programmatic way to go about what you are doing.
 
@@ -798,12 +796,12 @@ What do I mean by repeating yourself? This would be going through every row of a
 To preview the Practices section, Get and Transform allows you to make flexible value transformations on entire fields at a time. This reduces the need for repetitive data cleaning. And if you are already taking my advice and no longer editing individual data cells, you will have a much easier time avoiding repeating yourself.
 
 \hypertarget{comment-everything}{%
-\section{Comment Everything}\label{comment-everything}}
+\subsubsection{Comment Everything}\label{comment-everything}}
 
 Comments are wonderful. They are notes to yourself that you should leave at almost every step of your analysis. I frequently do not leave comments. Never have I come back to an uncommented data transformation and been happy with my past self. At worst, leaving comments takes a couple seconds of your time you will never get back. At best, it saves you or your organization from a massive headache when you are able to catch your own errors or update your analysis easier in the future.
 
 \hypertarget{give-yourself-credit}{%
-\section{Give Yourself Credit}\label{give-yourself-credit}}
+\paragraph{Give Yourself Credit}\label{give-yourself-credit}}
 
 Don't hard code (e.g.~manually type) Excel values in cells. Build calculated summaries as discussed in the pivot-powered tab. Link to data sources. Highlight your expertise. This is easier to do when you use the tools shown in the practices section.
 
