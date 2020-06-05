@@ -113,7 +113,7 @@
 
 \title{Doing Democratic Data Analysis}
 \author{Corban Nemeth}
-\date{2020-06-02}
+\date{2020-06-04}
 
 \begin{document}
 \maketitle
@@ -488,27 +488,8 @@ Let's introduce a slightly more complicated tidy data problem, using the same ba
   \StringTok{"Ramona"}\NormalTok{, }\DecValTok{11}\NormalTok{, }\DecValTok{7}\NormalTok{, }\DecValTok{5}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{18}\NormalTok{, }\DecValTok{15}\NormalTok{,}
   \StringTok{"Ross"}\NormalTok{, }\DecValTok{10}\NormalTok{, }\DecValTok{8}\NormalTok{, }\DecValTok{10}\NormalTok{, }\DecValTok{7}\NormalTok{, }\DecValTok{10}\NormalTok{, }\DecValTok{9} 
 \NormalTok{)}
-
-\NormalTok{knitr}\OperatorTok{::}\KeywordTok{kable}\NormalTok{(visits_retirements, }\DataTypeTok{caption =} \StringTok{"Visits to the Dept. of Retirement Services in a given month by employee and associated client retirements"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
-
-\begin{table}
-
-\caption{\label{tab:unnamed-chunk-4}Visits to the Dept. of Retirement Services in a given month by employee and associated client retirements}
-\centering
-\begin{tabular}[t]{l|r|r|r|r|r|r}
-\hline
-Employee & Phone Visits & Phone Retirements & Office Visits & Office Retirements & Online Visits & Online Retirements\\
-\hline
-Danielle & 6 & 4 & 11 & 8 & 23 & 15\\
-\hline
-Ramona & 11 & 7 & 5 & 3 & 18 & 15\\
-\hline
-Ross & 10 & 8 & 10 & 7 & 10 & 9\\
-\hline
-\end{tabular}
-\end{table}
 
 Hopefully you will see a similar pattern here. Now, there are three variables: Visit type, number of visits, and number of retirements. Again, this data works fine for presentation but could use tidying to ease in analysis.
 

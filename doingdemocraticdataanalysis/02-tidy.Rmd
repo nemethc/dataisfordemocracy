@@ -193,7 +193,6 @@ visits_retirements <- tribble(
   "Ross", 10, 8, 10, 7, 10, 9 
 )
 
-knitr::kable(visits_retirements, caption = "Visits to the Dept. of Retirement Services in a given month by employee and associated client retirements")
 ```
 
 Hopefully you will see a similar pattern here. Now, there are three variables: Visit type, number of visits, and number of retirements. Again, this data works fine for presentation but could use tidying to ease in analysis. 
