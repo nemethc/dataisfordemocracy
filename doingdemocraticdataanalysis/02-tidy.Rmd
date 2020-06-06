@@ -179,9 +179,7 @@ pivot_visits <- visits %>%
 knitr::kable(pivot_visits, caption = "Visits to the Dept. of Retirement Services in a given month")
 ```
 
-Now this is a table that is much easier to analyze in an Excel pivot table or with a variety of R functions. However, it does look worse and is less intuitive for human readers. Thankfully, using data in this format, it is easy to recreate the original table for presentation, while also giving a variety of options for formatting and plotting. Use the pivot table below to recreate the original table using the tidy data. *Hint- Instead of Count, select Sum -> Number of Visits as the value field. It is far easier to work with fields when they are in a tidy format. 
-
-## Using lower level data
+Now this is a table that is much easier to analyze in an Excel pivot table or with a variety of R functions. However, it does look worse and is less intuitive for human readers. Thankfully, using data in this format, it is easy to recreate the original table for presentation, while also giving a variety of options for formatting and plotting. Use the pivot table below to recreate the original table using the tidy data. *Hint- Instead of Count, select Sum -> Number of Visits as the value field. It is far easier to work with fields when they are in a tidy format. 99% of the time, tidying your data is taking tables in "wide" format and making them "long". Whenever you have a wide table, examine your columns. Do columns have something in common? If they do, it is likely that you have variables in column titles, and they should be transformed to make your table longer, and thus tidy-er. 
 
 Let's introduce a slightly more complicated tidy data problem, using the same base data as before. 
 
